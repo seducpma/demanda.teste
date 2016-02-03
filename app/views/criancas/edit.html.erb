@@ -265,9 +265,11 @@
       <tr>
         <td valign="top"><b>Observações:</b></td>
         <td colspan="2"align="left" ><%= f.text_area(:obs, :cols=> "82", :rows=>"6") %></td>
-      </tr>
-
-
+     </tr>
+     <tr>
+       <td width="2%" valign="top"align="right"><b><%= link_to image_tag("/stylesheets/images/observações:.jpeg", :size => "100x26"), "#inline_form_observacao", :class =>"inline" %></b></td>
+          <td colspan="3"><div id="dados"> <%= render :partial => 'observacoes'  %></div></td>
+        </tr>
      </table>
 
   </fieldset>
@@ -297,6 +299,7 @@
 
 
 
+
          </tr>
        </table>
       </fieldset>
@@ -307,3 +310,4 @@
 </div>
 <br/>
 </div>
+    <%= render "form_observacao" %>

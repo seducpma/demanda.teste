@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :observacao_criancas
+
   map.resources :logs
   map.resources :roles_users
   map.resources :users

@@ -2,6 +2,7 @@ class Crianca < ActiveRecord::Base
   belongs_to :grupo
   belongs_to :regiao
   belongs_to :unidade
+  has_many :observacao_criancas
 
   validates_presence_of :unidade_id
   validates_presence_of :regiao_id

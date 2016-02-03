@@ -58,8 +58,7 @@ class CriancasController < ApplicationController
   # GET /criancas/1/edit
   def edit
 
-    t=(params[:id])
-     t=1
+
     @crianca = Crianca.find(params[:id])
     data=@crianca.nascimento
 
@@ -67,6 +66,7 @@ class CriancasController < ApplicationController
     #@unidade_matricula = Unidade.find_by_sql("select u.id, u.nome from unidades u right join criancas c on u.id in (c.option1, c.option2, c.option3, c.option4) where c.id = " + (@crianca.id).to_s)
     session[:id_crianca] = params[:id]
     session[:nome] = params[:nome]
+
   end
 
  def alteracao_status
@@ -183,6 +183,25 @@ end
       format.xml  { head :ok }
     end
   end
+
+  def create_observacao_crianca
+      @observacao_crianca = ObservacaoCrianca.new(params[:observacao_crianca])
+      t1=params[:observacao_crianca]
+      @crianca = Crianca.find(session[:id_crianca])
+      @observacao_crianca.crianca_id =@crianca.id
+       
+
+
+      if @observacao_crianca.save
+        render :update do |page|
+          page.replace_html 'dados', :partial => "observacoes"
+          page.replace_html 'edit'
+        end
+       end
+
+end
+
+
 
   def autentica_matricula
     session[:unidade_matricula] = params[:crianca_unidade_matricula]
@@ -621,6 +640,10 @@ end
   def load_criancas_mat
 #    @criancasmat = Crianca.find(:all, :conditions => ["matricula = 0" ], :order => "nome ASC")
   end
+
+
+  
+
 
 
 

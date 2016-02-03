@@ -1,0 +1,20 @@
+<h1>Editing observacao_crianca</h1>
+
+<% form_for(@observacao_crianca) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :crianca_id %><br />
+    <%= f.text_field :crianca_id %>
+  </p>
+  <p>
+    <%= f.label :observacao %><br />
+    <%= f.text_field :observacao %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @observacao_crianca %> |
+<%= link_to 'Back', observacao_criancas_path %>

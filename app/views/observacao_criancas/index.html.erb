@@ -1,0 +1,22 @@
+<h1>Listing observacao_criancas</h1>
+
+<table>
+  <tr>
+    <th>Crianca</th>
+    <th>Observacao</th>
+  </tr>
+
+<% @observacao_criancas.each do |observacao_crianca| %>
+  <tr>
+    <td><%=h observacao_crianca.crianca_id %></td>
+    <td><%=h observacao_crianca.observacao %></td>
+    <td><%= link_to 'Show', observacao_crianca %></td>
+    <td><%= link_to 'Edit', edit_observacao_crianca_path(observacao_crianca) %></td>
+    <td><%= link_to 'Destroy', observacao_crianca, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New observacao_crianca', new_observacao_crianca_path %>

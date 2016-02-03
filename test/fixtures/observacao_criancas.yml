@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  crianca_id: 
+  observacao: MyString
+
+two:
+  crianca_id: 
+  observacao: MyString
