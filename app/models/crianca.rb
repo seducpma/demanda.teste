@@ -163,4 +163,6 @@ def self.na_demanda
     self.nomerecado.upcase!
     self.status.upcase!
   end
+
+ 
 end

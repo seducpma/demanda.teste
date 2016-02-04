@@ -185,12 +185,12 @@ end
   end
 
   def create_observacao_crianca
-      @observacao_crianca = ObservacaoCrianca.new(params[:observacao_crianca])
+   t=params[:observacao_crianca]
+    @observacao_crianca = ObservacaoCrianca.new(params[:observacao_crianca])
       t1=params[:observacao_crianca]
       @crianca = Crianca.find(session[:id_crianca])
       @observacao_crianca.crianca_id =@crianca.id
-       
-
+      @observacao_crianca.data = Time.now
 
       if @observacao_crianca.save
         render :update do |page|

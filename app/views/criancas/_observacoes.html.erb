@@ -1,7 +1,12 @@
 <% c=0 %>
 <% @crianca.observacao_criancas.each do |obs|%>
       <b><%= c=c+1%>.</b> <%="#{obs.observacao}" %>  <br/>
-      <b>Funcionário:</b> <%="#{obs.funcionario}" %>
+      <b>Funcionário:</b> <%="#{obs.funcionario}" %> &nbsp&nbsp&nbsp
+      <b>Data: </b> <%  if obs.data.nil?  %>
+                        
+                    <%else%>
+                        <%=  obs.data.strftime("%d/%m/%Y")%>
+                    <%end%>
       
       &nbsp -------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br/>
 
