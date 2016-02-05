@@ -38,7 +38,7 @@
                 </tr>
                  <tr>
                      <td align="left"><b>Unidade:</b></td>
-                     <td colspan="2" align="left"><%= f.collection_select :unidade_id,Unidade.all(:order => 'nome ASC'),:id,:nome, :include_blank => true %></td>
+                     <td colspan="2" align="left"><%= @user.unidade.nome%></td>
                  </tr>
          </table>
        </font>
