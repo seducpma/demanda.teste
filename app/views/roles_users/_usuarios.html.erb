@@ -41,7 +41,7 @@
                 <td align="center" > -- </td>
             <%end%>
            <% if current_user.has_role?('admin') %>
-                <td align="center" colspan="1"><%= button_to 'Excluir', role_user, :confirm => 'Confirma Exclusao?', :method => :delete, :title => "Excluir" %></td>
+                <td align="center" ><%= button_to 'Acesso',{:action => "edit" , :id => role_user}, :method => "get", :title => "Acesso"%></td>
             <%else%>
                 <td align="center" > -- </td>
             <%end%>
