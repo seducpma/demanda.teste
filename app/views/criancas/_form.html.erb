@@ -1,5 +1,3 @@
-
-
 <% form_for(@crianca) do |f| %>
  <%= f.error_messages %>
  <p>
@@ -46,8 +44,9 @@
                 });
                </script>
                <b>Responsável Legal pela criança?</b>
-          <a href="#" id="dropdownbutton13"><%= f.check_box :responsavel %></a>SIM
-                                            <%=f.check_box :sexo %>NÃO
+          <a href="#" id="dropdownbutton13">
+                <%= f.radio_button :responsavel, 1 %> <%=  'SIM' %> <%= f.radio_button :responsavel, 0, :checked => true  %><%= 'NÃO' %>
+
         </td>
         <td colspan="3">
            <div id="menu13" style="display:none">
@@ -93,16 +92,14 @@
                 });
              </script>
                <b>Necessidade(s) Especial(s)?</b>
-         <a href="#" id="dropdownbutton20"><%= f.check_box :n_especial %></a>SIM
-                                           <%=f.check_box :sexo %>NÃO
-
+         <a href="#" id="dropdownbutton20"><%= f.radio_button :n_especial, 1 %> <%=  'SIM' %> <%= f.radio_button :n_especial, 0, :checked => true  %><%= 'NÃO' %>
           </td>
           <td colspan="2">
             <div id="menu20" style="display:none">
               <b>Necessidade </b><%= f.text_field :necessidade  , :size=> "27"%>&nbsp&nbsp
             </div>
 
-          
+
          </td>
        </tr>
       </table>
@@ -132,8 +129,8 @@
                        <b>1) Mãe trabalha?</b>
                 </td>
                 <td width="15%">
-                     <a href="#" id="dropdownbutton11"><%= f.check_box :trabalho %></a>SIM
-                                                       <%=f.check_box :sexo %>NÃO
+                     <a href="#" id="dropdownbutton11"><%= f.radio_button :trabalho, 1 %> <%=  'SIM' %> <%= f.radio_button :trabalho, 0, :checked => true  %><%= 'NÃO' %>
+
                     <td>
                          <div id="menu11" style="display:none">
                            <b>Local </b><%= f.text_field :local_trabalho, :size =>"15" %>&nbsp&nbsp
@@ -155,9 +152,9 @@
                        <b>2) Filho(a) de Servidora Pública</b>
                 </td>
                 <td>
-                     <a href="#" id="dropdownbutton14"><%= f.check_box :servidor_publico %></a>SIM
-                                                       <%=f.check_box :sexo %>NÃO
-                    <td>
+                     <a href="#" id="dropdownbutton14">
+                            <%= f.radio_button :servidor_publico, 1%> <%=  'SIM' %> <%= f.radio_button :servidor_publico, 0,  :checked => true  %><%= 'NÃO' %>
+                   <td>
                          <div id="menu14" style="display:none">
                            <b>Local </b><%= f.text_field :servidor_local %>&nbsp&nbsp
                          </div>
@@ -177,8 +174,7 @@
                        <b>3) Possui irmão(s) matriculado(s)?</b>
                 </td>
                 <td>
-                  <a href="#" id="dropdownbutton9"><%= f.check_box :irmao %></a>SIM
-                                                   <%=f.check_box :sexo %>NÃO
+                  <a href="#" id="dropdownbutton9"><%= f.radio_button :irmao, 1%> <%=  'SIM' %> <%= f.radio_button :irmao, 0,  :checked => true  %><%= 'NÃO' %>
                  <td>
                    <div id="menu9" style="display:none">
                      <b>Unidade</b><%= f.collection_select  :unidade_i, @unidades, :nome, :nome, :include_blank => ' --- Selecione opção ---'  %>
@@ -200,8 +196,7 @@
                        <b>4) Transferência?</b>
                 </td>
                 <td>
-                  <a href="#" id="dropdownbutton12"><%= f.check_box :transferencia %></a>SIM
-                                                    <%=f.check_box :sexo %>NÃO
+                  <a href="#" id="dropdownbutton12"><%= f.radio_button :transferencia, 1%> <%=  'SIM' %> <%= f.radio_button :transferencia, 0,  :checked => true  %><%= 'NÃO' %>
                  <td>
                    <div id="menu12" style="display:none">
                      <b>Unidade</b><%= f.collection_select  :unidade_t, @unidades, :id, :nome, :include_blank => ' --- Selecione opção ---'  %>
@@ -269,20 +264,15 @@
        <table width="100%" >
          <tr>
            <td width="4%"align="left"><b><div id='Certeza'><%= f.submit 'Salvar' %></div></b></td>
-            
+
 <%end%>
             <td width="6%"align="left" ><%= button_to 'Consultar' ,consultas_criancas_path, :title => "Consultar" %></td>
              <td><%= button_to 'Fechar', home_path, {:method => "get"}  %></td>
-    
-  
+
+
 
          </tr>
        </table>
       </fieldset>
     </fieldset>
   </font>
-
-
-
-
-
