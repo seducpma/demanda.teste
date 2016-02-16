@@ -66,7 +66,7 @@
                 <%end%>
             </tr>
             <tr bgcolor="#F5F5F5">
-              <td> <b>Filho Servidor Público:</b></td>
+              <td> <b>Filho Servidora Pública:</b></td>
                  <% if @crianca.servidor_publico == 0 %>
                     <td align="left">NÃO</td>
                   <%else%>
@@ -122,7 +122,7 @@
 
             </tr>
            <tr bgcolor="#F5F5F5"  width="100%">
-             <td align="left" width="18%"><b>Dia/Hora Matricula:</b></td>
+             <td align="left" width="18%"><b>Dia/Hora Inscrição:</b></td>
              <td  align="left" ><%=h @crianca.created_at.strftime("%e/%m/%Y - %H:%M horas")%></td>
              <td><b>Status:</b></td> <td><%=h @crianca.status%> - <%=h @crianca.matriculado%></td>
            </tr>
