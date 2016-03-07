@@ -27,16 +27,17 @@
         <tr style="font-size:8px" >
             <th width="1%">Nº</th>
             <th width="1%">Nº_Ins- <br/>crição</th>
-            <th width="10%">Data/Hora <br/>Inscrição</th>
-            <th width="30%">Nome</th>
-            <th width="10%">Classe</th>
+            <th width="9%">Data/Hora <br/>Inscrição</th>
+            <th width="23%">Nome</th>
+            <th width="7%">Nascimento</th>
+            <th width="8%">Classe</th>
             <th width="5%">Mãe <br/>Trabalha</th>
             <th width="5%">Mãe <br/>Servidora</th>
             <th width="5%">Irmão <br/>Matriculado</th>
             <th width="5%">Transfe- rência</th>
-            <th width="10%">1ªOpção</th>
-            <th width="10%">2ªOpção</th>
-            <th width="10%">3ªOpção</th>
+            <th width="11%">1ªOpção</th>
+            <th width="11%">2ªOpção</th>
+            <th width="11%">3ªOpção</th>
         </tr>
            <%$t=0%>
            <% @criancas.each do |crianca| %>
@@ -46,20 +47,21 @@
                 <th align="center"><%=h crianca.id%></th>
                 <th align="center"><%=h crianca.created_at.strftime("%d/%m/%Y %H:%M")%></th>
                 <th align="left"><%=h crianca.nome%></th>
+                <th align="center"><%=h crianca.nascimento.strftime("%d/%m/%Y")%></th>
                                  <% if  crianca.grupo_id == 1%>
-                                     <th align="left"> BERÇÁRIO I</th>
+                                     <th align="center"> BERÇÁRIO I</th>
                                 <%else if  crianca.grupo_id == 2%>
-                                     <th align="left"> BERÇÁRIO II</th>
+                                     <th align="center"> BERÇÁRIO II</th>
                                         <%else if  crianca.grupo_id == 3%>
-                                           <th align="left"> MATERNAL I</th>
+                                           <th align="center"> MATERNAL I</th>
                                               <%else if  crianca.grupo_id == 4%>
-                                                 <th align="left"> MATERNAL I</th>
+                                                 <th align="center"> MATERNAL I</th>
                                                    <%else if  crianca.grupo_id == 5%>
-                                                      <th align="left"> MATERNAL II</th>
+                                                      <th align="center"> MATERNAL II</th>
                                                        <%else if  crianca.grupo_id == 6%>
-                                                         <th align="left"> NÍVEL I</th>
+                                                         <th align="center"> NÍVEL I</th>
                                                              <%else if  crianca.grupo_id == 7%>
-                                                                <th align="left"> NÍVEL II</th>
+                                                                <th align="center"> NÍVEL II</th>
                                                              <%end%>
                                                        <%end%>
                                                    <%end%>
