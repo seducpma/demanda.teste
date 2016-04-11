@@ -44,7 +44,7 @@ production:
   database: demanda_production
   pool: 5
   username: root
-  password: s3inf05
+  password: 16#gjl@
   socket: /var/run/mysqld/mysqld.sock
 
 
