@@ -55,3 +55,12 @@ GRAU = { 'Pai/Mãe'=> 'Pai/Mãe',
          'Primo(a)'=> 'Primo(a)',
          'Outros' => 'Outros'
         }
+
+PERIODO = { '         ' => '         ',
+            'INTEGRAL'=> 'INTEGRAL',
+            'INTEGRAL ou MANHÃ' => 'INTEGRAL ou MANHÃ',
+            'INTEGRAL ou TARDE' => 'INTEGRAL ou TARDE',
+            'MANHÃ ou TARDE'=> 'MANHÃ ou TARDE',
+            'MANHÃ'=> 'MANHÃ)',
+            'TARDE'=> 'TARDE',
+        }

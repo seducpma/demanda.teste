@@ -24,17 +24,20 @@ class Crianca < ActiveRecord::Base
            self.grupo_id = 1
       else if(data <= '2015-01-31' and data >= '2014-07-01')
            self.grupo_id = 2
-           else if(data <= '2014-06-30' and data >= '2013-07-01')
+           else if(data <= '2014-06-30' and data >= '2014-01-01')
                   self.grupo_id = 4
-                else if(data <= '2013-06-30' and data >= '2012-07-01')
-                        self.grupo_id = 5
-                      else if(data <= '2012-06-30' and data >= '2011-07-01')
-                              self.grupo_id = 6
-                            else if(data <= '2011-06-30'and data >= '2010-07-01')
-                                  self.grupo_id = 7
-                                 end
-                           end
-                     end
+                else if (data <= '2013-12-31' and data >= '2013-07-01')
+                        self.grupo_id = 8
+                      else if (data <= '2013-06-30' and data >= '2012-07-01')
+                              self.grupo_id = 5
+                            else if (data <= '2012-06-30' and data >= '2011-07-01')
+                                  self.grupo_id = 6
+                                      else if(data <= '2011-06-30'and data >= '2010-07-01')
+                                            self.grupo_id = 7
+                                          end
+                                  end
+                            end
+                      end
                 end
            end
        end

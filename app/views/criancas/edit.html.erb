@@ -252,13 +252,19 @@
         <td><%= f.collection_select  :opcao3, @unidades, :nome, :nome, :include_blank => ' --- Selecione opção ---'  %></td>
        </tr>
       <tr>
+         <td><b>Período Pretendido:</b></td>
+         <td> <%= f.select :periodo, (PERIODO).sort %>
+
+         </td>
+      </tr>
+      <tr>
          <td><b>Data Inscrição:</b></td>
          <td>  <%= f.datetime_select(:created_at, :order => [:day, :month, :year, :hour, :minute ], :start_year => (Date.today.year), :end_year => (Date.today.year - 30)) %>
 
          </td>
       </tr>
      <tr>
-         <td width="2%" valign="top"><b><%= link_to image_tag("/stylesheets/images/observações:.jpeg", :size => "100x26"), "#inline_form_observacao", :class =>"inline" %></b></td>
+         <td width="2%" valign="top"><font color ="blue"><b><u><%= link_to image_tag("/stylesheets/images/observações:.jpeg", :size => "100x26"), "#inline_form_observacao", :class =>"inline" %></u></b></font></td>
           <td colspan="3"><%=h @crianca.obs%><br/>
             <div id="dados"> <%= render :partial => 'observacoes'  %></div></td>
         </tr>

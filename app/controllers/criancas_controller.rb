@@ -595,6 +595,44 @@ end
  #end
 
 
+def reclassifica_crianca
+    @criancas = Crianca.find(:all)
+    t=0
+    for crianca in @criancas
+        data= (crianca.nascimento).to_s
+        hoje = Date.today.to_s
+        final = '2012-07-01'
+              if (hoje > data)  and (data >= final)
+                if  (data <= Date.today.to_s and data >= '2015-02-01')
+                     crianca.grupo_id = 1
+                else if(data <= '2015-01-31' and data >= '2014-07-01')
+                     crianca.grupo_id = 2
+                     else if(data <= '2013-12-31' and data >= '2013-07-01')
+                            crianca.grupo_id = 4
+                          else if (data <= '2014-06-30' and data >= '2014-01-01')
+                                  crianca.grupo_id = 8
+                                else if (data <= '2013-06-30' and data >= '2012-07-01')
+                                        crianca.grupo_id = 5
+                                      else if (data <= '2012-06-30' and data >= '2011-07-01')
+                                            crianca.grupo_id = 6
+                                                else if(data <= '2011-06-30'and data >= '2010-07-01')
+                                                      crianca.grupo_id = 7
+                                                    end
+                                            end
+                                      end
+                                end
+                          end
+                     end
+                 end
+           end
+      @crianca.update_attributes(params[:crianca])
+    end
+   if @criancas.update_attributes(params[:crianca])
+
+   end
+   t=0
+end
+    
 
 
 

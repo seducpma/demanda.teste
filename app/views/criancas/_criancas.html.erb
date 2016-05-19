@@ -1,52 +1,38 @@
   <div class="tabs">
     <table bgcolor="#DCDCDC" width="100%">
-        <tr bgcolor="#DCDCDC" >
-            <th width="5%">Inscrição</th>
-            <th width="20%">Nome</th>
-            <th width="10%">Mãe</th>
-            <th width="10%">Local de <br/>Inscrição</th>
-            <th width="10%">Classe</th>
-            <th width="10%">1ªOpção</th>
-            <th width="10%">2ªOpção</th>
-            <th width="10%">3ªOpção</th>
-            <th width="10%">Status</th>
-            
+
+      <tr bgcolor="#DCDCDC"  >
+            <th width="2%"><b>Inscrição</b></th>
+            <th width="20%"><b>Nome</b></th>
+            <th width="10%"><b>Mãe</b></th>
+            <th width="10%"><b>Local de <br/>Inscrição</b></th>
+            <th width="10%"><b>Classe</b></th>
+            <th width="8%"><b>Período</b></th>
+            <th width="8%"<b>1ªOpção</b></th>
+            <th width="8%"><b>2ªOpção</b></th>
+            <th width="8%"><b>3ªOpção</b></th>
+            <td align="center" ><b>Status</b></td>
         </tr>
+  
            <%$t=0%>
            <% @criancas.each do |crianca| %>
            <%$t = $t+1%>
-        <tr bgcolor="#F5F5F5">
+        <tr bgcolor="#F5F5F5" style="font-size:12px">
                 <td align="center"><%=h crianca.id%></td>
                 <td align="left"><%=h crianca.nome%></td>
                 <td align="left"><%=h crianca.mae%></td>
                 <td align="left"><%=h crianca.unidade.nome%></td>
-                <td align="center">
-                          <%if crianca.grupo.id == 1%>
-                             BERÇARIO I
-                        <% else if crianca.grupo.id == 2 %>
-                                    BERÇARIO II
-                               <% else if crianca.grupo.id == 4 %>
-                                          MATERNAL I
-                                      <% else if crianca.grupo.id == 5 %>
-                                               MATERNAL II
-                                              <% else if crianca.grupo.id == 6 %>
-                                                     NIVEL I
-                                                      <% else if crianca.grupo.id == 7 %>
-                                                             NIVEL II
-                                                              <%end%>
-                                                       <%end%>
-                                              <%end%>
-                                      <%end%>
-                              <%end%>
-                        <%end%>
-                <td align="left"><%=h crianca.opcao1%></td>
+                <td align="center"><%=h crianca.grupo.nome%></td>
+                <td align="left"><%=h crianca.periodo%></td>
+                 <td align="left"><%=h crianca.opcao1%></td>
                 <td align="left"><%=h crianca.opcao2%></td>
                 <td align="left"><%=h crianca.opcao3%></td>
                 <td align="left"><%=h crianca.status%></td>
           </tr>
           <tr>
-                <td align="center"><%= link_to image_tag("/stylesheets/images/visualizar.png"), {:action => "show", :id =>crianca},:target => '_blank', :title => "Visualizar" %></td>
-                 <td align="left" ><%= link_to image_tag("/stylesheets/images/editar1.png"),  {:action => "edit", :id =>crianca}, :target => '_blank', :title => "Editar" %></td>
+            <td align="left" colspan="7"><%= link_to image_tag("/stylesheets/images/visualizar.png"), {:action => "show", :id =>crianca},:target => '_blank', :title => "Visualizar" %>
+                <%= link_to image_tag("/stylesheets/images/editar1.png"),  {:action => "edit", :id =>crianca}, :target => '_blank', :title => "Editar" %></td>
+
               </tr>
 
             <% end %>

@@ -4,67 +4,49 @@
 
             <th width="1%">Nº_Ins- <br/>crição</th>
             <th width="10%">Data/Hora <br/>Inscrição</th>
-            <th width="10%">Status</th>
             <th width="20%">Nome</th>
-            <th width="10%">Classe</th>
-            <th width="10%">1ªOpção</th>
-            <th width="10%">2ªOpção</th>
-            <th width="10%">3ªOpção</th>
+            <th width="8%">Classe</th>
+            <th width="8%">Período</th>
+            <th width="8%">1ªOpção</th>
+            <th width="8%">2ªOpção</th>
+            <th width="8%">3ªOpção</th>
+            <th width="10%">Status</th>
         </tr>
            <%$t=0%>
            <% @criancas.each do |crianca| %>
            <%$t = $t+1%>
-        <tr bgcolor="#F5F5F5" style="font-size:10px">
+        <tr bgcolor="#F5F5F5" style="font-size:12px">
 
-                <th align="center"><%=h crianca.id%></th>
+                <td align="center"><%=h crianca.id%></td>
                                    
                 <%  if crianca.created_at.nil?%>
-                    <th align="center"></th>
+                    <td align="center"></td>
                 <%else%>
-                     <th align="center"><%=h crianca.created_at.strftime("%d/%m/%Y %M:%M")%><br/></th>
+                     <td align="center"><%=h crianca.created_at.strftime("%d/%m/%Y %M:%M")%><br/></td>
                 <%end%>
-                <th align="left"><%=h crianca.status%></th>
-                <th align="left"><%=h crianca.nome%></th>
-                                 <% if  crianca.grupo_id == 1%>
-                                     <th align="center"> BERÇÁRIO I</th>
-                                <%else if  crianca.grupo_id == 2%>
-                                     <th align="left"> BERÇÁRIO II</th>
-                                        <%else if  crianca.grupo_id == 3%>
-                                           <th align="center"> MATERNAL I</th>
-                                              <%else if  crianca.grupo_id == 4%>
-                                                 <th align="center"> MATERNAL I</th>
-                                                   <%else if  crianca.grupo_id == 5%>
-                                                      <th align="center"> MATERNAL II</th>
-                                                       <%else if  crianca.grupo_id == 6%>
-                                                         <th align="center"> NÍVEL I</th>
-                                                             <%else if  crianca.grupo_id == 7%>
-                                                                <th align="center"> NÍVEL II</th>
-                                                             <%end%>
-                                                       <%end%>
-                                                   <%end%>
-                                               <%end%>
-                                          <%end%>
-                                     <%end%>
-                                <%end%>
-                <th align="center"><% if  crianca.opcao1 == session[:opcaos]%>
+                <td align="left"><%=h crianca.nome%></td>
+                <td align="center"><%=h crianca.grupo.nome%></td>
+
+                <td align="center"><%=h crianca.periodo%></td>
+                <td align="center"><% if  crianca.opcao1 == session[:opcaos]%>
                                           <b><font color ="blue"><%=h crianca.opcao1%></font></b>
                                     <%else%>
                                           <%=h crianca.opcao1%>
                                     <%end%>
-                </th>
-                <th align="center"><% if  crianca.opcao2 == session[:opcaos]%>
+                </td>
+                <td align="center"><% if  crianca.opcao2 == session[:opcaos]%>
                                           <b><font color ="blue"><%=h crianca.opcao2%></font></b>
                                     <%else%>
                                           <%=h crianca.opcao2%>
                                     <%end%>
-                </th>
-                <th align="center"><% if  crianca.opcao3 == session[:opcaos]%>
+                </td>
+                <td align="center"><% if  crianca.opcao3 == session[:opcaos]%>
                                           <b><font color ="blue"><%=h crianca.opcao3%></font></b>
                                     <%else%>
                                           <%=h crianca.opcao3%>
                                     <%end%>
-                </th>
-
+                </td>
+                <td align="left"><%=h crianca.status%></td>
                 <td align="left" ><%= link_to image_tag("/stylesheets/images/status.png"), {:action => "alteracao_status", :id =>crianca.id}, :target => '_blank', :title => "Status" %></td>
 
               </tr>

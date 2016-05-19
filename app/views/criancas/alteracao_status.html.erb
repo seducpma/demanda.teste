@@ -80,21 +80,21 @@
       <tr>
         <td colspan="3">
           <fieldset> <legend><font size=4>Prioridade</font></legend>
-            <table width="100%" >
+            <table width="100%">
               <tr>
-                <td width ="33%"><b>1) Mãe trabalha: </b></td>
+                <td width ="30%"><b>1) Mãe trabalha: </b></td>
                   <% if @crianca.trabalho == 0 %>
-                     <td width ="20%">NÃO</td>
+                     <td width ="70%">NÃO</td>
                   <%else%>
-                     <td>SIM &nbsp&nbsp - &nbsp&nbsp <b>Local </b> <%=h @crianca.local_trabalho%> &nbsp&nbsp&nbsp&nbsp <b>Fone </b>(<%=h @crianca.local_trabalho%>)</td>
-                  <%end%>
+                     <td width ="70%">SIM &nbsp&nbsp - &nbsp&nbsp <b>Local: </b> <%=h @crianca.local_trabalho%> &nbsp&nbsp&nbsp&nbsp <b>Fone </b>(<%=h @crianca.local_trabalho%>)</td>
+                  <%end %>
               </tr>
               <tr>
-                <td width ="33%"><b>2) Filho(a) de Servidora Pública: </b></td>
+                <td width ="30%"><b>2) Filho(a) de Servidora Pública: </b></td>
                   <% if @crianca.servidor_publico == 0 %>
-                     <td width ="20%">NÃO</td>
+                     <td width ="70%">NÃO</td>
                   <%else%>
-                     <td>SIM &nbsp&nbsp - &nbsp&nbsp <b>Local </b> <%=h @crianca.servidor_local%> </td>
+                     <td width ="70%">SIM &nbsp&nbsp - &nbsp&nbsp <b>Local </b> <%=h @crianca.servidor_local%> </td>
                   <%end%>
               </tr>
 
@@ -103,7 +103,7 @@
                 <% if @crianca.irmao == 0 %>
                      <td width ="20%">NÃO</td>
                   <%else%>
-                     <td>SIM &nbsp&nbsp - &nbsp&nbsp <b>Unidade </b> <%=h @crianca.unidade_i%> </td>
+                     <td width ="20%">SIM &nbsp&nbsp - &nbsp&nbsp <b>Unidade </b> <%=h @crianca.unidade_i%> </td>
                   <%end%>
               </tr>
 
@@ -138,14 +138,15 @@
          <td><b><%= f.label :opcao3, 'Opção 3' %></b></td>
         <td><%=h @crianca.opcao3 %></td>
        </tr>
+       <tr>
+         <td><b>Período:</b></td>
+         <td><%=h @crianca.periodo%></td>
+      </tr>
       <tr>
          <td><b>Data Inscrição:</b></td>
          <td><%=h @crianca.created_at.strftime("%d/%m/%Y")%></td>
       </tr>
-      <tr>
-        <td valign="top"><b>Observações:</b></td>
-        <td colspan="2"align="left" ><%= f.text_area(:obs, :cols=> "75", :rows=>"3") %></td>
-      </tr>
+
      </table>
 
   </fieldset>
