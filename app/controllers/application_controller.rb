@@ -58,9 +58,11 @@ GRAU = { 'Pai/Mãe'=> 'Pai/Mãe',
 
 PERIODO = { '         ' => '         ',
             'INTEGRAL'=> 'INTEGRAL',
-            'INTEGRAL ou MANHÃ' => 'INTEGRAL ou MANHÃ',
-            'INTEGRAL ou TARDE' => 'INTEGRAL ou TARDE',
-            'MANHÃ ou TARDE'=> 'MANHÃ ou TARDE',
+            'INTEGRAL / MANHÃ / TARDE' => 'INTEGRAL / MANHÃ / TARDE',
+            'INTEGRAL / MANHÃ' => 'INTEGRAL / MANHÃ',
+            'INTEGRAL / TARDE' => 'INTEGRAL / TARDE',
+            'MANHÃ / TARDE'=> 'MANHÃ / TARDE',
             'MANHÃ'=> 'MANHÃ)',
             'TARDE'=> 'TARDE',
+
         }
