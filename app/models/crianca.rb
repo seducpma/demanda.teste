@@ -20,9 +20,9 @@ class Crianca < ActiveRecord::Base
     hoje = Date.today.to_s
     final = '2012-07-01'
     if (hoje > data)  and (data >= final)
-      if  (data <= Date.today.to_s and data >= '2015-02-01')
+      if  (data <= Date.today.to_s and data >= '2015-07-01')
            self.grupo_id = 1
-      else if(data <= '2015-01-31' and data >= '2014-07-01')
+      else if(data <= '2015-06-30' and data >= '2014-07-01')
            self.grupo_id = 2
            else if(data <= '2014-06-30' and data >= '2014-01-01')
                   self.grupo_id = 4
