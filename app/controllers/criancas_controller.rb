@@ -191,6 +191,7 @@ end
       @crianca = Crianca.find(session[:id_crianca])
       @observacao_crianca.crianca_id =@crianca.id
       @observacao_crianca.data = Time.now
+      @observacao_crianca.funcionario = @observacao_crianca.funcionario + '('+ current_user.unidade.nome + ')'
 
       if @observacao_crianca.save
         render :update do |page|
