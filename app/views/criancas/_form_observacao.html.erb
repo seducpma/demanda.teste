@@ -7,11 +7,26 @@
        <table  width="100%" bgcolor="#F5F5F5">
         <tr>
             <td width="10%" valign="top"><b><font size="2"><%= f.label :observacao, 'Observações:' %></font></b></td>
-            <td><%= f.text_area :observacao, :cols=>'40', :rows=> '3' %></td>
+            
+            <td><%= f.text_area :observacao, :cols=>'80', :rows=> '3', :id=>"contador1" %><br/>
+              <script>
+                      $(document).on("keydown", "#contador1", function () {
+                          var caracteresRestantes = 800;
+                          var caracteresDigitados = parseInt($(this).val().length);
+                          var caracteresRestantes = caracteresRestantes - caracteresDigitados;
+
+                          $(".caracteres").text(caracteresRestantes);
+
+                      });
+
+              </script>
+              <font size ="1"><span class="caracteres">800</span> Caracteres Restantes </font>
+
+            </td>
         </tr>
         <tr>
            <td align="left"><font size="2"><b>Funcionário:</b></font></td>
-           <td align="left" ><font size="2"> <%=  f.text_field :funcionario, :size => '15' %></font></td>
+           <td align="left" ><font size="2"> <%=  f.text_field :funcionario, :size => '30' %></font></td>
         </tr>
 
         <tr>
