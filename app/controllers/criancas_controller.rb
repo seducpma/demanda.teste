@@ -658,11 +658,11 @@ end
     if current_user.unidade_id== 53 or current_user.unidade_id==52
        @unidades1 =  Unidade.find(:all,  :conditions => ["tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8" ],:order => "nome")
        @unidades =  Unidade.find(:all,  :conditions => ["tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8" ],:order => "nome")
-       @unidades2 =  Unidade.find(:all,  :conditions => ["(tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) and (id not between 70 and 77)  and (id <> 54)" ],:order => "nome")
+       @unidades2 =  Unidade.find(:all,  :conditions => ["(tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) and (id not between 70 and 83)  and (id <> 54)" ],:order => "nome")
     else
        @unidades1 =  Unidade.find(:all,  :conditions => ["(tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) and id=?", session[:unidade]  ],:order => "nome")
        @unidades =  Unidade.find(:all,  :conditions => ["tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8" ],:order => "nome")
-       @unidades2 =  Unidade.find(:all,  :conditions => ["(tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) and (id not between 70 and 77) and (id <> 54)"  ],:order => "nome")
+       @unidades2 =  Unidade.find(:all,  :conditions => ["(tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) and (id not between 70 and 83) and (id <> 54)"  ],:order => "nome")
        
     end
 
