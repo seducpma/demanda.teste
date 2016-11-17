@@ -66,19 +66,19 @@ def self.na_demanda
  def opcao
     data=self.nascimento
 
-  if (self.nascimento <= '2016-07-01'.to_date and self.nascimento >= '2015-06-01'.to_date)
+  if (self.nascimento <= '2017-12-31'.to_date and self.nascimento >= '2016-02-01'.to_date)
        self.grupo_id = 1
-  else if(self.nascimento <= '2015-06-30'.to_date and self.nascimento >= '2014-07-01'.to_date)
+  else if(self.nascimento <= '2016-01-31'.to_date and self.nascimento >= '2015-07-01'.to_date)
                 self.grupo_id = 2
-       else if (self.nascimento <= '2014-06-30'.to_date and self.nascimento >= '2014-01-01'.to_date)
+       else if (self.nascimento <= '2015-06-30'.to_date and self.nascimento >= '2015-01-01'.to_date)
                     self.grupo_id = 4
-            else if(self.nascimento <= '2013-12-31'.to_date and self.nascimento >= '2013-07-01'.to_date)
+            else if(self.nascimento <= '2014-12-31'.to_date and self.nascimento >= '2014-07-01'.to_date)
                           self.grupo_id = 8
-                  else if(self.nascimento <= '2013-06-30'.to_date and self.nascimento >= '2012-07-01'.to_date)
+                  else if(self.nascimento <= '2014-06-30'.to_date and self.nascimento >= '2013-07-01'.to_date)
                               self.grupo_id = 5
-                        else if(self.nascimento <= '2012-06-30'.to_date and self.nascimento >= '2011-07-01'.to_date)
+                        else if(self.nascimento <= '2013-06-30'.to_date and self.nascimento >= '2012-07-01'.to_date)
                                    self.grupo_id = 6
-                                 else if(self.nascimento <= '2011-06-30'.to_date and self.nascimento >= '2010-07-01'.to_date)
+                                 else if(self.nascimento <= '2012-06-30'.to_date and self.nascimento >= '2011-07-01'.to_date)
                                           self.grupo_id = 7
                                      end
                                 end

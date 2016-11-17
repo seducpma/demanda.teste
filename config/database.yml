@@ -18,7 +18,7 @@ development:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: demanda
+  database: demanda_development
   pool: 5
   username: root
   password: 1234

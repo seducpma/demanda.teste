@@ -17,19 +17,19 @@ class AlteracaosController < ApplicationController
     @criancas_alteracao = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA'" ])
     for crianca in @criancas_alteracao
       anterior = crianca.grupo_id
-       if (crianca.nascimento <= '2016-07-01'.to_date and crianca.nascimento >= '2015-07-01'.to_date)
+       if (crianca.nascimento <= '2017-12-31'.to_date and crianca.nascimento >= '2016-02-01'.to_date)
            crianca.grupo_id = 1
-       else if(crianca.nascimento <= '2015-06-30'.to_date and crianca.nascimento >= '2014-07-01'.to_date)
+       else if(crianca.nascimento <= '2016-01-31'.to_date and crianca.nascimento >= '2015-07-01'.to_date)
                crianca.grupo_id = 2
-            else if(crianca.nascimento <= '2014-06-30'.to_date and crianca.nascimento >= '2014-01-01'.to_date)
+            else if(crianca.nascimento <= '2015-06-30'.to_date and crianca.nascimento >= '2015-01-01'.to_date)
                     crianca.grupo_id = 4
-                 else if(crianca.nascimento <= '2013-12-31'.to_date and crianca.nascimento >= '2013-07-01'.to_date)
+                 else if(crianca.nascimento <= '2014-12-31'.to_date and crianca.nascimento >= '2014-07-01'.to_date)
                          crianca.grupo_id = 8
-                      else if(crianca.nascimento <= '2013-06-30'.to_date and crianca.nascimento >= '2012-07-01'.to_date)
+                      else if(crianca.nascimento <= '2014-06-30'.to_date and crianca.nascimento >= '2013-07-01'.to_date)
                               crianca.grupo_id = 5
-                           else if(crianca.nascimento <= '2012-06-30'.to_date and crianca.nascimento >= '2011-07-01'.to_date)
+                           else if(crianca.nascimento <= '2013-06-30'.to_date and crianca.nascimento >= '2012-07-01'.to_date)
                                    crianca.grupo_id = 6
-                                 else if(crianca.nascimento <= '2011-06-30'.to_date and crianca.nascimento >= '2010-07-01'.to_date)
+                                 else if(crianca.nascimento <= '2012-06-30'.to_date and crianca.nascimento >= '2011-07-01'.to_date)
                                           crianca.grupo_id = 7
                                      end
                                 end
