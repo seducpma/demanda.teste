@@ -10,7 +10,9 @@ class CriancasController < ApplicationController
   require_role ["seduc","admin"], :for => :destroy # don't allow contractors to destroy
   require_role ["seduc"], :for => [:atualiza_grupo,:matric,:config,:confirma] #
 
+def sobre
 
+end
 
 # GET /criancas
   # GET /criancas.xml
