@@ -107,23 +107,25 @@ end
 
 
     if (hoje > data)  and (data >= final)
-      if  (data <= Date.today.to_s and data >= '2015-02-01')
+      if  (data <= Date.today.to_s and data >= '2016-02-01')
            @crianca.grupo_id = 1
-
-      else if(data <= '2015-01-31' and data >= '2014-07-01')
+      else if(data <= '2016-01-31' and data >= '2015-07-01')
            @crianca.grupo_id = 2
-           else if(data <= '2014-06-30' and data >= '2013-07-01')
+           else if(data <= '2015-06-30' and data >= '2015-01-01')
                   @crianca.grupo_id = 4
-                else if(data <= '2013-06-30' and data >= '2012-07-01')
-                        @crianca.grupo_id = 5
-                      else if(data <= '2012-06-30' and data >= '2011-07-01')
-                              @crianca.grupo_id = 6
-                            else if(data <= '2011-06-30'and data >= '2010-07-01')
-                                  @crianca.grupo_id = 7
+                  else if(data <= '2014-12-31' and data >= '2014-07-01')
+                      @crianca.grupo_id = 8
+                      else if(data <= '2014-06-30' and data >= '2013-07-01')
+                              @crianca.grupo_id = 5
+                            else if(data <= '2013-06-30' and data >= '2012-07-01')
+                                    @crianca.grupo_id = 6
+                                  else if(data <= '2012-06-30'and data >= '2011-07-01')
+                                        @crianca.grupo_id = 7
+                                       end
                                  end
                            end
-                     end
-                end
+                      end
+                 end
            end
        end
 

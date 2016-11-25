@@ -145,6 +145,7 @@ class DummyController
   attr_accessor :controller_name
   
   def initialize
+
     @request = DummyRequest.new
     @url = ActionController::UrlRewriter.new(@request, @request.params)
   end
