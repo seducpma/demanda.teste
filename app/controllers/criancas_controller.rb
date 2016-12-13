@@ -107,9 +107,9 @@ end
 
 
     if (hoje > data)  and (data >= final)
-      if  (data <= Date.today.to_s and data >= '2016-01-31')
+      if  (data <= Date.today.to_s and data >= '2016-02-01')
            @crianca.grupo_id = 1
-      else if(data < '2016-01-31' and data >= '2015-07-01')
+      else if(data <= '2016-01-31' and data >= '2015-07-01')
            @crianca.grupo_id = 2
            else if(data <= '2015-06-30' and data >= '2015-01-01')
                   @crianca.grupo_id = 4
