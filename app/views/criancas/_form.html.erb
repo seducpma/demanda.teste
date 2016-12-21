@@ -199,7 +199,7 @@
                   <a href="#" id="dropdownbutton12"><%= f.radio_button :transferencia, 1%> <%=  'SIM' %> <%= f.radio_button :transferencia, 0,  :checked => true  %><%= 'NÃO' %>
                  <td>
                    <div id="menu12" style="display:none">
-                     <b>Unidade</b><%= f.collection_select  :unidade_t, @unidades, :id, :nome, :include_blank => ' --- Selecione opção ---'  %>
+                     <b>Unidade</b><%= f.collection_select  :unidade_t, @unidades, :nome, :nome, :include_blank => ' --- Selecione opção ---'  %>
                    </div>
                   </td>
                  </td>
