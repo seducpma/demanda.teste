@@ -47,7 +47,7 @@ class AlteracaosController < ApplicationController
   
 
     end
-    $nregistros = $nregistros - 1
+    
     t0 =1
       render :update do |page|
         page.replace_html 'confirma', :text => "ATUALIZAÇÃO CONCLUIDA"
