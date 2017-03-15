@@ -233,7 +233,7 @@ end
          if (current_user.unidade_id == 53 or current_user.unidade_id == 52) then
                  @criancas = Crianca.find( :all,:conditions => ["nome like ?" , "%" + params[:search1].to_s + "%"],:order => 'nome ASC, unidade_id ASC')
               else
-                 @criancas = Crianca.find( :all,:conditions => ["nome like ?  and unidade_id = ?", "%" + params[:search1].to_s + "%", current_user.unidade_id ],:order => 'nome ASC')
+                 @criancas = Crianca.find( :all,:conditions => ["nome like ? ", "%" + params[:search1].to_s + "%" ],:order => 'nome ASC')
               end
 
         render :update do |page|
