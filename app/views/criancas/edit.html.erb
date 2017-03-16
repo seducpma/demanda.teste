@@ -122,14 +122,10 @@
   <legend><font size=4>Dados da Inscrição</font></legend>
   <table width="100%">
       <tr>
-         <td width ="18%"><b> <%= f.label :unidade, 'Unidade da Inscrição' %></b></td>
-         <td align="left" colspan="2"><%= f.collection_select :unidade_id, @unidades, :id, :nome, :include_blank => '---Selecione---' %></td>
+        <td width ="18%" colspan="4"><b> <%= f.label :unidade, 'Unidade da Inscrição:' %></b>        &nbsp&nbsp
+         <%= f.collection_select :unidade_id, @unidades, :id, :nome, :include_blank => '---Selecione---' %></td>
       </tr>
-       <tr>
-        <td> <font size ="3" color ="'blue"><b> Status da Inscrição:</b>  </font></td>
-        <td> <font size ="3"><b><%= f.select :status, options_for_select(Crianca::Status) %></b> </font></td>
-        <td> <font size ="3"color ="'blue"><b>&nbsp &nbsp &nbsp&nbsp&nbsp&nbsp Unidade Matriculada:</b> <%= f.collection_select  :matriculado  , @unidades, :nome, :nome, :include_blank => 'Selecione opção se MATRICULADA'  %> </font></td>
-      </tr>
+
 
 
 
