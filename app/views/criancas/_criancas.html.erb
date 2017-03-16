@@ -31,7 +31,7 @@
           </tr>
           <tr>
             <td align="left" colspan="7"><%= link_to image_tag("/stylesheets/images/visualizar.png"), {:action => "show", :id =>crianca},:target => '_blank', :title => "Visualizar" %>
-                <%if crianca.unidade_id == current_user.unidade_id%>
+                <%if crianca.unidade_id == current_user.unidade_id or current_user.unidade_id == 53%>
                     <%= link_to image_tag("/stylesheets/images/editar1.png"),  {:action => "edit", :id =>crianca}, :target => '_blank', :title => "Editar" %>
                 <%end%>
             </td>
