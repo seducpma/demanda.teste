@@ -418,10 +418,10 @@ end
 
 def relatorio_geral
   @criancas = Crianca.find(:all, :order => 'nome')
-  @unidades11 = Unidade.find(:all, :conditions=> ["nome like?", "%"+"CC " +"%"], :order => 'nome')
-  @unidades12 = Unidade.find(:all, :conditions=> ["nome like?", "%"+"CR " +"%"], :order => 'nome')
-  @unidades13 = Unidade.find(:all, :conditions=> ["nome like?", "%"+"FIL. " +"%"], :order => 'nome')
-  @unidades14 = Unidade.find(:all, :conditions=> ["nome like?", "%"+"CONV. " +"%"], :order => 'nome')
+  @unidades11 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1", "%"+"CC " +"%"], :order => 'nome')
+  @unidades12 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 ", "%"+"CR " +"%"], :order => 'nome')
+  @unidades13 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1", "%"+"FIL. " +"%"], :order => 'nome')
+  @unidades14 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1", "%"+"CONV. " +"%"], :order => 'nome')
 
 end
 
@@ -660,13 +660,13 @@ end
   def load_unidades
     session[:unidade] = current_user.unidade_id
     if current_user.unidade_id== 53 or current_user.unidade_id==52
-       @unidades1 =  Unidade.find(:all,  :conditions => ["tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8" ],:order => "nome")
-       @unidades =  Unidade.find(:all,  :conditions => ["tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8" ],:order => "nome")
-       @unidades2 =  Unidade.find(:all,  :conditions => ["(tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) and (id not between 70 and 83)  and (id <> 54)" ],:order => "nome")
+       @unidades1 =  Unidade.find(:all,  :conditions => ["(tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) AND ativo = 1" ],:order => "nome")
+       @unidades =  Unidade.find(:all,  :conditions => ["(tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) AND ativo = 1" ],:order => "nome")
+       @unidades2 =  Unidade.find(:all,  :conditions => ["(tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) and (id not between 70 and 83)  and (id <> 54) AND ativo = 1" ],:order => "nome")
     else
-       @unidades1 =  Unidade.find(:all,  :conditions => ["(tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) and id=?", session[:unidade]  ],:order => "nome")
-       @unidades =  Unidade.find(:all,  :conditions => ["tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8" ],:order => "nome")
-       @unidades2 =  Unidade.find(:all,  :conditions => ["(tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) and (id not between 70 and 83) and (id <> 54)"  ],:order => "nome")
+       @unidades1 =  Unidade.find(:all,  :conditions => ["(tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8)AND (ativo = 1) and id=?", session[:unidade]  ],:order => "nome")
+       @unidades =  Unidade.find(:all,  :conditions => ["(tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) AND ativo = 1" ],:order => "nome")
+       @unidades2 =  Unidade.find(:all,  :conditions => ["(tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) and (id not between 70 and 83) and (id <> 54) AND ativo = 1 "  ],:order => "nome")
        
     end
 

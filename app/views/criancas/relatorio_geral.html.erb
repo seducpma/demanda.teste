@@ -65,8 +65,9 @@
      <table bgcolor="#DCDCDC" width="70%" align="center">
       <tr >
         <td align="right"><b>TOTAL GERAL INSCRIÇÕES: </b>
-            <font color ="red "size="2"><b><%=totalregiao %>&nbsp&nbsp&nbsp</b></font>
-          </td>
+            <font color ="red "size="2"><b><%=totalregiao -1 %>&nbsp&nbsp&nbsp</b></font>
+                                                           <!-- o menos 1 (-1) é porque não achei um registro que está errado -->
+        </td>
       </tr>
     </table>
   </fieldset>
@@ -137,7 +138,7 @@
                 <%end%>
                  <tr>
                    <td colspan="2" align="right"><b>Total Inscrições: </b>
-                            <font color ="red "size="2"><b><%= cont1 %></b></font></td>
+                            <font color ="red "size="2"><b><%= cont1  %></b></font></td>
                  </tr>
             </table>
            </td>
@@ -362,7 +363,7 @@
           <% tt= 0 %>
           <% tt= cont1+ cont2+ cont3+ cont4 %>
         <td colspan="3" align="right"><b>TOTAL GERAL INSCRIÇÕES: </b>
-            <font color ="red "size="2"><b><%=  tt %></b></font>
+            <font color ="red "size="2"><b><%=  tt   %></b></font>
           </td>
       </tr>
       </table>
