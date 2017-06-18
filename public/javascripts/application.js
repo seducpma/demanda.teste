@@ -366,7 +366,24 @@ $("#localizacao_data_aquisicao").datepicker({dateFormat: 'dd-mm-yy', changeYear:
      $(".consulta_unidade").hide();
      $(".consulta_professor").hide();
      $(".consulta2").hide();
+     $(".consulta_s").hide();
+     $(".txt_busca_s").hide();
+     $(".label_busca_s").hide();
    });
+
+ $(".filtro_status").click(function ()
+   {
+     $(".consulta_s").show();
+     $(".txt_busca_s").show();
+     $(".label_busca_s").show();
+
+     $(".consulta").hide();
+     $(".consulta").hide();
+     $(".txt_busca").hide();
+     $(".label_busca").hide();
+
+   });
+
 
 $(".filtro_nome").click(function ()
    {
@@ -380,6 +397,8 @@ $(".filtro_nome").click(function ()
      $(".label_busca1").hide();
 
    });
+
+  
 
    $(".filtro_tipo").click(function ()
    { $(".consulta2").show();
@@ -413,6 +432,9 @@ $(".sem_filtro").click(function ()
       $(".txt_busca2").hide();
       $(".label_busca2").hide();
       $(".label_busca1").hide();
+      $(".consulta_s").hide();
+     $(".txt_busca_s").hide();
+     $(".label_busca_s").hide();
    });
 
    $(".filtro_funcionario").click(function ()

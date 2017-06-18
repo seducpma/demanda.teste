@@ -48,7 +48,7 @@
             </tr>
             <tr bgcolor="#F5F5F5">
               <td valign="top"><b>Observações</b></td>
-              <td colspan="5"> <%=h @crianca.obs%> <br/><%= render :partial => 'observacoes'  %></div></td>
+              <td colspan="5"> <%=h @crianca.obs%> <br/><%= render :partial => 'observacoes'  %></td>
             </tr>
 
           </table>
@@ -112,7 +112,25 @@
            </tr>
          </table>
        </fieldset>
+       <fieldset><legend><font  size=3><b> Dados da inscrição</b></font></legend>
+         <table width="100%">
+            <tr bgcolor="#F5F5F5">
+              <td colspan="2" ><font size ="3" color="blue"><b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    Já foi oferecido alguma vagas à criança? &nbsp&nbsp&nbsp&nbsp
+                     <% if @crianca.vaga == 1 %>
+                         SIM</b>  </font>
+                     <%else%>
+                          NÃO</b>  </font>
 
+                      <%end%>
+              </td>
+             </tr>
+              <tr bgcolor="#F5F5F5">
+               <td width="2%" valign="top"><b> Vagas Oferedidas: </b></font></td>
+               <td> <%= render :partial => 'vagas'  %></td>
+              </tr>
+        </table>
+       </fieldset>
      </td>
   </tr>
  </table>

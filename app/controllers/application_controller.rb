@@ -66,3 +66,7 @@ PERIODO = { '         ' => '         ',
             'TARDE'=> 'TARDE',
 
         }
+
+OPCAO ={ 'SIM '=>'SIM',
+         'NÃO'=> 'NÃO'
+        }

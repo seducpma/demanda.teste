@@ -43,11 +43,15 @@
 
 
      </table>
-     <table bgcolor="#DCDCDC" width="100%">
+    <table bgcolor="#DCDCDC" width="100%" >
       <tr >
-        <td colspan="3" align="right"><b>TOTAL INSCRIÇÕES: </b>
-            <font color ="red "size="2"><b><%=$t %></b></font> 
-          </td>
+        <td align="right"><font color ="red "size="2"><b>TOTAL INSCRIÇÕES: <%= @demandas.count + @matriculadas.count + @canceladas.count%> </b></font> </td>
+        <td align="right"> <font color ="red "size="2"><b> NA DEMANDA: <%= @demandas.count%></b></font></td>
+        <td align="right"> <font color ="red "size="2"><b> MATRICULDAS: <%= @matriculadas.count%></b></font></td>
+        <td align="right"> <font color ="red "size="2"><b> CANCELADAS: <%= @canceladas.count%></b></font></td>
+
+
+
       </tr>
     </table>
 

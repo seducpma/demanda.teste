@@ -206,7 +206,23 @@ end
 
 end
 
+  def create_vaga_crianca
+   t=params[:vaga_crianca]
+    @vaga_crianca = VagaCrianca.new(params[:vaga_crianca])
+      t1=params[:vaga_crianca]
+      @crianca = Crianca.find(session[:id_crianca])
+      @vaga_crianca.crianca_id =@crianca.id
+      @vaga_crianca.data = Time.now
+      @vaga_crianca.funcionario = @vaga_crianca.funcionario + '('+ current_user.unidade.nome + ')'
 
+      if @vaga_crianca.save
+        render :update do |page|
+          page.replace_html 'dados_vaga', :partial => "vagas"
+          page.replace_html 'edit'
+        end
+       end
+
+end
 
   def autentica_matricula
     session[:unidade_matricula] = params[:crianca_unidade_matricula]
@@ -235,22 +251,33 @@ end
               else
                  @criancas = Crianca.find( :all,:conditions => ["nome like ? ", "%" + params[:search1].to_s + "%" ],:order => 'nome ASC')
               end
+              @canceladas = Crianca.find( :all,:conditions => [" nome like ? and status =?",  "%" + params[:search1].to_s + "%" , 'CANCELADA'],:order => 'nome ASC')
+              @demandas = Crianca.find( :all,:conditions => [" nome like ? and status =?",  "%" + params[:search1].to_s + "%" , 'NA_DEMANDA'],:order => 'nome ASC')
+              @matriculadas = Crianca.find( :all,:conditions => [" nome like ? and status =?",  "%" + params[:search1].to_s + "%" , 'MATRICULADA'],:order => 'nome ASC')
+
 
         render :update do |page|
           page.replace_html 'criancas', :partial => "criancas"
         end
      else if params[:type_of].to_i == 2
               if (current_user.unidade_id == 53 or current_user.unidade_id == 52) then
-                 @criancas = Crianca.find( :all,:order => 'nome ASC, unidade_id ASC')
+                 @criancas = Crianca.find( :all,:conditions => ['status = ?', params[:crianca][:status]],:order => 'nome ASC, unidade_id ASC')
               else
-                 @criancas = Crianca.find( :all,:conditions => [" unidade_id = ?", current_user.unidade_id ],:order => 'nome ASC')
+                 @criancas = Crianca.find( :all,:conditions => [" unidade_id = ? and status =?", current_user.unidade_id , params[:crianca][:status]],:order => 'nome ASC')
               end
+              @canceladas = Crianca.find( :all,:conditions => [" unidade_id = ? and status =?", current_user.unidade_id , 'CANCELADA'],:order => 'nome ASC')
+              @demandas = Crianca.find( :all,:conditions => [" unidade_id = ? and status =?", current_user.unidade_id , 'NA_DEMANDA'],:order => 'nome ASC')
+              @matriculadas = Crianca.find( :all,:conditions => [" unidade_id = ? and status =?", current_user.unidade_id , 'MATRICULADA'],:order => 'nome ASC')
              render :update do |page|
                 page.replace_html 'criancas', :partial => "criancas"
               end
          else if params[:type_of].to_i == 6
                 @criancas = Crianca.find( :all,:order => 'nome ASC')
-                render :update do |page|
+                @canceladas = Crianca.find( :all,:conditions => ["status =?", 'CANCELADA'],:order => 'nome ASC')
+                @demandas = Crianca.find( :all,:conditions => ["status =?", 'NA_DEMANDA'],:order => 'nome ASC')
+                @matriculadas = Crianca.find( :all,:conditions => ["status =?",'MATRICULADA'],:order => 'nome ASC')
+   
+          render :update do |page|
                    page.replace_html 'criancas', :partial => "criancas"
                end
           end
@@ -678,6 +705,8 @@ end
 
   def load_criancas
     @criancas = Crianca.find(:all, :order => "nome ASC")
+    @criancas_s = Crianca.find(:all, :select => 'distinct(status)', :order => "nome ASC")
+
   end
 
   def load_criancas_mat
