@@ -107,9 +107,11 @@ end
 
 
     if (hoje > data)  and (data >= final)
-      if  (data <= Date.today.to_s and data >= '2016-02-01')
+      # Alterei a data de inicio de BI de 2016-02-01 para 2016-07-01 ###Alex 03/07/2017 10:00
+      if  (data <= Date.today.to_s and data >= '2016-07-01')
            @crianca.grupo_id = 1
-      else if(data <= '2016-01-31' and data >= '2015-07-01')
+      # Alterei a data de inicio de BI de 2016-01-31 para 2016-06-30 ###Alex 03/07/2017 10:00
+      else if(data <= '2016-06-30' and data >= '2015-07-01')
            @crianca.grupo_id = 2
            else if(data <= '2015-06-30' and data >= '2015-01-01')
                   @crianca.grupo_id = 4
@@ -633,21 +635,35 @@ def reclassifica_crianca
     for crianca in @criancas
         data= (crianca.nascimento).to_s
         hoje = Date.today.to_s
-        final = '2012-07-01'
+        # Alterei a data abaixo de 2012-07-01 para 2011-07-01 ###Alex 03-07-2017 10:20
+        final = '2011-07-01'
               if (hoje > data)  and (data >= final)
-                if  (data <= Date.today.to_s and data >= '2015-02-01')
+                # Alterei a data abaixo de 2015-02-01 para 2016-07-01 ###Alex 03-07-2017 10:20
+                if  (data <= Date.today.to_s and data >= '2016-07-01')
                      crianca.grupo_id = 1
-                else if(data <= '2015-01-31' and data >= '2014-07-01')
+                # Alterei a data abaixo de 2015-01-31 para 2016-06-30 ###Alex 03-07-2017 10:20
+                # Alterei a data abaixo de 2014-07-01 para 2015-07-01 ###Alex 03-07-2017 10:20
+                else if(data <= '2016-06-30' and data >= '2015-07-01')
                      crianca.grupo_id = 2
-                     else if(data <= '2013-12-31' and data >= '2013-07-01')
+                     # Alterei a data abaixo de 2013-12-31 para 2015-06-30 ###Alex 03-07-2017 10:20
+                     # Alterei a data abaixo de 2013-07-01 para 2015-01-01 ###Alex 03-07-2017 10:20
+                     else if(data <= '2015-06-30' and data >= '2015-01-01')
                             crianca.grupo_id = 4
-                          else if (data <= '2014-06-30' and data >= '2014-01-01')
+                          # Alterei a data abaixo de 2014-06-30 para 2014-12-31 ###Alex 03-07-2017 10:20
+                          # Alterei a data abaixo de 2014-01-01 para 2014-07-01 ###Alex 03-07-2017 10:20
+                          else if (data <= '2014-12-31' and data >= '2014-07-01')
                                   crianca.grupo_id = 8
-                                else if (data <= '2013-06-30' and data >= '2012-07-01')
+                                # Alterei a data abaixo de 2013-06-30 para 2014-06-30 ###Alex 03-07-2017 10:20
+                                # Alterei a data abaixo de 2012-07-01 para 2013-07-01 ###Alex 03-07-2017 10:20
+                                else if (data <= '2014-06-30' and data >= '2013-07-01')
                                         crianca.grupo_id = 5
-                                      else if (data <= '2012-06-30' and data >= '2011-07-01')
+                                      # Alterei a data abaixo de 2012-06-30 para 2013-06-30 ###Alex 03-07-2017 10:20
+                                      # Alterei a data abaixo de 2011-07-01 para 2012-07-01 ###Alex 03-07-2017 10:20
+                                      else if (data <= '2013-06-30' and data >= '2012-07-01')
                                             crianca.grupo_id = 6
-                                                else if(data <= '2011-06-30'and data >= '2010-07-01')
+                                                # Alterei a data abaixo de 2011-06-30 para 2012-06-30 ###Alex 03-07-2017 10:50
+                                                # Alterei a data abaixo de 2010-07-01 para 2011-07-01 ###Alex 03-07-2017 10:50
+                                                else if(data <= '2012-06-30'and data >= '2011-07-01')
                                                       crianca.grupo_id = 7
                                                     end
                                             end

@@ -66,10 +66,11 @@ def self.na_demanda
 
  def opcao
     data=self.nascimento
-
-  if (self.nascimento <= '2017-12-31'.to_date and self.nascimento >= '2016-02-01'.to_date)
+  # Alterei a data de inicio de BI de 2016-02-01 para 2016-07-01 ###Alex 03/07/2017 10:00
+  if (self.nascimento <= '2017-12-31'.to_date and self.nascimento >= '2016-07-01'.to_date)
        self.grupo_id = 1
-  else if(self.nascimento <= '2016-01-31'.to_date and self.nascimento >= '2015-07-01'.to_date)
+  # Alterei a data de inicio de BI de 2016-01-31 para 2016-06-30 ###Alex 03/07/2017 10:00
+  else if(self.nascimento <= '2016-06-30'.to_date and self.nascimento >= '2015-07-01'.to_date)
                 self.grupo_id = 2
        else if (self.nascimento <= '2015-06-30'.to_date and self.nascimento >= '2015-01-01'.to_date)
                     self.grupo_id = 4
