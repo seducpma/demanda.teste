@@ -78,7 +78,14 @@ $("#filtro_ambos").on("click", function(){
     document.f1.filtro_1.checked = false;
 });
 
-
+$(".filtro_vagasS").click(function ()
+   {
+     $(".botao1").show();
+   });
+$(".filtro_vagasN").click(function ()
+   {
+     $(".botao1").hide();
+   });
 
 //
 

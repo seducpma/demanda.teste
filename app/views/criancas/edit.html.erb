@@ -272,13 +272,15 @@
                <% if @crianca.vaga == 1 %>
                    SIM</b>  </font>
                <%else%>
-                 <%= f.radio_button :vaga, 1 %> <b> SIM </b> <%= f.radio_button :vaga, 0 %><b> NÃO </b>
+                 <a href="#" class="filtro_vagasS"><%= f.radio_button :vaga, 1 %> <b> SIM </b> </a>
+                 <a href="#" class="filtro_vagasN"><%= f.radio_button :vaga, 0 %><b> NÃO </b> </a>
                  
                 <%end%>
         </td>
       </tr>
      <tr>
-         <td width="2%" valign="top">&nbsp&nbsp&nbsp&nbsp<font color ="blue"><b><u><%= link_to image_tag("/stylesheets/images/Vagas.png", :size => "100x26"), "#inline_form_vaga", :class =>"inline" %></u></b></font></td>
+         <td width="2%" valign="top"><b class="botao1" style="display:none">&nbsp&nbsp&nbsp&nbsp<font color ="blue"><b><u><%= link_to image_tag("/stylesheets/images/Vagas.png", :size => "100x26"), "#inline_form_vaga", :class =>"inline" %></u></b></font></td>
+         
          <td><div id="dados_vaga"> <%= render :partial => 'vagas'  %></div></td>
         </tr>
      </table>
