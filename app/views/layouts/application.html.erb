@@ -124,7 +124,12 @@ display: none;
                            <% if (current_user.has_role?('admin') or current_user.has_role?('SEDUC') or current_user.has_role?('direcao')  or current_user.has_role?('supervisao'))%>
                            <li><%= link_to "Gráficos", grafico_path %></li>
                           <%end%>
-                          <li><%= link_to "Relatório",consulta_geral_path %></li>
+                         <li><a class="item-primary" href="#;">Relatorios</a>
+                              <ul>
+                                  <li>  <%= link_to "Demanda Geral",consulta_geral_path %></li>
+                                  <li>  <%= link_to "Mãe Trabalha",consulta_mae_path %></li>
+                              </ul>
+                          </li>
                             
                            </ul>
               </li>

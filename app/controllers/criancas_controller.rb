@@ -293,6 +293,11 @@ end
       @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA'" ],:order => "trabalho DESC, servidor_publico DESC, irmao DESC, transferencia DESC, created_at ASC")
  end
 
+ def consulta_mae
+      @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA'" ],:order => "trabalho DESC, servidor_publico DESC, irmao DESC, transferencia DESC, created_at ASC")
+ end
+
+
 def consulta_unidade_status
 
 end
@@ -446,11 +451,20 @@ end
 end
 
 def relatorio_geral
-  @criancas = Crianca.find(:all, :order => 'nome')
-  @unidades11 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1", "%"+"CC " +"%"], :order => 'nome')
+  @criancas = Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA'" ], :order => 'nome')
+  @unidades11 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 ", "%"+"CC " +"%"], :order => 'nome')
+  @unidades12 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 ", "%"+"CR " +"%"], :order => 'nome')
+  @unidades13 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 ", "%"+"FIL. " +"%"], :order => 'nome')
+  @unidades14 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 ", "%"+"CONV. " +"%"], :order => 'nome')
+
+end
+
+def relatorio_mae
+  @criancas = Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA'" ],:order => 'nome')
+  @unidades11 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 ", "%"+"CC " +"%"], :order => 'nome')
   @unidades12 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 ", "%"+"CR " +"%"], :order => 'nome')
   @unidades13 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1", "%"+"FIL. " +"%"], :order => 'nome')
-  @unidades14 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1", "%"+"CONV. " +"%"], :order => 'nome')
+  @unidades14 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 ", "%"+"CONV. " +"%"], :order => 'nome')
 
 end
 
