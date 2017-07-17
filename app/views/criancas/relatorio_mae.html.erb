@@ -69,11 +69,11 @@
              <th align="center"><%= format("%.0f",(zgt.to_f  / zgtg.to_f )*100) %> % </th>
              <th></th>
              <th align="center"> Jardim Ipiranga</th>
-             <th></th>
              <% jit = Crianca.find(:all, :select=> 'id',:conditions => ["status = 'NA_DEMANDA' and regiao_id = 5 and trabalho = 1"]).count %>
              <% jitg = Crianca.find(:all, :select=> 'id',:conditions => ["status = 'NA_DEMANDA' and regiao_id = 5"]).count %>
              <% totalregiao = totalregiao + jit %>
              <% totalregiaog = totalregiaog + jitg %>
+             <th align="center"><%= jitg %></th>
              <th align="center"><%= jit %></th>
              <th align="center"><%= format("%.0f",(jit.to_f  / jitg.to_f )*100) %> % </th>
 
