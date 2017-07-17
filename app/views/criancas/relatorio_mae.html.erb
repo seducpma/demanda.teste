@@ -38,10 +38,9 @@
              <% totalregiaog = totalregiaog + sjtg %>
              <th align="center"><%= sjtg %> </th>
              <th align="center"><%= sjt %></th>
-             
              <th align="center"><%= format("%.0f",(sjt.to_f / sjtg.to_f)*100) %> % </th>
-             <th align="center"> Cidade Jardim</th>
              <th></th>
+             <th align="center"> Cidade Jardim</th>
              <% cjt= Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and regiao_id = 2 and trabalho = 1"]).count %>
              <% cjtg= Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and regiao_id = 2 "]).count %>
              <% totalregiao = totalregiao + cjt %>
