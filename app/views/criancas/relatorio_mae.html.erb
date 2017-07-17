@@ -11,15 +11,18 @@
      <table bgcolor="#DCDCDC" width="90%"align="center">
          <tr bgcolor="#DCDCDC" >
             <th width="15%">Região</th>
-            <th width="2%">Total</th>
+            <th width="2%">Total Geral</th>
+            <th width="2%">Total Trab.</th>
              <th width="2%">Porc.</th>
             <th width="1%" bgcolor="#DCDCDC" ></th>
             <th width="15%">Região</th>
-            <th width="2%">Total</th>
+            <th width="2%">Total Geral</th>
+            <th width="2%">Total Trab.</th>
             <th width="2%">Porc.</th>
             <th width="1%" bgcolor="#DCDCDC" ></th>
             <th width="15%">Região</th>
-            <th width="2%">Total</th>
+            <th width="2%">Total Geral</th>
+            <th width="2%">Total Trab.</th>
             <th width="2%">Porc.</th>
 
          </tr>
@@ -33,27 +36,26 @@
              <% sjtg =Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and regiao_id = 1 "]).count %>
              <% totalregiao = totalregiao + sjt %>
              <% totalregiaog = totalregiaog + sjtg %>
-
+             <th align="center"><%= sjtg %> </th>
              <th align="center"><%= sjt %></th>
+             
              <th align="center"><%= format("%.0f",(sjt.to_f / sjtg.to_f)*100) %> % </th>
-             <th></th>
              <th align="center"> Cidade Jardim</th>
-
+             <th></th>
              <% cjt= Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and regiao_id = 2 and trabalho = 1"]).count %>
              <% cjtg= Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and regiao_id = 2 "]).count %>
              <% totalregiao = totalregiao + cjt %>
              <% totalregiaog = totalregiaog + cjtg %>
-
+             <th align="center"><%= cjtg %></th>
              <th align="center"><%= cjt %></th>
              <th align="center"><%= format("%.0f",(cjt.to_f  / cjtg.to_f )*100) %> % </th>
              <th></th>
              <th align="center"> São Vito / Jaguari</th>
-
              <% svt = Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and regiao_id = 3 and trabalho = 1"]).count %></th>
              <% svtg = Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and regiao_id = 3 "]).count %></th>
              <% totalregiao = totalregiao + svt%>
              <% totalregiaog = totalregiaog + svtg%>
-
+             <th align="center"><%= svtg %> </th>
              <th align="center"><%= svt %></th>
              <th align="center"><%= format("%.0f",(svt.to_f  / svtg.to_f )*100) %> % </th>
         </tr>
@@ -63,10 +65,12 @@
              <%zgtg = Crianca.find(:all, :select=> 'id',:conditions => ["status = 'NA_DEMANDA' and regiao_id = 4 "]).count %>
              <% totalregiao = totalregiao + zgt %>
              <% totalregiaog = totalregiaog + zgtg %>
+             <th align="center"><%= zgtg %></th>
              <th align="center"><%= zgt %></th>
              <th align="center"><%= format("%.0f",(zgt.to_f  / zgtg.to_f )*100) %> % </th>
              <th></th>
              <th align="center"> Jardim Ipiranga</th>
+             <th></th>
              <% jit = Crianca.find(:all, :select=> 'id',:conditions => ["status = 'NA_DEMANDA' and regiao_id = 5 and trabalho = 1"]).count %>
              <% jitg = Crianca.find(:all, :select=> 'id',:conditions => ["status = 'NA_DEMANDA' and regiao_id = 5"]).count %>
              <% totalregiao = totalregiao + jit %>
@@ -80,6 +84,7 @@
              <%cttg = Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and regiao_id = 6 "]).count %>
              <% totalregiao = totalregiao + ctt %>
              <% totalregiaog = totalregiaog + cttg %>
+             <th align="center"><%= cttg%></th>
              <th align="center"><%= ctt %></th>
              <th align="center"><%= format("%.0f",(ctt.to_f  / cttg.to_f )*100) %> % </th>
 
@@ -90,6 +95,7 @@
              <%patg = Crianca.find(:all, :select=> 'id',:conditions => ["status = 'NA_DEMANDA' and regiao_id = 7 "]).count %>
              <% totalregiao = totalregiao + pat %>
              <% totalregiaog = totalregiaog + patg %>
+             <th align="center"><%= patg %> </th>
              <th align="center"><%= pat %></th>
              <th align="center"><%= format("%.0f",(pat.to_f  / patg.to_f )*100) %> % </th>
              <th></th>
@@ -98,6 +104,7 @@
              <%pntg= Crianca.find(:all, :select=> 'id',:conditions => ["status = 'NA_DEMANDA' and regiao_id = 8"]).count %>
              <% totalregiao = totalregiao + pnt %>
              <% totalregiaog = totalregiaog + pntg %>
+             <th align="center"><%= pntg %></th>
              <th align="center"><%= pnt %></th>
              <th align="center"><%= format("%.0f",(pnt.to_f  / pntg.to_f )*100) %> % </th>
              <th></th>
@@ -106,13 +113,15 @@
              <%altg= Crianca.find(:all, :select=> 'id',:conditions => ["status = 'NA_DEMANDA' and regiao_id = 9 "]).count %>
              <% totalregiao = totalregiao + alt %>
              <% totalregiaog = totalregiaog + altg %>
+             <th align="center"><%= altg %> </th>
              <th align="center"><%= alt %></th>
              <th align="center"><%= format("%.0f",(alt.to_f  / altg.to_f )*100) %> % </th>
 
         </tr>
       <tr bgcolor="#DCDCDC">
-        <td colspan="9" align="right"><b>TOTAL GERAL INSCRIÇÕES: &nbsp&nbsp</b></td>
+        <td colspan="11" align="right"><b>TOTAL GERAL INSCRIÇÕES: &nbsp&nbsp</b></td>
 
+        <td align="center" width="2%"><font color ="red "size="2"><b><%=totalregiaog %></b></font></td>
         <td align="center" width="2%"><font color ="red "size="2"><b><%=totalregiao %></b></font></td>
         <td align="center" width="2%"><font color ="red "size="2"><b><%= format("%.0f",(totalregiao.to_f  / totalregiaog.to_f )*100) %> %</b></font></td>
       </tr>
@@ -481,36 +490,44 @@
       <table bgcolor="#DCDCDC" width="100%"align="center">
         <tr bgcolor="#DCDCDC">
           <th><font size ="2"><b>Classe</b><font></th>
-          <th><font size ="2"><b>Total </b> <font> </th>
+          <th><font size ="2"><b>Total Geral  </b> <font> </th>
+          <th><font size ="2"><b>Total Trab. </b> <font> </th>
           <th><font size ="2"><b>Porc. </b> <font> </th>
           <th width="1%"></th>
           <th><font size ="2"><b>Classe</b><font></th>
-          <th><font size ="2"><b>Total </b><font>  </th>
-          <th><font size ="2"><b>Porc. </b> <font> </th>
-          <th width="1%"></th>
-           <th><font size ="2"><b>Classe</b><font></th>
-          <th><font size ="2"><b>Total </b> <font> </th>
+          <th><font size ="2"><b>Total Geral  </b> <font> </th>
+          <th><font size ="2"><b>Total Trab. </b><font>  </th>
           <th><font size ="2"><b>Porc. </b> <font> </th>
           <th width="1%"></th>
           <th><font size ="2"><b>Classe</b><font></th>
-          <th><font size ="2"><b>Total </b></font>  </th>
+          <th><font size ="2"><b>Total Geral  </b> <font> </th>
+          <th><font size ="2"><b>Total Trab. </b> <font> </th>
+          <th><font size ="2"><b>Porc. </b> <font> </th>
+          <th width="1%"></th>
+          <th><font size ="2"><b>Classe</b><font></th>
+          <th><font size ="2"><b>Total Geral  </b> <font> </th>
+          <th><font size ="2"><b>Total Trab.</b></font>  </th>
           <th><font size ="2"><b>Porc. </b> <font> </th>
 
        </tr>
         <tr bgcolor="#F5F5F5">
-          <th>- BERÇARIO I:</th>
+          <th width ="10%">BERÇARIO I:</th>
+          <th><%=b1g%></th>
           <th><%= b1 %>  </th>
           <th><%= format("%.0f",(b1.to_f  / b1g.to_f )*100) %> %</th>
           <th width="1%"></th>
-          <th>- MATERNAL I (2014): </th>
+          <th>MATERNAL I (2014): </th>
+          <th><%=m1ag  %></th>
           <th><%= m1a%>  </th>
           <th><%= format("%.0f",(m1a.to_f  / m1ag.to_f )*100) %> % </th>
           <th width="1%"></th>
-          <th>- MATERNAL II: </th>
+          <th width="11%">MATERNAL II: </th>
+          <th><%=m2g  %></th>
           <th><%= m2%>  </th>
           <th><%= format("%.0f",(m2.to_f  / m2g.to_f )*100) %> %</th>
           <th width="1%"></th>
-          <th>- NÍVEL I: </th>
+          <th width ="7%">NÍVEL I: </th>
+          <th><%=n1g  %></th>
           <th><%= n1%>  </th>
           <th> <%  if  n1g == 0 %>
                  0 %
@@ -520,19 +537,23 @@
           </th>
        </tr>   
         <tr bgcolor="#F5F5F5">
-           <th>- BERÇARIO II: </th>
+          <th>BERÇARIO II: </th>
+          <th > <%=b2g %></th>
           <th><%= b2%>  </th>
           <th><%= format("%.0f",(b2.to_f  / b2g.to_f )*100) %> %</th>
           <th width="1%"></th>
-          <th>- MATERNAL I (2015): </th>
+          <th>MATERNAL I (2015): </th>
+          <th><%= m1bg%>  </th>
           <th><%= m1b%>  </th>
           <th><%= format("%.0f",(m1b.to_f  / m1bg.to_f )*100) %> % </th>
           <th> </th>
           <th> </th>
           <th ></th>
           <th ></th>
+          <th ></th>
           <th width="1%"></th>
-          <th>- NÍVEL II: </th>
+          <th>NÍVEL II: </th>
+          <th><%=n1g.to_f  %></th>
           <th><%= n2%>  </th>
           <th><%  if  n2g == 0 %>
                  0 %
