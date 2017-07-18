@@ -593,7 +593,15 @@ def impressao_geral
 
       render :layout => "impressao"
 end
+def impressao_maeTrabalha
+  @criancas = Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA'" ],:order => 'nome')
+  @unidades11 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 ", "%"+"CC " +"%"], :order => 'nome')
+  @unidades12 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 ", "%"+"CR " +"%"], :order => 'nome')
+  @unidades13 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1", "%"+"FIL. " +"%"], :order => 'nome')
+  @unidades14 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 ", "%"+"CONV. " +"%"], :order => 'nome')
 
+      render :layout => "impressao"
+end
   
  def altera_nascimento
    params[:id]=1

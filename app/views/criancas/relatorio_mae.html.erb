@@ -132,12 +132,8 @@
 <% b2=0%>
 <% b2g=0%>
 <% m1a=0%>
-   <%m1a0 = 0%>
-   <%m1a1 =0 %>
 <% m1ag=0%>
 <% m1b=0%>
-   <%m1b0 = 0%>
-   <%m1b1 =0 %>
 <% m1bg=0%>
 <% m2=0%>
 <% m2g=0%>
@@ -224,9 +220,7 @@
                 <%end%>
                  <tr>
                    <td colspan="3" align="right"><b>Total Inscrições: </b><font color ="red "size="2"><b>&nbsp<%= cont1  %>&nbsp&nbsp <%= format("%.0f",(cont1.to_f / totalregiaog.to_f) * 100) %> %</b></font></td>
-                   
                  </tr>
-                 
             </table>
            </td>
            <td  width ="25%" valign="top">
@@ -301,12 +295,10 @@
                    <th width="2%">  <%= Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and opcao1 = ? and trabalho = 1", unidade.nome]).count %></th>
                    <th width="2%">  <%= Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and opcao1 = ? ", unidade.nome]).count %></th>
                  </tr>
-
                 <%end%>
                  <tr>
                     <td colspan="3" align="right"><b>Total Inscrições: </b><font color ="red "size="2"><b>&nbsp<%= cont2  %>&nbsp&nbsp <%= format("%.0f",(cont2.to_f / totalregiaog.to_f) * 100) %> %</b></font></td>
                  </tr>
-
             </table>
            </td>
            <td  width ="25%"valign="top">
@@ -342,11 +334,7 @@
                                   <%m1a = m1a + Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and (grupo_id= 4 or grupo_id = 3) and opcao1 = ? and trabalho = 1", unidade.nome]).count%>
                                   <%xm1a = Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and (grupo_id= 4 or grupo_id = 3) and opcao1 = ?", unidade.nome]).count%>
                                   <%m1ag = m1ag + xm1a%> </th>
-
-
-
-                   
-                  <th width="2%"><%= xm1a %></th>
+                   <th width="2%"><%= xm1a %></th>
                  </tr>
                  <tr bgcolor="#F5F5F5">
                    <th align="left">&nbsp - Maternal I (2015)</th>
@@ -552,7 +540,7 @@
           <th ></th>
           <th width="1%"></th>
           <th>NÍVEL II: </th>
-          <th><%=n1g.to_f  %></th>
+          <th><%=n1g  %></th>
           <th><%= n2%>  </th>
           <th><%  if  n2g == 0 %>
                  0 %
@@ -566,11 +554,12 @@
 <fieldset>
   <table bgcolor="#DCDCDC" width="100%"align="center" >
        <tr>
-        <td><!--<b><%= button_to 'Imprimir', onclick="javascript:MM_openBrWindow('#{impressao_geral_criancas_path}','impressao', 'scrollbars=yes');", :title => "Imprimir" %> </b>--></td>
+        <td><b><%= button_to 'Imprimir', onclick="javascript:MM_openBrWindow('#{impressao_maeTrabalha_criancas_path}','impressao', 'scrollbars=yes');", :title => "Imprimir" %> </b></td>
           <% tt= 0 %>
           <% tt= cont1+ cont2+ cont3+ cont4 %>
 
-        <td colspan="11"align="right"><b>TOTAL GERAL INSCRIÇÕES: &nbsp&nbsp</b></td>
+        <td colspan="10"align="right"><b>TOTAL GERAL INSCRIÇÕES: &nbsp&nbsp</b></td>
+        <td align="center" width="4%"><font color ="red "size="2"><b><%=totalregiaog %> </b></font>&nbsp</td>
         <td align="center" width="4%"><font color ="red "size="2"><b><%=tt %> </b></font>&nbsp</td>
         <td align="center" width="4%"><font color ="red "size="2"><b><%= format("%.0f",(totalregiao.to_f  / totalregiaog.to_f )*100) %> %</b></font></td>
 
