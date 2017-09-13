@@ -68,6 +68,8 @@ end
     #@unidade_matricula = Unidade.find_by_sql("select u.id, u.nome from unidades u right join criancas c on u.id in (c.option1, c.option2, c.option3, c.option4) where c.id = " + (@crianca.id).to_s)
     session[:id_crianca] = params[:id]
     session[:nome] = params[:nome]
+    w=@crianca.nome
+    t=0
 
   end
 
@@ -158,6 +160,8 @@ end
   # PUT /criancas/1.xml
   def update
     @crianca = Crianca.find(params[:id])
+    w=@crianca.nome
+    t=0
       respond_to do |format|
       if @crianca.update_attributes(params[:crianca])
         session[:id]=@crianca.id
@@ -256,8 +260,8 @@ end
               @canceladas = Crianca.find( :all,:conditions => [" nome like ? and status =?",  "%" + params[:search1].to_s + "%" , 'CANCELADA'],:order => 'nome ASC')
               @demandas = Crianca.find( :all,:conditions => [" nome like ? and status =?",  "%" + params[:search1].to_s + "%" , 'NA_DEMANDA'],:order => 'nome ASC')
               @matriculadas = Crianca.find( :all,:conditions => [" nome like ? and status =?",  "%" + params[:search1].to_s + "%" , 'MATRICULADA'],:order => 'nome ASC')
-
-
+              
+t=0
         render :update do |page|
           page.replace_html 'criancas', :partial => "criancas"
         end

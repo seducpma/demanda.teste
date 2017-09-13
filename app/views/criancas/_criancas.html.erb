@@ -29,9 +29,10 @@
                 <td align="left"><%=h crianca.opcao3%></td>
                 <td align="left"><%=h crianca.status%></td>
           </tr>
+          <% @criancasinscritas= Crianca.find(:all, :select => 'id', :conditions => ['id =? and (opcao1 =? or opcao2 =? or opcao3=?)', crianca, current_user.unidade.nome, current_user.unidade.nome, current_user.unidade.nome])%>
           <tr>
             <td align="left" colspan="7"><%= link_to image_tag("/stylesheets/images/visualizar.png"), {:action => "show", :id =>crianca},:target => '_blank', :title => "Visualizar" %>
-                <%if crianca.unidade_id == current_user.unidade_id or current_user.unidade_id == 52%>
+                <%if  @criancasinscritas.present? %>
                     <%= link_to image_tag("/stylesheets/images/editar1.png"),  {:action => "edit", :id =>crianca}, :target => '_blank', :title => "Editar" %>
                 <%end%>
             </td>
