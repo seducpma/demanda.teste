@@ -1,5 +1,5 @@
-#set :application, "192.168.0.12"
-set :application, "192.168.1.131"
+set :application, "192.168.0.12"
+#set :application, "192.168.1.131"
 
 set :repository, "git://github.com/seducpma/demanda.git"
 set :user, "servidor"
