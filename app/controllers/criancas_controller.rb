@@ -68,8 +68,8 @@ end
     #@unidade_matricula = Unidade.find_by_sql("select u.id, u.nome from unidades u right join criancas c on u.id in (c.option1, c.option2, c.option3, c.option4) where c.id = " + (@crianca.id).to_s)
     session[:id_crianca] = params[:id]
     session[:nome] = params[:nome]
-    w=@crianca.nome
-    t=0
+    
+
 
   end
 
@@ -101,6 +101,9 @@ end
   # POST /criancas
   # POST /criancas.xml
   def create
+
+      # ALTERAR TAMBÈM AS DATAS NO ALETRACAOS_CONTROLER def alterar_classe e no def update
+
     @crianca = Crianca.new(params[:crianca])
 
     data=@crianca.nascimento.strftime("%Y-%m-%d")
@@ -109,21 +112,19 @@ end
 
 
     if (hoje > data)  and (data >= final)
-      # Alterei a data de inicio de BI de 2016-02-01 para 2016-07-01 ###Alex 03/07/2017 10:00
-      if  (data <= Date.today.to_s and data >= '2016-07-01')
-           @crianca.grupo_id = 1
-      # Alterei a data de inicio de BI de 2016-01-31 para 2016-06-30 ###Alex 03/07/2017 10:00
-      else if(data <= '2016-06-30' and data >= '2015-07-01')
+       if  (data <= Date.today.to_s and data >= '2017-02-01')
+       @crianca.grupo_id = 1
+        else if(data < '2017-02-01' and data >= '2016-07-01')
            @crianca.grupo_id = 2
-           else if(data <= '2015-06-30' and data >= '2015-01-01')
+           else if(data < '2016-07-01' and data >= '2016-01-01')
                   @crianca.grupo_id = 4
-                  else if(data <= '2014-12-31' and data >= '2014-07-01')
+                  else if(data < '2016-01-01' and data >= '2015-07-01')
                       @crianca.grupo_id = 8
-                      else if(data <= '2014-06-30' and data >= '2013-07-01')
+                      else if(data < '2015-07-01' and data >= '2014-07-01')
                               @crianca.grupo_id = 5
-                            else if(data <= '2013-06-30' and data >= '2012-07-01')
+                            else if(data < '2014-07-01' and data >= '2013-07-01')
                                     @crianca.grupo_id = 6
-                                  else if(data <= '2012-06-30'and data >= '2011-07-01')
+                                  else if(data < '2013-07-01'and data >= '2012-07-01')
                                         @crianca.grupo_id = 7
                                        end
                                  end
@@ -160,8 +161,38 @@ end
   # PUT /criancas/1.xml
   def update
     @crianca = Crianca.find(params[:id])
-    w=@crianca.nome
-    t=0
+
+    hoje = Date.today.to_s
+    final = '2012-07-01'
+    data=@crianca.nascimento.strftime("%Y-%m-%d")
+if  (data <= Date.today.to_s and data >= '2017-02-01')
+       @crianca.grupo_id = 1
+        else if(data < '2017-02-01' and data >= '2016-07-01')
+           @crianca.grupo_id = 2
+           else if(data < '2016-07-01' and data >= '2016-01-01')
+                  @crianca.grupo_id = 4
+                  else if(data < '2016-01-01' and data >= '2015-07-01')
+                      @crianca.grupo_id = 8
+                      else if(data < '2015-07-01' and data >= '2014-07-01')
+                              @crianca.grupo_id = 5
+                            else if(data < '2014-07-01' and data >= '2013-07-01')
+                                    @crianca.grupo_id = 6
+                                  else if(data < '2013-07-01'and data >= '2012-07-01')
+                                        @crianca.grupo_id = 7
+                                       end
+                                 end
+                           end
+                      end
+                 end
+           end
+       end
+
+
+
+
+
+
+
       respond_to do |format|
       if @crianca.update_attributes(params[:crianca])
         session[:id]=@crianca.id
