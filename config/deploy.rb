@@ -4,7 +4,8 @@ set :application, "192.168.0.12"
 
 set :repository, "git://github.com/seducpma/demanda.git"
 #set :user, "servidor"
-set :user, "hera"
+#set :user, "hera"
+set :user, "servidor"
 set :use_sudo, false
 set :deploy_to, "/home/#{user}/demanda.seducpma.com"
 set :scm, :git
