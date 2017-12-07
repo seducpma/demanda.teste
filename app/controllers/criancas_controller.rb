@@ -491,6 +491,8 @@ def relatorio_geral
   @unidades12 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 ", "%"+"CR " +"%"], :order => 'nome')
   @unidades13 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 ", "%"+"FIL. " +"%"], :order => 'nome')
   @unidades14 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 ", "%"+"CONV. " +"%"], :order => 'nome')
+  @unidades15 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 ", "%"+"EMEI " +"%"], :order => 'nome')
+
 
 end
 
@@ -625,6 +627,7 @@ def impressao_geral
   @unidades12 = Unidade.find(:all, :conditions=> ["nome like?", "%"+"CR " +"%"], :order => 'nome')
   @unidades13 = Unidade.find(:all, :conditions=> ["nome like?", "%"+"FIL. " +"%"], :order => 'nome')
   @unidades14 = Unidade.find(:all, :conditions=> ["nome like?", "%"+"CONV. " +"%"], :order => 'nome')
+  @unidades15 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 ", "%"+"EMEI " +"%"], :order => 'nome')
 
       render :layout => "impressao"
 end
