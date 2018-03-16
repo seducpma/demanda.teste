@@ -30,22 +30,22 @@
                 <%end%>
                 <td align="left"><%=h crianca.nome%></td>
                 <td align="center"><%=h crianca.nascimento.strftime("%d/%m/%Y ")%></th>
-                                  <% if crianca.trabalho == 0 %>
+                                  <% if crianca.trabalho == false %>
                                       <td align="center">NÃO</td>
                                   <%else%>
                                        <td align="center">SIM</td>
                                   <%end%>
-                                  <% if crianca.servidor_publico == 0 %>
+                                  <% if crianca.servidor_publico == false %>
                                       <td align="center">NÃO</td>
                                   <%else%>
                                        <td align="center">SIM</td>
                                   <%end%>
-                                  <% if crianca.irmao == 0 %>
+                                  <% if crianca.irmao == false %>
                                       <td align="center">NÃO</td>
                                   <%else%>
                                       <td align="center">SIM</td>
                                   <%end%>
-                                  <% if crianca.transferencia == 0 %>
+                                  <% if crianca.transferencia == false %>
                                       <td align="center">NÃO</td>
                                    <%else%>
                                        <td align="center">SIM </td>

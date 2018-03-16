@@ -269,7 +269,7 @@
         
         <td colspan="2" ><font size ="3" color="blue"><b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
               Já foi oferecido alguma vagas à criança? &nbsp&nbsp&nbsp&nbsp
-               <% if @crianca.vaga == 1 %>
+               <% if @crianca.vaga true %>
                    SIM</b>  </font>
                <%else%>
                  <a href="#" class="filtro_vagasS"><%= f.radio_button :vaga, 1 %> <b> SIM </b> </a>

@@ -87,6 +87,63 @@ $(".filtro_vagasN").click(function ()
      $(".botao1").hide();
    });
 
+$(".filtro_vagasS2").click(function ()
+   {
+     $(".botao2").show();
+   });
+$(".filtro_vagasN2").click(function ()
+   {
+     $(".botao2").hide();
+   });
+
+
+$(".filtro_vagasS3").click(function ()
+   {
+     $(".botao3").show();
+   });
+$(".filtro_vagasN3").click(function ()
+   {
+     $(".botao3").hide();
+   });
+
+$(".filtro_vagasS4").click(function ()
+   {
+     $(".botao4").show();
+   });
+$(".filtro_vagasN4").click(function ()
+   {
+     $(".botao4").hide();
+   });
+
+$(".filtro_vagasS5").click(function ()
+   {
+     $(".botao5").show();
+   });
+$(".filtro_vagasN5").click(function ()
+   {
+     $(".botao5").hide();
+   });
+
+$(".filtro_vagasS6").click(function ()
+   {
+     $(".botao6").show();
+   });
+$(".filtro_vagasN6").click(function ()
+   {
+     $(".botao6").hide();
+   });
+
+$(".filtro_vagasS7").click(function ()
+   {
+     $(".botao7").show();
+   });
+$(".filtro_vagasN7").click(function ()
+   {
+     $(".botao7").hide();
+   });
+
+
+
 //
 
 //Tipo emprestimo

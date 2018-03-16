@@ -59,7 +59,7 @@
              <td align="left" width="20%"><b>Local Inscrição:</b></td>
              <td align="left" colspan="3" ><%=h @crianca.unidade.nome%></td>
              <td width="10%" ><b>Responsável: </b> </td>
-                <% if @crianca.responsavel == 0 %>
+                <% if @crianca.responsavel == false %>
                     <td  colspan="3">NÃO</td>
                 <%else%>
                     <td colspan="3">SIM - <%=h @crianca.responsavel_n%> - (<%=h @crianca.parentesco%>)</td>
@@ -67,13 +67,13 @@
             </tr>
             <tr bgcolor="#F5F5F5">
               <td> <b>Filho Servidora Pública:</b></td>
-                 <% if @crianca.servidor_publico == 0 %>
+                 <% if @crianca.servidor_publico == false %>
                     <td  colspan="3" align="left">NÃO</td>
                   <%else%>
                      <td  colspan="3" align="left">SIM - <%=h @crianca.servidor_local%></td>
                   <%end%>
                      <td><b>Mãe trabalha: </b></td>
-                  <% if @crianca.trabalho == 0 %>
+                  <% if @crianca.trabalho == false %>
                      <td colspan="3" >NÃO</td>
                   <%else%>
                      <td colspan="3">SIM - <%=h @crianca.local_trabalho%> (<%=h @crianca.fone_trabalho%>)</td>
@@ -81,13 +81,13 @@
             </tr>
             <tr bgcolor="#F5F5F5">
               <td><b>Irmão(s) matriculado(s): </b></td>
-                  <% if @crianca.irmao == 0 %>
+                  <% if @crianca.irmao == false %>
                       <td colspan="3" align="left">NÃO</td>
                   <%else%>
                       <td colspan="3" align="left">SIM - <%=h @crianca.unidade_i%></td>
                   <%end%>
                       <td><b>Transferência: </b> </td>
-                   <% if @crianca.transferencia == 0 %>
+                   <% if @crianca.transferencia == false %>
                       <td colspan="3" align="left">NÃO</td>
                    <%else%>
                        <td colspan="3" align="left">SIM - <%=h @crianca.unidade_t%></td>
@@ -117,7 +117,7 @@
             <tr bgcolor="#F5F5F5">
               <td colspan="2" ><font size ="3" color="blue"><b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     Já foi oferecido alguma vagas à criança? &nbsp&nbsp&nbsp&nbsp
-                     <% if @crianca.vaga == 1 %>
+                     <% if @crianca.vaga == true %>
                          SIM</b>  </font>
                      <%else%>
                           NÃO</b>  </font>

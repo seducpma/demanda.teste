@@ -83,7 +83,7 @@
             <table width="100%">
               <tr>
                 <td width ="30%"><b>1) Mãe trabalha: </b></td>
-                  <% if @crianca.trabalho == 0 %>
+                  <% if @crianca.trabalho == false %>
                      <td width ="70%">NÃO</td>
                   <%else%>
                      <td width ="70%">SIM &nbsp&nbsp - &nbsp&nbsp <b>Local: </b> <%=h @crianca.local_trabalho%> &nbsp&nbsp&nbsp&nbsp <b>Fone </b>(<%=h @crianca.local_trabalho%>)</td>
@@ -91,7 +91,7 @@
               </tr>
               <tr>
                 <td width ="30%"><b>2) Filho(a) de Servidora Pública: </b></td>
-                  <% if @crianca.servidor_publico == 0 %>
+                  <% if @crianca.servidor_publico == false %>
                      <td width ="70%">NÃO</td>
                   <%else%>
                      <td width ="70%">SIM &nbsp&nbsp - &nbsp&nbsp <b>Local </b> <%=h @crianca.servidor_local%> </td>
@@ -100,7 +100,7 @@
 
               <tr>
                 <td><b>3) Possui irmão(s) matriculado(s)?</b></td>
-                <% if @crianca.irmao == 0 %>
+                <% if @crianca.irmao == false %>
                      <td width ="20%">NÃO</td>
                   <%else%>
                      <td width ="20%">SIM &nbsp&nbsp - &nbsp&nbsp <b>Unidade </b> <%=h @crianca.unidade_i%> </td>
@@ -109,7 +109,7 @@
 
               <tr>
                 <td><b>4) Transferência?</b></td>
-                <% if @crianca.transferencia == 0 %>
+                <% if @crianca.transferencia == false %>
                      <td width ="20%">NÃO</td>
                   <%else%>
                      <td>SIM </td>
@@ -158,7 +158,7 @@
             <tr >
               <td colspan="2" ><font size ="3"><b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     Já foi oferecido alguma vagas à criança? &nbsp&nbsp&nbsp&nbsp
-                     <% if @crianca.vaga == 1 %>
+                     <% if @crianca.vaga == true %>
                          SIM</b>  </font>
                      <%else%>
                           NÃO</b>  </font>

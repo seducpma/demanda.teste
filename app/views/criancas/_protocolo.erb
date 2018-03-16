@@ -32,7 +32,7 @@
                   <td align="left" width="18%"><b>Local Inscrição:</b></td>
                   <td align="left" ><%= crianca.unidade.nome%></td>
                   <td width="18%" ><b>Responsável p/ criança </b> </td>
-                      <% if crianca.responsavel == 0 %>
+                      <% if crianca.responsavel == false %>
                           <td>NÃO</td>
                       <%else%>
                           <td>SIM - <%=  crianca.responsavel_n%> - (<%=  crianca.parentesco%>)</td>
@@ -40,13 +40,13 @@
                 </tr>
                 <tr style="font-size:10px">
                     <td> <b>Filho Servidora Pública:</b></td>
-                       <% if crianca.servidor_publico == 0 %>
+                       <% if crianca.servidor_publico == false%>
                           <td align="left">NÃO</td>
                         <%else%>
                            <td align="left">SIM - <%=  crianca.servidor_local%></td>
                         <%end%>
                            <td><b>Mãe trabalha: </b></td>
-                        <% if crianca.trabalho == 0 %>
+                        <% if crianca.trabalho == false %>
                            <td>NÃO</td>
                         <%else%>
                            <td>SIM - <%=  crianca.local_trabalho%> (<%=  crianca.fone_trabalho%>)</td>
@@ -55,13 +55,13 @@
                  <tr style="font-size:10px">
 
               <td><b>Irmão(s) matriculado(s): </b></td>
-                  <% if crianca.irmao == 0 %>
+                  <% if crianca.irmao == false %>
                       <td align="left">NÃO</td>
                   <%else%>
                       <td align="left">SIM - <%=  crianca.unidade_i%></td>
                   <%end%>
                       <td><b>Transferência: </b> </td>
-                   <% if crianca.transferencia == 0 %>
+                   <% if crianca.transferencia == false %>
                       <td align="left">NÃO</td>
                    <%else%>
                        <td align="left">SIM - <%=  crianca.unidade_t%></td>

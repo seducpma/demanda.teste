@@ -83,7 +83,7 @@
             <table width="100%" >
               <tr>
                 <td width ="33%"><b>1) Mãe trabalha: </b></td>
-                  <% if @crianca.trabalho == 0 %>
+                  <% if @crianca.trabalho == false %>
                      <td width ="20%">NÃO</td>
                   <%else%>
                      <td>SIM &nbsp&nbsp - &nbsp&nbsp <b>Local </b> <%=h @crianca.local_trabalho%> &nbsp&nbsp&nbsp&nbsp <b>Fone </b>(<%=h @crianca.local_trabalho%>)</td>
@@ -91,7 +91,7 @@
               </tr>
               <tr>
                 <td width ="33%"><b>2) Filho(a) de Servidora Pública: </b></td>
-                  <% if @crianca.servidor_publico == 0 %>
+                  <% if @crianca.servidor_publico == false %>
                      <td width ="20%">NÃO</td>
                   <%else%>
                      <td>SIM &nbsp&nbsp - &nbsp&nbsp <b>Local </b> <%=h @crianca.servidor_local%> </td>
@@ -100,7 +100,7 @@
 
               <tr>
                 <td><b>3) Possui irmão(s) matriculado(s)?</b></td>
-                <% if @crianca.irmao == 0 %>
+                <% if @crianca.irmao == false %>
                      <td width ="20%">NÃO</td>
                   <%else%>
                      <td>SIM &nbsp&nbsp - &nbsp&nbsp <b>Unidade </b> <%=h @crianca.unidade_i%> </td>
@@ -109,7 +109,7 @@
 
               <tr>
                 <td><b>4) Transferência?</b></td>
-                <% if @crianca.transferencia == 0 %>
+                <% if @crianca.transferencia == false %>
                      <td width ="20%">NÃO</td>
                   <%else%>
                      <td>SIM </td>

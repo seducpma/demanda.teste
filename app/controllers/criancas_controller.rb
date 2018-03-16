@@ -138,6 +138,8 @@ end
   $flag_btimp = 0
 
     respond_to do |format|
+
+
       if @crianca.save
         flash[:notice] = 'Criança cadastrada com sucesso.'
         format.html { redirect_to(@crianca) }
