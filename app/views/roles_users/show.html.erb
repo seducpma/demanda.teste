@@ -20,15 +20,15 @@
                <%else%>
                    <%if  (Role.find(@roles_user.role_id).name == 'supervisao') or (Role.find(@roles_user.role_id).name == 'planejamento') then%>
                       <td width="25%">RH/SEDUC.</td>
-                      <td>Acesso exclusivo - Secretaria da Educação</td>
+                      <td>Acesso de Secretaria da Educação</td>
                   <%else%>
                      <%if  Role.find(@roles_user.role_id).name == 'direcao' then%>
                        <td width="25%">Direção U.E</td>
-                       <td>Acesso exclusivo - Diretor de Unidade Escolar</td>
+                       <td>Acesso de Diretor de Unidade Escolar</td>
                      <%else%>
                            <%if  Role.find(@roles_user.role_id).name == 'secretaria' then%>
                              <td width="25%">Secretaria U.E.</td>
-                             <td>Acesso exclusivo - Funcinário de Unidade Escolar</td>
+                             <td>Acesso de Funcionário de Unidade Escolar</td>
                            <%else%>
                                <td width="25%">Usuário</td>
                                <td>Sem acesso ao sistema.</td>

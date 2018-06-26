@@ -16286,3 +16286,1709 @@ Rendering criancas/impressao_class_classe
   [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `grupos` WHERE (`grupos`.`id` = 1) [0m
   [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `grupos` WHERE (`grupos`.`id` = 1) [0m
 Completed in 760ms (View: 37, DB: 135) | 200 OK [http://localhost/criancas/impressao_class_classe]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2018-06-26 15:32:35) [GET]
+Redirected to http://localhost:3000/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2018-06-26 15:32:35) [GET]
+Rendering template within layouts/login
+Rendering sessions/new
+Completed in 25ms (View: 23, DB: 0) | 200 OK [http://localhost/session/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2018-06-26 15:32:41) [POST]
+  Parameters: {"password"=>"musand12", "login"=>"ngarcia", "commit"=>"Entrar", "authenticity_token"=>"LVJj2oYfvXy22eBSj73e9P2niB/mGlkKBYtFbupGBcs="}
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM `users` WHERE (login = 'ngarcia' and activated_at IS NOT NULL) LIMIT 1[0m
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/login
+Rendering sessions/erro
+Completed in 75ms (View: 7, DB: 2) | 200 OK [http://localhost/session]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2018-06-26 15:32:43) [GET]
+Rendering template within layouts/login
+Rendering sessions/new
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://localhost/session/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2018-06-26 15:32:53) [POST]
+  Parameters: {"password"=>"mus@and2", "login"=>"ngarcia", "commit"=>"Entrar", "authenticity_token"=>"LVJj2oYfvXy22eBSj73e9P2niB/mGlkKBYtFbupGBcs="}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (login = 'ngarcia' and activated_at IS NOT NULL) LIMIT 1[0m
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Redirected to http://localhost:3000/
+Completed in 13ms (DB: 2) | 302 Found [http://localhost/session]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2018-06-26 15:32:53) [GET]
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;36;1mInformativo Load (0.6ms)[0m   [0;1mSELECT * FROM `informativos` WHERE (starts_at <= '2018-06-26 18:32:53' AND ends_at >= '2018-06-26 18:32:53') [0m
+  [4;35;1mroles_users Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `roles_users`[0m
+  [4;36;1mRole Load (1.0ms)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE (`roles_users`.user_id = 2 ) [0m
+  [4;35;1mRole Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mUnidade Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `unidades`[0m
+  [4;35;1mUnidade Load (0.4ms)[0m   [0mSELECT * FROM `unidades` WHERE (`unidades`.`id` = 41) [0m
+Completed in 140ms (View: 117, DB: 8) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2018-06-26 15:33:27) [GET]
+  [4;36;1mUser Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;36;1mInformativo Load (0.5ms)[0m   [0;1mSELECT * FROM `informativos` WHERE (starts_at <= '2018-06-26 18:33:27' AND ends_at >= '2018-06-26 18:33:27') [0m
+  [4;35;1mroles_users Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `roles_users`[0m
+  [4;36;1mRole Load (1.0ms)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE (`roles_users`.user_id = 2 ) [0m
+  [4;35;1mRole Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+Completed in 35ms (View: 17, DB: 5) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UnidadesController#new (for 127.0.0.1 at 2018-06-26 15:33:37) [GET]
+  [4;36;1mUnidade Load (0.8ms)[0m   [0;1mSELECT * FROM `unidades` ORDER BY nome ASC[0m
+  [4;35;1mUnidade Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `unidades`[0m
+Rendering template within layouts/application
+Rendering unidades/new
+Rendered unidades/_form (5.2ms)
+  [4;36;1mInformativo Load (0.5ms)[0m   [0;1mSELECT * FROM `informativos` WHERE (starts_at <= '2018-06-26 18:33:37' AND ends_at >= '2018-06-26 18:33:37') [0m
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [4;35;1mroles_users Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `roles_users`[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE (`roles_users`.user_id = 2 ) [0m
+  [4;35;1mRole Columns (0.3ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+Completed in 107ms (View: 97, DB: 4) | 200 OK [http://localhost/unidades/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RolesUsersController#index (for 127.0.0.1 at 2018-06-26 15:33:43) [GET]
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT login,id FROM users where id in (select user_id from roles_users where role_id = 6)[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` [0m
+  [4;36;1mRolesUser Load (0.4ms)[0m   [0;1mSELECT * FROM `roles_users` [0m
+  [4;35;1mRolesUser Load (0.9ms)[0m   [0mSELECT `roles_users`.* FROM `roles_users` INNER JOIN `users` ON `users`.id = `roles_users`.user_id ORDER BY login ASC[0m
+Rendering template within layouts/application
+Rendering roles_users/index
+  [4;36;1mRolesUser Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `roles_users`[0m
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 134) [0m
+  [4;35;1mRole Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [4;36;1mroles_users Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `roles_users`[0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT * FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE (`roles_users`.user_id = 2 ) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 1) [0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 79) [0m
+  [4;35;1mRole Load (0.6ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 31) [0m
+  [4;36;1mRole Load (0.7ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 53) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 141) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 52) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 77) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 128) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 116) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 18) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 124) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 90) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 86) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 82) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 19) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 119) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 126) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 106) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 51) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 105) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 8) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 10) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 127) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 99) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 111) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 80) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 110) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 78) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 30) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 123) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 14) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 120) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 64) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 1) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 39) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 107) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 9) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (9.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 104) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 121) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 87) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 11) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 63) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 69) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 115) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 13) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 16) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 89) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 108) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 44) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 28) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 96) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 136) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 101) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 95) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 98) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 38) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 97) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 93) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 43) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 46) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 62) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 58) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 83) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 85) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 57) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 103) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 1) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 92) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 17) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 133) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 26) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 27) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 34) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 37) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 76) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 45) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 59) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 84) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 132) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 109) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 88) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 47) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 129) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 70) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 112) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 1) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 42) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 118) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 54) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 131) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 73) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 125) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 1) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 75) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 55) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 56) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 130) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 114) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 100) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 1) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 40) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 122) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 137) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 68) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 65) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 140) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 139) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 117) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 94) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 67) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 113) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 24) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (10.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 135) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 72) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 91) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 142) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 61) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 60) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 23) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 138) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 71) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 102) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 81) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+Rendered roles_users/_usuarios (505.4ms)
+  [4;36;1mInformativo Load (0.4ms)[0m   [0;1mSELECT * FROM `informativos` WHERE (starts_at <= '2018-06-26 18:33:43' AND ends_at >= '2018-06-26 18:33:43') [0m
+Completed in 616ms (View: 453, DB: 79) | 200 OK [http://localhost/roles_users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RolesUsersController#index (for 127.0.0.1 at 2018-06-26 15:35:27) [GET]
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT login,id FROM users where id in (select user_id from roles_users where role_id = 6)[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT * FROM `roles` [0m
+  [4;35;1mRolesUser Load (0.2ms)[0m   [0mSELECT * FROM `roles_users` [0m
+  [4;36;1mRolesUser Load (0.2ms)[0m   [0;1mSELECT `roles_users`.* FROM `roles_users` INNER JOIN `users` ON `users`.id = `roles_users`.user_id ORDER BY login ASC[0m
+Rendering template within layouts/application
+Rendering roles_users/index
+  [4;35;1mRolesUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `roles_users`[0m
+  [4;36;1mUser Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 134) [0m
+  [4;36;1mRole Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [4;35;1mroles_users Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `roles_users`[0m
+  [4;36;1mRole Load (1.2ms)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE (`roles_users`.user_id = 2 ) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 1) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 79) [0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 31) [0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 53) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 141) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 52) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 77) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 128) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 116) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 18) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 124) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 90) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 86) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 82) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 19) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 119) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 126) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 106) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 51) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 105) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 8) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 10) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 127) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 99) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 111) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 80) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 110) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 78) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 30) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 123) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 14) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 120) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 64) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 39) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 1) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 107) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 9) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 104) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 121) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 87) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 11) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 63) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 69) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 115) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 13) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 16) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 89) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 108) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 44) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 28) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 96) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 136) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 101) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 95) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 98) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 38) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 97) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (10.9ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 93) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 43) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 46) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 62) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 58) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 83) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 85) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 57) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 103) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 92) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 17) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 133) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 26) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 27) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 34) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 37) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 76) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 45) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 59) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 84) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 132) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 109) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 88) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 47) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 129) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 70) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 112) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 4) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 1) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 42) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 118) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 54) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 131) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 73) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 125) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 75) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 55) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 56) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 130) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 114) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 100) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 40) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 122) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 137) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 68) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 65) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 140) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 139) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 117) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 94) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 67) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 113) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 1) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 24) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 135) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 72) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 91) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 142) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 6) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 61) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 60) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 23) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 138) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 71) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 102) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 81) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 5) [0m
+Rendered roles_users/_usuarios (402.7ms)
+  [4;35;1mInformativo Load (0.4ms)[0m   [0mSELECT * FROM `informativos` WHERE (starts_at <= '2018-06-26 18:35:28' AND ends_at >= '2018-06-26 18:35:28') [0m
+Completed in 504ms (View: 379, DB: 38) | 200 OK [http://localhost/roles_users]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CriancasController#new (for 127.0.0.1 at 2018-06-26 15:36:34) [GET]
+  [4;36;1mUser Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (2.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [4;36;1mUnidade Load (0.4ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8)AND (ativo = 1) and id=41) ORDER BY nome[0m
+  [4;35;1mUnidade Load (0.4ms)[0m   [0mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) AND ativo = 1) ORDER BY nome[0m
+  [4;36;1mUnidade Load (0.5ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) and (id not between 70 and 83) and (id <> 54) AND ativo = 1 ) ORDER BY nome[0m
+  [4;35;1mGrupo Load (0.4ms)[0m   [0mSELECT * FROM `grupos` ORDER BY nome[0m
+  [4;36;1mGrupo Load (0.3ms)[0m   [0;1mSELECT * FROM `grupos` WHERE (id <> 3) ORDER BY nome[0m
+  [4;35;1mRegiao Load (0.3ms)[0m   [0mSELECT * FROM `regiaos` ORDER BY nome[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8)AND (ativo = 1) and id=41) ORDER BY nome[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) AND ativo = 1) ORDER BY nome[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) and (id not between 70 and 83) and (id <> 54) AND ativo = 1 ) ORDER BY nome[0m
+  [4;35;1mCrianca Load (119.7ms)[0m   [0mSELECT * FROM `criancas` ORDER BY nome ASC[0m
+  [4;36;1mCrianca Load (12.5ms)[0m   [0;1mSELECT distinct(status) FROM `criancas` ORDER BY nome ASC[0m
+  [4;35;1mCrianca Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `criancas`[0m
+Rendering template within layouts/application
+Rendering criancas/new
+  [4;36;1mUnidade Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `unidades`[0m
+  [4;35;1mRegiao Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `regiaos`[0m
+Rendered criancas/_observacoes (3.4ms)
+Rendered criancas/_vagas (3.3ms)
+Rendered criancas/_form_observacao (4.4ms)
+Rendered criancas/_form (59.1ms)
+  [4;36;1mInformativo Load (0.5ms)[0m   [0;1mSELECT * FROM `informativos` WHERE (starts_at <= '2018-06-26 18:36:35' AND ends_at >= '2018-06-26 18:36:35') [0m
+  [4;35;1mroles_users Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `roles_users`[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE (`roles_users`.user_id = 2 ) [0m
+  [4;35;1mRole Columns (0.4ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+Completed in 889ms (View: 181, DB: 142) | 200 OK [http://localhost/criancas/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CriancasController#new (for 127.0.0.1 at 2018-06-26 15:37:13) [GET]
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [4;36;1mUnidade Load (0.2ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8)AND (ativo = 1) and id=41) ORDER BY nome[0m
+  [4;35;1mUnidade Load (0.2ms)[0m   [0mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) AND ativo = 1) ORDER BY nome[0m
+  [4;36;1mUnidade Load (0.1ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) and (id not between 70 and 83) and (id <> 54) AND ativo = 1 ) ORDER BY nome[0m
+  [4;35;1mGrupo Load (0.2ms)[0m   [0mSELECT * FROM `grupos` ORDER BY nome[0m
+  [4;36;1mGrupo Load (0.1ms)[0m   [0;1mSELECT * FROM `grupos` WHERE (id <> 3) ORDER BY nome[0m
+  [4;35;1mRegiao Load (0.1ms)[0m   [0mSELECT * FROM `regiaos` ORDER BY nome[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8)AND (ativo = 1) and id=41) ORDER BY nome[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) AND ativo = 1) ORDER BY nome[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) and (id not between 70 and 83) and (id <> 54) AND ativo = 1 ) ORDER BY nome[0m
+  [4;35;1mCrianca Load (117.4ms)[0m   [0mSELECT * FROM `criancas` ORDER BY nome ASC[0m
+  [4;36;1mCrianca Load (0.3ms)[0m   [0;1mSELECT distinct(status) FROM `criancas` ORDER BY nome ASC[0m
+  [4;35;1mCrianca Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `criancas`[0m
+Rendering template within layouts/application
+Rendering criancas/new
+  [4;36;1mUnidade Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `unidades`[0m
+  [4;35;1mRegiao Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `regiaos`[0m
+Rendered criancas/_observacoes (2.8ms)
+Rendered criancas/_vagas (2.4ms)
+Rendered criancas/_form_observacao (2.6ms)
+Rendered criancas/_form (58.8ms)
+  [4;36;1mInformativo Load (0.6ms)[0m   [0;1mSELECT * FROM `informativos` WHERE (starts_at <= '2018-06-26 18:37:14' AND ends_at >= '2018-06-26 18:37:14') [0m
+  [4;35;1mroles_users Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `roles_users`[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE (`roles_users`.user_id = 2 ) [0m
+  [4;35;1mRole Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+Completed in 975ms (View: 72, DB: 128) | 200 OK [http://localhost/criancas/new]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CriancasController#new (for 127.0.0.1 at 2018-06-26 15:38:03) [GET]
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [4;36;1mUnidade Load (0.1ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8)AND (ativo = 1) and id=41) ORDER BY nome[0m
+  [4;35;1mUnidade Load (0.1ms)[0m   [0mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) AND ativo = 1) ORDER BY nome[0m
+  [4;36;1mUnidade Load (0.1ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) and (id not between 70 and 83) and (id <> 54) AND ativo = 1 ) ORDER BY nome[0m
+  [4;35;1mGrupo Load (0.1ms)[0m   [0mSELECT * FROM `grupos` ORDER BY nome[0m
+  [4;36;1mGrupo Load (0.1ms)[0m   [0;1mSELECT * FROM `grupos` WHERE (id <> 3) ORDER BY nome[0m
+  [4;35;1mRegiao Load (0.2ms)[0m   [0mSELECT * FROM `regiaos` ORDER BY nome[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8)AND (ativo = 1) and id=41) ORDER BY nome[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) AND ativo = 1) ORDER BY nome[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) and (id not between 70 and 83) and (id <> 54) AND ativo = 1 ) ORDER BY nome[0m
+  [4;35;1mCrianca Load (137.9ms)[0m   [0mSELECT * FROM `criancas` ORDER BY nome ASC[0m
+  [4;36;1mCrianca Load (0.2ms)[0m   [0;1mSELECT distinct(status) FROM `criancas` ORDER BY nome ASC[0m
+  [4;35;1mCrianca Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `criancas`[0m
+Rendering template within layouts/application
+Rendering criancas/new
+  [4;36;1mUnidade Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `unidades`[0m
+  [4;35;1mRegiao Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `regiaos`[0m
+Rendered criancas/_observacoes (2.5ms)
+Rendered criancas/_vagas (2.2ms)
+Rendered criancas/_form_observacao (2.8ms)
+Rendered criancas/_form (56.0ms)
+  [4;36;1mInformativo Load (0.4ms)[0m   [0;1mSELECT * FROM `informativos` WHERE (starts_at <= '2018-06-26 18:38:04' AND ends_at >= '2018-06-26 18:38:04') [0m
+  [4;35;1mroles_users Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `roles_users`[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE (`roles_users`.user_id = 2 ) [0m
+  [4;35;1mRole Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+Completed in 1436ms (View: 235, DB: 145) | 200 OK [http://localhost/criancas/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CriancasController#new (for 127.0.0.1 at 2018-06-26 15:38:37) [GET]
+  [4;36;1mUser Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [4;36;1mUnidade Load (0.2ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8)AND (ativo = 1) and id=41) ORDER BY nome[0m
+  [4;35;1mUnidade Load (0.1ms)[0m   [0mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) AND ativo = 1) ORDER BY nome[0m
+  [4;36;1mUnidade Load (0.1ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) and (id not between 70 and 83) and (id <> 54) AND ativo = 1 ) ORDER BY nome[0m
+  [4;35;1mGrupo Load (0.2ms)[0m   [0mSELECT * FROM `grupos` ORDER BY nome[0m
+  [4;36;1mGrupo Load (0.0ms)[0m   [0;1mSELECT * FROM `grupos` WHERE (id <> 3) ORDER BY nome[0m
+  [4;35;1mRegiao Load (0.2ms)[0m   [0mSELECT * FROM `regiaos` ORDER BY nome[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8)AND (ativo = 1) and id=41) ORDER BY nome[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) AND ativo = 1) ORDER BY nome[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) and (id not between 70 and 83) and (id <> 54) AND ativo = 1 ) ORDER BY nome[0m
+  [4;35;1mCrianca Load (121.0ms)[0m   [0mSELECT * FROM `criancas` ORDER BY nome ASC[0m
+  [4;36;1mCrianca Load (0.2ms)[0m   [0;1mSELECT distinct(status) FROM `criancas` ORDER BY nome ASC[0m
+  [4;35;1mCrianca Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `criancas`[0m
+Rendering template within layouts/application
+Rendering criancas/new
+  [4;36;1mUnidade Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `unidades`[0m
+  [4;35;1mRegiao Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `regiaos`[0m
+Rendered criancas/_observacoes (3.4ms)
+Rendered criancas/_vagas (2.4ms)
+Rendered criancas/_form_observacao (2.7ms)
+Rendered criancas/_form (46.4ms)
+  [4;36;1mInformativo Load (0.4ms)[0m   [0;1mSELECT * FROM `informativos` WHERE (starts_at <= '2018-06-26 18:38:38' AND ends_at >= '2018-06-26 18:38:38') [0m
+  [4;35;1mroles_users Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `roles_users`[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE (`roles_users`.user_id = 2 ) [0m
+  [4;35;1mRole Columns (0.4ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+Completed in 1163ms (View: 221, DB: 127) | 200 OK [http://localhost/criancas/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CriancasController#new (for 127.0.0.1 at 2018-06-26 15:38:45) [GET]
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [4;36;1mUnidade Load (0.2ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8)AND (ativo = 1) and id=41) ORDER BY nome[0m
+  [4;35;1mUnidade Load (0.1ms)[0m   [0mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) AND ativo = 1) ORDER BY nome[0m
+  [4;36;1mUnidade Load (0.1ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) and (id not between 70 and 83) and (id <> 54) AND ativo = 1 ) ORDER BY nome[0m
+  [4;35;1mGrupo Load (0.1ms)[0m   [0mSELECT * FROM `grupos` ORDER BY nome[0m
+  [4;36;1mGrupo Load (0.0ms)[0m   [0;1mSELECT * FROM `grupos` WHERE (id <> 3) ORDER BY nome[0m
+  [4;35;1mRegiao Load (0.1ms)[0m   [0mSELECT * FROM `regiaos` ORDER BY nome[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8)AND (ativo = 1) and id=41) ORDER BY nome[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) AND ativo = 1) ORDER BY nome[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) and (id not between 70 and 83) and (id <> 54) AND ativo = 1 ) ORDER BY nome[0m
+  [4;35;1mCrianca Load (124.5ms)[0m   [0mSELECT * FROM `criancas` ORDER BY nome ASC[0m
+  [4;36;1mCrianca Load (0.2ms)[0m   [0;1mSELECT distinct(status) FROM `criancas` ORDER BY nome ASC[0m
+  [4;35;1mCrianca Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `criancas`[0m
+Rendering template within layouts/application
+Rendering criancas/new
+  [4;36;1mUnidade Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `unidades`[0m
+  [4;35;1mRegiao Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `regiaos`[0m
+Rendered criancas/_observacoes (2.5ms)
+Rendered criancas/_vagas (2.2ms)
+Rendered criancas/_form_observacao (2.6ms)
+Rendered criancas/_form (42.7ms)
+  [4;36;1mInformativo Load (0.3ms)[0m   [0;1mSELECT * FROM `informativos` WHERE (starts_at <= '2018-06-26 18:38:46' AND ends_at >= '2018-06-26 18:38:46') [0m
+  [4;35;1mroles_users Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `roles_users`[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE (`roles_users`.user_id = 2 ) [0m
+  [4;35;1mRole Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+Completed in 1178ms (View: 54, DB: 130) | 200 OK [http://localhost/criancas/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2018-06-26 15:38:56) [GET]
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;36;1mInformativo Load (0.4ms)[0m   [0;1mSELECT * FROM `informativos` WHERE (starts_at <= '2018-06-26 18:38:56' AND ends_at >= '2018-06-26 18:38:56') [0m
+  [4;35;1mroles_users Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `roles_users`[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE (`roles_users`.user_id = 2 ) [0m
+  [4;35;1mRole Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+Completed in 32ms (View: 19, DB: 3) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CriancasController#new (for 127.0.0.1 at 2018-06-26 15:39:00) [GET]
+  [4;36;1mUser Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [4;36;1mUnidade Load (0.2ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8)AND (ativo = 1) and id=41) ORDER BY nome[0m
+  [4;35;1mUnidade Load (0.1ms)[0m   [0mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) AND ativo = 1) ORDER BY nome[0m
+  [4;36;1mUnidade Load (0.0ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) and (id not between 70 and 83) and (id <> 54) AND ativo = 1 ) ORDER BY nome[0m
+  [4;35;1mGrupo Load (0.1ms)[0m   [0mSELECT * FROM `grupos` ORDER BY nome[0m
+  [4;36;1mGrupo Load (0.1ms)[0m   [0;1mSELECT * FROM `grupos` WHERE (id <> 3) ORDER BY nome[0m
+  [4;35;1mRegiao Load (0.1ms)[0m   [0mSELECT * FROM `regiaos` ORDER BY nome[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8)AND (ativo = 1) and id=41) ORDER BY nome[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) AND ativo = 1) ORDER BY nome[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `unidades` WHERE ((tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) and (id not between 70 and 83) and (id <> 54) AND ativo = 1 ) ORDER BY nome[0m
+  [4;35;1mCrianca Load (122.2ms)[0m   [0mSELECT * FROM `criancas` ORDER BY nome ASC[0m
+  [4;36;1mCrianca Load (0.2ms)[0m   [0;1mSELECT distinct(status) FROM `criancas` ORDER BY nome ASC[0m
+  [4;35;1mCrianca Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `criancas`[0m
+Rendering template within layouts/application
+Rendering criancas/new
+  [4;36;1mUnidade Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `unidades`[0m
+  [4;35;1mRegiao Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `regiaos`[0m
+Rendered criancas/_observacoes (3.0ms)
+Rendered criancas/_vagas (2.2ms)
+Rendered criancas/_form_observacao (2.6ms)
+Rendered criancas/_form (45.3ms)
+  [4;36;1mInformativo Load (0.4ms)[0m   [0;1mSELECT * FROM `informativos` WHERE (starts_at <= '2018-06-26 18:39:01' AND ends_at >= '2018-06-26 18:39:01') [0m
+  [4;35;1mroles_users Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `roles_users`[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE (`roles_users`.user_id = 2 ) [0m
+  [4;35;1mRole Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+Completed in 794ms (View: 57, DB: 128) | 200 OK [http://localhost/criancas/new]

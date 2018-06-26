@@ -98,9 +98,9 @@
             <table width="100%">
                <tr>
                  <td colspan="2"><b>1) Mãe trabalha?</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                      <a  class="filtro_vagasS4"><%= f.radio_button :trabalho, true, :checked => true %></a>
+                      <a  class="filtro_vagasS4"><%= f.radio_button :trabalho, true %></a>
                       <%= f.label :trabalho, "SIM", :value => "SIM" %>
-                      <a  class="filtro_vagasN4"><%= f.radio_button :trabalho, false%></a>
+                      <a  class="filtro_vagasN4"><%= f.radio_button :trabalho, false, :checked => true%></a>
                       <%= f.label :trabalho, "NÃO", :value => "NÃO" %>
                   </td>
                     <td colspan="3" class="botao4">
@@ -110,9 +110,9 @@
               </tr>
                <tr>
                    <td colspan="2"><b>2) Filho(a) de Servidora Pública</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        <a  class="filtro_vagasS5"><%= f.radio_button :servidor_publico, true, :checked => true %></a>
+                        <a  class="filtro_vagasS5"><%= f.radio_button :servidor_publico, true%></a>
                         <%= f.label :servidor_publico, "SIM", :value => "SIM" %>
-                        <a  class="filtro_vagasN5"><%= f.radio_button :servidor_publico, false%></a>
+                        <a  class="filtro_vagasN5"><%= f.radio_button :servidor_publico, false, :checked => true %></a>
                         <%= f.label :servidor_publico, "NÃO", :value => "NÃO" %>
                     </td>
                     <td colspan="3" class="botao5">
@@ -121,9 +121,9 @@
               </tr>
                <tr>
                    <td colspan="2"><b>3) Possui irmão(s) matriculado(s)?</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        <a  class="filtro_vagasS6"><%= f.radio_button :irmao, true, :checked => true %></a>
+                        <a  class="filtro_vagasS6"><%= f.radio_button :irmao, true %></a>
                         <%= f.label :irmao, "SIM", :value => "SIM" %>
-                        <a  class="filtro_vagasN6"><%= f.radio_button :irmao, false%></a>
+                        <a  class="filtro_vagasN6"><%= f.radio_button :irmao, false, :checked => true%></a>
                         <%= f.label :irmao, "NÃO", :value => "NÃO" %>
                     </td>
                     <td colspan="3" class="botao6">
@@ -132,9 +132,9 @@
               </tr>
                <tr>
                    <td colspan="2"><b>4) Transferência?</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        <a  class="filtro_vagasS7"><%= f.radio_button :transferencia, true, :checked => true %></a>
+                        <a  class="filtro_vagasS7"><%= f.radio_button :transferencia, true %></a>
                         <%= f.label :transferencia, "SIM", :value => "SIM" %>
-                        <a  class="filtro_vagasN7"><%= f.radio_button :transferencia, false%></a>
+                        <a  class="filtro_vagasN7"><%= f.radio_button :transferencia, false, :checked => true%></a>
                         <%= f.label :transferencia, "NÃO", :value => "NÃO" %>
                     </td>
                     <td colspan="3" class="botao7">
