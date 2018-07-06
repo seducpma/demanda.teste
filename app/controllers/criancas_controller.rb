@@ -162,7 +162,9 @@ end
   # PUT /criancas/1
   # PUT /criancas/1.xml
   def update
-    @crianca = Crianca.find(params[:id])
+
+     #ALTERAR TAMBÈM AS DATAS NO CRIANCAS def aletraçoes controller  def alterar classes
+     @crianca = Crianca.find(params[:id])
 
     hoje = Date.today.to_s
     final = '2012-07-01'
