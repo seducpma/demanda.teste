@@ -112,9 +112,9 @@ end
 
 
     if (hoje > data)  and (data >= final)
-       if  (data <= Date.today.to_s and data >= '2017-06-01')
+       if  (data <= Date.today.to_s and data >= '2017-02-01')
        @crianca.grupo_id = 1
-        else if(data < '2017-06-01' and data >= '2016-07-01')
+        else if(data < '2017-02-01' and data >= '2016-07-01')
            @crianca.grupo_id = 2
            else if(data < '2016-07-01' and data >= '2016-01-01')
                   @crianca.grupo_id = 4
@@ -162,16 +162,14 @@ end
   # PUT /criancas/1
   # PUT /criancas/1.xml
   def update
-
-     #ALTERAR TAMBÈM AS DATAS NO CRIANCAS def aletraçoes controller  def alterar classes
-     @crianca = Crianca.find(params[:id])
+    @crianca = Crianca.find(params[:id])
 
     hoje = Date.today.to_s
     final = '2012-07-01'
     data=@crianca.nascimento.strftime("%Y-%m-%d")
-if  (data <= Date.today.to_s and data >= '2017-06-01')
+if  (data <= Date.today.to_s and data >= '2017-02-01')
        @crianca.grupo_id = 1
-        else if(data < '2017-06-01' and data >= '2016-07-01')
+        else if(data < '2017-02-01' and data >= '2016-07-01')
            @crianca.grupo_id = 2
            else if(data < '2016-07-01' and data >= '2016-01-01')
                   @crianca.grupo_id = 4
