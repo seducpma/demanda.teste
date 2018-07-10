@@ -14,14 +14,14 @@ class AlteracaosController < ApplicationController
   
   def alterar_classe
 
-# ALTERAR TAMBÈM AS DATAS NO CRIANCAS def create e no def uppdate
+# ALTERAR TAMBÈM AS DATAS NO CRIANCAS def create e no def uppdate   CRIANÇAS.RD
     $nregistros = 0
     @criancas_alteracao = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA'" ])
     for crianca in @criancas_alteracao
       anterior = crianca.grupo_id
-       if (crianca.nascimento < '2019-01-01'.to_date and crianca.nascimento >= '2017-02-01'.to_date)
+       if (crianca.nascimento < Date.today.to_date and crianca.nascimento >= '2017-07-01'.to_date)
            crianca.grupo_id = 1
-       else if(crianca.nascimento < '2017-02-01'.to_date and crianca.nascimento >= '2016-07-01'.to_date)
+       else if(crianca.nascimento < '2017-07-01'.to_date and crianca.nascimento >= '2016-07-01'.to_date)
                crianca.grupo_id = 2
             else if(crianca.nascimento < '2016-07-01'.to_date and crianca.nascimento >= '2016-01-01'.to_date)
                    crianca.grupo_id = 4
