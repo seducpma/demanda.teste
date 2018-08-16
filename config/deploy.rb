@@ -1,11 +1,10 @@
 #set :application, "192.168.0.12"
 #set :application, "192.168.0.21"
-set :application, "177.36.159.102" #170.81.237.114 - Servidor oficial (hera)  # 177.36.159.102 - Servidor Teste Alvaro/Alexandre
+set :application, "170.81.237.114" #170.81.237.114 - Servidor oficial (hera)  # 177.36.159.102 - Servidor Teste Alvaro/Alexandre
 #set :application, "170.81.237.114"
 
 set :repository, "git://github.com/seducpma/demanda.git"
-set :user, "hera"
-#set :user, "servidor"
+set :user, "servidor"
 set :use_sudo, false
 set :deploy_to, "/home/#{user}/demanda.seducpma.com"
 set :scm, :git
