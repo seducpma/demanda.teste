@@ -112,19 +112,19 @@ end
 
 
     if (hoje > data)  and (data >= final)
-       if  (data <= Date.today.to_s and data >= '2017-07-01')
+       if  (data <= Date.today.to_s and data >= DATAB1)
        @crianca.grupo_id = 1
-        else if(data < '2017-07-01' and data >= '2016-07-01')
+        else if(data < DATAB1 and data >= DATAB2)
            @crianca.grupo_id = 2
-           else if(data < '2016-07-01' and data >= '2016-01-01')
+           else if(data < DATAB2 and data >= DATAM1A)
                   @crianca.grupo_id = 4
-                  else if(data < '2016-01-01' and data >= '2015-07-01')
+                  else if(data < DATAM1A and data >= DATAM1B)
                       @crianca.grupo_id = 8
-                      else if(data < '2015-07-01' and data >= '2014-07-01')
+                      else if(data < DATAM1B and data >= DATAM2)
                               @crianca.grupo_id = 5
-                            else if(data < '2014-07-01' and data >= '2013-07-01')
+                            else if(data < DATAM2 and data >= DATAN1)
                                     @crianca.grupo_id = 6
-                                  else if(data < '2013-07-01'and data >= '2012-07-01')
+                                  else if(data < DATAN1 and data >= DATAN2)
                                         @crianca.grupo_id = 7
                                        end
                                  end
@@ -167,19 +167,19 @@ end
     hoje = Date.today.to_s
     final = '2012-07-01'
     data=@crianca.nascimento.strftime("%Y-%m-%d")
-if  (data <= Date.today.to_s and data >= '2017-07-01')
+if  (data <= Date.today.to_s and data >= DATAB1)
        @crianca.grupo_id = 1
-        else if(data < '2017-07-01' and data >= '2016-07-01')
+        else if(data < DATAB1 and data >= DATAB2)
            @crianca.grupo_id = 2
-           else if(data < '2016-07-01' and data >= '2016-01-01')
+           else if(data < DATAB2 and data >= DATAM1A)
                   @crianca.grupo_id = 4
-                  else if(data < '2016-01-01' and data >= '2015-07-01')
+                  else if(data < DATAM1A and data >= DATAM1B)
                       @crianca.grupo_id = 8
-                      else if(data < '2015-07-01' and data >= '2014-07-01')
+                      else if(data < DATAM1B and data >= DATAM2)
                               @crianca.grupo_id = 5
-                            else if(data < '2014-07-01' and data >= '2013-07-01')
+                            else if(data < DATAM2 and data >= DATAN1)
                                     @crianca.grupo_id = 6
-                                  else if(data < '2013-07-01'and data >= '2012-07-01')
+                                  else if(data < DATAN1 and data >= DATAN2)
                                         @crianca.grupo_id = 7
                                        end
                                  end
@@ -691,64 +691,57 @@ end
  #end
 
 
-def reclassifica_crianca
-    @criancas = Crianca.find(:all)
-    t=0
-    for crianca in @criancas
-        data= (crianca.nascimento).to_s
-        hoje = Date.today.to_s
-        # Alterei a data abaixo de 2012-07-01 para 2011-07-01 ###Alex 03-07-2017 10:20
-        final = '2011-07-01'
-              if (hoje > data)  and (data >= final)
-                # Alterei a data abaixo de 2015-02-01 para 2016-07-01 ###Alex 03-07-2017 10:20
-                if  (data <= Date.today.to_s and data >= '2016-07-01')
-                     crianca.grupo_id = 1
-                # Alterei a data abaixo de 2015-01-31 para 2016-06-30 ###Alex 03-07-2017 10:20
-                # Alterei a data abaixo de 2014-07-01 para 2015-07-01 ###Alex 03-07-2017 10:20
-                else if(data <= '2016-06-30' and data >= '2015-07-01')
-                     crianca.grupo_id = 2
-                     # Alterei a data abaixo de 2013-12-31 para 2015-06-30 ###Alex 03-07-2017 10:20
-                     # Alterei a data abaixo de 2013-07-01 para 2015-01-01 ###Alex 03-07-2017 10:20
-                     else if(data <= '2015-06-30' and data >= '2015-01-01')
-                            crianca.grupo_id = 4
-                          # Alterei a data abaixo de 2014-06-30 para 2014-12-31 ###Alex 03-07-2017 10:20
-                          # Alterei a data abaixo de 2014-01-01 para 2014-07-01 ###Alex 03-07-2017 10:20
-                          else if (data <= '2014-12-31' and data >= '2014-07-01')
-                                  crianca.grupo_id = 8
-                                # Alterei a data abaixo de 2013-06-30 para 2014-06-30 ###Alex 03-07-2017 10:20
-                                # Alterei a data abaixo de 2012-07-01 para 2013-07-01 ###Alex 03-07-2017 10:20
-                                else if (data <= '2014-06-30' and data >= '2013-07-01')
-                                        crianca.grupo_id = 5
-                                      # Alterei a data abaixo de 2012-06-30 para 2013-06-30 ###Alex 03-07-2017 10:20
-                                      # Alterei a data abaixo de 2011-07-01 para 2012-07-01 ###Alex 03-07-2017 10:20
-                                      else if (data <= '2013-06-30' and data >= '2012-07-01')
-                                            crianca.grupo_id = 6
-                                                # Alterei a data abaixo de 2011-06-30 para 2012-06-30 ###Alex 03-07-2017 10:50
-                                                # Alterei a data abaixo de 2010-07-01 para 2011-07-01 ###Alex 03-07-2017 10:50
-                                                else if(data <= '2012-06-30'and data >= '2011-07-01')
-                                                      crianca.grupo_id = 7
-                                                    end
-                                            end
-                                      end
-                                end
-                          end
-                     end
-                 end
-           end
-      @crianca.update_attributes(params[:crianca])
-    end
-   if @criancas.update_attributes(params[:crianca])
-
-   end
-   t=0
-end
+#def reclassifica_crianca
+#    @criancas = Crianca.find(:all)
+#    t=0
+#    for crianca in @criancas
+#        data= (crianca.nascimento).to_s
+#        hoje = Date.today.to_s
+#        # Alterei a data abaixo de 2012-07-01 para 2011-07-01 ###Alex 03-07-2017 10:20
+#        final = '2011-07-01'
+#              if (hoje > data)  and (data >= final)
+#                # Alterei a data abaixo de 2015-02-01 para 2016-07-01 ###Alex 03-07-2017 10:20
+#                if  (data <= Date.today.to_s and data >= '2016-07-01')
+#                     crianca.grupo_id = 1
+#                # Alterei a data abaixo de 2015-01-31 para 2016-06-30 ###Alex 03-07-2017 10:20
+#                # Alterei a data abaixo de 2014-07-01 para 2015-07-01 ###Alex 03-07-2017 10:20
+#                else if(data <= '2016-06-30' and data >= '2015-07-01')
+#                     crianca.grupo_id = 2
+#                     # Alterei a data abaixo de 2013-12-31 para 2015-06-30 ###Alex 03-07-2017 10:20
+#                     # Alterei a data abaixo de 2013-07-01 para 2015-01-01 ###Alex 03-07-2017 10:20
+#                     else if(data <= '2015-06-30' and data >= '2015-01-01')
+#                            crianca.grupo_id = 4
+#                          # Alterei a data abaixo de 2014-06-30 para 2014-12-31 ###Alex 03-07-2017 10:20
+#                          # Alterei a data abaixo de 2014-01-01 para 2014-07-01 ###Alex 03-07-2017 10:20
+#                          else if (data <= '2014-12-31' and data >= '2014-07-01')
+#                                  crianca.grupo_id = 8
+#                                # Alterei a data abaixo de 2013-06-30 para 2014-06-30 ###Alex 03-07-2017 10:20
+#                                # Alterei a data abaixo de 2012-07-01 para 2013-07-01 ###Alex 03-07-2017 10:20
+#                                else if (data <= '2014-06-30' and data >= '2013-07-01')
+#                                        crianca.grupo_id = 5
+#                                      # Alterei a data abaixo de 2012-06-30 para 2013-06-30 ###Alex 03-07-2017 10:20
+#                                      # Alterei a data abaixo de 2011-07-01 para 2012-07-01 ###Alex 03-07-2017 10:20
+#                                      else if (data <= '2013-06-30' and data >= '2012-07-01')
+#                                            crianca.grupo_id = 6
+#                                                # Alterei a data abaixo de 2011-06-30 para 2012-06-30 ###Alex 03-07-2017 10:50
+#                                                # Alterei a data abaixo de 2010-07-01 para 2011-07-01 ###Alex 03-07-2017 10:50
+#                                                else if(data <= '2012-06-30'and data >= '2011-07-01')
+#                                                      crianca.grupo_id = 7
+#                                                    end
+#                                            end
+#                                      end
+#                                end
+#                          end
+#                     end
+#                 end
+#           end
+#      @crianca.update_attributes(params[:crianca])
+#    end
+#   if @criancas.update_attributes(params[:crianca])
+#   end
+#   t=0
+#end
     
-
-
-
-
-
-
  protected
     #Inicialização variavel / combobox grupo
 

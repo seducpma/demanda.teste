@@ -67,20 +67,20 @@ def self.na_demanda
  def opcao
     data=self.nascimento
   # Alterei a data de inicio de BI de 2016-02-01 para 2016-07-01 ###Alex 03/07/2017 10:00
-  if (self.nascimento <= Date.today.to_s and self.nascimento >= '2017-07-01'.to_date)
+  if (self.nascimento <= Date.today.to_s and self.nascimento >= DATAB1.to_date)
        self.grupo_id = 1
   # Alterei a data de inicio de BI de 2016-01-31 para 2016-06-30 ###Alex 03/07/2017 10:00
-  else if(self.nascimento <= '2017-07-01'.to_date and self.nascimento >= '2016-07-01'.to_date)
+  else if(self.nascimento <= DATAB1.to_date and self.nascimento >= DATAB2.to_date)
                 self.grupo_id = 2
-       else if (self.nascimento <= '2016-07-01'.to_date and self.nascimento >= '2016-01-01'.to_date)
+       else if (self.nascimento < DATAB2.to_date and self.nascimento >= DATAM1A.to_date)
                     self.grupo_id = 4
-            else if(self.nascimento <= '2016-01-01'.to_date and self.nascimento >= '2015-07-01'.to_date)
+            else if(self.nascimento < DATAM1A.to_date and self.nascimento >= DATAM1B.to_date)
                           self.grupo_id = 8
-                  else if(self.nascimento <= '2015-07-01'.to_date and self.nascimento >= '2014-07-01'.to_date)
+                  else if(self.nascimento < DATAM1B.to_date and self.nascimento >= DATAM2.to_date)
                               self.grupo_id = 5
-                        else if(self.nascimento <= '2014-07-01'.to_date and self.nascimento >= '2013-07-01'.to_date)
+                        else if(self.nascimento < DATAM2.to_date and self.nascimento >= DATAN1.to_date)
                                    self.grupo_id = 6
-                                 else if(self.nascimento <= '2013-07-01'.to_date and self.nascimento >= '2012-07-01'.to_date)
+                                 else if(self.nascimento < DATAN1.to_date and self.nascimento >= DATAN2.to_date)
                                           self.grupo_id = 7
                                      end
                                 end

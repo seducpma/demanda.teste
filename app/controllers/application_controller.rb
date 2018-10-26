@@ -70,3 +70,13 @@ PERIODO = { '         ' => '         ',
 OPCAO ={ 'SIM '=>'SIM',
          'NÃO'=> 'NÃO'
         }
+
+# Variáveis de data para classificação das crianças
+
+DATAB1 ='2018-01-01'
+DATAB2 ='2017-07-01'
+DATAM1A='2017-01-01'
+DATAM1B='2016-07-01'
+DATAM2 ='2015-07-01'
+DATAN1 ='2014-07-01'
+DATAN2 ='2013-07-01'
