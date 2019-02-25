@@ -1,0 +1,34 @@
+<div id="interno3">
+<% title "MATRICULAS".singularize %>
+<div class="tabs">
+ <div id="caixa_titulo">
+     <font size="3"><strong>ALTERAÇÃO SENHA</strong></font><br/>
+ </div>
+      <div class="tabs">
+        
+            
+              <table>
+                <tr colspan="2"
+                  <td ><font color ="red" size ="4"><b><u>ATENÇÃO:</u>
+
+                         <br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 1) Senha de usuário pode ser alterada para 12345678.
+                         <br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 2) O usuário pode alterara novamente a senha, para isso deve acessar utitlizando a senha acima.
+                        <br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uma vez logado no sistema, clicar no nome do usuário no canto superior esquerdo da tela
+                        <br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp e nova tela alterar a senha.
+                  </td>
+                </tr>
+
+
+            
+           <tr bgcolor="#F5F5F5" >
+              
+
+             <td width=" 2%"> <font size="2"><%= button_to 'Fechar', home_path, {:method => "get"}  %><font></td>
+             <td ><font size="2"><%= button_to 'Alterar', altera_senha_path, {:method => "get"}  %><font></td>
+          </tr>
+        </table>
+
+    </div>
+</div>
+<br/>
+</div>

@@ -10,9 +10,9 @@
         <% for role_user in @role_users %>
         <%$t1=$t1+1%>
           <tr bgcolor="	#F5F5F5">
-            <td width="25%"><%= User.find(role_user.user_id).login %></td>
+            <td width="15%"><%= User.find(role_user.user_id).login %></td>
              <%if  Role.find(role_user.role_id).name == 'admin' then%>
-                 <td width="25%">Administrador</td>
+                 <td width="15%">Administrador</td>
                  <td>Acesso total ao sistema</td>
                <%else%>
                    <%if  (Role.find(role_user.role_id).name == 'supervisao') or (Role.find(role_user.role_id).name == 'planejamento') then%>
@@ -42,6 +42,7 @@
             <%end%>
            <% if current_user.has_role?('admin') %>
                 <td align="center" ><%= button_to 'Acesso',{:action => "edit" , :id => role_user}, :method => "get", :title => "Acesso"%></td>
+                                <td align="center" ><%= button_to 'Senha',{:action => "senha" , :id => role_user}, :method => "get", :title => "Alterção Senha"%></td>
             <%else%>
                 <td align="center" > -- </td>
             <%end%>

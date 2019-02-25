@@ -153,4 +153,39 @@ class RolesUsersController < ApplicationController
     $new_role_id = params[:roles_user_role_id]
     render :text => ''
   end
+
+  def senha
+    session[:user_id]=(params[:id])
+    #@role_user = RolesUser.find(params[:id])
+    #@role_user = RolesUser.find(:last, :conditions => ['id= ?',params[:id]])
+    #user_id= @role_user.user_id
+    #@role_user = RolesUser.find_by_sql('UPDATE users SET crypted_password="476ac2c7a95155c8bac16f55f636fcdb79caf5ff", salt="cccabbe883c0f89dd238ee818af96d81334edf44", activation_code="11e7eb339adddaab87716e17dc1eb69e601db812" WHERE id = 2 ')
+    respond_to do |format|
+    #    if @role_user.update_attributes(params[:role_user])
+            
+            format.html { redirect_to(aviso_senha_path) }
+            
+        end
+     #end
+   end
+
+
+  def altera_senha
+    @user = User.find(session[:user_id])
+    @user.crypted_password='476ac2c7a95155c8bac16f55f636fcdb79caf5ff'
+    @user.salt='cccabbe883c0f89dd238ee818af96d81334edf44'
+    @user.activation_code='11e7eb339adddaab87716e17dc1eb69e601db812'
+    
+
+    respond_to do |format|
+        if @user.update_attributes(params[:role_user])
+            flash[:notice] = 'SENHA ALTERADA.'
+            format.html { redirect_to(home_path) }
+            #format.xml  { head :ok }
+        end
+     end
+
+  end
+
+
 end

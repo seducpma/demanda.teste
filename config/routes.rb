@@ -33,6 +33,8 @@ ActionController::Routing::Routes.draw do |map|
   map.altera_classe '/altera_classe', :controller => 'criancas', :action => 'altera_classe'
   map.altera_nascimento '/altera_nascimento', :controller => 'criancas', :action => 'altera_nascimento'
   map.sobre '/sobre', :controller => 'criancas', :action => 'sobre'
+  map.aviso_senha'/aviso_senha', :controller => 'roles_users', :action => 'aviso_senha'
+   map.altera_senha'/altera_senha', :controller => 'roles_users', :action => 'altera_senha'
 
   map.alterar '/alterar', :controller => 'alteracaos', :action => 'alterar'
   map.altera_status 'altera_status', :controller => 'alteracaos', :action => 'alterar_classe'
