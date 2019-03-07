@@ -24,9 +24,9 @@ class AlteracaosController < ApplicationController
        else if(crianca.nascimento < DATAB1.to_date and crianca.nascimento >= DATAB2.to_date)
                crianca.grupo_id = 2
             else if(crianca.nascimento < DATAB2.to_date and crianca.nascimento >= DATAM1A.to_date)
-                   crianca.grupo_id = 8
+                   crianca.grupo_id = 4
                  else if(crianca.nascimento < DATAM1A.to_date and crianca.nascimento >= DATAM1B.to_date)
-                         crianca.grupo_id = 4
+                         crianca.grupo_id = 8
                       else if(crianca.nascimento < DATAM1B.to_date and crianca.nascimento >= DATAM2.to_date)
                               crianca.grupo_id = 5
                            else if(crianca.nascimento < DATAM2.to_date and crianca.nascimento >= DATAN1.to_date)

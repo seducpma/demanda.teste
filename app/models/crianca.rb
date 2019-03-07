@@ -73,9 +73,9 @@ def self.na_demanda
   else if(self.nascimento <= DATAB1.to_date and self.nascimento >= DATAB2.to_date)
                 self.grupo_id = 2
        else if (self.nascimento < DATAB2.to_date and self.nascimento >= DATAM1A.to_date)
-                    self.grupo_id = 8
+                    self.grupo_id = 4
             else if(self.nascimento < DATAM1A.to_date and self.nascimento >= DATAM1B.to_date)
-                          self.grupo_id = 4
+                          self.grupo_id = 8
                   else if(self.nascimento < DATAM1B.to_date and self.nascimento >= DATAM2.to_date)
                               self.grupo_id = 5
                         else if(self.nascimento < DATAM2.to_date and self.nascimento >= DATAN1.to_date)
