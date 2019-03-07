@@ -117,9 +117,9 @@ end
         else if(data < DATAB1 and data >= DATAB2)
            @crianca.grupo_id = 2
            else if(data < DATAB2 and data >= DATAM1A)
-                  @crianca.grupo_id = 4
+                  @crianca.grupo_id = 8
                   else if(data < DATAM1A and data >= DATAM1B)
-                      @crianca.grupo_id = 8
+                      @crianca.grupo_id = 4
                       else if(data < DATAM1B and data >= DATAM2)
                               @crianca.grupo_id = 5
                             else if(data < DATAM2 and data >= DATAN1)
