@@ -74,11 +74,12 @@ class ObservacaoCriancasController < ApplicationController
   # DELETE /observacao_criancas/1
   # DELETE /observacao_criancas/1.xml
   def destroy
+
     @observacao_crianca = ObservacaoCrianca.find(params[:id])
     @observacao_crianca.destroy
 
     respond_to do |format|
-      format.html { redirect_to(observacao_criancas_url) }
+      format.html { redirect_to(home_path) }
       format.xml  { head :ok }
     end
   end
