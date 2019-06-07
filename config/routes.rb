@@ -3,11 +3,11 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :logs
   map.resources :roles_users
-  map.resources :users
+  map.resources :users, :collection => {:aviso => :get}
 
   map.resource :session
   map.resources :unidades
-  map.resources :criancas, :collection => {:impressao => :get, :consultas => :get, :impressao_class_unidade => :get, :impressao_class_classe => :get, :status => :get, :impressao_geral => :get, :impressao_maeTrabalha => :get, :status => :get, :update => :put}
+  map.resources :criancas, :collection => {:impressao => :get, :consultas => :get, :impressao_class_unidade => :get, :impressao_class_classe => :get, :status => :get, :impressao_geral => :get, :impressao_maeTrabalha => :get,  :update => :put}
   map.resources :grupos
   map.resources :regiaos
   map.resources :regiaos
