@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     @existe = User.find(:all, :conditions =>['login = ?', @user.login])
-    session[:usuario] = @existe[0].login
+    
     if @existe.empty?
             success = @user && @user.save
             if success && @user.errors.empty?
@@ -74,6 +74,7 @@ class UsersController < ApplicationController
               render :action => 'new'
             end
          else
+             session[:usuario] = @existe[0].login
                 respond_to do |format|
                     #flash[:notice] = 'CADASTRADO COM SUCESSO.'
                     format.html { redirect_to(aviso_users_path) }
