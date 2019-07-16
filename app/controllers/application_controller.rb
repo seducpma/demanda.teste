@@ -73,7 +73,7 @@ OPCAO ={ 'SIM '=>'SIM',
 
 # Variáveis de data para classificação das crianças
 
-DATAB1 ='2018-01-01'
+DATAB1 ='2018-04-01'
 DATAB2 ='2017-04-01'
 DATAM1A='2016-10-01'
 DATAM1B='2016-04-01'
