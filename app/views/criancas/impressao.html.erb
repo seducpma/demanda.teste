@@ -34,6 +34,23 @@
                <th align="left" colspan="6">  <%=h crianca.nascimento.strftime("%d/%m/%Y")%></th>
             </tr>
             <tr style="font-size:8px">
+               <th align="left" width="7%"><b>Especial:</b></th>
+                   <%if crianca.n_especial == false%>
+                        <th  align="left"width="40%">NÃO </th>
+                    <%else%>
+                         <th  align="left"width="40%">SIM</th>
+                   <%end%>
+               <th align="left" width="7%"><b>Necessidade:</b></th>
+                   <%if crianca.necessidade.empty? %>
+                        <th  align="left"width="40%"> ---- xxx ---- </th>
+                    <%else%>
+                        <th  align="left"width="40%">  <%=h crianca.necessidade%>xxx</th>
+                   <%end%>
+            </tr>
+
+
+
+            <tr style="font-size:8px">
                <th align="left"><b>Mãe:</b></th>
                <th align="left"><%=h crianca.mae %></th>
                <th align="left" width="4%"><b>Pai:</b></th>
