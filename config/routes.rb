@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :vagas,:collection => { :consultas => :get}
+
   map.resources :observacao_criancas
 
   map.resources :logs
@@ -7,7 +9,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :session
   map.resources :unidades
-  map.resources :criancas, :collection => {:impressao => :get, :consultas => :get, :impressao_class_unidade => :get, :impressao_class_classe => :get, :status => :get, :impressao_geral => :get, :impressao_maeTrabalha => :get,  :update => :put}
+  map.resources :criancas, :collection => {:impressao => :get, :consultas => :get, :impressao_class_unidade => :get, :impressao_class_classe => :get, :status => :get, :impressao_geral => :get, :recadastrar => :get,  :update => :put, :impressao_recadastramento => :get}
   map.resources :grupos
   map.resources :regiaos
   map.resources :regiaos
@@ -30,11 +32,20 @@ ActionController::Routing::Routes.draw do |map|
   map.consulta_classe '/consulta_classe', :controller => 'criancas', :action => 'consulta_classe'
   map.consulta_status '/consulta_status', :controller => 'criancas', :action => 'consulta_status'
   map.consulta_altera_status '/consulta_altera_status', :controller => 'criancas', :action => 'consulta_altera_status'
+  map.consulta_vaga '/consulta_vaga', :controller => 'vagas', :action => 'consulta_vaga'
+  map.vaga_crianca '/vaga_crianca', :controller => 'vagas', :action => 'vaga_crianca'
+  map.show_preenchimento'/show_preenchimento', :controller => 'vagas', :action => 'show_preenchimento'
+  map.preenchimento'/preenchimento', :controller => 'vagas', :action => 'preenchimento'
+  map.show_salvar'/show_salvar', :controller => 'vagas', :action => 'show_salvar'
+  map.preenche_vaga '/preenche_vaga', :controller => 'vagas', :action => 'preenche_vaga'
+  map.recadastrar_consultas '/recadastrar_consultas', :controller => 'criancas', :action => 'recadastrar_consultas'
+  #map.consultas '/consultas', :controller => 'vagas', :action => 'consultas'
   map.altera_classe '/altera_classe', :controller => 'criancas', :action => 'altera_classe'
   map.altera_nascimento '/altera_nascimento', :controller => 'criancas', :action => 'altera_nascimento'
   map.sobre '/sobre', :controller => 'criancas', :action => 'sobre'
   map.aviso_senha'/aviso_senha', :controller => 'roles_users', :action => 'aviso_senha'
-   map.altera_senha'/altera_senha', :controller => 'roles_users', :action => 'altera_senha'
+  map.altera_senha'/altera_senha', :controller => 'roles_users', :action => 'altera_senha'
+  map.show_recadastramento'/show_recadastramento', :controller => 'criancas', :action => 'show_recadastramento'
 
   map.alterar '/alterar', :controller => 'alteracaos', :action => 'alterar'
   map.altera_status 'altera_status', :controller => 'alteracaos', :action => 'alterar_classe'
@@ -44,6 +55,7 @@ ActionController::Routing::Routes.draw do |map|
   map.grafico '/grafico', :controller => 'grafico'
   map.grafico_geral '/grafico/grafico_demanda_geral', :controller => 'grafico', :action => 'grafico_demanda_geral'
   map.grafico_unidade '/grafico/grafico_demanda_unidade', :controller => 'grafico', :action => 'grafico_demanda_unidade'
+  map.grafico_regiao '/grafico/grafico_demanda_regiao', :controller => 'grafico', :action => 'grafico_demanda_regiao'
 
   map.impressao_geral '/grafico/impressao_geral', :controller => 'grafico', :action => 'impressao_geral'
 

@@ -1,0 +1,71 @@
+<div id="interno3">
+<% title "vaga", :id =>"crianças1" %>
+ <div class="tabs">
+   <div id="caixa_titulo">
+    <font size="3"><strong>CADASTRO DE VAGA DISPONÍVEL</strong></font><br/>
+   </div>
+  <div class="tabs">
+      <%@unidades =  Unidade.find(:all,  :conditions => ["(tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) AND ativo = 1" ],:order => "nome")%>
+      <%#@classe =  Classe.find(:all,  :conditions => ["classe_ano_letivo=?", Time.now.year ],:order => "unidade_id")%>
+      <%@grupo=  Grupo.find(:all,:order => "nome")%>
+      <table width="100%">
+       <tr>
+           <td>
+
+       <% form_for(@vaga) do |f| %>
+          <%= f.error_messages %>
+              <fieldset> <legend><font size=4>Vaga </font></legend>
+               <table width="100%">
+                   <tr>
+                     <td><b><%= f.label :unidade, 'Unidade:' %></b></td>
+                     <td><%= f.collection_select :unidade_id, @unidades, :id, :nome, :include_blank => '---Selecionar---' %>
+                            <%#= observe_field 'vaga_unidade_id',
+                              :url    => { :action => 'classediv' },
+                              :with   => 'vaga_unidade_id',
+                              :update => "divclasse"%>
+                     </td>
+                  </tr>
+                   <tr>
+                     <td><b><%= f.label :classe, 'Classe:' %></b></td>
+                     <td><div id="divclasse"><%= f.collection_select :grupo_id, @grupo, :id, :nome, :include_blank => '---Selecionar---' %></div>
+                          <%= observe_field 'vaga_grupo_id',
+                              :url    => { :action => 'grupodiv' },
+                              :with   => 'vaga_grupo_id',
+                              :update => "divgrupo"%>
+                         <div id="divgrupo"></div>
+                     </td>
+                  </tr>
+
+                   <tr>
+                     <td><b>Obs: </b></td>
+                     <td><%= f.text_field :obs, :size=>"38" %></td>
+                   </tr>
+                   <tr>
+                       <td colspan="2"><b>Quantidade de vagas:</b>
+                       
+                       <%=text_field_tag :quantidade, "1", :size => 1  %>
+                     </td>
+                  </tr>
+
+               </table>
+              </fieldset>
+           </td>
+       </tr>
+   
+  </table>
+   </div>
+  <table>
+    <tr>
+     <td width="4%"> <%= f.submit "Salvar" %></td>
+     <% end %>
+     <td align="left" ><%= button_to 'Fechar', home_path, {:method => "get"}  %></td>
+
+
+
+    </tr>
+  </table>
+ </div>
+
+  <br/>
+</div>
+

@@ -1,4 +1,4 @@
-<div id="interno2">
+<div id="interno5">
 <% title "CRIANÇA" %>
 <div class ="tabs">
 <font size="5"><strong>Inscrição nº<%=h "#{@crianca.id}" %> </strong></font></br>
@@ -54,6 +54,7 @@
                <td> <b>Celular:</b></td>
                <td><%=h @crianca.celular%>  </td>
             </tr>
+
             <tr bgcolor="#F5F5F5">
                <td align="left"><b>Fone (recado):</b></td>
                <td align="left" colspan="3">  <%=h @crianca.tel2%></td>
@@ -71,7 +72,10 @@
          <table width="100%">
            <tr bgcolor="#F5F5F5"  width="100%">
              <td align="left" width="20%"><b>Local Inscrição:</b></td>
-             <td align="left" colspan="3" ><%=h @crianca.unidade.nome%></td>
+             <td align="left" colspan="3" >
+                   <% if !@crianca.unidade_id.nil? %>
+                        <%=h @crianca.unidade.nome%></td>
+                   <%end%>
              <td width="10%" ><b>Responsável: </b> </td>
                 <% if @crianca.responsavel == false %>
                     <td  colspan="3">NÃO</td>
@@ -93,36 +97,21 @@
                      <td colspan="3">SIM - <%=h @crianca.local_trabalho%> (<%=h @crianca.fone_trabalho%>)</td>
                   <%end%>
             </tr>
-            <tr bgcolor="#F5F5F5">
-              <td><b>Irmão(s) matriculado(s): </b></td>
-                  <% if @crianca.irmao == false %>
-                      <td colspan="3" align="left">NÃO</td>
-                  <%else%>
-                      <td colspan="3" align="left">SIM - <%=h @crianca.unidade_i%></td>
-                  <%end%>
-                      <td><b>Transferência: </b> </td>
-                   <% if @crianca.transferencia == false %>
-                      <td colspan="3" align="left">NÃO</td>
-                   <%else%>
-                       <td colspan="3" align="left">SIM - <%=h @crianca.unidade_t%></td>
-                   <%end%>
-            </tr>
+
             <tr bgcolor="#F5F5F5"  width="100%">
               <td valign="top" align="left" width="10%"><b>Região:  <br/><br/> Classificação:</b></td>
               <td valign="top"align="left" colspan="3" ><%=h @crianca.regiao.nome%><br/><br/><%=h @crianca.grupo.nome%>
                         
               </td>
               <td valign="top"><b>Período:</b></td><td valign="top"> <%= @crianca.periodo %></td>
-              <td valign="top"><b>Opções: </b></td>
-              <td valign="top">- <%=h @crianca.opcao1%> <br/>
-                               - <%=h @crianca.opcao2%> <br/>
-                               - <%=h @crianca.opcao3%> <br/></td>
-
-            </tr>
            <tr bgcolor="#F5F5F5"  width="100%">
              <td align="left" width="18%"><b>Dia/Hora Inscrição:</b></td>
              <td  align="left" colspan="3" ><%=h @crianca.created_at.strftime("%e/%m/%Y - %H:%M horas")%></td>
-             <td><b>Status:</b></td> <td  colspan="3"><%=h @crianca.status%> - <%=h @crianca.matriculado%></td>
+             <td><b>Status:</b></td> <td  colspan="3"><%=h @crianca.status%>
+                 <%if @crianca.status == 'MATRICULADA'%>
+                   - <%=h @crianca.matriculado%>
+                 <%end%>
+             </td>
            </tr>
          </table>
        </fieldset>
@@ -131,7 +120,7 @@
             <tr bgcolor="#F5F5F5">
               <td colspan="2" ><font size ="3" color="blue"><b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     Já foi oferecido alguma vagas à criança? &nbsp&nbsp&nbsp&nbsp
-                     <% if @crianca.vaga == true %>
+                     <% if !@crianca.vaga_id.nil? %>
                          SIM</b>  </font>
                      <%else%>
                           NÃO</b>  </font>

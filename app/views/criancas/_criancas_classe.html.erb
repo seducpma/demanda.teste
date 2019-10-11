@@ -10,11 +10,8 @@
             <th width="10%">Classe</th>
             <th width="5%">Mãe <br/>Trabalha</th>
             <th width="5%">Mãe <br/>Servidora</th>
-            <th width="5%">Irmão <br/>Matriculado</th>
-            <th width="5%">Transfe- rência</th>
-            <th width="10%">1ªOpção</th>
-            <th width="10%">2ªOpção</th>
-            <th width="10%">3ªOpção</th>
+            <th width="10%">Período</th>
+
         </tr>
            <%$t=0%>
            <% @criancas.each do |crianca| %>
@@ -46,34 +43,8 @@
                                   <%else%>
                                        <td align="center">SIM</td>
                                   <%end%>
-                                  <% if crianca.irmao == false %>
-                                      <td align="center">NÃO</td>
-                                  <%else%>
-                                      <td align="center">SIM</td>
-                                  <%end%>
-                                  <% if crianca.transferencia == false %>
-                                      <td align="center">NÃO</td>
-                                   <%else%>
-                                       <td align="center">SIM </td>
-                                   <%end%>
-                <td align="center"><% if  crianca.opcao1 == session[:opcao]%>
-                                          <b><font color ="blue"><%=h crianca.opcao1%></font></b>
-                                    <%else%>
-                                          <%=h crianca.opcao1%>
-                                    <%end%>
-                </td>
-                <td align="center"><% if  crianca.opcao2 == session[:opcao]%>
-                                          <b><font color ="blue"><%=h crianca.opcao2%></font></b>
-                                    <%else%>
-                                          <%=h crianca.opcao2%>
-                                    <%end%>
-                </td>
-                <td align="center"><% if  crianca.opcao3 == session[:opcao]%>
-                                          <b><font color ="blue"><%=h crianca.opcao3%></font></b>
-                                    <%else%>
-                                          <%=h crianca.opcao3%>
-                                    <%end%>
-                </td>
+                <td align="center"><%=h crianca.periodo%></td>
+
 
               <% if current_user.has_role?('admin') or current_user.has_role?('SEDUC') or current_user.has_role?('direcao') or current_user.has_role?('supervisao')%>
               </tr>

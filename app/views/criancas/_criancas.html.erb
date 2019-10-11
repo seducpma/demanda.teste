@@ -1,17 +1,16 @@
   <div class="tabs">
     <table bgcolor="#DCDCDC" width="100%">
 
-      <tr bgcolor="#DCDCDC"  >
-            <th width="2%"><b>Inscrição</b></th>
-            <th width="20%"><b>Nome</b></th>
-            <th width="10%"><b>Mãe</b></th>
-            <th width="10%"><b>Local de <br/>Inscrição</b></th>
-            <th width="10%"><b>Classe</b></th>
-            <th width="8%"><b>Período</b></th>
-            <th width="8%"<b>1ªOpção</b></th>
-            <th width="8%"><b>2ªOpção</b></th>
-            <th width="8%"><b>3ªOpção</b></th>
-            <td align="center" ><b>Status</b></td>
+        <tr bgcolor="#DCDCDC" >
+            <th width="1%">Inscriçãosss</th>
+            <th width="10%">Data/Hora</th>
+            <th width="30%">Nome</th>
+            <th width="10%">Nasc/o</th>
+             <th width="20%">Mãe</th>
+            <th width="10%">Classe</th>
+            <th width="10%">Região</th>
+            <th width="5%">Período</th>
+
         </tr>
   
            <%$t=0%>
@@ -19,20 +18,23 @@
            <%$t = $t+1%>
         <tr bgcolor="#F5F5F5" style="font-size:12px">
                 <td align="center"><%=h crianca.id%></td>
+               <%  if crianca.created_at.nil? %>
+                     <td align="center"></td>
+                <%else%>
+                     <td align="center"><%=h crianca.created_at.strftime("%d/%m/%Y %H:%M")%><br/></td>
+                <%end%>
                 <td align="left"><%=h crianca.nome%></td>
+                <td align="center"><%=h crianca.nascimento.strftime("%d/%m/%Y")%></td>
                 <td align="left"><%=h crianca.mae%></td>
-                <td align="left"><%=h crianca.unidade.nome%></td>
                 <td align="center"><%=h crianca.grupo.nome%></td>
+                <td align="left"><%=h crianca.regiao.nome%></td>
                 <td align="left"><%=h crianca.periodo%></td>
-                 <td align="left"><%=h crianca.opcao1%></td>
-                <td align="left"><%=h crianca.opcao2%></td>
-                <td align="left"><%=h crianca.opcao3%></td>
                 <td align="left"><%=h crianca.status%></td>
           </tr>
           <% @criancasinscritas= Crianca.find(:all, :select => 'id', :conditions => ['id =? and (opcao1 =? or opcao2 =? or opcao3=?)', crianca, current_user.unidade.nome, current_user.unidade.nome, current_user.unidade.nome])%>
           <tr>
             <td align="left" colspan="7"><%= link_to image_tag("/stylesheets/images/visualizar.png"), {:action => "show", :id =>crianca},:target => '_blank', :title => "Visualizar" %>
-                <%if  @criancasinscritas.present? %>
+                <%if  @criancasinscritas.present? or (current_user.has_role?('admin') or current_user.has_role?('SEDUC')or current_user.has_role?('supervisao')) %>
                     <%= link_to image_tag("/stylesheets/images/editar1.png"),  {:action => "edit", :id =>crianca}, :target => '_blank', :title => "Editar" %>
                 <%end%>
             </td>

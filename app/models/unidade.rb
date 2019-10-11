@@ -1,10 +1,13 @@
+
 class Unidade < ActiveRecord::Base
   include ActionView::Helpers::TextHelper
   has_many :criancas
   has_many :funcionarios
   has_many :financeiros
   belongs_to :obreiro
+  belongs_to :regiao
   has_many :users
+  has_many :vagas
 
 
 

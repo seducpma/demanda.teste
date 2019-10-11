@@ -12,6 +12,36 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+  
+    
+    
+  def set_current_user
+    User.current = current_user
+
+# Inicio - Alex 2018-09-12
+   if RAILS_ENV=='production'
+       session[:base]= 'sisgered_production'
+       session[:baseinfo]= 'infoseduc_production'
+   end
+   if RAILS_ENV=='development'
+       session[:base]= 'sisgered_development'
+       session[:baseinfo]= 'infoseduc_development'
+   end
+#   Fim - Alex 2018-09-12
+
+#       session[:base]= 'sisgered_development'
+#       session[:baseinfo]= 'infoseduc_development'
+
+ #     session[:base]= 'sisgered_production'
+ #     session[:baseinfo]= 'infoseduc_production'
+
+end
+
+
+
+
+
+
   private
 
   def current_classe
@@ -47,6 +77,21 @@ CARGO = {'Diretor Ed. Básica'=> 'Diretor Ed. Básica',
           'TODOS' => 'TODOS'
           }
 
+CLASSE = {'
+
+BERCARIO I
+BERCARIO II
+BERCARIO III
+MATERNAL I - A
+MATERNAL II
+NIVEL I
+NIVEL II
+MATERNAL I - B
+
+Diretor Ed. Básica'=> 'Diretor Ed. Básica',
+          'Prof. Coordenador'=>'Prof. Coordenador',
+          'Pedagogo'=> 'Pedagogo'}
+
 GRAU = { 'Pai/Mãe'=> 'Pai/Mãe',
          'Irmão(ã)' => 'Irmão(ã)',
          'Avô/Avó' => 'Avô/Avó',
@@ -54,6 +99,12 @@ GRAU = { 'Pai/Mãe'=> 'Pai/Mãe',
          'Enteado(a)'=> 'Enteado(a)',
          'Primo(a)'=> 'Primo(a)',
          'Outros' => 'Outros'
+        }
+
+REFERENCIA = { 'Residencia'=> 'Residencia',
+               'Avô/Avó' => 'Avô/Avó',
+               'Trabalho'=> 'Trabalho',
+               'Outros'=> 'Outros',
         }
 
 PERIODO = { '         ' => '         ',
@@ -64,12 +115,16 @@ PERIODO = { '         ' => '         ',
             'MANHÃ / TARDE'=> 'MANHÃ / TARDE',
             'MANHÃ'=> 'MANHÃ)',
             'TARDE'=> 'TARDE',
-
         }
 
 OPCAO ={ 'SIM '=>'SIM',
          'NÃO'=> 'NÃO'
         }
+
+OPCAOSN ={ 'SIM '=> 1,
+            'NÃO'=> 0
+         }
+
 
 # Variáveis de data para classificação das crianças
 
@@ -80,3 +135,79 @@ DATAM1B='2016-04-01'
 DATAM2 ='2015-04-01'
 DATAN1 ='2014-04-01'
 DATAN2 ='2013-04-01'
+
+
+BAIRRO = {
+'CENTRO' => 'CENTRO',
+'ANTONIO ZANAGA' => 'ANTONIO ZANAGA',
+'BELA VISTA' => 'BELA VISTA',
+'BELVEDERE'=>'BELVEDERE',
+'BOA VISTA'=>'BOA VISTA',
+'CAMPO VERDE' => 'CAMPO VERDE',
+'CARIOBINHA' => 'CARIOBINHA',
+'CATARINA ZANAGA' => 'CATARINA ZANAGA',
+'CECHIO' => 'CECHIO',
+'CIDADE JARDIM' => 'CIDADE JARDIM',
+'CORDENONSI'=>'CORDENONSI',
+'JAGUARI'=>'JAGUARI',
+'JD ALVORADA' =>'JD ALVORADA',
+'JD DAS FLORES' => 'JD DAS FLORES',
+'JD DAS PAINEIRAS' =>'JD DAS PAINEIRAS',
+'JD DOS LIRIOS' =>'JD DOS LIRIOS',
+'JD JACYRA' =>'JD JACYRA',
+'JD PAULISTA' =>'JD PAULISTA',
+'JD PRIMAVERA' =>'JD PRIMAVERA',
+'JD BELA VISTA' =>'JD BELA VISTA',
+'JD BERTONI' =>'JD BERTONI',
+'JD BOER' => 'JD BOER',
+'JD BRASIL' => 'JD BRASIL',
+'JD BRASILIA'=>'JD BRASILIA',
+'JD DA MATA'=>'JD DA MATA',
+'JD DA PAZ'=>'JD DA PAZ',
+'JD ESPERANÇA'=>'JD ESPERANÇA',
+'JD GIRASSOL'=>'JD GIRASSOL',
+'JD GLORIA'=>'JD GLORIA',
+'JD GUANABARA'=>'JD GUANABARA',
+'JD IPIRANGA'=>'JD IPIRANGA',
+'JD N.SRA.APARECIDA'=>'JD N.SRA.APARECIDA',
+'JD N.SRA DO CARMO'=>'JD N.SRA DO CARMO',
+'JD NILESEN'=>'JD NILESEN',
+'JD PAULISTANO'=>'JD PAULISTANO',
+'JD SANTA ELIZA'=>'JD SANTA ELIZA',
+'JD. SANTANA'=>'JD. SANTANA',
+'JD SÃO PAULO'=>'JD SÃO PAULO',
+'MARIO COVAS'=>'MARIO COVAS',
+'MORADA DO SOL'=> 'MORADA DO SOL',
+'NOVA CARIOBA'=>'NOVA CARIOBA',
+'PQ NOVO MUNDO'=>'PQ NOVO MUNDO',
+'PQ DA LIBERDADE'=>'PQ DA LIBERDADE',
+'PQ DAS NAÇÕES'=>'PQ DAS NAÇÕES',
+'PQ GRAMADO'=>'PQ GRAMADO',
+'PRAIA AZUL' => 'PRAIA AZUL',
+'PRAIA DOS NAMORADOS'=>'PRAIA DOS NAMORADOS',
+'PROFILUB'=>'PROFILUB',
+'SANTA ROSA'=>'SANTA ROSA',
+'SANTA SOFIA'=>'SANTA SOFIA',
+'SÃO DOMINGOS'=>'SÃO DOMINGOS',
+'SÃO JERONIMO'=>'SÃO JERONIMO',
+'SÃO JOSE'=>'SÃO JOSE',
+'SÃO LUIZ'=>'SÃO LUIZ',
+'SÃO MANOEL'=>'SÃO MANOEL',
+'SÃO ROQUE'=>'SÃO ROQUE',
+'SÃO VITO'=>'SÃO VITO',
+'VALE DAS NOGUEIRAS'=>'VALE DAS NOGUEIRAS',
+'VALE DAS PAINEIRAS'=>'VALE DAS PAINEIRAS',
+'VILA AMORIN'=>'VILA AMORIN',
+'VILA BELA'=>'VILA BELA',
+'VILA DAINESE'=>'VILA DAINESE',
+'VILA GALO'=>'VILA GALO',
+'VILA JONES'=>'VILA JONES',
+'VILA MARINA'=>'VILA MARINA',
+'VILA MAHIESEN'=>'VILA MAHIESEN',
+'VILA MEDON'=>'VILA MEDON',
+'VILA RIO BRANCO'=>'VILA RIO BRANCO',
+'VILA SANTA MARIA'=>'VILA SANTA MARIA',
+'VILA SANTA CATARINA'=>'VILA SANTA CATARINA'
+
+}
+

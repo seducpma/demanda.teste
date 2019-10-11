@@ -1,0 +1,60 @@
+<div id="interno4">
+<% title "MATRICULAS".singularize %>
+<div class="tabs">
+ <div id="caixa_titulo">
+     <font size="3"><strong>VAGA - ALUNO </strong></font><br/>
+ </div>
+
+      <div class="tabs">
+         <fieldset><legend><font size=4>Preencimento da vaga</font></legend>
+             <% @Vaga = Vaga.find_by_sql("SELECT v.id, CONCAT( g.nome, ' - ' , u.nome ) AS vaga FROM vagas v JOIN unidades u ON v.unidade_id = u.id JOIN grupos g ON v.grupo_id = g.id WHERE v.disponivel = 0 ")%>
+             <%# @unidade = Unidade.find(:all, :conditions =>['ativo = 1 AND (tipo = 1 or tipo = 3 or tipo = 7 or tipo = 8' ], :order => 'nome') %>
+             <%  @unidade = Unidade.find(:all, :conditions=>['ativo = 1 AND ( tipo = 1 or tipo = 3 or tipo = 7 or tipo = 8) '], :order => 'nome') %>
+             <% @crianca = Crianca.find(:all, :conditions =>['status  ="NA_DEMANDA" '], :order => 'nome') %>
+             <% @grupo = Grupo.find(:all, :order => 'nome') %>
+        <table>
+
+           <tr>
+             <td><b>Unidade: </b></td>
+             <td><%= collection_select :vaga, :unidade_id, @unidade, :id, :nome, :include_blank => ' -- Selecionar -- ' %> </td>
+                    <%= observe_field :vaga_unidade_id,
+                              :with => :vaga_unidade_id,
+                              :url => { :action => 'unidade_id',
+                                     :update => "classe_vaga" }%>
+           </tr>
+           <tr>
+             <td><b>Classe: </b></td>
+             <td><div id='classe_vaga'><%= collection_select :vaga, :grupo_id, @grupo, :id, :nome, :include_blank => ' -- Selecionar -- ' %>
+                    <%= observe_field :vaga_grupo_id,
+                              :with => :vaga_grupo_id,
+                              :update => "crianca_vaga" ,
+                              :url => { :action => 'grupo_id'}%>
+                  </div>
+             </td>
+           </tr>
+
+           <tr>
+              <td><b>Criança: </b></td>
+              <td><div id="crianca_vaga"> <%= collection_select :vaga, :crianca_id , @crianca, :id, :nome, :include_blank => ' -- Selecione -- ' %>
+                        
+                  </div>
+              </td>
+           </tr>
+         </table>
+         </fieldset>
+         <table>
+           <tr>
+
+              <td width="4%"><%= button_to 'Salvar', :action=> "salvar" %></td>
+
+             <td ><%= button_to 'Fechar', home_path, {:method => "get"}  %></td>
+          </tr>
+        </table>
+
+    </div>
+</div>
+<br/>
+</div>
+
+
+

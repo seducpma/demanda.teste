@@ -4,12 +4,13 @@ class Crianca < ActiveRecord::Base
   belongs_to :unidade
   has_many :observacao_criancas
   has_many :vaga_criancas
+  has_many :vaga
 
-  validates_presence_of :unidade_id
+  #validates_presence_of :unidade_id
   validates_presence_of :regiao_id
   validates_presence_of :nome
   validates_presence_of :nascimento
-  validates_presence_of :opcao1
+  #validates_presence_of :opcao1
   before_save  :maiusculo
   #before_update  :reclassificacao
   
@@ -102,6 +103,7 @@ def self.na_demanda
     Crianca.find(:all, :conditions => ['opcao1 = ?', nome_unidade])
   end
 
+
   def self.matriculas_crianca_por_unidade(unidade)
     nome_unidade = Unidade.find(unidade).nome
     Crianca.find(:all, :conditions => ['opcao1 = ? and status = "MATRICULADA"',nome_unidade])
@@ -112,11 +114,39 @@ def self.na_demanda
     Crianca.find(:all, :conditions => ['opcao1 = ? and status = "NA_DEMANDA"',nome_unidade])
   end
 
-  def self.cancelada_crianca_por_unidade(unidade)
+   def self.cancelada_crianca_por_unidade(unidade)
      nome_unidade = Unidade.find(unidade).nome
     Crianca.find(:all, :conditions => ['opcao1 = ? and status = "CANCELADA"',nome_unidade])
   end
 
+  def self.demanda_por_regiao(regiao)
+    regiao_id = Regiao.find(regiao).id
+    regiao_nome = Regiao.find(regiao).nome
+    @te1=Crianca.find(:all, :conditions => ['regiao_id = ? and status = "NA_DEMANDA"',regiao_id])
+         t=0
+  end
+
+  def self.nao_matriculas_crianca_por_regiao(regiao)
+     regiao_id = Regiao.find(regiao).id
+     regiao_nome = Regiao.find(regiao).nome
+     @teste=Crianca.find(:all, :conditions => ['regiao_id = ? and status = "NA_DEMANDA"',regiao_id])
+          t=0
+  end
+
+  def self.cancelada_crianca_por_regiao(regiao)
+     regiao_id = Regiao.find(regiao).id
+     regiao_nome = Regiao.find(regiao).nome
+     @tes2=Crianca.find(:all, :conditions => ['regiao_id = ? and status = "NA_DEMANDA"',regiao_id])
+     t=0
+  end
+
+  def self.todas_crianca_por_regiao(regiao)
+     regiao_id = Regiao.find(regiao).id
+    @tes3=Crianca.find(:all, :conditions => ['regiao_id = ? and status = "NA_DEMANDA"',regiao_id])
+    t=0
+  end
+
+  
 
 
 
@@ -131,18 +161,40 @@ def self.na_demanda
   end
   def maiusculo
     self.nome.upcase!
-    self.bairro.upcase!
-    self.complemento.upcase!
-    self.mae.upcase!
-    self.necessidade.upcase!
-    self.pai.upcase!
+    if  !self.bairro.nil?
+         self.bairro.upcase!
+    end
+    if  !self.complemento.nil?
+        self.complemento.upcase!
+    end
+    if  !self.mae.nil?
+      self.mae.upcase!
+    end
+    if  !self.necessidade.nil?
+         self.necessidade.upcase!
+    end
+    if  !self.pai.nil?
+         self.pai.upcase!
+    end
     self.endereco.upcase!
-    self.responsavel_n.upcase!
-    self.parentesco.upcase!
-    self.local_trabalho.upcase!
-    self.servidor_local.upcase!
-    self.nomerecado.upcase!
-    self.status.upcase!
+    if  !self.responsavel_n.nil?
+      self.responsavel_n.upcase!
+    end
+    if  !self.parentesco.nil?
+      self.parentesco.upcase!
+    end
+    if  !self.local_trabalho.nil?
+         self.local_trabalho.upcase!
+    end
+    if  !self.servidor_local.nil?
+        self.servidor_local.upcase!
+    end
+    if  !self.nomerecado.nil?
+        self.nomerecado.upcase!
+    end
+    if  !self.status.nil?
+        self.status.upcase!
+    end
   end
 
  

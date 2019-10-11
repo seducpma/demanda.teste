@@ -158,7 +158,7 @@
             <tr >
               <td colspan="2" ><font size ="3"><b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     Já foi oferecido alguma vagas à criança? &nbsp&nbsp&nbsp&nbsp
-                     <% if @crianca.vaga == true %>
+                     <% if !@crianca.vaga_id.nil? %>
                          SIM</b>  </font>
                      <%else%>
                           NÃO</b>  </font>

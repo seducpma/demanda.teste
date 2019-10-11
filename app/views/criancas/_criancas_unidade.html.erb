@@ -1,5 +1,5 @@
-  <div class="tabs">
-    <center><font size="4"><b><u>Consulta Classificação por Unidade</u></b></font></center><br/>
+   <div class="tabs">
+    <center><font size="4"><b><u>Consulta Indicação Unidade </u></b></font></center><br/>
        <table bgcolor="#DCDCDC" width="100%">
         <tr bgcolor="#DCDCDC" >
             <th width="1%">Nº</th>
@@ -7,15 +7,12 @@
             <th width="10%">Data/Hora</th>
             <th width="20%">Nome</th>
             <th width="20%">Nasci/o</th>
-            <th width="5%">Mãe <br/>Trabalha</th>
             <th width="5%">Mãe <br/>Servidora</th>
-            <th width="5%">Irmão <br/>Matriculado</th>
-            <th width="5%">Transfe- rência</th>
+            <th width="5%">Mãe <br/>Trabalha</th>
+            <th width="5%">Mãe Trab.<br/>Autonoma</th>
             <th width="10%">Classe</th>
             <th width="10%">Período</th>
-            <th width="10%">1ªOpção</th>
-            <th width="10%">2ªOpção</th>
-            <th width="10%">3ªOpção</th>
+            <th width="10%">Preferência</th>
         </tr>
            <%$t=0%>
            <% @criancas.each do |crianca| %>
@@ -26,51 +23,29 @@
                 <%  if crianca.created_at.nil? %>
                      <td align="center"></td>
                 <%else%>
-                     <td align="center"><%=h crianca.created_at.strftime("%d/%m/%Y %H:%M")%><br/></th>
+                     <td align="center"><%=h crianca.created_at.strftime("%d/%m/%Y %H:%M")%><br/></td>
                 <%end%>
                 <td align="left"><%=h crianca.nome%></td>
-                <td align="center"><%=h crianca.nascimento.strftime("%d/%m/%Y ")%></th>
-                                  <%if crianca.trabalho == false %>
-                                      <td align="center">NÃO</td>
-                                  <%else%>
-                                       <td align="center">SIM</td>
-                                  <%end%>
+                <td align="center"><%=h crianca.nascimento.strftime("%d/%m/%Y ")%></td>
                                   <%if crianca.servidor_publico == false %>
                                       <td align="center">NÃO</td>
                                   <%else%>
                                        <td align="center">SIM</td>
                                   <%end%>
-                                  <%if crianca.irmao == false %>
+                                  <%if crianca.trabalho == false %>
+                                      <td align="center">NÃO</td>
+                                  <%else%>
+                                       <td align="center">SIM</td>
+                                  <%end%>
+                                  <%if crianca.autonomo == false %>
                                       <td align="center">NÃO</td>
                                   <%else%>
                                       <td align="center">SIM</td>
                                   <%end%>
-                                  <%if crianca.transferencia == false %>
-                                      <td align="center">NÃO</td>
-                                  <%else%>
-                                      <td align="center">SIM </td>
-                                  <%end%>
+                                  
                 <td align="center"><%=h crianca.grupo.nome%></td>
                 <td align="center"><%=h crianca.periodo%></td>
-                <td align="center"><%if crianca.opcao1 == session[:opcao]%>
-                                          <b><font color ="blue"><%=h crianca.opcao1%></font></b>
-                                    <%else%>
-                                          <%=h crianca.opcao1%>
-                                    <%end%>
-                </td>
-                <td align="center"><%if crianca.opcao2 == session[:opcao]%>
-                                          <b><font color ="blue"><%=h crianca.opcao2%></font></b>
-                                    <%else%>
-                                          <%=h crianca.opcao2%>
-                                    <%end%>
-                </td>
-                <td align="center"><%if crianca.opcao3 == session[:opcao]%>
-                                          <b><font color ="blue"><%=h crianca.opcao3%></font></b>
-                                    <%else%>
-                                          <%=h crianca.opcao3%>
-                                    <%end%>
-                </td>
-
+                <td align="center"><%=h crianca.unidade_ref%></td>
               <%if current_user.has_role?('admin') or current_user.has_role?('SEDUC') or current_user.has_role?('direcao') or current_user.has_role?('supervisao')%>
               </tr>
                <tr>
@@ -98,4 +73,3 @@
 
     </tr>
   </div>
-

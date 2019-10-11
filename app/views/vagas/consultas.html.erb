@@ -1,0 +1,42 @@
+      <%@unidades =  Unidade.find(:all,  :conditions => ["(tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) AND ativo = 1" ],:order => "nome")%>
+      <%@classe =  Classe.find(:all,  :conditions => ["classe_ano_letivo=?", Time.now.year ],:order => "unidade_id")%>
+<div id="interno6">
+<% title "UNIDADES", :id =>"unidades" %>
+ <div class="tabs">
+   <div id="caixa_titulo">
+    <font size="3"><strong>CONSULTA VAGA</strong></font><br/>
+   </div>
+  <div class="tabs">
+    <% form_remote_tag :url => consulta_vaga_path, :method => :get,:loading => "$('#status').show()" , :success => "$('#status').hide()" do %>
+    <table width="100%" align="center" bgcolor="#DCDCDC" >
+          <tr>
+            <td>
+              <a href="#" class="filtro_nome"><%= radio_button_tag(:type_of, "1") %></a>Classe
+              <a href="#" class="filtro"><%= radio_button_tag(:type_of, "2") %></a>SEDUC
+              <a href="#" class="filtro_tipo"><%= radio_button_tag(:type_of, "3") %></a>Unidade
+            </td>
+         </tr>
+         <tr>
+           <td><div class="consulta" style="display:none"> <%= render "consulta_seduc" %> </div>
+              <div class="consulta1" style="display:none"> <%= render "consulta_grupo" %> </div>
+              <div class="consulta2" style="display:none"> <%= render "consulta_unidade" %> </div></td>
+               
+        </tr>
+        </table>
+    <% end %>
+    <br/>
+    <hr/>
+    <div id="vaga"><div id='status' style='display:none;' align="center" ><%= image_tag("/stylesheets/images/loading.gif") %></div></div>
+    <br/>
+
+  <table>
+    <tr>
+     <td width="6%"align="left" ><%= button_to 'Fechar', home_path, {:method => "get"}  %></td>
+     <td align="left"><%= button_to 'Nova Consulta', consultas_vagas_path, :title => "Nova Consulta" %></td>
+    </tr>
+  </table>
+ </div>
+ </div>
+  <br/>
+</div>
+

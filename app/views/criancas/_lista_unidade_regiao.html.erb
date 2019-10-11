@@ -1,0 +1,39 @@
+<table>
+    <tr>
+        <td>
+           <table >
+             <% for unidade in @unidade_regiao %>
+              <tr>
+                  <td align="left"><b>Unidade:</b> <%=  unidade.nome%></td>
+              </tr>
+            <% end %>
+              <tr>
+                  <td><font size ="2" color="blue"><b> &nbsp&nbsp&nbsp&nbsp
+                    <b id="pisca1"><u>ATENÇÃO:</u></b><b> 
+                        A indicação de um unidade na é SOMENTE uma referência, a vaga será oferecida na região <br/>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp
+                        de residência da criança <font color="blue" size="5">*</font>
+                     </b>
+            </font> </td>
+              </tr>
+
+          </table>
+        </td>
+      <tr>
+          <td colspan="5"><b><font color="blue" size="5"> * </font><%= 'Unidade de Preferência  ' %> </b>
+         <%= collection_select :crianca, :unidade_ref, @unidade_regiao, :nome, :nome, :include_blank => '---Selecionar---' %>
+            
+         </td>
+      </tr>
+
+    </tr>
+</table>
+
+
+
+
+
+
+
+
+

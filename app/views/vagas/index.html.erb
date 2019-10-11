@@ -1,0 +1,28 @@
+<h1>Listing vagas</h1>
+
+<table>
+  <tr>
+    <th>Crianca</th>
+    <th>Unidade</th>
+    <th>Status</th>
+    <th>Data</th>
+    <th>Obs</th>
+  </tr>
+
+<% @vagas.each do |vaga| %>
+  <tr>
+    <td><%=h vaga.crianca_id %></td>
+    <td><%=h vaga.unidade_id %></td>
+    <td><%=h vaga.status %></td>
+    <td><%=h vaga.data %></td>
+    <td><%=h vaga.obs %></td>
+    <td><%= link_to 'Show', vaga %></td>
+    <td><%= link_to 'Edit', edit_vaga_path(vaga) %></td>
+    <td><%= link_to 'Destroy', vaga, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New vaga', new_vaga_path %>

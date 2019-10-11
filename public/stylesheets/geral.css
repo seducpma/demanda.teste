@@ -722,6 +722,36 @@ border-right: double;
     font-size:12px;
 
 }
+
+#interno3{
+    width:50%;
+    margin-top: 20px;
+    margin-left: 200px;
+    font-size:12px;
+
+}
+#interno4{
+    width:55%;
+    margin-top: 20px;
+    margin-left: 200px;
+    font-size:12px;
+
+}
+#interno5{
+    width:100%;
+    margin-top: 20px;
+    margin-left: 2px;
+    font-size:12px;
+
+}
+#interno6{
+    width:60%;
+    margin-top: 20px;
+    margin-left: 150px;
+    font-size:12px;
+
+}
+
 #interno_novo_usuario{
     width:60%;
     margin-top: 20px;

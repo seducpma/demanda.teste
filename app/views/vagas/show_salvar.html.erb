@@ -1,0 +1,52 @@
+<div id="interno3">
+<% title "EMPRESA PARCEIRA" %>
+<div class ="tabs">
+    <font size="5"><strong>VAGA PREENCHIDA  </strong></font></br>
+      <hr>
+       <table bgcolor="#DCDCDC" width="100%">
+        <tr bgcolor="#DCDCDC"  width="100%">
+         <td>
+         <fieldset><legend><font  size=3> Vaga</font></legend>
+           <table  width="100%">
+            <tr bgcolor="#F5F5F5"  width="100%">
+             <td  width="10%"><strong>Unidade: </strong></td>
+             <td><%=h @vaga.unidade.nome%></td>
+            </tr>
+            <tr bgcolor="#F5F5F5">
+             <td><strong>Classe:</strong></td>
+             <td><%=h @vaga.grupo.nome%> </td>
+            </tr>
+            <tr bgcolor="#F5F5F5">
+             <td><strong>Descrição:</strong></td>
+             <td><%=h session[:descricao] %></td>   
+            </tr>
+            <tr bgcolor="#F5F5F5">
+             <td><strong>Criança:</strong></td>
+             <td><%=h @vaga.crianca.nome %></td>
+            </tr>
+            <tr bgcolor="#F5F5F5">
+              <td><strong>Solicitação:</strong></td>
+              <td><%=h @vaga.crianca.grupo.nome %></td>
+            </tr>
+
+             <tr bgcolor="#F5F5F5">
+             <td><strong>Obs.:</strong></td>
+             <td><%=h @vaga.obs%></td>
+            </tr>
+
+
+
+           </table>
+          </fieldset>
+        </td>
+      </tr>
+       <table>
+          <tr>
+            <td width="6%"align="left" > <%= button_to 'Fechar', home_path, {:method => "get"}  %></td>
+          </tr>
+        </table>
+</div>
+<br/>
+</div>
+
+

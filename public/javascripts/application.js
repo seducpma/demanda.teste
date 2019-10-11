@@ -529,6 +529,7 @@ $(".sem_filtro").click(function ()
      $(".label_busca2").show();
      $(".consulta_unidade_m").hide();
      $(".consulta_classe").hide();
+     $(".consulta_regiao").hide();
      $(".txt_buscam").hide();
      $(".label_buscam").hide();
      $(".consulta_unidade_c").hide();
@@ -546,9 +547,17 @@ $(".sem_filtro").click(function ()
      $(".label_busca").hide();
      $(".txt_busca").hide();
      $(".consulta_nome").hide();
-
-
    });
+
+
+   $(".filtro_regiao").click(function ()
+   {
+     $(".consulta_regiao").show();
+     $(".consulta_unidade").hide();
+     $(".consulta_classe").hide();
+   });
+
+
 
    $(".filtro_unidade_c").click(function ()
    {
@@ -604,6 +613,7 @@ $(".sem_filtro").click(function ()
      $(".consulta_classe").show();
      $(".txt_busca3").show()
      $(".label_busca3").show();
+     $(".consulta_regiao").hide();
      $(".consulta").hide();
      $(".consulta1").hide();
      $(".consulta_unidade").hide();

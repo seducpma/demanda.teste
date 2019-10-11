@@ -1,0 +1,19 @@
+<%if   session[:vaga_id]==0%>
+     <%if   session[:crianca_id]==0%>
+          <font size="3" color="red"><b><u>ATENÇÃO:</u> Nao existe <u>demanda</u> disponível para esta classe nesta unidade.  Clicar em FECHAR    </b></font>
+      <%else%>
+          <font size="3" color="red"><b><u>ATENÇÃO:</u> Nao existe <u>vaga</u> disponível para esta classe nesta unidade.  Clicar em FECHAR    </b></font>
+     <%end%>
+
+<%else if   session[:crianca_id]==0%>
+         <font size="3" color="red"><b><u>ATENÇÃO:</u> Nao existe <u>demanda</u> disponível para esta classe nesta unidade.  Clicar em FECHAR    </b></font>
+
+    <%else%>
+
+         <%= collection_select :vaga, :crianca_id , @criancaT, :id, :nome, :include_blank => ' -- Selecione -- ' %>
+                           <%= observe_field :vaga_crianca_id,
+                              :with => :vaga_crianca_id,
+                               :url => { :action => 'crianca_id'}%>
+    <%end%>
+<%end%>
+       

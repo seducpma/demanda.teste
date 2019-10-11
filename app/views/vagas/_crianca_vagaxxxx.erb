@@ -1,0 +1,17 @@
+<%    @crianca= Crianca.find(:all,  :conditions => ["regiao_id = ? AND criancas.status = 'NA_DEMANDA' AND grupo_id = ?", session[:vaga_regiao_id], session[:vaga_grupo]], :order => "nome")%>
+<%    @vaga = Vaga.find(:all, :joins => :unidade, :conditions => ["vagas.grupo_id = ? AND vagas.unidade_id =? AND  vagas.disponivel = 0",session[:vaga_grupo], session[:vaga_unidade]])%>
+
+
+<%  if session[:vaga_id].nil? %>
+   <font size="3" color="red"> <b><u>ATENÇÂO:</u> NÃO EXISTE VAGAS PARA ESTA CLASSE NESTA UNIDADE, <u>clicar no botão FECHAR</u></b></font>
+<%else if @crianca.empty? %>
+       <font size="3" color="red"> <b><u>ATENÇÃO:</u> NÃO EXISTE DEMANDA PARA ESTA VAGA NESTA UNIDADE, <u>clicar no botão FECHAR</u></b></font>
+   <%else%>
+       <%= collection_select :vaga, :crianca_id , @crianca, :id, :nome, :include_blank => ' -- Selecione -- ' %>
+                     <%= observe_field :vaga_crianca_id,
+                    :with => :vaga_crianca_id,
+                    :url => { :action => 'crianca_id' }%>
+   <%end%>
+<%end%>
+
+       

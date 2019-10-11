@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  crianca_id: 1
+  unidade_id: 1
+  status: MyString
+  data: 2019-08-21 14:57:23
+  obs: MyString
+
+two:
+  crianca_id: 1
+  unidade_id: 1
+  status: MyString
+  data: 2019-08-21 14:57:23
+  obs: MyString
