@@ -2,7 +2,7 @@
 <% title "CRIANÇA" %>
 <div class ="tabs">
 <font size="5"><strong>RECADASTRAMENTO Inscrição nº<%=h "#{@crianca.id}" %> </strong></font></br>
- <hr>
+ <hr/>
  <table bgcolor="#DCDCDC" width="100%">
    <tr bgcolor="#DCDCDC"  width="100%">
      <td>
@@ -55,14 +55,6 @@
                <td><%=h @crianca.celular%>  </td>
             </tr>
             <tr bgcolor="#F5F5F5">
-               <td align="left" width="4%"><b>Endereço(trab):</b></td>
-               <td colspan="3" align="left"><%=h @crianca.end_trab %> - <%=h @crianca.num_trab %></td>
-               <td align="left" width="4%"><b>Bairro:</b></td>
-               <td  align="left"><%=h @crianca.bairro_trab %></td>
-            </tr>
-
-
-            <tr bgcolor="#F5F5F5">
                <td align="left"><b>Fone (recado):</b></td>
                <td align="left" colspan="3">  <%=h @crianca.tel2%></td>
                <td><b>Nome:</b> </td>
@@ -78,13 +70,34 @@
        <fieldset><legend><font  size=3><b> Dados da inscrição</b></font></legend>
          <table width="100%">
             <tr bgcolor="#F5F5F5">
-               <td align="left" width="4%"><b>Endereço Indicado:</b></td>
+               <td align="left" width="18%"><b>Endereço Indicado:</b></td>
                <td colspan="3" align="left"><%=h @crianca.end_indicacao %> - <%=h @crianca.num_indicacao %></td>
                <td align="left" width="4%"><b>Bairro/Região:</b></td>
                <td  align="left"><%=h @crianca.regiao.nome %></td>
             </tr>
+            <tr bgcolor="#F5F5F5">
+               <td align="left"><b>Justificativa:</b></td>
+               <td colspan="3" align="left"><%=h @crianca.justif_indicacao %> - <%=h @crianca.vinculo %></td>
+               <td align="left" width="4%"><b>Trab. Mãe:</b></td>
+               <td  align="left"><%if @crianca.servidor_publico == true%>
+                                    SERVIDORA PÚBLICO (P1)
+                                 <%else if @crianca.trabalho == true %>
+                                      CTPS ASSINADA (P2)
+                                       <%else if @crianca.declaracao == true %>
+                                              DECLARAÇÂO TRABALHO (P3)
+                                             <%else if @crianca.autonomo == true %>
+                                                   AUTÔNOMO (P4)
+                                                 <%else  %>
+                                                    NÃO TRABALHA (P5)
+                                                 <%end%>
+                                             <%end%>
+                                        <%end%>
+                                 <%end%>
+
+                  </td>
+            </tr>
            <tr bgcolor="#F5F5F5"  width="100%">
-             <td align="left" width="20%"><b>Local Inscrição:</b></td>
+             <td align="left"><b>Local Inscrição:</b></td>
              <td align="left" colspan="3" ><%=h @crianca.unidade.nome%></td>
              <td width="10%" ><b>Responsável: </b> </td>
                 <% if @crianca.responsavel == false %>
@@ -94,30 +107,27 @@
                 <%end%>
             </tr>
             <tr bgcolor="#F5F5F5">
-              <td> <b>Filho Servidora Pública:</b></td>
-                 <% if @crianca.servidor_publico == false %>
-                     <td   align="left">NÃO</td>
-                  <%else%>
-                     <td  align="left">SIM - <%=h @crianca.servidor_local%></td>
-                  <%end%>
-                   
-            <td width="15%"><b>Mãe trabalha: </b></td>
-                  <% if @crianca.trabalho == false %>
-                     <td  >NÃO</td>
-                  <%else%>
-                     <td >SIM - <%=h @crianca.local_trabalho%> (<%=h @crianca.fone_trabalho%>)</td>
-                  <%end%>
-            <td width="18   %"><b>Mãe trabalha autonomo: </b></td>
-                  <% if @crianca.autonomo= false %>
-                     <td  >NÃO</td>
-                  <%else%>
-                     <td >SIM  </td>
-                  <%end%>
-
+            
+               <td><b>Trabalho Mãe : </b></td>
+                <td colspan="5" > <%if @crianca.servidor_publico == true%>
+                                 <%=h @crianca.servidor_local%>  <b> &nbsp - &nbsp Fone:</b> <%=h @crianca.fone_trabalho%>
+                                 <%else if @crianca.trabalho == true %>
+                                         <%=h @crianca.local_trabalho%>, <%=h @crianca.num_trab%>  <b> &nbsp - &nbsp Bairro:</b> <%=h @crianca.bairro_trab%> <b>&nbsp - &nbsp Fone:</b> <%=h @crianca.fone_trabalho%>
+                                       <%else if @crianca.declaracao == true %>
+                                              <%=h @crianca.local_trabalho %>, <%=h @crianca.num_trab%> <b> &nbsp - &nbsp Bairro:</b> <%=h @crianca.bairro_trab%> <b> &nbsp - &nbsp Fone:</b> <%=h @crianca.fone_trabalho%>
+                                             <%else if @crianca.autonomo == true %>
+                                                  <%=h @crianca.atividade_autonomo%> - <%=h @crianca.local_trabalho%>, <%=h @crianca.num_trab%>  <b> &nbsp - &nbsp Fone:</b> <%=h @crianca.fone_trabalho%>
+                                                 <%else  %>
+                                                    Não Trabalha
+                                                 <%end%>
+                                             <%end%>
+                                        <%end%>
+                                   <%end%>
+              </td>
             </tr>
             <tr bgcolor="#F5F5F5"  width="100%">
-              <td valign="top" align="left" width="10%"><b>Região:</b><br/><br/><b>Classe:</b><br/><br/><b>* Unidade indicada:</b></td>
-              <td valign="top" align="left" ><%=h @crianca.regiao.nome%><br/><br/><%=h @crianca.grupo.nome%> - <%=h @crianca.periodo%><br/><br/> <%=h @crianca.unidade_ref%> *</td>
+              <td valign="top" align="left" width="10%"><b>Região:</b><br/><br/><b>Classe:</b><br/><br/><b>* Unidade mais próxima:</b></td>
+              <td valign="top" align="left" ><%=h @crianca.regiao.nome%><br/><br/><%=h @crianca.grupo.nome%> - <%#=h @crianca.periodo%><br/><br/> <%=h @crianca.unidade_ref%> *</td>
               <td valign="top" align="center"><b>Unidades na região: </b></td>
               <td valign="top"align="left" colspan="4"><% for unidade in @unidade_regiao%>
                                               - <%= unidade.nome %> <br/>
@@ -128,43 +138,20 @@
 
             </tr>
            <tr bgcolor="#F5F5F5"  width="100%">
-             <td align="left" width="18%"><b>Dia/Hora Inscrição:</b></td>
-             <td  align="left" colspan="3" ><%=h @crianca.created_at.strftime("%e/%m/%Y - %H:%M horas")%></td>
-             <td><b>Status:</b></td> <td  colspan="3"><%=h @crianca.status%>
+               <td align="left"  colspan="6"> <b>Dia/Hora Inscrição:</b>
+             <%=h @crianca.created_at.strftime("%e/%m/%Y - %H:%M horas")%>(<%=h @crianca.unidade.nome%>)
+             &nbsp&nbsp - <b>Recadastramento:</b><%=h @crianca.updated_at.strftime("%e/%m/%Y - %H:%M horas")%>( <%= current_user.unidade.nome%>)
+             
+             &nbsp&nbsp - <b>Status:</b><%=h @crianca.status%>
                  <%if @crianca.status == 'MATRICULADA'%>
                    - <%=h @crianca.matriculado%>
                  <%end%>
              </td>
            </tr>
-             <tr >
-                 <td  colspan="6" align="left"><font  color="red">
-                      <b><u>ATENÇÃO:</b></u> <b>* A indicação de um unidade na é SOMENTE uma referência, a vaga será oferecida na região de residência da criança.  </b></font>
-                  </td>
-              </tr>
+
          </table>
        </fieldset>
-       <fieldset><legend><font  size=3><b> IMPORTANTE</b></font></legend>
-         <table width="100%">
-            <tr bgcolor="#F5F5F5">
-              <td colspan="2" ><font size ="3" color="blue">
 
-                      <b><u>ATENÇÃO:</u> <br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        1) É DE RESPONSABILIDADE DOS PAIS E/OU RESPONSÁVEIS LEGAIS MANTER OS DADOS (TELEFONES,<br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                           ENDEREÇOS, SITUAÇÃO PROFISSIONAL E OUTROS) DEVIDAMENTE ATUALIZADOS NO CADASTRO JUNTO <br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                           À UNIDADE ONDE FOI REALIZADA A INSCRIÇÃO.<br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-
-                        2) INSCRIÇÃO QUE CONTENHA DADOS E INFORMAÇÕES INCORRETAS E IMPRECISAS SERÃO <u>CANCELADAS</u><br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        
-                        3) QUANDO DA MATRICULA DA CRIANÇA TODOS OS DADOS E INFORMAÇÕES PRESTADOS NESTA <br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                           INSCRIÇÃO DEVERÃO SER COMPROVADAS COM A DEVIDA DOCUMENTAÇÃO. <br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        4) A NÃO APRESENTAÇÃO DOS COMPROVANTES E DOCUMENTAÇÃO DEVIDOS ACARRETARÁ<br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp NO <u>CANCELAMENTO</u> DA INSCRIÇÃO. <br/>
-                        
-                     </b>
-              </td>
-             </tr>
-
-        </table>
-       </fieldset>
      </td>
   </tr>
  </table>

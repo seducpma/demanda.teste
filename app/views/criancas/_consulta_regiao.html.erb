@@ -1,14 +1,32 @@
+<% @regiao = Regiao.find(:all, :conditions=>['id > 99'],:order => 'nome')%>
+<% @grupo = Grupo.find(:all, :conditions=>['id != 3'],:order => 'nome')%>
 
-<% @regiao = Regiao.find(:all, :conditions =>['id > 99'],:order => 'nome')%>
-
-<table width="100%" align="center" >
+<table width="100%" align="center">
    <tr>
-     <td colspan="2"align="right"left"><font size="2"> <b class="label_busca2"> Região:</b></font>
-         <%= collection_select :crianca, :regiao_id, @regiao, :id, :nome, :include_blank => ' -- Selecionar -- ', :class=> "txt_busca2"  %>
+     <td colspan="2"align="right">
+         <font size="2"> <b class="label_busca3">Classe:</b></font>
+        <%= collection_select :crianca,:grupo_id, @grupo, :id, :nome, :include_blank => ' -- Selecionar -- ', :class=> "txt_busca2"  %>
+         <%= observe_field 'crianca_grupo_id',
+               :update => "criancas",
+               :url    => { :action => 'classifica_grupo' },
+               :with   => 'crianca_grupo_id' %>
+
+
+&nbsp&nbsp
+
+         <font size="2"> <b class="label_busca3">Região:</b></font>
+        <%= collection_select :crianca,:regiao_id, @regiao, :id, :nome, :include_blank => ' -- Selecionar -- ', :class=> "txt_busca2"  %>
          <%= observe_field 'crianca_regiao_id',
                :update => "criancas",
-               :url    => { :action => 'classificao_regiao' },
+               :url    => { :action => 'classifica_regiao' },
                :with   => 'crianca_regiao_id' %>
+ &nbsp&nbsp
+
+          <%= submit_tag "Visualizar", :class => "btn_filtrar" %>
+
      </td>
+
+
    </tr>
   </table>
+

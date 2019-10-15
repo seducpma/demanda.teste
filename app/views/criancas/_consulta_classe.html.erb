@@ -1,11 +1,14 @@
-<% @regiao = Regiao.find(:all, :order => 'nome')%>
+<% @regiao = Regiao.find(:all, :conditions=>['id > 99'],:order => 'nome')%>
 
 <table width="100%" align="center">
    <tr>
-     <td colspan="2"align="right"><font size="2"> <b class="label_busca3">Região:</b></font>
-        <%= collection_select :crianca, :regiao_id, @regiao, :id, :nome, :include_blank => ' -- Selecionar -- ', :class=> "txt_busca2"  %>
-        <font size="2"> <b class="label_busca3">Classe:</b></font>
-        <%= collection_select :crianca, :grupo_id, @grupos1, :id, :nome, :include_blank => ' -- Selecionar -- ', :class=> "txt_busca3"  %>
+     <td cols        <font size="2">
+      <b class="label_busca3">  Classe:</b></font>
+        <%= collection_select :crianca, :classe_id, @grupos1, :id, :nome, :include_blank => ' -- Selecionar -- ' %>
+ &nbsp&nbsp
+       <b class="label_busca3">Região:</b></font>
+        <%= collection_select :crianca, :regiao2_id, @regiao, :id, :nome, :include_blank => ' -- Selecionar -- '  %>
+&nbsp&nbsp
          <%= submit_tag "Visualizar", :class => "btn_filtrar" %>
 
      </td>

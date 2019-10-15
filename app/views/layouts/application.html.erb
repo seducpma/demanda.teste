@@ -109,8 +109,7 @@ display: none;
                   <li><%= link_to 'Sobre', sobre_path %></li>
                 </ul>
               </li>
-              <% if 'A' == 'B' %>
-              <%# if (current_user.has_role?('admin') or current_user.has_role?('SEDUC') or current_user.has_role?('direcao')  or current_user.has_role?('supervisao') or current_user.has_role?('secretaria'))%>
+              <% if (current_user.has_role?('admin') or current_user.has_role?('SEDUC') or current_user.has_role?('direcao')  or current_user.has_role?('supervisao') or current_user.has_role?('secretaria'))%>
               <li><span class="divider divider-vert" ></span></li>
               <li><a class="item-primary" href="#;">Inscrição</a>
                  <ul style="width:108px;">
@@ -140,13 +139,17 @@ display: none;
               <li><a class="item-primary" href="#;">Classificação</a>
                  <ul style="width:108px;">
                           <li><%= link_to "Classificação",consulta_unidade_path %></li>
-                           <% if (current_user.has_role?('admin') or current_user.has_role?('SEDUC') or current_user.has_role?('direcao')  or current_user.has_role?('supervisao'))%>
+
+                          <!-- <% if (current_user.has_role?('admin') or current_user.has_role?('SEDUC') or current_user.has_role?('direcao')  or current_user.has_role?('supervisao'))%>
                            <li><%= link_to "Gráficos", grafico_path %></li>
-                          <%end%>
+                          <%end%>-->
                          <li><a class="item-primary" href="#;">Relatorios</a>
                               <ul>
                                   <li>  <%= link_to "Demanda Geral",consulta_geral_path %></li>
-                                  <li>  <%= link_to "Mãe Trabalha",consulta_mae_path %></li>
+                                  <!--<% if (current_user.has_role?('admin'))%>
+                                        <li><%#= link_to "Demanda(Ant)",teste_path %></li>
+                                  <%  end %>-->
+                                 <!-- <li>  <%#= link_to "Mãe Trabalha",consulta_mae_path %></li>-->
                               </ul>
                           </li>
                             

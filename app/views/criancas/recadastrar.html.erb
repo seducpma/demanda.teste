@@ -12,13 +12,20 @@
  <%= f.error_messages %>
       <font size ="3" color="RED"><b> &nbsp&nbsp&nbsp&nbsp
                     <b><u>ATENÇÃO:</u> <br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        1) PREENCHA ESTA FICHA CORRETAMENTE, DADOS E INFORMAÇÕES INCORRETAS E IMPRECISAS <br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        ACARRETARÃO NO <u>CANCELAMENTO</u> DA INSCRIÇÃO.<br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        2) QUANDO A MATRICULA DA CRIANÇA FOR EFETIVADA, TODOS OS DADOS E INFORMAÇÕES PRESTADOS<br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                         NESTA INSCRIÇÃO DEVERÃO SER COMPROVADAS COM A DEVIDA DOCUMENTAÇÃO. <br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        3) A NÃO APRESENTAÇÃO DOS COMPROVANTES E DOCUMENTAÇÃO DEVIDOS ACARRETARÁ NO<br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        <u>CANCELAMENTO</u> DA INSCRIÇÃO. <br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        1) A classificação será realizada por setorização regional, sendo as regiões definidas pela Secretaria Municipal<br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                         de Educação de Americana. A criança ficará classificada obrigatoriamente na região de abrangência do <br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                         endereço residencial da família ou aquele indicado pelo responsável legal, mediante justificativa e  <br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                         comprovação. A criança ficará classificada em uma única região, podendo ser atendida em qualquer uma<br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                         uma das unidades da região, conforme disponibilidade de vagas.<br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         
+                        2) Todas as informações prestadas na inscrição deverão estar corretas e devidamente comprovadas com os <br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                         respectivos documentos. Informações não comprovadas serão desconsideradas podendo implicar,<br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                         no <u>CANCELAMENTO</u> da inscrição.<br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+
+                         3) Visando otimização no atendimento da demanda, a Secretaria de Educação de Americana poderá rever e,<br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                         alterar a qualquer tempo, os grupos de escolas e bairros que integram a setorização regional.
+                         
                      </b>
             </font>
 
@@ -36,9 +43,9 @@
                :with => :crianca_nome,
                :url => { :action => 'mesmo_nome' } %>
           </td>
-         <td><b><%= f.label :nascimento, 'Nascimento' %></b></td>
+         <td><b><font size="5" color ="red"> * </font></b> <b><%= f.label :nascimento, 'Nascimento' %></b></td>
          <td>    <%= f.date_select(:nascimento, :order => [:day, :month, :year], :start_year => (Date.today.year), :end_year => (Date.today.year - 5)) %><BR /></td>
-       </tr>
+       </tr>3) Visando otimização no atendimento da demanda, a Secretaria de Educação de Americana poderá rever e alterar, a qualquer tempo, os grupos de escolas e bairros que integram a setorização regional.
        <tr>
          <td><b><font color="red" size="5">*</font>Mãe</b></td>
          <td><%= f.text_field :mae, :size=>"38"%>
@@ -110,17 +117,18 @@
   <legend><font size=4>Dados da Inscrição</font></legend>
   <table width="100%">
       <tr>
-          <font collor="blue"><td colspan="6"><b><u>ATENÇÃO:</u></b><font collor="blue"> Indique um endereço para referência da vaga. É necessário comprovar algum vínculo com o endereço indicado.</font> </td>
+          <td colspan="6"><font size ="2" color="BLUE"><b><u>ATENÇÃO:</u></b> Indique um endereço para fins de classificação. É necessário comprovar e justificar o vínculo com este endereço.</font> </td>
+
       </tr>
        <tr>
-           <td colspan="6"><b>Endereço: </b> <%= f.text_field :end_indicacao,  :size =>"45"%> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>Nº</b><%= f.text_field :num_indicacao, :size=>"4" %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            <b>Refência:</b> <%= f.select :bairro, REFERENCIA, :include_blank => ''%>
+           <td colspan="6"><b>Endereço: </b> <%= f.text_field :end_indicacao,  :size =>"45"%> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>Nº </b><%= f.text_field :num_indicacao, :size=>"4" %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <b>Vínculo:</b> <%= f.select :vinculo, REFERENCIA, :include_blank => ''%>
            
 
            </td>
        </tr>
        <tr>
-           <td colspan="6"><b>Justificativa: </b> <%= f.text_field :end_indicacao,  :size =>"100"%> </td>
+           <td colspan="6"><b>Justificativa: </b> <%= f.text_field :justif_indicacao,  :size =>"98"%> </td>
        </tr>
        <tr>
          <td colspan="6"><b>Bairro/Região:</b>&nbsp&nbsp&nbsp&nbsp
@@ -139,15 +147,17 @@
            <td colspan="6"><div id="listagem"> </div></td>
        </tr>
       <tr>
-          <td colspan="6" <b><%= f.label :unidade, 'Unidade de  Inscrição' %></b>
-            <%= f.collection_select :unidade_id, @unidades, :id, :nome, :include_blank => '---Selecione---' %>&nbsp&nbsp&nbsp&nbsp(Onde foi feita a inscrição)</td>
+          <td colspan="6"><br/> <b>Unidade onde foi realizada a Inscrição </b>
+              <%=h @crianca.unidade.nome%> &nbsp&nbsp&nbsp -&nbsp&nbsp&nbsp <b>Data Inscrição:</b>
+              <%=h @crianca.created_at.strftime("%d/%m/%Y")%></td>
+            
       </tr>
       <tr>
         <td colspan="6">
-          <fieldset> <legend><font size=4>Prioridade</font></legend>
+          <fieldset> <legend><font size=4>Prioridades</font></legend>
               <table width="100%"  >
                <tr>
-                   <td colspan="3"><b>1) Filho(a) de Servidora Pública da Prefeitura Municipal de Americana?</b>  &nbsp&nbsp&nbsp&nbsp&nbsp ===> &nbsp&nbsp&nbsp&nbsp&nbsp
+                   <td colspan="3"><b>1) Filho(a) de Servidora Pública da Prefeitura Municipal de Americana?</b>  &nbsp&nbsp&nbsp&nbsp&nbsp ============> &nbsp&nbsp&nbsp&nbsp&nbsp
                        <%= f.select :servidor_publico, (OPCAOSN).sort %>
                            <%= observe_field 'crianca_servidor_publico',
                               :update => "servidor",
@@ -161,7 +171,7 @@
               
 
                <tr>
-                 <td colspan="3"><b>2) Mãe apresentrou carteira de trabalho devidamente assinada?</b>&nbsp&nbsp&nbsp  ==========> &nbsp&nbsp&nbsp&nbsp&nbsp
+                 <td colspan="3"><b>2) Mãe apresentou carteira de trabalho devidamente assinada?</b>&nbsp&nbsp&nbsp  ====================> &nbsp&nbsp&nbsp&nbsp&nbsp
                      <%= f.select :trabalho, (OPCAOSN).sort %>
                            <%= observe_field 'crianca_trabalho',
                               :update => "trabalho",
@@ -173,7 +183,7 @@
                    <td colspan="6"><div id="trabalho"> </div></td>
                </tr>
                <tr>
-                 <td colspan="3"><b>3) Mãe apresentrou declaração do empregador com firma reconhecida?</b>&nbsp&nbsp&nbsp  ===> &nbsp&nbsp&nbsp&nbsp&nbsp
+                 <td colspan="3"><b>3) Mãe apresentou declaração do empregador PESSOA JURÍDICA com CNPJ e firma reconhecida em cartório?</b>&nbsp&nbsp&nbsp  ===> &nbsp&nbsp&nbsp&nbsp&nbsp
                      <%= f.select :declaracao, (OPCAOSN).sort %>
                            <%= observe_field 'crianca_declaracao',
                               :update => "declaracao",
@@ -185,7 +195,7 @@
                    <td colspan="6"><div id="declaracao"> </div></td>
                </tr>
                <tr>
-                   <td colspan="3"><b>4) Mãe apresentou declaração de trabalho autônomo (em tempo integral)?</b>&nbsp&nbsp&nbsp  ==> &nbsp&nbsp&nbsp
+                   <td colspan="3"><b>4) Mãe apresentou declaração do empregador PESSOA FÍSICA  com CPF e RG <br/>&nbsp&nbsp&nbsp <u>ou</u> declaração de trabalho AUTÔNOMO ?</b> &nbsp&nbsp&nbsp ============================================================> &nbsp&nbsp&nbsp
                          <%= f.select :autonomo, (OPCAOSN).sort %>
                            <%= observe_field 'crianca_autonomo',
                               :update => "autonomo",
@@ -203,9 +213,8 @@
       </tr>
 
       <tr>
-         <td>&nbsp&nbsp&nbsp<b>Data Inscrição:</b></td>
-         <td>
-              <%=h @crianca.created_at.strftime("%d/%M/%Y")%>
+          <td colspan="2">&nbsp&nbsp&nbsp<b>Local do recadastramento:</b>
+              <%= current_user.unidade.nome%>
 
          </td>
       </tr>
@@ -224,37 +233,29 @@
       <tr>
         <td colspan="2" ><font size ="3" color="RED"><b> &nbsp&nbsp&nbsp&nbsp
                     <b><u>ATENÇÃO:</u> <br/>&nbsp&nbsp&nbsp&nbsp
-                        1) NO ATO DE MATRICULA DA CRIANÇA TODAS AS INFORMAÇÕES PRESTADAS DEVERÃO ESTAR <br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        CORRETAS E DEVIDAMENTE COMPROVADAS COM OS RESPECTIVOS DOCUMENTOS. <br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        INFORMAÇÕES E DADOS INVERIDICOS E NÃO COMPROVADOS IMPLICARÃO NO <u>CANCELAMENTO</u> <br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        1)TODAS AS INFORMAÇÕES INVERÍDICAS E NÃO COMPROVADOS IMPLICARÃO NO <u>CANCELAMENTO</u> <br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         DA INSCRIÇÃO.</b>
 
         </td>
       </tr>
+      <tr>
+        <td colspan="2" ><font size ="3" color="blue"><b> &nbsp&nbsp&nbsp&nbsp
+                    2) Assim que houver disponibilidade de vaga na região indicada, a Secretaria de Educação entrará   <br/>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp em contato com  o responsável pela criança.
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" ><font size ="3" color="blue"><b> &nbsp&nbsp&nbsp&nbsp
+                   3) É de responsabilidade dos pais e/ou responsável legal manter os dados atualizados no cadastro<br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                   junto à unidade escolar onde realizou a inscrição. Assim, deverá ser informada qualquer alteração<br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                   nos dados solicitados na inscrição, inclusive os telefones, pois será somente por meio de ligações<br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                   telefônicas que ocorrerá o contato no caso de surgimento de vaga. Deverá ser informada, também, ainda<br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                   qualquer alteração relativa ao trabalho da mãe, pois essa informação é critério de classificação na lista <br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                   de espera. Caso haja alteração no endereço indicado na inscrição a criança será reclassificada de a cordo<br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                   com a demanda na nova região
+        </td>
+      </tr>
 
-
-      <tr>
-        <td colspan="2" ><font size ="3" color="blue"><b> &nbsp&nbsp&nbsp&nbsp
-                    2) A toda criança será atendido com vaga que será ofericida pela Secretaria de Educação na <b>região</b> <br/>
-                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp  do endereço cadastrado, conforme disponibilidade.
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2" ><font size ="3" color="blue"><b> &nbsp&nbsp&nbsp&nbsp
-                    3) Assim que houver disponibilidade de vaga a Secretaria de Educação entrará e contato com  o  <br/>
-                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp responsável pela criança (mantenha os dados de contato atualizados).
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2" ><font size ="3" color="blue"><b> &nbsp&nbsp&nbsp&nbsp
-                    4) A ordem de antendimento da solicitação de vaga será conforme legislação em vigor.
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2" ><font size ="3" color="blue"><b> &nbsp&nbsp&nbsp&nbsp
-                    5) Caso haja alterção da opção da região na inscrição, a criança será reclassifica.
-        </td>
-      </tr>
      <tr>
          <td width="2%" valign="top"><b class="botao1" style="display:none">&nbsp&nbsp&nbsp&nbsp<font color ="blue"><b><u><%= link_to image_tag("/stylesheets/images/Vagas.png", :size => "100x26"), "#inline_form_vaga", :class =>"inline" %></u></b></font></td>
          <td><div id="dados_vaga"> <%= render :partial => 'vagas'  %></div></td>

@@ -8,11 +8,9 @@
               </tr>
             <% end %>
               <tr>
-                  <td><font size ="2" color="blue"><b> &nbsp&nbsp&nbsp&nbsp
+                  <td><font size ="2" color="blue"><b> 
                     <b id="pisca1"><u>ATENÇÃO:</u></b><b> 
-                        A indicação de um unidade na é SOMENTE uma referência, a vaga será oferecida na região <br/>
-                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp
-                        de residência da criança <font color="blue" size="5">*</font>
+                        A vaga poderá ser oferecida em qualquer uma das unidades da região indicada, conforme disponibilidade.
                      </b>
             </font> </td>
               </tr>
@@ -20,8 +18,8 @@
           </table>
         </td>
       <tr>
-          <td colspan="5"><b><font color="blue" size="5"> * </font><%= 'Unidade de Preferência  ' %> </b>
-         <%= collection_select :crianca, :unidade_ref, @unidade_regiao, :nome, :nome, :include_blank => '---Selecionar---' %>
+          <td colspan="5"><b><font color="red" size="5"> * </font><%= 'Unidade mais próxima ao endereço apresentado:  ' %> </b>
+             <%= collection_select :crianca, :unidade_ref, @unidade_regiao, :nome, :nome, :include_blank => 'É necessário selecionar uma opção' %>
             
          </td>
       </tr>

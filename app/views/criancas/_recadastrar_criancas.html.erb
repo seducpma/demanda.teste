@@ -8,10 +8,8 @@
             <th width="20%">Nome</th>
             <th width="20%">Nasc/o</th>
             <th width="10%">Classe</th>
-            <th width="10%">Região</th>
-            <th width="5%">Mãe <br/>Trabalha</th>
-            <th width="5%">Mãe <br/>Servidora</th>
-            <th width="10%">Período</th>
+            <th >Unidade onde fez a Inscrição</th>
+
             <th></th>
 
         </tr>
@@ -29,25 +27,8 @@
                 <td align="left"><%=h crianca.nome%></td>
                 <td align="center"><%=h crianca.nascimento.strftime("%d/%m/%Y")%></td>
                 <td align="center"> <%=h crianca.grupo.nome %></td>
-               <td align="center"> <%=h crianca.regiao.nome %></td>
-                                     <!--   ALTERAR TAMBEM NA IMPRESSÃO    impressao/class_classe -->
-
-                                  <% if crianca.trabalho == false %>
-                                      <td align="center">NÃO</td>
-                                  <%else%>
-                                       <td align="center">SIM</td>
-                                  <%end%>
-                                  <% if crianca.servidor_publico == false %>
-                                      <td align="center">NÃO</td>
-                                  <%else%>
-                                       <td align="center">SIM</td>
-                                  <%end%>
-                <td align="center"><%=h crianca.periodo%></td>
-
-
-      
-                  
-                   <td align="left" ><%= link_to button_to('Recadastrar', {:action => "recadastrar", :id =>crianca.id}, :target => '_blank', :title => "Recadastrar") %></td>              </tr>
+                <td align="center"> <%=h crianca.unidade.nome %></td>
+                <td align="right" ><%= link_to button_to('Recadastrar', {:action => "recadastrar", :id =>crianca.id}, :target => '_blank', :title => "Recadastrar") %></td>              </tr>
               
               
             <% end %>

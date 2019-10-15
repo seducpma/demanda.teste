@@ -10,6 +10,7 @@ class Crianca < ActiveRecord::Base
   validates_presence_of :regiao_id
   validates_presence_of :nome
   validates_presence_of :nascimento
+  validates_presence_of :unidade_ref
   #validates_presence_of :opcao1
   before_save  :maiusculo
   #before_update  :reclassificacao
@@ -159,6 +160,7 @@ def self.na_demanda
    def self.matricula_total
     Crianca.find(:all, :conditions => ["status = 'MATRICULADA'"])
   end
+  
   def maiusculo
     self.nome.upcase!
     if  !self.bairro.nil?
@@ -195,6 +197,25 @@ def self.na_demanda
     if  !self.status.nil?
         self.status.upcase!
     end
+    if  !self.justif_indicacao.nil?
+        self.justif_indicacao.upcase!
+    end
+    if  !self.vinculo.nil?
+        self.vinculo.upcase!
+    end
+    if  !self.end_indicacao.nil?
+        self.end_indicacao.upcase!
+    end
+    if  !self.bairro_trab.nil?
+        self.bairro_trab.upcase!
+    end
+        if  !self.atividade_autonomo.nil?
+        self.atividade_autonomo.upcase!
+    end
+
+
+
+
   end
 
  

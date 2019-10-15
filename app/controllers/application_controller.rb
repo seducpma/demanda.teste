@@ -101,7 +101,7 @@ GRAU = { 'Pai/Mãe'=> 'Pai/Mãe',
          'Outros' => 'Outros'
         }
 
-REFERENCIA = { 'Residencia'=> 'Residencia',
+REFERENCIA = { 'Residência'=> 'Residencia',
                'Avô/Avó' => 'Avô/Avó',
                'Trabalho'=> 'Trabalho',
                'Outros'=> 'Outros',

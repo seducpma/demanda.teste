@@ -90,7 +90,9 @@ def recadastrar_crianca
                
 end
 
+ 
  def recadastrar
+    
     @crianca = Crianca.find(params[:id])
     data=@crianca.nascimento
     session[:status] = @crianca.status
@@ -333,8 +335,6 @@ end
               @canceladas = Crianca.find( :all,:conditions => [" nome like ? and status =?",  "%" + params[:search1].to_s + "%" , 'CANCELADA'],:order => 'nome ASC')
               @demandas = Crianca.find( :all,:conditions => [" nome like ? and status =?",  "%" + params[:search1].to_s + "%" , 'NA_DEMANDA'],:order => 'nome ASC')
               @matriculadas = Crianca.find( :all,:conditions => [" nome like ? and status =?",  "%" + params[:search1].to_s + "%" , 'MATRICULADA'],:order => 'nome ASC')
-              
-t=0
         render :update do |page|
           page.replace_html 'criancas', :partial => "criancas"
         end
@@ -383,7 +383,7 @@ end
 
 def classificao_unidade_status
 
-  session[:opcao]=Unidade.find_by_id(params[:crianca_unidade_id]).nome
+#  session[:opcao]=Unidade.find_by_id(params[:crianca_unidade_id]).nome
 
  @criancas1 = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND trabalho = 1 and opcao1=? ",  session[:opcao] ],:order => "servidor_publico DESC, irmao DESC, transferencia DESC, created_at ASC")
  @criancas2 = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND trabalho = 1 and opcao2=? ",  session[:opcao] ],:order => "servidor_publico DESC, irmao DESC, transferencia DESC, created_at ASC")
@@ -491,10 +491,13 @@ end
 
 
 def classificao_unidade
-  
-  session[:opcao]=Unidade.find_by_id(params[:crianca_unidade_id]).nome
-  session[:regiao]=Unidade.find_by_id(params[:crianca_unidade_id]).regiao_id
-  
+
+    w = session[:unidade]=(params[:crianca_unidade_id])
+    w1 = session[:classe]=(params[:crianca_grupo_id])
+
+
+ #w3= session[:opcao]=Unidade.find_by_id(params[:crianca_unidade_id]).nome
+ #w4= session[:regiao]=Unidade.find_by_id(params[:crianca_unidade_id]).regiao_id
  #@criancas1 = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND trabalho = 1 and opcao1=? ",  session[:opcao] ],:order => "servidor_publico DESC, irmao DESC, transferencia DESC, created_at ASC")
  #@criancas2 = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND trabalho = 1 and opcao2=? ",  session[:opcao] ],:order => "servidor_publico DESC, irmao DESC, transferencia DESC, created_at ASC")
  #@criancas3 = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND trabalho = 1 and opcao3=? ",  session[:opcao] ],:order => "servidor_publico DESC, irmao DESC, transferencia DESC, created_at ASC")
@@ -504,30 +507,28 @@ def classificao_unidade
 
  #@criancas = @criancas1 + @criancas2 + @criancas3 + @criancas4 + @criancas5 + @criancas6
 
- @criancas1 = @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND servidor_publico = 1 AND unidade_ref = ? ",  session[:opcao] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")
- @criancas2 = @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND servidor_publico = 0 AND unidade_ref = ? ",  session[:opcao] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")
- @criancas11 = (@criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND trabalho = 1 AND unidade_ref = ? ",  session[:opcao] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")) - (@criancas1 + @criancas2)
- @criancas12 = (@criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND trabalho = 0 AND unidade_ref = ? ",  session[:opcao] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")) - (@criancas1 + @criancas2)
- @criancas21 = (@criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND autonomo = 1 AND unidade_ref = ? ",  session[:opcao] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")) - (@criancas1 + @criancas2 + @criancas11 + @criancas12)
- @criancas22 = (@criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND autonomo = 0 AND unidade_ref = ? ",  session[:opcao] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")) - (@criancas1 + @criancas2 + @criancas11 + @criancas12)
+# @criancas1 = @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND servidor_publico = 1 AND unidade_ref = ? ",  session[:opcao] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")
+# @criancas2 = @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND servidor_publico = 0 AND unidade_ref = ? ",  session[:opcao] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")
+# @criancas11 = (@criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND trabalho = 1 AND unidade_ref = ? ",  session[:opcao] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")) - (@criancas1 + @criancas2)
+# @criancas12 = (@criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND trabalho = 0 AND unidade_ref = ? ",  session[:opcao] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")) - (@criancas1 + @criancas2)
+# @criancas21 = (@criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND autonomo = 1 AND unidade_ref = ? ",  session[:opcao] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")) - (@criancas1 + @criancas2 + @criancas11 + @criancas12)
+# @criancas22 = (@criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND autonomo = 0 AND unidade_ref = ? ",  session[:opcao] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")) - (@criancas1 + @criancas2 + @criancas11 + @criancas12)
 
- @criancas = @criancas1 + @criancas2 + @criancas11 + @criancas12 + @criancas21 + @criancas22
-t=0
-  render :partial => 'criancas_unidade'
+# @criancas = @criancas1 + @criancas2 + @criancas11 + @criancas12 + @criancas21 + @criancas22
+#t=0
+#  render :partial => 'criancas_unidade'
  
 end
 
-def classificao_regiao
+def classifica_grupo
+  w1=session[:grupo]=params[:crianca_grupo_id]
+  t=0
 
-  session[:opcao]=params[:crianca_regiao_id]
+end
 
- @criancas1 = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND trabalho = 1 and regiao_id=? ",  session[:opcao] ],:order => "servidor_publico DESC, irmao DESC, transferencia DESC, created_at ASC")
- @criancas2 = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND trabalho = 0 and regiao_id=? ",  session[:opcao] ],:order => "servidor_publico DESC, irmao DESC, transferencia DESC, created_at ASC")
-
- @criancas = @criancas1 + @criancas2
-
-  render :partial => 'criancas_regiao'
-
+def classifica_regiao
+  w2=session[:regiao]=params[:crianca_regiao_id]
+  t=0
 end
 
 
@@ -553,19 +554,44 @@ end
 
 def consulta_classe
 
-  w=session[:opcao] = params[:crianca][:regiao_id]
-  w1=session[:classe] =(params[:crianca][:grupo_id])
+    if params[:type_of].to_i == 1
+         @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA'  AND regiao_id=? AND grupo_id=? ",  session[:regiao], session[:grupo] ],:order => "servidor_publico DESC, trabalho DESC, declaracao DESC, autonomo DESC, transferencia DESC, created_at ASC")
+         render :update do |page|
+           page.replace_html 'criancas', :partial => 'criancas_regiao'
+         end
+     else if params[:type_of].to_i == 2
+              w=session[:opcao] = params[:crianca][:regiao2_id]
+              w1=session[:classe] =(params[:crianca][:classe_id])
+              @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA'  AND regiao_id=? AND grupo_id=?",  session[:opcao], session[:classe] ],:order => "servidor_publico DESC, trabalho DESC, declaracao DESC, autonomo DESC, transferencia DESC, created_at ASC")
+              render :update do |page|
+                 page.replace_html 'criancas', :partial => "criancas_regiao"
+               end
+         else if params[:type_of].to_i == 3
+              session[:grupo] = params[:crianca][:grupo3_id]
+              session[:unidade_ref] =(params[:crianca][:unidade_ref])
+              @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA'  AND grupo_id=? AND unidade_ref=?",  session[:grupo], session[:unidade_ref] ],:order => "servidor_publico DESC, trabalho DESC, declaracao DESC, autonomo DESC, transferencia DESC, created_at ASC")
+              render :update do |page|
+                 page.replace_html 'criancas', :partial => "criancas_regiao"
+               end
+
+              end
+          end
+     end
 
 
- @criancas1 = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND trabalho = 1 AND regiao_id=? AND grupo_id=?",  session[:opcao], session[:classe] ],:order => "servidor_publico DESC, irmao DESC, transferencia DESC, created_at ASC")
- @criancas2 = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND trabalho = 0 AND regiao_id=? AND grupo_id=?",  session[:opcao], session[:classe] ],:order => "servidor_publico DESC, irmao DESC, transferencia DESC, created_at ASC")
+def relatorio_geral_ant
+t=0
+  @criancas = Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA'" ], :order => 'nome')
+  t=0
+  @unidades11 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 ", "%"+"CC " +"%"], :order => 'nome')
+  @unidades12 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 ", "%"+"CR " +"%"], :order => 'nome')
+  @unidades13 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 ", "%"+"FIL. " +"%"], :order => 'nome')
+  @unidades14 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 ", "%"+"CONV. " +"%"], :order => 'nome')
+  @unidades15 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 ", "%"+"EMEI " +"%"], :order => 'nome')
 
- @criancas = @criancas1 + @criancas2
 
-render :update do |page|
-  page.replace_html 'criancas', :partial => "criancas_classe"
-end
 
+ end
 end
 
 #def relatorio_geral
