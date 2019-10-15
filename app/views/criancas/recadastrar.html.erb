@@ -157,7 +157,7 @@
           <fieldset> <legend><font size=4>Prioridades</font></legend>
               <table width="100%"  >
                <tr>
-                   <td colspan="3"><b>1) Filho(a) de Servidora Pública da Prefeitura Municipal de Americana?</b>  &nbsp&nbsp&nbsp&nbsp&nbsp ============> &nbsp&nbsp&nbsp&nbsp&nbsp
+                   <td colspan="3"><b>1) Filho(a) de Servidora Pública da Prefeitura Municipal de Americana?</b>  &nbsp =====================================> &nbsp
                        <%= f.select :servidor_publico, (OPCAOSN).sort %>
                            <%= observe_field 'crianca_servidor_publico',
                               :update => "servidor",
@@ -171,7 +171,7 @@
               
 
                <tr>
-                 <td colspan="3"><b>2) Mãe apresentou carteira de trabalho devidamente assinada?</b>&nbsp&nbsp&nbsp  ====================> &nbsp&nbsp&nbsp&nbsp&nbsp
+                 <td colspan="3"><b>2) Mãe apresentou carteira de trabalho devidamente assinada?</b>&nbsp  ============================================> &nbsp
                      <%= f.select :trabalho, (OPCAOSN).sort %>
                            <%= observe_field 'crianca_trabalho',
                               :update => "trabalho",
@@ -183,7 +183,7 @@
                    <td colspan="6"><div id="trabalho"> </div></td>
                </tr>
                <tr>
-                 <td colspan="3"><b>3) Mãe apresentou declaração do empregador PESSOA JURÍDICA com CNPJ e firma reconhecida em cartório?</b>&nbsp&nbsp&nbsp  ===> &nbsp&nbsp&nbsp&nbsp&nbsp
+                 <td colspan="3"><b>3) Mãe apresentou declaração do empregador PESSOA JURÍDICA com CNPJ e firma reconhecida em cartório?</b>&nbsp  ====> &nbsp
                      <%= f.select :declaracao, (OPCAOSN).sort %>
                            <%= observe_field 'crianca_declaracao',
                               :update => "declaracao",
@@ -195,7 +195,7 @@
                    <td colspan="6"><div id="declaracao"> </div></td>
                </tr>
                <tr>
-                   <td colspan="3"><b>4) Mãe apresentou declaração do empregador PESSOA FÍSICA  com CPF e RG <br/>&nbsp&nbsp&nbsp <u>ou</u> declaração de trabalho AUTÔNOMO ?</b> &nbsp&nbsp&nbsp ============================================================> &nbsp&nbsp&nbsp
+                   <td colspan="3"><b>4) Mãe apresentou declaração do empregador PESSOA FÍSICA  com CPF e RG <br/>&nbsp&nbsp&nbsp <u>ou</u> declaração de trabalho AUTÔNOMO ?</b> &nbsp ============================================================> &nbsp
                          <%= f.select :autonomo, (OPCAOSN).sort %>
                            <%= observe_field 'crianca_autonomo',
                               :update => "autonomo",
