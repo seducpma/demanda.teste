@@ -128,7 +128,7 @@
            </td>
        </tr>
        <tr>
-           <td colspan="6"><b>Justificativa: </b> <%= f.text_field :justif_indicacao,  :size =>"98"%> </td>
+           <td colspan="6"><b>Justificativa: </b> <%= f.text_field :justif_indicacao,  :size =>"90"%> </td>
        </tr>
        <tr>
          <td colspan="6"><b>Bairro/Região:</b>&nbsp&nbsp&nbsp&nbsp
@@ -149,7 +149,7 @@
       <tr>
           <td colspan="6"><br/> <b>Unidade onde foi realizada a Inscrição </b>
               <%=h @crianca.unidade.nome%> &nbsp&nbsp&nbsp -&nbsp&nbsp&nbsp <b>Data Inscrição:</b>
-              <%=h @crianca.created_at.strftime("%d/%m/%Y")%></td>
+              <%=h @crianca.created_at.strftime("%d/%m/%Y- %H:%M horas")%></td>
             
       </tr>
       <tr>
