@@ -8,7 +8,7 @@
     <% form_remote_tag :url => consulta_status_path, :method => :get,:loading => "$('#status').show()" , :success => "$('#status').hide()" do %>        <table width="100%" align="center" bgcolor="#DCDCDC" >
           <tr>
             <td>
-              <a href="#" class="filtro_unidade"><%= radio_button_tag(:type_of, "1") %></a>Demanda
+              <a href="#" class="filtro_unidade"><%= radio_button_tag(:type_of, "1") %></a>Demanda / Unidade
               <a href="#" class="filtro_unidade_c"><%= radio_button_tag(:type_of, "2") %></a>Canceladas
               <a href="#" class="filtro_unidade_m"><%= radio_button_tag(:type_of, "3") %></a>Matriculadas
             </td>

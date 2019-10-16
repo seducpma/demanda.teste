@@ -39,7 +39,7 @@ end
   # GET /criancas/1.xml
   def show
      @crianca = Crianca.find(params[:id])
-
+     @unidade_regiao= Unidade.find(:all , :conditions=>['regiao_id=? AND ativo = 1 AND ( tipo = 1 or tipo = 3 or tipo = 7 or tipo = 8)',@crianca.regiao_id])
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @crianca }
@@ -105,6 +105,11 @@ end
 
  def alteracao_status
     @crianca = Crianca.find(params[:id])
+    w1=params[:id]
+    w=@crianca.regiao_id
+    @unidade_regiao= Unidade.find(:all , :conditions=>['regiao_id=? AND ativo = 1 AND ( tipo = 1 or tipo = 3 or tipo = 7 or tipo = 8)',@crianca.regiao_id])
+
+
     data=@crianca.nascimento
 
     session[:status] = @crianca.status
@@ -415,14 +420,14 @@ end
 
 def consulta_status
      if params[:type_of].to_i == 1
-           @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA'"],:order => 'nome ASC, unidade_id ASC')
+           @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND recadastrada=1"],:order => 'nome ASC, unidade_id ASC')
      else if params[:type_of].to_i == 2
-              @criancas = Crianca.find( :all,:conditions => ["status = 'CANCELADA'"],:order => 'nome ASC, unidade_id ASC')
+              @criancas = Crianca.find( :all,:conditions => ["status = 'CANCELADA' AND recadastrada=1"],:order => 'nome ASC, unidade_id ASC')
              render :update do |page|
                 page.replace_html 'criancas', :partial => "criancas_unidade_status"
               end
          else if params[:type_of].to_i == 3
-                @criancas = Crianca.find( :all,:conditions => ["status = 'MATRICULADA'"],:order => 'nome ASC, unidade_id ASC')
+                @criancas = Crianca.find( :all,:conditions => ["status = 'MATRICULADA' AND recadastrada=1"],:order => 'nome ASC, unidade_id ASC')
                 render :update do |page|
                    page.replace_html 'criancas', :partial => "criancas_unidade_status"
                  end
@@ -435,10 +440,11 @@ end
 def consulta_status_demanda
  unidade =(params[:criancaD_unidade_idD])
   session[:opcaos] = Unidade.find(unidade).nome
-  @criancas1 = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND opcao1 = ?", session[:opcaos]],:order => 'nome ASC, unidade_id ASC')
-  @criancas2 = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND opcao2 = ?", session[:opcaos]],:order => 'nome ASC, unidade_id ASC')
-  @criancas3 = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND opcao3 = ?", session[:opcaos]],:order => 'nome ASC, unidade_id ASC')
-  @criancas = @criancas1 + @criancas2 + @criancas3
+  #@criancas1 = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND opcao1 = ?", session[:opcaos]],:order => 'nome ASC, unidade_id ASC')
+  #@criancas2 = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND opcao2 = ?", session[:opcaos]],:order => 'nome ASC, unidade_id ASC')
+  #@criancas3 = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND opcao3 = ?", session[:opcaos]],:order => 'nome ASC, unidade_id ASC')
+  #@criancas = @criancas1 + @criancas2 + @criancas3
+  @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND unidade_ref = ? AND recadastrada = 1", session[:opcaos]],:order => 'nome ASC, unidade_id ASC')
     render :update do |page|
          page.replace_html 'criancas', :partial => "criancas_unidade_status"
      end
