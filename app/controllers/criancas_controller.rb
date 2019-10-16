@@ -198,7 +198,11 @@ end
   # PUT /criancas/1.xml
   def update
     @crianca = Crianca.find(params[:id])
-
+     @crianca.data_rec= Time.now
+    @crianca.local_rec= current_user.unidade.nome
+          # ^^  após recadastramento comentar estes comandos ^^
+          
+   
     hoje = Date.today.to_s
     final = '2012-07-01'
     data=@crianca.nascimento.strftime("%Y-%m-%d")
