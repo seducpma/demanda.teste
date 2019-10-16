@@ -555,6 +555,8 @@ $(".sem_filtro").click(function ()
      $(".consulta_regiao").show();
      $(".consulta_unidade").hide();
      $(".consulta_classe").hide();
+     $(".consulta_unidade_c").hide();
+     $(".consulta_unidade_m").hide();
    });
 
 
@@ -563,6 +565,7 @@ $(".sem_filtro").click(function ()
    {
      $(".consulta2").show();
      $(".consulta_unidade").hide();
+     $(".consulta_regiao").hide();
      $(".consulta_unidade_c").show();
      $(".txt_buscac").show();
      $(".label_buscac").show();
@@ -581,6 +584,7 @@ $(".sem_filtro").click(function ()
    {
      $(".consulta2").show();
      $(".consulta_unidade").hide();
+     $(".consulta_regiao").hide();
      $(".consulta_unidade_c").hide();
      $(".consulta_unidade_m").show();
      $(".txt_buscam").show();

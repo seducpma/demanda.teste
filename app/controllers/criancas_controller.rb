@@ -454,14 +454,28 @@ def consulta_status_demanda
      end
 end
 
+
+def consulta_status_regiao
+  regiao =(params[:criancaR_regiao_idR])
+
+  
+  @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND regiao_id = ? AND recadastrada = 1", regiao],:order => 'nome ASC, unidade_id ASC')
+    render :update do |page|
+         page.replace_html 'criancas', :partial => "criancas_unidade_status"
+     end
+end
+
+
+
+
 def consulta_status_cancelada
  unidade =(params[:criancaC_unidade_idC])
   session[:opcaos] = Unidade.find(unidade).nome
-  @criancas1 = Crianca.find( :all,:conditions => ["status = 'CANCELADA' AND opcao1 = ?", session[:opcaos]],:order => 'nome ASC, unidade_id ASC')
-  @criancas2 = Crianca.find( :all,:conditions => ["status = 'CANCELADA' AND opcao2 = ?", session[:opcaos]],:order => 'nome ASC, unidade_id ASC')
-  @criancas3 = Crianca.find( :all,:conditions => ["status = 'CANCELADA' AND opcao3 = ?", session[:opcaos]],:order => 'nome ASC, unidade_id ASC')
-  @criancas = @criancas1 + @criancas2 + @criancas3
-
+  #@criancas1 = Crianca.find( :all,:conditions => ["status = 'CANCELADA' AND opcao1 = ?", session[:opcaos]],:order => 'nome ASC, unidade_id ASC')
+  #@criancas2 = Crianca.find( :all,:conditions => ["status = 'CANCELADA' AND opcao2 = ?", session[:opcaos]],:order => 'nome ASC, unidade_id ASC')
+  #@criancas3 = Crianca.find( :all,:conditions => ["status = 'CANCELADA' AND opcao3 = ?", session[:opcaos]],:order => 'nome ASC, unidade_id ASC')
+  #@criancas = @criancas1 + @criancas2 + @criancas3
+  @criancas = Crianca.find( :all,:conditions => ["status = 'CENCELADA' AND unidade_ref = ? AND recadastrada = 1", session[:opcaos]],:order => 'nome ASC, unidade_id ASC')
   render :update do |page|
          page.replace_html 'criancas', :partial => "criancas_unidade_status"
      end
@@ -470,10 +484,11 @@ end
 def consulta_status_matriculada
  unidade =(params[:criancaM_unidade_idM])
  session[:opcaos] = Unidade.find(unidade).nome
-  @criancas1 = Crianca.find( :all,:conditions => ["status = 'MATRICULADA' AND opcao1 = ?", session[:opcaos]],:order => 'nome ASC, unidade_id ASC')
-  @criancas2 = Crianca.find( :all,:conditions => ["status = 'MATRICULADA' AND opcao2 = ?", session[:opcaos]],:order => 'nome ASC, unidade_id ASC')
-  @criancas3 = Crianca.find( :all,:conditions => ["status = 'MATRICULADA' AND opcao3 = ?", session[:opcaos]],:order => 'nome ASC, unidade_id ASC')
-  @criancas = @criancas1 + @criancas2 + @criancas3
+  #@criancas1 = Crianca.find( :all,:conditions => ["status = 'MATRICULADA' AND opcao1 = ?", session[:opcaos]],:order => 'nome ASC, unidade_id ASC')
+  #@criancas2 = Crianca.find( :all,:conditions => ["status = 'MATRICULADA' AND opcao2 = ?", session[:opcaos]],:order => 'nome ASC, unidade_id ASC')
+  #@criancas3 = Crianca.find( :all,:conditions => ["status = 'MATRICULADA' AND opcao3 = ?", session[:opcaos]],:order => 'nome ASC, unidade_id ASC')
+  #@criancas = @criancas1 + @criancas2 + @criancas3
+  @criancas = Crianca.find( :all,:conditions => ["status = 'MATRICULADA' AND unidade_ref = ? AND recadastrada = 1", session[:opcaos]],:order => 'nome ASC, unidade_id ASC')
 
      render :update do |page|
          page.replace_html 'criancas', :partial => "criancas_unidade_status"
