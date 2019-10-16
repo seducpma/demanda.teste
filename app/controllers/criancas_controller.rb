@@ -333,13 +333,13 @@ end
   def consultacrianca
      if params[:type_of].to_i == 1
          if (current_user.unidade_id == 53 or current_user.unidade_id == 52) then
-                 @criancas = Crianca.find( :all,:conditions => ["nome like ?" , "%" + params[:search1].to_s + "%"],:order => 'nome ASC, unidade_id ASC')
+                 @criancas = Crianca.find( :all,:conditions => ["nome like ? AND status = 'NA_DEMANDA' AND recadastrada=1" , "%" + params[:search1].to_s + "%"],:order => 'nome ASC, unidade_id ASC')
               else
-                 @criancas = Crianca.find( :all,:conditions => ["nome like ? ", "%" + params[:search1].to_s + "%" ],:order => 'nome ASC')
+                 @criancas = Crianca.find( :all,:conditions => ["nome like ? status = 'NA_DEMANDA' AND recadastrada=1 ", "%" + params[:search1].to_s + "%" ],:order => 'nome ASC')
               end
-              @canceladas = Crianca.find( :all,:conditions => [" nome like ? and status =?",  "%" + params[:search1].to_s + "%" , 'CANCELADA'],:order => 'nome ASC')
-              @demandas = Crianca.find( :all,:conditions => [" nome like ? and status =?",  "%" + params[:search1].to_s + "%" , 'NA_DEMANDA'],:order => 'nome ASC')
-              @matriculadas = Crianca.find( :all,:conditions => [" nome like ? and status =?",  "%" + params[:search1].to_s + "%" , 'MATRICULADA'],:order => 'nome ASC')
+              @canceladas = Crianca.find( :all,:conditions => [" nome like ? and status =? AND recadastrada=1",  "%" + params[:search1].to_s + "%" , 'CANCELADA'],:order => 'nome ASC')
+              @demandas = Crianca.find( :all,:conditions => [" nome like ? and status =? AND recadastrada=1",  "%" + params[:search1].to_s + "%" , 'NA_DEMANDA'],:order => 'nome ASC')
+              @matriculadas = Crianca.find( :all,:conditions => [" nome like ? and status =?  AND recadastrada=1",  "%" + params[:search1].to_s + "%" , 'MATRICULADA'],:order => 'nome ASC')
         render :update do |page|
           page.replace_html 'criancas', :partial => "criancas"
         end
@@ -734,7 +734,8 @@ end
 end
 
 def impressao_recadastramento
-       @crianca = Crianca.find(:all,:conditions => ["id = ?",  session[:id_crianca]])
+       #@crianca = Crianca.find(:all,:conditions => ["id = ?",  session[:id_crianca]])
+       @crianca = Crianca.find(:all,:conditions => ["id = ?",  session[:child]])
        @unidade_regiao= Unidade.find(:all , :conditions=>['regiao_id=? AND ativo = 1 AND ( tipo = 1 or tipo = 3 or tipo = 7 or tipo = 8)',@crianca[0].regiao_id])
 
       render :layout => "impressao"

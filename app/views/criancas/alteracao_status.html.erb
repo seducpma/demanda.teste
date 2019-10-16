@@ -67,15 +67,15 @@
 
  <fieldset>
   <legend><font size=4>Dados da Inscrição</font></legend>
-  <table width="100%" border="1" >
+  <table width="100%" >
       <tr >
          <td width ="20%"><b> <%= f.label :unidade, 'Unidade da Inscrição' %></b></td>
-         <td><%=h @crianca.unidade.nome %></td>
+         <td colspan="3"><%=h @crianca.unidade.nome %></td>
       </tr>
        <tr>
         <td> <font size ="3" color ="'blue"><b> Status da Inscrição:</b>  </font></td>
         <td> <font size ="3"><b><%= f.select :status, options_for_select(Crianca::Status) %></b> </font></td>
-        <td> <font size ="3"color ="'blue"><b>&nbsp &nbsp &nbsp&nbsp&nbsp&nbsp Unidade Matricula:</b> <%= f.collection_select  :matriculado  , @unidades, :nome, :nome, :include_blank => 'Selecione opção se MATRICULADA'  %> </font></td>
+        <td colspan="2"> <font size ="3"color ="'blue"><b>&nbsp Unidade Matricula:</b> <%= f.collection_select  :matriculado  , @unidades, :nome, :nome, :include_blank => 'Selecione opção se MATRICULADA'  %> </font></td>
       </tr>
               <tr >
                     <td align="left"><b>Trabalho Mãe : </b></td>
@@ -98,7 +98,7 @@
            <tr>
               <td align="left" ><b>Local Inscrição:</b></td>
               <td  align="left" ><%= @crianca.unidade.nome%></td>
-              <td align="left"><b>Data  e Hora:</b> </td>
+              <td align="left"><b> &nbsp Data  e Hora:</b> </td>
               <td align="left"><%=  @crianca.created_at.strftime("%e/%m/%Y - %H:%M horas")%></td>
            </tr>
 
@@ -126,25 +126,7 @@
      </table>
 
   </fieldset>
-       <fieldset><legend><font  size=3><b> Dados da inscrição</b></font></legend>
-         <table width="100%">
-            <tr >
-              <td colspan="2" ><font size ="3"><b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    Já foi oferecido alguma vagas à criança? &nbsp&nbsp&nbsp&nbsp
-                     <% if !@crianca.vaga_id.nil? %>
-                         SIM</b>  </font>
-                     <%else%>
-                          NÃO</b>  </font>
 
-                      <%end%>
-              </td>
-             </tr>
-              <tr >
-               <td width="2%" valign="top"><b> Vagas Oferedidas: </b></font></td>
-               <td> <%= render :partial => 'vagas'  %></td>
-              </tr>
-        </table>
-       </fieldset>
  <br/>
  <br/>
 
@@ -164,7 +146,7 @@
          </tr>
        </table>
       </fieldset>
-    </fieldset>
+    
   </font>
   </div>
 

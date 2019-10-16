@@ -20,7 +20,11 @@
 
                         2) Todas as informações prestadas na inscrição deverão estar corretas e devidamente comprovadas com os <br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                          respectivos documentos. Informações não comprovadas serão desconsideradas podendo implicar,<br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                         no <u>CANCELAMENTO</u> da inscrição.
+                         no <u>CANCELAMENTO</u> da inscrição.<br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+
+                         3) Visando otimização no atendimento da demanda, a Secretaria de Educação de Americana poderá rever e,<br/> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                         alterar a qualquer tempo, os grupos de escolas e bairros que integram a setorização regional.
 
                      </b>
             </font>
@@ -118,13 +122,13 @@
       </tr>
        <tr>
            <td colspan="6"><b>Endereço: </b> <%= f.text_field :end_indicacao,  :size =>"45"%> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>Nº </b><%= f.text_field :num_indicacao, :size=>"4" %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            <b>Vínculo:</b> <%= f.select :vinculo, REFERENCIA, :include_blank => ''%>
+            <b>Vínculo:</b> <%= f.select :vinculo, REFERENCIA, :include_blank => ''%>  &nbsp (<%=h @crianca.vinculo %>)
 
 
            </td>
        </tr>
        <tr>
-           <td colspan="6"><b>Justificativa: </b> <%= f.text_field :justif_indicacao,  :size =>"98"%> </td>
+           <td colspan="6"><b>Justificativa: </b> <%= f.text_field :justif_indicacao,  :size =>"90"%> </td>
        </tr>
        <tr>
          <td colspan="6"><b>Bairro/Região:</b>&nbsp&nbsp&nbsp&nbsp
@@ -140,12 +144,16 @@
          </td>
        </tr>
        <tr> <td></td>
-           <td colspan="6"><div id="listagem"> </div></td>
+           <td colspan="6"> &nbsp <div id="listagem"><% if !@crianca.unidade_ref.nil? %>
+                                                 <b>Unidade mais próxima:</b> <%=  @crianca.unidade_ref %>
+                                              <%end%>
+
+                           </div></td>
        </tr>
       <tr>
           <td colspan="6"><br/> <b>Unidade onde foi realizada a Inscrição </b>
               <%=h @crianca.unidade.nome%> &nbsp&nbsp&nbsp -&nbsp&nbsp&nbsp <b>Data Inscrição:</b>
-              <%=h @crianca.created_at.strftime("%d/%m/%Y")%></td>
+              <%=h @crianca.created_at.strftime("%d/%m/%Y- %H:%M horas")%></td>
 
       </tr>
       <tr>
@@ -153,7 +161,7 @@
           <fieldset> <legend><font size=4>Prioridades</font></legend>
               <table width="100%"  >
                <tr>
-                   <td colspan="3"><b>1) Filho(a) de Servidora Pública da Prefeitura Municipal de Americana?</b>  &nbsp&nbsp&nbsp&nbsp&nbsp ============> &nbsp&nbsp&nbsp&nbsp&nbsp
+                   <td colspan="3"><b>1) Filho(a) de Servidora Pública da Prefeitura Municipal de Americana?</b>  &nbsp ==================================> &nbsp
                        <%= f.select :servidor_publico, (OPCAOSN).sort %>
                            <%= observe_field 'crianca_servidor_publico',
                               :update => "servidor",
@@ -162,12 +170,15 @@
                     </td>
                </tr>
                <tr>
-                   <td colspan="6"><div id="servidor"> </div></td>
+                   <td colspan="6"><div id="servidor"><% if %> </div></td>
                </tr>
 
 
                <tr>
-                 <td colspan="3"><b>2) Mãe apresentou carteira de trabalho devidamente assinada?</b>&nbsp&nbsp&nbsp  ====================> &nbsp&nbsp&nbsp&nbsp&nbsp
+                 <td colspan="3"><b>2) Mãe apresentou carteira de trabalho devidamente assinada? &nbsp
+                          <b><u>OU </u></b> &nbsp documento/certidão que comprove ser  <br/>
+                          &nbsp&nbsp funcionária estatutária de órgão público (EXCETO Prefeitura Municipal de Americana)
+                     </b>&nbsp  ====================> &nbsp
                      <%= f.select :trabalho, (OPCAOSN).sort %>
                            <%= observe_field 'crianca_trabalho',
                               :update => "trabalho",
@@ -179,7 +190,7 @@
                    <td colspan="6"><div id="trabalho"> </div></td>
                </tr>
                <tr>
-                 <td colspan="3"><b>3) Mãe apresentou declaração do empregador com firma reconhecida em cartório?</b>&nbsp&nbsp&nbsp  ===> &nbsp&nbsp&nbsp&nbsp&nbsp
+                 <td colspan="3"><b>3) Mãe apresentou declaração do empregador PESSOA JURÍDICA com CNPJ e firma reconhecida em cartório?</b>&nbsp  ====> &nbsp
                      <%= f.select :declaracao, (OPCAOSN).sort %>
                            <%= observe_field 'crianca_declaracao',
                               :update => "declaracao",
@@ -191,7 +202,7 @@
                    <td colspan="6"><div id="declaracao"> </div></td>
                </tr>
                <tr>
-                   <td colspan="3"><b>4) Mãe apresentou declaração de trabalho autônomo fora do lar?</b>&nbsp&nbsp&nbsp  ===================> &nbsp&nbsp&nbsp
+                   <td colspan="3"><b>4) Mãe apresentou declaração do empregador PESSOA FÍSICA  com CPF e RG <br/>&nbsp&nbsp&nbsp <u>ou</u> declaração de trabalho AUTÔNOMO ?</b> &nbsp =========================================================> &nbsp
                          <%= f.select :autonomo, (OPCAOSN).sort %>
                            <%= observe_field 'crianca_autonomo',
                               :update => "autonomo",
