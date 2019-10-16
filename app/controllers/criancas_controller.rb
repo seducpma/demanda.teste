@@ -339,9 +339,9 @@ end
          if (current_user.unidade_id == 53 or current_user.unidade_id == 52) then
                  @criancas = Crianca.find( :all,:conditions => ["nome like ? AND status = 'NA_DEMANDA' AND recadastrada=1" , "%" + params[:search1].to_s + "%"],:order => 'nome ASC, unidade_id ASC')
               else
-                 @criancas = Crianca.find( :all,:conditions => ["nome like ? status = 'NA_DEMANDA' AND recadastrada=1 ", "%" + params[:search1].to_s + "%" ],:order => 'nome ASC')
+                 @criancas = Crianca.find( :all,:conditions => ["nome like ? AND status = 'NA_DEMANDA' AND recadastrada=1 ", "%" + params[:search1].to_s + "%" ],:order => 'nome ASC')
               end
-              @canceladas = Crianca.find( :all,:conditions => [" nome like ? and status =? AND recadastrada=1",  "%" + params[:search1].to_s + "%" , 'CANCELADA'],:order => 'nome ASC')
+              @canceladas = Crianca.find( :all,:conditions => [" nome like ? AND status =? AND recadastrada=1",  "%" + params[:search1].to_s + "%" , 'CANCELADA'],:order => 'nome ASC')
               @demandas = Crianca.find( :all,:conditions => [" nome like ? and status =? AND recadastrada=1",  "%" + params[:search1].to_s + "%" , 'NA_DEMANDA'],:order => 'nome ASC')
               @matriculadas = Crianca.find( :all,:conditions => [" nome like ? and status =?  AND recadastrada=1",  "%" + params[:search1].to_s + "%" , 'MATRICULADA'],:order => 'nome ASC')
         render :update do |page|
