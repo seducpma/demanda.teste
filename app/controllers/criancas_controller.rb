@@ -340,21 +340,21 @@ end
         end
      else if params[:type_of].to_i == 2
               if (current_user.unidade_id == 53 or current_user.unidade_id == 52) then
-                 @criancas = Crianca.find( :all,:conditions => ['status = ?', params[:crianca][:status]],:order => 'nome ASC, unidade_id ASC')
+                 @criancas = Crianca.find( :all,:conditions => ['status = ? AND recadastrada = 1', params[:crianca][:status]],:order => 'nome ASC, unidade_id ASC')
               else
-                 @criancas = Crianca.find( :all,:conditions => [" unidade_id = ? and status =?", current_user.unidade_id , params[:crianca][:status]],:order => 'nome ASC')
+                 @criancas = Crianca.find( :all,:conditions => [" unidade_id = ? and status =? AND recadastrada = 1", current_user.unidade_id , params[:crianca][:status]],:order => 'nome ASC')
               end
-              @canceladas = Crianca.find( :all,:conditions => [" unidade_id = ? and status =?", current_user.unidade_id , 'CANCELADA'],:order => 'nome ASC')
-              @demandas = Crianca.find( :all,:conditions => [" unidade_id = ? and status =?", current_user.unidade_id , 'NA_DEMANDA'],:order => 'nome ASC')
-              @matriculadas = Crianca.find( :all,:conditions => [" unidade_id = ? and status =?", current_user.unidade_id , 'MATRICULADA'],:order => 'nome ASC')
+              @canceladas = Crianca.find( :all,:conditions => [" unidade_id = ? and status =? AND recadastrada = 1", current_user.unidade_id , 'CANCELADA'],:order => 'nome ASC')
+              @demandas = Crianca.find( :all,:conditions => [" unidade_id = ? and status =? AND recadastrada = 1", current_user.unidade_id , 'NA_DEMANDA'],:order => 'nome ASC')
+              @matriculadas = Crianca.find( :all,:conditions => [" unidade_id = ? and status =? AND recadastrada = 1", current_user.unidade_id , 'MATRICULADA'],:order => 'nome ASC')
              render :update do |page|
                 page.replace_html 'criancas', :partial => "criancas"
               end
          else if params[:type_of].to_i == 6
-                @criancas = Crianca.find( :all,:order => 'nome ASC')
-                @canceladas = Crianca.find( :all,:conditions => ["status =?", 'CANCELADA'],:order => 'nome ASC')
-                @demandas = Crianca.find( :all,:conditions => ["status =?", 'NA_DEMANDA'],:order => 'nome ASC')
-                @matriculadas = Crianca.find( :all,:conditions => ["status =?",'MATRICULADA'],:order => 'nome ASC')
+                @criancas = Crianca.find( :all, :conditions=>[' recadastrada = 1'],:order => 'nome ASC')
+                @canceladas = Crianca.find( :all,:conditions => ["status =? AND recadastrada = 1", 'CANCELADA'],:order => 'nome ASC')
+                @demandas = Crianca.find( :all,:conditions => ["status =? AND recadastrada = 1", 'NA_DEMANDA'],:order => 'nome ASC')
+                @matriculadas = Crianca.find( :all,:conditions => ["status =? AND recadastrada = 1",'MATRICULADA'],:order => 'nome ASC')
    
           render :update do |page|
                    page.replace_html 'criancas', :partial => "criancas"

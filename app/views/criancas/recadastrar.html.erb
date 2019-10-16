@@ -45,7 +45,7 @@
           </td>
          <td><b><font size="5" color ="red"> * </font></b> <b><%= f.label :nascimento, 'Nascimento' %></b></td>
          <td>    <%= f.date_select(:nascimento, :order => [:day, :month, :year], :start_year => (Date.today.year), :end_year => (Date.today.year - 5)) %><BR /></td>
-       </tr>3) Visando otimização no atendimento da demanda, a Secretaria de Educação de Americana poderá rever e alterar, a qualquer tempo, os grupos de escolas e bairros que integram a setorização regional.
+       </tr>
        <tr>
          <td><b><font color="red" size="5">*</font>Mãe</b></td>
          <td><%= f.text_field :mae, :size=>"38"%>
