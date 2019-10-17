@@ -46,8 +46,8 @@
                  <table bgcolor="#DCDCDC" width="100%"align="center" >
                     <% for reg1 in @regiaos1 %>
                        <tr bgcolor="#F5F5F5" >
-                         <td  width="80%"><font size="2"><b><%= reg1.nome %></b></td>
-                         <td  width="20%" align="center"><%= regiao = Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and regiao_id = ? and vaga_id is null",reg1]).count %></td>
+                         <td  width="70%"><font size="2"><b><%= reg1.nome %></b></td>
+                         <td  width="30%" align="center"><%= regiao = Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and regiao_id = ? and vaga_id is null",reg1]).count %></td>
                                                           <% totalregiao = totalregiao + regiao%>
                        </tr>
                      <%end%>
@@ -58,9 +58,9 @@
                  <table bgcolor="#DCDCDC" width="100%"align="center">
                      <% for reg2 in @regiaos2 %>
                        <tr bgcolor="#F5F5F5" >
-                         <td width="5%" bgcolor="#DCDCDC" ></td>
-                         <td  width="75%"><font size="2"><b><%= reg2.nome %></b></td>
-                         <td  width="25%" align="center"><%= regiao = Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and regiao_id = ? and vaga_id is null ",reg2]).count %></td>
+                         <td width="1%" bgcolor="#DCDCDC" ></td>
+                         <td  width="69%"><font size="2"><b><%= reg2.nome %></b></td>
+                         <td  width="30%" align="center"><%= regiao = Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and regiao_id = ? and vaga_id is null ",reg2]).count %></td>
                                                           <% totalregiao = totalregiao + regiao%>
                        </tr>
                      <%end%>
@@ -71,29 +71,27 @@
                  <table bgcolor="#DCDCDC" width="100%"align="center">
                      <% for reg3 in @regiaos3 %>
                        <tr bgcolor="#F5F5F5" >
-                         <td width="5%" bgcolor="#DCDCDC" ></td>
-                         <td  width="75%"><b><font size="2"><%= reg3.nome %></b></td>
-                         <td  width="25%" align="center"><%= regiao = Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and regiao_id = ? and vaga_id is null",reg3]).count %></td>
+                         <td width="1%" bgcolor="#DCDCDC" ></td>
+                         <td  width="69%"><b><font size="2"><%= reg3.nome %></b></td>
+                         <td  width="30%" align="center"><%= regiao = Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and regiao_id = ? and vaga_id is null",reg3]).count %></td>
                                                           <% totalregiao = totalregiao + regiao%>
                        </tr>
                      <%end%>
-
+                       <tr><td></td></tr>
+                      <tr bgcolor="#DCDCDC">
+                          <td colspan="3" align="left">
+                              <table bgcolor="#DCDCDC" width="100%">
+                                  <tr>
+                                    <td align="right" width="75%"><b>TOTAL GERAL INSCRIÇÕES: &nbsp&nbsp&nbsp</b></td>
+                                 <td align="center" width="20%"><font color ="red "size="2"><b><%=totalregiao %></b></font></td>
+                                  </tr>
+                              </table>
+                          </td>
+                      </tr>
                  </table>
              </td>
 
          </tr>
-          <tr bgcolor="#DCDCDC">
-              <td colspan="3" align="left">
-                  <table bgcolor="#DCDCDC" width="100%">
-                      <tr>
-                        <td align="right" width="95%"><b>TOTAL GERAL INSCRIÇÕES: &nbsp&nbsp</b></td>
-<!--                    <td align="center" width="5%"><font color ="red "size="2"><b><%=totalregiao0 %></b></font></td>
-                        <td align="center"width="5%"><font color ="red "size="2"><b><%=totalregiao1 %></b></font></td>
--->                     <td align="center" width="5%"><font color ="red "size="2"><b><%=totalregiao %></b></font></td>
-                      </tr>
-                  </table>
-              </td>
-          </tr>
      </table>
 
 <% b1=0%>
@@ -116,7 +114,7 @@
    <legend><font size=2><b>DEMANDA GERAL POR CLASSE</b></font></legend>
       <table bgcolor="#DCDCDC" width="100%"align="center">
         <tr>
-           <td valign="top" width ="30%">
+           <td valign="top" width ="29%">
             <table>
                 <tr bgcolor="#DCDCDC" >
                     <th width="35%">&nbsp&nbsp&nbsp&nbsp&nbsp</th>
@@ -132,17 +130,17 @@
                  </tr>
                  <tr bgcolor="#F5F5F5">
                    <th align="left">&nbsp&nbsp&nbsp&nbsp&nbsp - Berçario I</th>
-                   <th width="2%"><%= Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and grupo_id= 1 and regiao_id = ?", regiao.id]).count %>
+                   <th width="10%"><%= Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and grupo_id= 1 and regiao_id = ?", regiao.id]).count %>
                                    <%b1 = b1 + Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id= 1 and regiao_id = ?", regiao.id]).count%> </th>
                  </tr>
                  <tr bgcolor="#F5F5F5">
                    <th align="left">&nbsp&nbsp&nbsp&nbsp&nbsp - Berçario II</th>
-                   <th width="2%"><%= Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and grupo_id= 2 and regiao_id = ?", regiao.id]).count %>
+                   <th width="10%"><%= Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and grupo_id= 2 and regiao_id = ?", regiao.id]).count %>
                                  <%b2 =  b2 + Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id= 2 and regiao_id = ?", regiao.id]).count%> </th>
                  </tr>
                  <tr bgcolor="#F5F5F5">
                    <th align="left">&nbsp&nbsp&nbsp&nbsp&nbsp </th>
-                   <th width="2%"></th>
+                   <th width="10%"></th>
                  </tr>
                  <tr bgcolor="#C6CCCC">
                    <th align="right">Sub-Total</th>
@@ -159,7 +157,7 @@
                 <%end%>
             </table>
           </td>
-           <td valign="top" width ="30%">
+           <td valign="top" width ="29%">
             <table>
                 <tr bgcolor="#DCDCDC" >
                     <th width="35%">&nbsp&nbsp&nbsp&nbsp&nbsp</th>
@@ -176,22 +174,22 @@
                  </tr>
                  <tr bgcolor="#F5F5F5">
                    <th align="left">&nbsp&nbsp&nbsp&nbsp&nbsp - Maternal I - A</th>
-                   <th width="2%"><%= Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and grupo_id= 4 and regiao_id = ?", regiao.id]).count %>
+                   <th width="10%"><%= Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and grupo_id= 4 and regiao_id = ?", regiao.id]).count %>
                                   <%m1a = m1a + Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and (grupo_id= 4 or grupo_id = 3) and regiao_id = ?", regiao.id]).count%> </th>
                  </tr>
                  <tr bgcolor="#F5F5F5">
                    <th align="left">&nbsp&nbsp&nbsp&nbsp&nbsp - Maternal I - B</th>
-                   <th width="2%"><%= Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and grupo_id= 8 and regiao_id = ?", regiao.id]).count %>
+                   <th width="10%"><%= Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and grupo_id= 8 and regiao_id = ?", regiao.id]).count %>
                                   <%m1b = m1b + Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id= 8 and regiao_id = ?", regiao.id]).count%> </th>
                  </tr>
                  <tr bgcolor="#F5F5F5">
                    <th align="left">&nbsp&nbsp&nbsp&nbsp&nbsp - Maternal II</th>
-                   <th width="2%"><%= Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and grupo_id= 5 and regiao_id = ?", regiao.id]).count %>
+                   <th width="10%"><%= Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and grupo_id= 5 and regiao_id = ?", regiao.id]).count %>
                                   <%m2 = m2 + Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and grupo_id= 5 and regiao_id = ?", regiao.id]).count%> </th>
                  </tr>
                  <tr bgcolor="#C6CCCC">
                    <th align="right">Sub-Total</th>
-                   <th width="2%"> <%= m1a + m1b+ m2%>
+                   <th width="10%"> <%= m1a + m1b+ m2%>
                                    <% tgm1a =tgm1a +m1a%>
                                    <% tgm1b= tgm1b +m1b%>
                                    <% tgm2= tgm2 + m2%>
@@ -199,13 +197,13 @@
                  </tr>
                  <tr>
                    <th align="left">&nbsp&nbsp&nbsp&nbsp&nbsp </th>
-                   <th width="2%">
+                   <th width="10%">
                    </th>
                  </tr>
                 <%end%>
             </table>
           </td>
-           <td valign="top" width ="30%">
+           <td valign="top" width ="29%">
             <table>
                 <tr bgcolor="#DCDCDC" >
                     <th width="35%">&nbsp&nbsp&nbsp&nbsp&nbsp</th>
@@ -220,34 +218,34 @@
                  </tr>
                  <tr bgcolor="#F5F5F5">
                    <th align="left">&nbsp&nbsp&nbsp&nbsp&nbsp - Nivel I</th>
-                   <th width="2%"><%= Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and grupo_id= 6 and regiao_id = ?", regiao.id]).count %>
+                   <th width="10%"><%= Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and grupo_id= 6 and regiao_id = ?", regiao.id]).count %>
                                   <%n1 = n1 + Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and grupo_id= 6 and regiao_id = ?", regiao.id]).count%> </th>
                  </tr>
                  <tr bgcolor="#F5F5F5">
                    <th align="left">&nbsp&nbsp&nbsp&nbsp&nbsp - Nivel II</th>
-                   <th width="2%"><%= Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and grupo_id= 7 and regiao_id = ?", regiao.id]).count %>
+                   <th width="10%"><%= Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and grupo_id= 7 and regiao_id = ?", regiao.id]).count %>
                                 <%n2 = n2 + Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' and grupo_id= 7 and regiao_id = ?", regiao.id]).count%> </th>
                  </tr>
                  <tr bgcolor="#F5F5F5">
                    <th align="left">&nbsp&nbsp&nbsp&nbsp&nbsp </th>
-                   <th width="2%"></th>
+                   <th width=10%"></th>
                  </tr>
                  <tr bgcolor="#C6CCCC">
                    <th align="right">Sub-Total</th>
-                   <th width="2%"> <%= n1+ n2%>
+                   <th width="10%"> <%= n1+ n2%>
                                    <% tgn1 =tgn1 + n1%>
                                    <% tgn2= tgn2 + n2%>
                    </th>
                  </tr>
                  <tr>
                    <th align="left">&nbsp&nbsp&nbsp&nbsp&nbsp </th>
-                   <th width="2%">
+                   <th width="5%">
                    </th>
                  </tr>
 <%end%>
             </table>
           </td>
-           <td valign="top" width ="10%">
+           <td valign="top" width ="14%">
             <table>
                 <tr bgcolor="#DCDCDC" >
                     <th width="35%">Total Geral</th>

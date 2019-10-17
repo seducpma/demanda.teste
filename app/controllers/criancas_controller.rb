@@ -367,11 +367,25 @@ end
    
           render :update do |page|
                    page.replace_html 'criancas', :partial => "criancas"
-               end
-          end
-     end
+                  end
+               else if params[:type_of].to_i == 3
+                       t=0
+                          if (current_user.unidade_id == 53 or current_user.unidade_id == 52) then
+                                @criancas = Crianca.find( :all,:conditions => ["nome like ? AND status = 'NA_DEMANDA' AND recadastrada=0" , "%" + params[:searchrec].to_s + "%"],:order => 'nome ASC, unidade_id ASC')
+                          else
+                                @criancas = Crianca.find( :all,:conditions => ["nome like ? AND status = 'NA_DEMANDA' AND recadastrada=0 ", "%" + params[:searchrec].to_s + "%" ],:order => 'nome ASC')
+                           end
+                          @canceladas = Crianca.find( :all,:conditions => [" unidade_id = ? and status =? AND recadastrada = 0", current_user.unidade_id , 'CANCELADA'],:order => 'nome ASC')
+                          @demandas = Crianca.find( :all,:conditions => [" unidade_id = ? and status =? AND recadastrada = 0", current_user.unidade_id , 'NA_DEMANDA'],:order => 'nome ASC')
+                          @matriculadas = Crianca.find( :all,:conditions => [" unidade_id = ? and status =? AND recadastrada = 0", current_user.unidade_id , 'MATRICULADA'],:order => 'nome ASC')
+                         render :update do |page|
+                            page.replace_html 'criancas', :partial => "criancas"
+                          end
 
-  end
+                      end
+             end
+        end
+     end
   end
 
 
@@ -637,13 +651,13 @@ def relatorio_geral
 
    @regiaos1= Regiao.find(:all, :conditions=>['regiaos.id > 99 AND regiaos.id < 108 ' ], :order => 'regiaos.nome')
    @regiaos2= Regiao.find(:all, :conditions=>['regiaos.id > 107 AND regiaos.id < 115 ' ], :order => 'regiaos.nome')
-   @regiaos3= Regiao.find(:all, :conditions=>['regiaos.id > 114 AND regiaos.id < 201' ], :order => 'regiaos.nome')
+   @regiaos3= Regiao.find(:all, :conditions=>['regiaos.id > 114 AND regiaos.id < 201 AND id != 120' ], :order => 'regiaos.nome')
 
 
    @criancas = Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' AND recadastrada = 1" ], :order => 'nome')
 
    #@regiaos11= Regiao.find(:all, :joins=> 'INNER JOIN criancas  on  criancas.regiao_id = regiaos.id', :conditions=>['regiaos.id > 99 AND regiaos.id < 108 AND criancas.recadastrada = 1' ], :order => 'regiaos.nome')
-   @regiaos11= Regiao.find(:all,  :conditions=>['regiaos.id > 99 AND regiaos.id < 201 ' ], :order => 'regiaos.nome')
+   @regiaos11= Regiao.find(:all,  :conditions=>['regiaos.id > 99 AND regiaos.id < 201 AND id !=120' ], :order => 'regiaos.nome')
    #@nidades12 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1  AND id > 99", "%"+"CR " +"%"], :order => 'nome')
    #@unidades13 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 AND id > 99", "%"+"FIL. " +"%"], :order => 'nome')
    #@unidades14 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 AND id > 99", "%"+"CONV. " +"%"], :order => 'nome')
@@ -655,7 +669,7 @@ end
 
 def relatorio_mae
   @criancas = Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA'" ],:order => 'nome')
-  @regiao11 = Regiao.find(:all,  :order => 'nome')
+  @regiao11 = Regiao.find(:all, :conditions => ["id !=120"], :order => 'nome')
   @unidades11 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 ", "%"+"CC " +"%"], :order => 'nome')
   @unidades12 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1 ", "%"+"CR " +"%"], :order => 'nome')
   @unidades13 = Unidade.find(:all, :conditions=> ["nome like? AND ativo = 1", "%"+"FIL. " +"%"], :order => 'nome')

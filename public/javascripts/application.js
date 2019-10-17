@@ -426,6 +426,7 @@ $("#localizacao_data_aquisicao").datepicker({dateFormat: 'dd-mm-yy', changeYear:
      $(".label_busca").show();
      $(".consulta_nome").show();
      $(".txt_busca").val("Digite parte da busca").css("color","gray");
+     $(".consulta_rec").hide();
      $(".consulta1").hide();
      $(".consulta_unidade").hide();
      $(".consulta_professor").hide();
@@ -440,13 +441,21 @@ $("#localizacao_data_aquisicao").datepicker({dateFormat: 'dd-mm-yy', changeYear:
      $(".consulta_s").show();
      $(".txt_busca_s").show();
      $(".label_busca_s").show();
-
+     $(".consulta_rec").hide();
      $(".consulta").hide();
      $(".consulta").hide();
      $(".txt_busca").hide();
      $(".label_busca").hide();
 
    });
+
+ $(".filtro_rec").click(function ()
+   {
+     $(".consulta_rec").show();
+     $(".consulta_s").hide();
+     $(".consulta").hide();
+   });
+
 
 
 $(".filtro_nome").click(function ()
@@ -479,6 +488,7 @@ $(".filtro_nome").click(function ()
 $(".sem_filtro").click(function ()
     { $(".txt_busca2").hide();
       $(".label_busca2").hide();
+      $(".consulta_rec").hide();
       $(".txt_busca").val("");
       $(".txt_busca").hide();
       $(".label_busca").hide();
