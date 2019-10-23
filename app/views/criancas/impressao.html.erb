@@ -17,6 +17,10 @@
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 &nbsp&nbsp&nbsp&nbsp
 <font size="1">Data Inscrição: <%=  crianca.created_at.strftime("%e/%m/%Y - %H:%M horas")%> </font><br/>
+                 <%if crianca.transferencia == true%>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp (Transferência)<br/>
+                 <%end%>
+
  <table  class ="invisible_to_print " >
    <tr  class ="invisible_to_print ">
      <td align="right" class ="invisible_to_print "><%= button_to "Imprimir", onclick="javascript:window.print()", :title => "Imprimir" %></td>

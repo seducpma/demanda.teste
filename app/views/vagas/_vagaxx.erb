@@ -1,0 +1,73 @@
+<div class="tabs">
+    <table bgcolor="#DCDCDC" width="100%">
+        <tr>
+            <td>
+            <%b1=0 %>
+            <%b2=0 %>
+            <% for unidade in @unidades %>
+               <table  align="center"  bgcolor="#F5F5F5" width="80%">
+                   <tr>
+                       <td colspan="3" align="left "bgcolor="#DCDCDC" ><%= unidade.nome %> </td>
+                   </tr>
+                  <% for grupo in @grupos %>
+                   <% vaga= @vaga= Vaga.find(:all,:select=> 'id', :conditions => ["grupo_id = '?' and unidade_id = ?  AND crianca_id is null",grupo, unidade]).count%>
+                   <%if vaga !=0 %>
+                      <tr bgcolor="#DCDCDC">
+                          <td witdh="5%" align="center "bgcolor="#F5F5F5" >&nbsp&nbsp&nbsp</td>
+                          <td witdh="75%" bgcolor="#DCDCDC" ><%= grupo.nome %> </td>
+                          <td witdh="5%" bgcolor="#DCDCDC" align="center"><%=  @vaga= Vaga.find(:all,:select=> 'id', :conditions => ["grupo_id = '?' and unidade_id = ?  AND crianca_id is null",grupo, unidade]).count %></td>
+                     </tr>
+                   <%else%>
+                      <tr bgcolor="#DCDCDC">
+                          <td witdh="5%" align="center "bgcolor="#F5F5F5" >&nbsp&nbsp&nbsp</td>
+                          <td witdh="75%" bgcolor="#DCDCDC" ><%= grupo.nome %> </td>
+                          <td witdh="5%" bgcolor="#DCDCDC" align="center"> ------- </td>
+                     </tr>
+
+                   <%end%>
+
+                       <% b1= b1+ vaga %>
+                 <%end%>
+
+              </table>
+            <%end%>
+            </td>
+        </tr>
+
+       <table bgcolor="#DCDCDC" width="100%">
+        <tr>
+            <td>
+            <% for unidade in @unidades %>
+               <table  align="center"  bgcolor="#F5F5F5" width="80%">
+                   <tr>
+                       <td colspan="3" align="left "bgcolor="#DCDCDC" ><%= unidade.nome %> </td>
+                   </tr>
+                  <% for grupo in @grupos %>
+                   <% vaga= @vaga= Vaga.find(:all,:select=> 'id', :conditions => ["grupo_id = '?' and unidade_id = ?  AND crianca_id is null",grupo, unidade]).count%>
+                   <%if vaga !=0 %>
+                      <tr bgcolor="#DCDCDC">
+                          <td witdh="5%" align="center "bgcolor="#F5F5F5" >&nbsp&nbsp&nbsp</td>
+                          <td witdh="75%" bgcolor="#DCDCDC" ><%= grupo.nome %> </td>
+                          <td witdh="5%" bgcolor="#DCDCDC" align="center"><%=  @vaga= Vaga.find(:all,:select=> 'id', :conditions => ["grupo_id = '?' and unidade_id = ?  AND crianca_id is null",grupo, unidade]).count %></td>
+                     </tr>
+                   <%else%>
+                      <tr bgcolor="#DCDCDC">
+                          <td witdh="5%" align="center "bgcolor="#F5F5F5" >&nbsp&nbsp&nbsp</td>
+                          <td witdh="75%" bgcolor="#DCDCDC" ><%= grupo.nome %> </td>
+                          <td witdh="5%" bgcolor="#DCDCDC" align="center"> ------- </td>
+                     </tr>
+
+                   <%end%>
+                       <% b1= b1+ vaga %>
+                 <%end%>
+
+              </table>
+            <%end%>
+            </td>
+        </tr>
+       </table>
+
+
+
+       
+  </div>

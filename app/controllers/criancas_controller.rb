@@ -61,7 +61,7 @@ end
   # GET /criancas/new.xml
   def new
     @crianca = Crianca.new
-
+     
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @crianca }
@@ -140,7 +140,7 @@ end
       # ALTERAR TAMBÈM AS DATAS NO ALETRACAOS_CONTROLER def alterar_classe e no def update
 
     @crianca = Crianca.new(params[:crianca])
-
+    @crianca.unidade_id = current_user.unidade_id
     data=@crianca.nascimento.strftime("%Y-%m-%d")
     hoje = Date.today.to_s
     final = '2012-07-01'
@@ -802,7 +802,15 @@ end
  end
 
 def impressao_geral
-  @criancas = Crianca.find(:all, :order => 'nome')
+
+   @regiaos1= Regiao.find(:all, :conditions=>['regiaos.id > 99 AND regiaos.id < 108 ' ], :order => 'regiaos.nome')
+   @regiaos2= Regiao.find(:all, :conditions=>['regiaos.id > 107 AND regiaos.id < 115 ' ], :order => 'regiaos.nome')
+   @regiaos3= Regiao.find(:all, :conditions=>['regiaos.id > 114 AND regiaos.id < 201 AND id != 120' ], :order => 'regiaos.nome')
+   @criancas = Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' AND recadastrada = 1" ], :order => 'nome')
+
+   @regiaos11= Regiao.find(:all,  :conditions=>['regiaos.id > 99 AND regiaos.id < 201 AND id !=120' ], :order => 'regiaos.nome')
+
+  #@criancas = Crianca.find(:all, :order => 'nome')
   @unidades11 = Unidade.find(:all, :conditions=> ["nome like?", "%"+"CC " +"%"], :order => 'nome')
   @unidades12 = Unidade.find(:all, :conditions=> ["nome like?", "%"+"CR " +"%"], :order => 'nome')
   @unidades13 = Unidade.find(:all, :conditions=> ["nome like?", "%"+"FIL. " +"%"], :order => 'nome')
@@ -937,6 +945,16 @@ end
        render :partial => 'nada'
       end
  end
+
+  def transferencia_action
+     @unidade_regiao= Unidade.find(:all , :conditions=>['ativo = 1 AND ( tipo = 1 or tipo = 3 or tipo = 7 or tipo = 8)'])
+     if params[:crianca_transferencia] == '1'
+        render :partial => 'transferencia'
+      else
+       render :partial => 'nada'
+      end
+ end
+
 
   def trabalho_action
      if params[:crianca_trabalho] == '1'

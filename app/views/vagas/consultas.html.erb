@@ -1,6 +1,6 @@
       <%@unidades =  Unidade.find(:all,  :conditions => ["(tipo = 3 or tipo = 1 or tipo = 7 or tipo = 8) AND ativo = 1" ],:order => "nome")%>
       <%@classe =  Classe.find(:all,  :conditions => ["classe_ano_letivo=?", Time.now.year ],:order => "unidade_id")%>
-<div id="interno6">
+<div id="interno2">
 <% title "UNIDADES", :id =>"unidades" %>
  <div class="tabs">
    <div id="caixa_titulo">

@@ -145,6 +145,9 @@
              &nbsp&nbsp - <b>Status:</b><%=h @crianca.status%>
                  <%if @crianca.status == 'MATRICULADA'%>
                    - <%=h @crianca.matriculado%>
+                 <%if @crianca.transferencia == true%>
+                   &nbsp&nbsp - &nbsp&nbsp MATRICULADA (<%=h @crianca.unidade_t%>)
+                 <%end%>
                  <%end%>
              </td>
            </tr>

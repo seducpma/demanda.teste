@@ -144,6 +144,8 @@ class VagasController < ApplicationController
    if params[:type_of].to_i == 1
        w=params[:vaga][:grupo_id]
        t=0
+       @unidades = Unidade.find(:all, :conditions => ['regiao_id > 99'], :order=> 'tipo,nome')
+       @grupos = Grupo.find(:all, :conditions=>['id !=3'], :order=>'nome')
        @vagas = Vaga.find(:all, :conditions => ["grupo_id= ? AND disponivel= 0", (params[:vaga][:grupo_id])],:order => 'unidade_id ASC')
        @vagas_unidade =  Vaga.find_by_sql("SELECT unidade_id, grupo_id, count(id) as quantidade FROM vagas where grupo_id = '"+ (params[:vaga][:grupo_id]) +"' AND disponivel = 0 GROUP BY unidade_id ORDER BY unidade_id ")
        @vagas_regiao =  Vaga.find_by_sql("SELECT vg.unidade_id, vg.grupo_id, count(vg.id) as quantidade FROM vagas vg INNER JOIN unidades uni ON vg.unidade_id = uni.id INNER JOIN regiaos reg ON uni.regiao_id = reg.id WHERE vg.grupo_id = '"+ (params[:vaga][:grupo_id]) +"' AND vg.disponivel = 0 GROUP BY reg.id ORDER BY reg.id ")
@@ -151,9 +153,13 @@ class VagasController < ApplicationController
              page.replace_html 'vaga', :partial => "vaga"
         end
    else if params[:type_of].to_i == 2
+            @unidades = Unidade.find(:all, :conditions => ['regiao_id > 99 AND ( tipo = 1 or tipo = 3 or tipo = 7 or tipo = 8)'], :order=> 'tipo,nome')
+            @grupos = Grupo.find(:all, :conditions=>['id !=3'], :order=>'nome')
             @vagas = Vaga.find(:all, :conditions => ["disponivel = 0"],:order => 'unidade_id ASC')
             @vagas_unidade =  Vaga.find_by_sql("SELECT unidade_id, grupo_id, count(id) as quantidade FROM vagas where disponivel = 0 GROUP BY unidade_id, grupo_id  ORDER BY unidade_id ")
             @vagas_regiao =  Vaga.find_by_sql("SELECT vg.unidade_id, vg.grupo_id, count(vg.id) as quantidade FROM vagas vg INNER JOIN unidades uni ON vg.unidade_id = uni.id INNER JOIN regiaos reg ON uni.regiao_id = reg.id WHERE  vg.disponivel = 0 GROUP BY reg.id , vg.grupo_id ORDER BY  reg.id ")
+            @regiaos1= Regiao.find(:all, :conditions=>['regiaos.id > 99 AND regiaos.id < 111 ' ])
+            @regiaos2= Regiao.find(:all, :conditions=>['regiaos.id > 110 AND regiaos.id < 120 ' ])
         render :update do |page|
              page.replace_html 'vaga', :partial => "vaga"
         end
@@ -184,80 +190,42 @@ def unidade_id
 end
 
 def grupo_id
-    w1=session[:vaga_grupo]=(params[:vaga_grupo_id]).to_i
+    w6=session[:vaga_grupo]=(params[:vaga_grupo_id]).to_i
+    w8= session[:vaga_unidade_nome]
+    @unidade=Unidade.find(:all, :conditions => ['nome =?', session[:vaga_unidade_nome]])
+    w9=session[:regiao_id]= @unidade[0].regiao_id
 
- @criancas1U = @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND servidor_publico = 1 AND unidade_ref = ?  AND grupo_id = ?",  session[:vaga_unidade_nome], session[:vaga_grupo] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")
- @criancas2U = @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND servidor_publico = 0 AND unidade_ref = ?  AND grupo_id = ?",  session[:vaga_unidade_nome], session[:vaga_grupo] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")
- @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND trabalho = 1 AND unidade_ref = ?  AND grupo_id = ?",  session[:vaga_unidade_nome], session[:vaga_grupo] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")
- if !@criancas.nil?
-    @criancas11U = @criancas - (@criancas1U + @criancas2U   )
- end
- @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND trabalho = 0 AND unidade_ref = ?  AND grupo_id = ?",  session[:vaga_unidade_nome], session[:vaga_grupo] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")
-  if !@criancas.nil?
-    @criancas12U = @criancas - (@criancas1U + @criancas2U   )
- end
- @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND autonomo = 1 AND unidade_ref = ?  AND grupo_id = ?", session[:vaga_unidade_nome], session[:vaga_grupo] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")
-  if !@criancas.nil?
-    @criancas21U = @criancas - (@criancas1U + @criancas2U   )
- end
- @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND autonomo = 0 AND unidade_ref = ?  AND grupo_id = ?", session[:vaga_unidade_nome], session[:vaga_grupo] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")
-  if !@criancas.nil?
-     @criancas22U = @criancas - (@criancas1U + @criancas2U   )
- end
+    @criancasP = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND ( servidor_publico = 1 OR trabalho = 1 OR declaracao=1 OR autonomo = 1  OR transferencia = 1)  AND unidade_ref = ?  AND grupo_id = ? AND recadastrada = 1",  session[:vaga_unidade_nome], session[:vaga_grupo] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, declaracao DESC, transferencia, autonomo DESC, created_at ASC")
 
- @criancaU= @criancas1U + @criancas2U + @criancas11U + @criancas12U + @criancas21U + @criancas22U
-    #@criancaU= Crianca.find(:all,  :conditions => ["unidade_ref = ? AND criancas.status = 'NA_DEMANDA' AND grupo_id = ?", session[:vaga_unidade_nome], session[:vaga_grupo]], :order => "nome")
- 
+    @criancasR = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND regiao_id = ?  AND grupo_id = ? AND recadastrada = 1 AND unidade_ref != ? ", session[:regiao_id],  session[:vaga_grupo],  session[:vaga_unidade_nome] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, declaracao DESC, autonomo DESC, transferencia DESC, created_at ASC")
 
+    @criancasU = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND unidade_ref = ?  AND grupo_id = ? AND recadastrada = 1",  session[:vaga_unidade_nome], session[:vaga_grupo] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, declaracao DESC, autonomo DESC, transferencia DESC, created_at ASC")
 
- @criancas1R = @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND servidor_publico = 1 AND grupo_id = ? AND servidor_publico = 1",  session[:vaga_grupo] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")
- @criancas2R = @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND servidor_publico = 0 AND grupo_id = ? AND servidor_publico = 0",  session[:vaga_grupo] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")
- @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND trabalho = 1  AND grupo_id = ? AND trabalho = 1",   session[:vaga_grupo] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")
-  if !@criancas.nil?
-     @criancas11R = @criancas - (@criancas1R + @criancas2R   )
- end
- @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND trabalho = 0 AND  grupo_id = ? AND trabalho = 0",   session[:vaga_grupo] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")
-  if !@criancas.nil?
-     @criancas12R = @criancas - (@criancas1R + @criancas2R   )
- end
- @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND autonomo = 1 AND  grupo_id = ? AND autonomo = 1 ",  session[:vaga_grupo] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")
-  if !@criancas.nil?
-     @criancas21R = @criancas - (@criancas1R + @criancas2R   )
- end
- @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND autonomo = 0 AND  grupo_id = ? AND autonomo = 0 ",  session[:vaga_grupo] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")
-  if !@criancas.nil?
-      @criancas22R = @criancas - (@criancas1R + @criancas2R   )
- end
- 
-
-   @criancaR= @criancas1R + @criancas2R + @criancas11R + @criancas12R + @criancas21R + @criancas22R
-    #@criancaR= Crianca.find(:all,  :conditions => ["regiao_id = ? AND criancas.status = 'NA_DEMANDA' AND grupo_id = ? AND unidade_ref <> ?", session[:vaga_regiao_id], session[:vaga_grupo],session[:vaga_unidade_nome]], :order => "nome")
+    @criançastt= (@criancasR + @criancasU) - @criancasP
 
     @divisao=Crianca.find(:all,  :conditions => ["id = 1"])
-    @divisao[0].nome="======> NA REGIÃO <======>"
+    @divisao[0].nome="========> NA REGIÃO <========="
     @divisao[0].id = 0
-    
-    @criancaT = @criancaU  + @divisao + @criancaR
+
+    @criancasT = @criancasP  + @divisao + @criançastt
+
+    # testa para exibir mensagem no _crianca_vaga <=========================================
     @testavaga = Vaga.find(:all,:joins => :unidade, :conditions => ["vagas.grupo_id = ? AND vagas.unidade_id =? AND  vagas.disponivel = 0",session[:vaga_grupo], session[:vaga_unidade]])
-
-
-
-
-
      if !@testavaga.empty?
-       w1= session[:vaga_id]= @testavaga[0].id
-       if !@criancaT.empty?
-           session[:crianca_id]= @criancaT[0].id
+      w1= session[:vaga_id]= @testavaga[0].id
+       if @criancasT.count > 1
+           w2=session[:crianca_id]= @criancasT[0].id
        else
-           session[:crianca_id]  = 0
+           w3=session[:crianca_id]  = 0
        end
-    else if !@criancaT.empty?
-            session[:crianca_id]= @criancaT[0].id
+    else if @criancasT.count > 1
+            w4=session[:crianca_id]= @criancasT[0].id
          else
             session[:crianca_id]  = 0
           end
        session[:vaga_id]  = 0
     end
+
      render :partial => 'crianca_vaga'
 
 end

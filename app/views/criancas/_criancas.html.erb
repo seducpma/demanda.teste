@@ -33,7 +33,12 @@
                                  <%end%>
                 </td>
             
-                <td align="left"><%=h crianca.status%></td>
+                <td align="left"><%=h crianca.status%>
+                                 <%if crianca.transferencia == true%>
+                                       <br/>(Matriculada)
+                                 <%end%>
+
+                </td>
           </tr>
           <% @criancasinscritas= Crianca.find(:all, :select => 'id', :conditions => ['id =? and (unidade_ref = ?)', crianca, current_user.unidade.nome])%>
           <tr>
