@@ -205,7 +205,7 @@ def grupo_id
 
 
 
-    ================  anterior ==============
+    #================  anterior ==============
  @criancas1U = @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND servidor_publico = 1 AND unidade_ref = ?  AND grupo_id = ?",  session[:vaga_unidade_nome], session[:vaga_grupo] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")
  @criancas2U = @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND servidor_publico = 0 AND unidade_ref = ?  AND grupo_id = ?",  session[:vaga_unidade_nome], session[:vaga_grupo] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")
  @criancas = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND trabalho = 1 AND unidade_ref = ?  AND grupo_id = ?",  session[:vaga_unidade_nome], session[:vaga_grupo] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, autonomo DESC, created_at ASC")
