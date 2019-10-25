@@ -131,15 +131,16 @@
            <td colspan="6"><b>Justificativa: </b> <%= f.text_field :justif_indicacao,  :size =>"90"%> </td>
        </tr>
        <tr>
-         <td colspan="6"><b>Bairro/Região:</b>&nbsp&nbsp&nbsp&nbsp
+         <td colspan="6"><b>Região:</b>&nbsp&nbsp&nbsp
          <% @bairros = Bairro.find(:all, :conditions=>['ativo = 1'],   :order => 'nome') %>
-
-         <%= f.collection_select :regiao_id, @bairros, :regiao_id, :nome, :include_blank => '---Selecionar---' %>
+          <%=h @crianca.regiao.nome%>  &nbsp&nbsp&nbsp
+          <b>Bairro:</b>
+         <%= f.collection_select :regiao_id, @bairros, :regiao_id, :nome, :include_blank => @crianca.regiao_id%>
              <%= observe_field 'crianca_regiao_id',
                    :update => "listagem",
                    :url    => { :action => 'lista_bairros' },
                    :with   => 'crianca_regiao_id' %>
-             <font color="red"><b >&nbsp&nbsp<==&nbsp&nbsp <u>ATENÇÃO:</u></b><b id="pisca1" >   Selecionar corretamente o bairro/região.</b>
+             <font color="red"><b >&nbsp<==</b><b id="pisca1" >   Selecionar corretamente o bairro/região.</b>
               </font>
          </td>
        </tr>
