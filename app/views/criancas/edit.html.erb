@@ -122,7 +122,7 @@
       </tr>
        <tr>
            <td colspan="6"><b>Endereço: </b> <%= f.text_field :end_indicacao,  :size =>"45"%> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>Nº </b><%= f.text_field :num_indicacao, :size=>"4" %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            <b>Vínculo:</b>&nbsp(<%=h @crianca.vinculo %>) &nbsp  <%= f.select :vinculo, REFERENCIA, :include_blank => ''%>
+            <b>Vínculo:</b> &nbsp  <%= f.select :vinculo, REFERENCIA, :include_blank => @crianca.vinculo%>
 
 
            </td>
@@ -135,7 +135,7 @@
          <% @bairros = Bairro.find(:all, :conditions=>['ativo = 1'],   :order => 'nome') %>
           <%=h @crianca.regiao.nome%>  &nbsp&nbsp&nbsp
           <b>Bairro:</b>
-         <%= f.collection_select :regiao_id, @bairros, :regiao_id, :nome, :include_blank => @crianca.regiao_id%>
+         <%= f.collection_select :regiao_id, @bairros, :regiao_id, :nome, :include_blank => 'Seleciona um bairro'%>
              <%= observe_field 'crianca_regiao_id',
                    :update => "listagem",
                    :url    => { :action => 'lista_bairros' },
@@ -481,9 +481,9 @@
          });
    </script>
 
- <br/>
-
-
+     <fieldset>
+        <%= radio_button_tag(:recadastrar, "1")%> <b>NÃO RECADASTRAMENTO</b>
+     </fieldset>
 
       <fieldset>
        <table width="100%" >

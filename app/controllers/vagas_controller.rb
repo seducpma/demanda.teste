@@ -187,12 +187,14 @@ def unidade_id
     @unidade= Unidade.find(:all, :conditions=>['id=?',params[:vaga_unidade_id]   ])
     session[:vaga_regiao_id]=@unidade[0].regiao_id
     session[:vaga_unidade_nome]=@unidade[0].nome
+    session[:vaga_unidade_id]=@unidade[0].id
 end
 
 def grupo_id
     w6=session[:vaga_grupo]=(params[:vaga_grupo_id]).to_i
     w8= session[:vaga_unidade_nome]
     @unidade=Unidade.find(:all, :conditions => ['nome =?', session[:vaga_unidade_nome]])
+    session[:quant_vaga]= (Vaga.find(:all, :conditions => ['unidade_id =? ANDgrupo_id=?  AND crianca_id is null', session[:vaga_unidade_id], session[:vaga_grupo]])).count
     w9=session[:regiao_id]= @unidade[0].regiao_id
 
     @criancasP = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND ( servidor_publico = 1 OR trabalho = 1 OR declaracao=1 OR autonomo = 1  OR transferencia = 1)  AND unidade_ref = ?  AND grupo_id = ? AND recadastrada = 1",  session[:vaga_unidade_nome], session[:vaga_grupo] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, declaracao DESC, transferencia, autonomo DESC, created_at ASC")
@@ -207,7 +209,7 @@ def grupo_id
     @divisao[0].nome="========> NA REGIÃO <========="
     @divisao[0].id = 0
 
-    @criancasT = @criancasP  + @divisao + @criançastt
+    @criancasT =  @criancasU  + @divisao +(@criancasR - @criancasU)
 
     # testa para exibir mensagem no _crianca_vaga <=========================================
     @testavaga = Vaga.find(:all,:joins => :unidade, :conditions => ["vagas.grupo_id = ? AND vagas.unidade_id =? AND  vagas.disponivel = 0",session[:vaga_grupo], session[:vaga_unidade]])
