@@ -122,7 +122,7 @@
       </tr>
        <tr>
            <td colspan="6"><b>Endereço: </b> <%= f.text_field :end_indicacao,  :size =>"45"%> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>Nº </b><%= f.text_field :num_indicacao, :size=>"4" %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            <b>Vínculo:</b> <%= f.select :vinculo, REFERENCIA, :include_blank => ''%>
+            <b>Vínculo:</b>&nbsp(<%=h @crianca.vinculo %>) &nbsp  <%= f.select :vinculo, REFERENCIA, :include_blank => ''%>
 
 
            </td>
@@ -149,85 +149,201 @@
                                               <%end%>
                                </div></td>
        </tr>
-      <tr>
-          <td colspan="6"><br/> <b>Unidade onde foi realizada a Inscrição </b>
-              <%=h @crianca.unidade.nome%> &nbsp&nbsp&nbsp -&nbsp&nbsp&nbsp <b>Data Inscrição:</b>
-              <%=h @crianca.created_at.strftime("%d/%m/%Y- %H:%M horas")%> xxx=>
-              <%= @crianca.servidor_publico %> | <%= @crianca.trabalho %> | <%= @crianca.declaracao %> | <%= @crianca.autonomo %> </td>
+       <% if current_user.has_role?('admin') %>
+            <tr>
+                 <td colspan="6"> <b>Unidade onde foi realizada a Inscrição:&nbsp </b> <%= collection_select :crianca, :unidade_id, @unidade_regiao, :id, :nome, :include_blank => @crianca.unidade_t  %> </td>
+            </tr>
+            <tr>
+                 <td colspan="6"> <b>Data Inscrição:</b>&nbsp <%= f.date_select(:created_at , :order => [:day, :month, :year, :hour, :minute], :start_year => (Date.today.year), :end_year => (Date.today.year - 5)) %></td>
+            </tr>
 
-      </tr>
+
+       <%else%>
+              <tr>
+                  <td colspan="6"><br/> <b>Unidade onde foi realizada a Inscrição </b>
+                      <%=h @crianca.unidade.nome%> &nbsp&nbsp&nbsp -&nbsp&nbsp&nbsp <b>Data Inscrição:</b>
+                      <%=h @crianca.created_at.strftime("%d/%m/%Y- %H:%M horas")%> </td>
+
+              </tr>
+      <%end%>
       <tr>
         <td colspan="6">
           <fieldset> <legend><font size=4>Prioridades</font></legend>
               <table width="100%"  >
-               <tr>
-                   <td colspan="3"><b>1) Filho(a) de Servidora Pública da <u>Prefeitura Municipal de Americana?</u></b>  &nbsp ==================================> &nbsp
-                       <%= f.select :servidor_publico, (OPCAOSN).sort %>
-                           <%= observe_field 'crianca_servidor_publico',
-                              :update => "servidor",
-                              :url    => { :action => 'servidor_action' },
-                              :with   => 'crianca_servidor_publico' %>
-                    </td>
-               </tr>
-               <tr>
-                   <td colspan="6"><div id="servidor"> </div></td>
-               </tr>
+               <%if  @crianca.servidor_publico == false %>
+                   <tr>
+                       <td width="90%"><b>1) Filho(a) de Servidora Pública da <u>Prefeitura Municipal de Americana?</u></b> ===================================> </td>
+                       <td>    <%= f.select :servidor_publico, (OPCAOSN).sort %>
+                               <%= observe_field 'crianca_servidor_publico',
+                                  :update => "servidor",
+                                  :url    => { :action => 'servidor_action' },
+                                  :with   => 'crianca_servidor_publico' %>
+                        </td>
+                   </tr>
+                   <tr>
+                       <td colspan="6"><div id="servidor"> </div></td>
+                   </tr>
+               <%else%>
+                   <tr>
+                       <td width="90%"><b>1) Filho(a) de Servidora Pública da <u>Prefeitura Municipal de Americana?</u></b> ===================================> </td>
+                       <td>   <%= f.select :servidor_publico, (OPCAOSN).sort, :include_blank => 'SIM ' %>
+                               <%= observe_field 'crianca_servidor_publico',
+                                  :update => "servidor",
+                                  :url    => { :action => 'servidor_action' },
+                                  :with   => 'crianca_servidor_publico' %>
+                        </td>
+                   </tr>
+                   <tr>
+                       <td colspan="6"><div id="servidor">
+                                                <table>
+                                                               <tr>
+                                                                    <td >&nbsp&nbsp&nbsp&nbsp
+                                                                         <b>Secretaria: </b>
+                                                                         <%= text_field :crianca, :servidor_local, :size => "25" %>&nbsp&nbsp&nbsp&nbsp
+                                                                         <b>Matrícula:</b><%= text_field :crianca, :matricula, :size =>"12"  %> &nbsp&nbsp&nbsp&nbsp
+                                                                         <b>Fone:</b> <%= text_field :crianca, :fone_trabalho, :size=>"15" %>
 
+                                                                    </td>
+                                                               </tr>
 
-               <tr>
-                 <td colspan="3"><b>2) Mãe apresentou carteira de trabalho devidamente assinada? &nbsp
+                                                </table>
+                                       </div></td>
+                   </tr>
+               <%end%>
+
+               <%if  @crianca.trabalho == false %>
+                       <tr>
+                      <td width="90%"><b>2) Mãe apresentou carteira de trabalho devidamente assinada? &nbsp
                           <b><u>OU </u></b> &nbsp documento/certidão que comprove ser  <br/>
-                          &nbsp&nbsp funcionária estatutária de órgão público (EXCETO Prefeitura Municipal de Americana)
-                     </b>&nbsp  ====================> &nbsp
-                     <%= f.select :trabalho, (OPCAOSN).sort %>
-                           <%= observe_field 'crianca_trabalho',
-                              :update => "trabalho",
-                              :url    => { :action => 'trabalho_action' },
-                              :with   => 'crianca_trabalho' %>
-                  </td>
-               </tr>
-               <tr>
-                   <td colspan="6"><div id="trabalho"></div></td>
-               </tr>
-               <tr>
-                 <td colspan="3"><b>3) Mãe apresentou declaração do empregador PESSOA JURÍDICA com CNPJ e firma reconhecida em cartório?</b>&nbsp  ====> &nbsp
-                     <%= f.select :declaracao, (OPCAOSN).sort %>
-                           <%= observe_field 'crianca_declaracao',
-                              :update => "declaracao",
-                              :url    => { :action => 'declaracao_action' },
-                              :with   => 'crianca_declaracao' %>
-                  </td>
-                </tr>
-               <tr>
-                   <td colspan="6"><div id="declaracao"> </div></td>
-               </tr>
-               <tr>
-                   <td colspan="3"><b>4) Mãe apresentou declaração do empregador PESSOA FÍSICA  com CPF e RG <br/>&nbsp&nbsp&nbsp <u>ou</u> declaração de trabalho AUTÔNOMO ?</b> &nbsp =========================================================> &nbsp
-                         <%= f.select :autonomo, (OPCAOSN).sort %>
-                           <%= observe_field 'crianca_autonomo',
-                              :update => "autonomo",
-                              :url    => { :action => 'autonomo_action' },
-                              :with   => 'crianca_autonomo' %>
-                    </td>
-               </tr>
-               <tr>
-                   <td colspan="6"><div id="autonomo"></div></td>
-               </tr>
-               <tr>
-                   <td colspan="3"><b>5) Transferencia de aluno de outra unidade do Municipio ?</b> &nbsp =========================================================> &nbsp
-                         <%= f.select :transferencia, (OPCAOSN).sort %>
-                           <%= observe_field 'crianca_transferencia',
-                              :update => "transferencia",
-                              :url    => { :action => 'transferencia_action' },
-                              :with   => 'transferencia_autonomo' %>
-                    </td>
-               </tr>
-               <tr>
-                   <td colspan="6"><div id="autonomo">
-                                                    <% if @crianca.declaracao == true %>
+                          &nbsp&nbsp funcionária estatutária de órgão público (EXCETO Prefeitura Municipal de Americana) ======================> </td>
+                     <td><%= f.select :trabalho, (OPCAOSN).sort %>
+                                   <%= observe_field 'crianca_trabalho',
+                                      :update => "trabalho",
+                                      :url    => { :action => 'trabalho_action' },
+                                      :with   => 'crianca_trabalho' %>
+                          </td>
+                       </tr>
+                       <tr>
+                           <td colspan="6"><div id="trabalho"></div></td>
+                       </tr>
+                 <%else%>
+                       <tr>
+                      <td width="90%"><b>2) Mãe apresentou carteira de trabalho devidamente assinada? &nbsp
+                          <b><u>OU </u></b> &nbsp documento/certidão que comprove ser  <br/>
+                          &nbsp&nbsp funcionária estatutária de órgão público (EXCETO Prefeitura Municipal de Americana) ======================> </td>
+                     <td><%= f.select :trabalho, (OPCAOSN).sort, :include_blank => 'SIM ' %>
+                                   <%= observe_field 'crianca_trabalho',
+                                      :update => "trabalho",
+                                      :url    => { :action => 'trabalho_action' },
+                                      :with   => 'crianca_trabalho' %>
+                          </td>
+                       </tr>
+                       <tr>
+                           <td colspan="6"><div id="trabalho">
+                                                <table>
+                                                      <tr>
+                                                          <td colspan="2">&nbsp&nbsp&nbsp&nbsp<font size ="2" color="blue">
+                                                                    <b id="pisca1"><u>ATENÇÃO:</u></b> No caso de mãe que trabalhe sob regime estatutário, poderá ser aceito como comprovante de trabalho: <br/>
+                                                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                    certidão ou declaração onde conste o órgão ou instituição em que trabalha (indicando se é da esfera municipal,<br/>
+                                                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                    estadual ou federal) bem como o regime de contratação, seu cargo ou função, local (com endereço completo) <br/>
+                                                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                    e horários e/ou escalas de trabalho. Esta certidão ou declaração deverá, preferencialmente, estar acompanhada <br/>
+                                                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                    de holerite ou contra-cheque emitido nos últimos três meses. ATENTAR que no que no caso de mães funcionárias<br/>
+                                                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                    estatutárias da Prefeitura Municipal de Americana, será preciso responder SIM apenas na 1ª pergunta.<br/>
+                                                              </font>
+                                                         </td>
+                                                       </tr>
+                                                      <tr>
+                                                         <td width="5%">&nbsp&nbsp&nbsp<b>Local Trabalho: </b></td>
+                                                         <td><%= text_field :crianca,:local_trabalho %> &nbsp<b>Nº</b><%= text_field :crianca, :num_trab, :size=>"2" %>&nbsp
+                                                         <b>Bairro:</b> <%= text_field :crianca, :bairro_trab, :size=>"20" %>&nbsp
+                                                         <b>Fone:</b> <%= text_field :crianca, :fone_trabalho, :size=>"15" %>
+                                                         </td>
+                                                       </tr>
+                                                </table>
+                               </div></td>
+                       </tr>
+                 <%end%>
+                <%if  @crianca.declaracao == false%>
+                       <tr>
+                           <td width="90%"><b>3) Mãe apresentou declaração do empregador PESSOA JURÍDICA com CNPJ e firma reconhecida em cartório?</b>  ====> </td>
+                            <td> <%= f.select :declaracao, (OPCAOSN).sort %>
+                                   <%= observe_field 'crianca_declaracao',
+                                      :update => "declaracao",
+                                      :url    => { :action => 'declaracao_action' },
+                                      :with   => 'crianca_declaracao' %>
+                          </td>
+                        </tr>
+                       <tr>
+                           <td colspan="6"><div id="declaracao"> </div></td>
+                       </tr>
+                 <%else%>
+                       <tr>
+                           <td width="90%"><b>3) Mãe apresentou declaração do empregador PESSOA JURÍDICA com CNPJ e firma reconhecida em cartório?</b>  ====> </td>
+                            <td> <%= f.select :declaracao, (OPCAOSN).sort %><%= f.select :declaracao, (OPCAOSN).sort, :include_blank => 'SIM ' %>
+                                   <%= observe_field 'crianca_declaracao',
+                                      :update => "declaracao",
+                                      :url    => { :action => 'declaracao_action' },
+                                      :with   => 'crianca_declaracao' %>
+                          </td>
+                        </tr>
+                       <tr>
+                           <td colspan="6"><div id="declaracao">
+                                                    <table>
+                                                          <tr>
+                                                              <td colspan="2">&nbsp&nbsp&nbsp&nbsp Mãe apresentou declaracação de trabalho - SEM CARTEIRA ASSINADA.<br/>
+                                                                 &nbsp&nbsp&nbsp&nbsp<font size ="2" color="blue">
+                                                                        <b id="pisca1"><u>ATENÇÃO:</u></b> Esta declaração deve conter a qualificaçao completa do empregador pessoa jurídica (nome, CNPJ, endereço,  <br/>
+                                                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                         telefone, etc...), atividade desenvolvida pelo empregado, horário de trabalho  e firma reconhecida em cartório.<br/>
+                                                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                        NÃO SERÃO VÁLIDAS DECLARAÇÕES INFORMAIS.</font>
+                                                             </td>
+                                                           </tr>
+                                                          <tr>
+                                                             <td width="5%">&nbsp&nbsp&nbsp<b>Local Trabalho: </b></td>
+                                                             <td><%= text_field :crianca,:local_trabalho %> &nbsp<b>Nº</b><%= text_field :crianca, :num_trab, :size=>"2" %>&nbsp
+                                                             <b>Bairro:</b> <%= text_field :crianca, :bairro_trab, :size=>"20" %>&nbsp
+                                                             <b>Fone:</b> <%= text_field :crianca, :fone_trabalho, :size=>"15" %>
+                                                             </td>
+                                                           </tr>
+
+                                                    </table>
+                                           </div></td>
+                       </tr>
+                 <%end%>
+                <% if @crianca.autonomo ==false %>
+                        <tr>
+                               <td width="90%"><b>4) Mãe apresentou declaração do empregador PESSOA FÍSICA  com CPF e RG <br/>&nbsp&nbsp&nbsp <u>ou</u> declaração de trabalho AUTÔNOMO ?</b> &nbsp =======================================================> </td>
+                               <td> <%= f.select :autonomo, (OPCAOSN).sort %>
+                                   <%= observe_field 'crianca_autonomo',
+                                      :update => "autonomo",
+                                      :url    => { :action => 'autonomo_action' },
+                                      :with   => 'crianca_autonomo' %>
+                            </td>
+                       </tr>
+                       <tr>
+                           <td colspan="6"><div id="autonomo"></div></td>
+                       </tr>
+                 <%else%>
+                        <tr>
+                               <td width="90%"><b>4) Mãe apresentou declaração do empregador PESSOA FÍSICA  com CPF e RG <br/>&nbsp&nbsp&nbsp <u>ou</u> declaração de trabalho AUTÔNOMO ?</b> &nbsp =======================================================> </td>
+                               <td><%= f.select :autonomo, (OPCAOSN).sort, :include_blank => 'SIM ' %>
+                                   <%= observe_field 'crianca_autonomo',
+                                      :update => "autonomo",
+                                      :url    => { :action => 'autonomo_action' },
+                                      :with   => 'crianca_autonomo' %>
+                            </td>
+                       </tr>
+                       <tr>
+                           <td colspan="6"><div id="autonomo">
                                                         <table>
-                                                                       <tr>
-                                                                            <td >
+                                                           <tr>
+                                                              <td >
                                                                                  &nbsp&nbsp&nbsp&nbsp<font size ="2" color="blue">
                                                                             <b id="pisca1"><u>ATENÇÃO:</u></b> Esta declaração deve conter a qualificaçao completa do empregador pessoa  física e/ou da mãe,  quando  <br/>
                                                                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -237,7 +353,7 @@
                                                                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                                                             todos).  NÃO SERÃO VÁLIDAS DECLARAÇÕES INFORMAIS.</font>
                                                                  </td>
-                                                               </tr>
+                                                              </tr>
                                                               <tr>
                                                                  <td>
                                                                             &nbsp&nbsp&nbsp   <b>Atividade:</b> &nbsp<%=text_field  :crianca, :atividade_autonomo, :size => "18"%>&nbsp
@@ -246,11 +362,55 @@
                                                                             </td>
                                                                       </tr>
 
-                                                        </table>
-                                                       <%end%>
-                                   </div></td>
-               </tr>
+                                                        </table>                                   
+                                           </div></td>
+                       </tr>
 
+                 <%end%>
+                <% if @crianca.transferencia ==false %>
+                       <tr>
+                           <td width="90%"><b> 5)Transferência de criança entre unidades educacionais do Municipio ?</b> &nbsp ==================================> </td>
+                           <td> <%= f.select :transferencia, (OPCAOSN).sort %>
+                                   <%= observe_field 'crianca_transferencia',
+                                      :update => "transferencia",
+                                      :url    => { :action => 'transferencia_action' },
+                                      :with   => 'transferencia_autonomo' %>
+                            </td>
+                       </tr>
+                       <tr>
+                           <td colspan="6"><div id="trasnf"> </div></td>
+                       </tr>
+                 <%else%>
+                       <tr>
+                           <td width="90%"><b> 5)Transferência de criança entre unidades educacionais do Municipio ?</b> &nbsp ==================================> </td>
+                           <td> <%= f.select :transferencia, (OPCAOSN).sort, :include_blank => 'SIM ' %>
+                                   <%= observe_field 'crianca_transferencia',
+                                      :update => "transf",
+                                      :url    => { :action => 'transferencia_action' },
+                                      :with   => 'transferencia_autonomo' %>
+                            </td>
+                       </tr>
+                       <tr>
+                           <td colspan="6"><div id="transf">
+                                                         <table>
+                                                                       <tr>
+                                                                            <td >
+                                                                                 &nbsp&nbsp&nbsp&nbsp<font size ="2" color="blue">
+                                                                            <b id="pisca1"><u>ATENÇÃO:</u></b> Esta opção trata-se de transferência de criança entre as unidades educacionais do municipio de Americana<br/>
+                                                                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                            NÃO SE APLICA QUANDO TRATAR-SE DE TRANSFERÊNCIA PROVINDA DE OUTROS LOCALIDADES .</font>
+                                                                 </td>
+                                                               </tr>
+                                                              <tr>
+                                                                 <td>
+                                                                            &nbsp&nbsp&nbsp   <b>Unidade que frequenta atualmente:</b> &nbsp <%= collection_select :crianca, :unidade_t, @unidade_regiao, :nome, :nome, :include_blank => @crianca.unidade_t  %>
+                                                                            </td>
+                                                                      </tr>
+
+                                                        </table>
+                                                  </div></td>
+                       </tr>
+                 <%end%>
 
             </table>
           </fieldset>
