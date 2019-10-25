@@ -229,12 +229,12 @@ if  (data <= Date.today.to_s and data >= DATAB1)
        end
 
 
-      if params[:recadastrar].to_i == 1
+
           if session[:recadastrada]= 1
                    @crianca.recadastrada = 1
               session[:recadastrada]= 0
           end
-      end
+
 
 
       respond_to do |format|
