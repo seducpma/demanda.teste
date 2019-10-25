@@ -122,9 +122,9 @@ display: none;
                             </li>
 -->
                         <%end%>
-
+<% if (current_user.has_role?('admin'))%>
                          <li><%= link_to "Cadastrar",new_crianca_path %></li> 
-
+<%end%>
                         <li><a>Consultar</a>
                            <ul>
                               <li><%= link_to "Inscrição",consultas_criancas_path %></li>
