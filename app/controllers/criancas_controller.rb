@@ -70,6 +70,7 @@ end
 
   # GET /criancas/1/edit
   def edit
+
       @unidade_regiao= Unidade.find(:all , :conditions=>[' ativo = 1 AND ( tipo = 1 or tipo = 3 or tipo = 7 or tipo = 8)'])
 
     @crianca = Crianca.find(params[:id])
@@ -228,14 +229,16 @@ if  (data <= Date.today.to_s and data >= DATAB1)
            end
        end
 
+        if params[:recadastrarX].to_i == 1
 
+        else
 
           if session[:recadastrada]= 1
                    @crianca.recadastrada = 1
               session[:recadastrada]= 0
           end
 
-
+        end
 
       respond_to do |format|
       if @crianca.update_attributes(params[:crianca])

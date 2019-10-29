@@ -133,7 +133,9 @@
        <tr>
          <td colspan="6"><b>Região:</b>&nbsp&nbsp&nbsp
          <% @bairros = Bairro.find(:all, :conditions=>['ativo = 1'],   :order => 'nome') %>
-          <%=h @crianca.regiao.nome%>  &nbsp&nbsp&nbsp
+             <%if !@crianca.regiao_id.nil?%>
+               <%=h @crianca.regiao.nome%>  &nbsp&nbsp&nbsp
+             <%end%>
           <b>Bairro:</b>
          <%= f.collection_select :regiao_id, @bairros, :regiao_id, :nome, :include_blank => 'Seleciona um bairro'%>
              <%= observe_field 'crianca_regiao_id',
@@ -150,9 +152,9 @@
                                               <%end%>
                                </div></td>
        </tr>
-       <% if current_user.has_role?('admin') %>
+       <% if current_user.has_role?('admin')  %>
             <tr>
-                 <td colspan="6"> <b>Unidade onde foi realizada a Inscrição:&nbsp </b> <%= collection_select :crianca, :unidade_id, @unidade_regiao, :id, :nome, :include_blank => @crianca.unidade_t  %> </td>
+                 <td colspan="6"> <b>Unidade onde foi realizada a Inscrição:&nbsp </b> <%#= collection_select :crianca, :unidade_id, @unidade_regiao, :id, :nome, :include_blank => @crianca.unidade_t  %> </td>
             </tr>
             <tr>
                  <td colspan="6"> <b>Data Inscrição:</b>&nbsp <%= f.datetime_select(:created_at , :order => [:day, :month, :year], :start_year => (Date.today.year), :end_year => (Date.today.year - 5)) %></td>
@@ -285,7 +287,7 @@
                  <%else%>
                        <tr>
                            <td width="90%"><b>3) Mãe apresentou declaração do empregador PESSOA JURÍDICA com CNPJ e firma reconhecida em cartório?</b>  ====> </td>
-                            <td> <%= f.select :declaracao, (OPCAOSN).sort %><%= f.select :declaracao, (OPCAOSN).sort, :include_blank => 'SIM ' %>
+                            <td><%= f.select :declaracao, (OPCAOSN).sort, :include_blank => 'SIM ' %>
                                    <%= observe_field 'crianca_declaracao',
                                       :update => "declaracao",
                                       :url    => { :action => 'declaracao_action' },
@@ -482,7 +484,7 @@
    </script>
 
      <fieldset>
-        <%= radio_button_tag(:recadastrar, "1")%> <font size="3"><b> RECADASTRAMENTO</b></font>
+        <%= radio_button_tag(:recadastrarX, "1")%> <font size="3"><b> NÃO RECADASTRAMENTO</b></font>
      </fieldset>
 
       <fieldset>

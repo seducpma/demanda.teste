@@ -7,10 +7,10 @@ class Crianca < ActiveRecord::Base
   has_many :vaga
 
   #validates_presence_of :unidade_id
-  validates_presence_of :regiao_id
+  #validates_presence_of :regiao_id
   validates_presence_of :nome
   validates_presence_of :nascimento
-  validates_presence_of :unidade_ref
+  #validates_presence_of :unidade_ref
   #validates_presence_of :opcao1
   before_save  :maiusculo
   #before_update  :reclassificacao
