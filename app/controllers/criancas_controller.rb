@@ -199,7 +199,51 @@ end
   # PUT /criancas/1.xml
   def update
     @crianca = Crianca.find(params[:id])
-     @crianca.data_rec= Time.now
+
+wxx=@crianca.declaracao
+w=session[:sim]
+t=0
+
+      if session[:sim]== 1
+          if @crianca.servidor_publico == true
+            w1=  @crianca.servidor_publico = 1
+            t=0
+          else
+           w1=  @crianca.servidor_publico = 0
+            t=0
+          end
+         if @crianca.trabalho == true
+             w2=@crianca.trabalho = 1
+            t=0
+         else
+             w3=w2=@crianca.trabalho = 0
+            t=0
+         end
+         if @crianca.declaracao==true
+            w3=@crianca.declaracao= true
+            t=0
+         else
+            w3=@crianca.declaracao= 0
+            t=0
+         end
+         if @crianca.autonomo==true
+             w4=@crianca.autonomo=1
+            t=0
+         else
+             w4=@crianca.autonomo=0
+            t=0
+         end
+         if @crianca.transferencia==true
+             w5=@crianca.transferencia=1
+                         t=0
+         else
+             w5=@crianca.transferencia=0
+            t=0
+         end
+         session[:sim]= 0
+      end
+
+    @crianca.data_rec= Time.now
     @crianca.local_rec= current_user.unidade.nome
           # ^^  após recadastramento comentar estes comandos ^^
           
@@ -231,13 +275,12 @@ if  (data <= Date.today.to_s and data >= DATAB1)
 
         if params[:recadastrarX].to_i == 1
 
-        else
 
+        else
           if session[:recadastrada]= 1
                    @crianca.recadastrada = 1
               session[:recadastrada]= 0
           end
-
         end
 
       respond_to do |format|
