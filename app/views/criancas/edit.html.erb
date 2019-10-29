@@ -291,7 +291,7 @@
                            <td width="90%"><b>3) Mãe apresentou declaração do empregador PESSOA JURÍDICA com CNPJ e firma reconhecida em cartório?</b>  ====> </td>
                                  
                             <td>SIM <%#= f.select :declaracao, (OPCAOSN).sort, :selected_value => @crianca.declaracao %>
-                                <%= f.select :declaracao, options_for_select([['SIM', 1], ['NÃO', 2]]), {:include_blank => 'SIM', :selected_value => true}, :class=>'form-control m-b' %>
+                                <%#= f.select :declaracao, options_for_select([['SIM', 1], ['NÃO', 2]]), {:include_blank => 'SIM', :selected_value => true}, :class=>'form-control m-b' %>
                                    <%#= observe_field 'crianca_declaracao',
                                       :update => "declaracao",
                                       :url    => { :action => 'declaracao_action' },
