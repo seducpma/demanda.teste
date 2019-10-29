@@ -172,7 +172,7 @@ end
 
   $flag_imp = 0
   $flag_btimp = 0
-
+  session[:sim]= 0
     respond_to do |format|
 
 
@@ -200,50 +200,54 @@ end
   def update
     @crianca = Crianca.find(params[:id])
 
-wxx=@crianca.declaracao
-w=session[:sim]
-t=0
-
       if session[:sim]== 1
           if @crianca.servidor_publico == true
-            w1=  @crianca.servidor_publico = 1
-            t=0
+            session[:servidor_publico] = 1
+            if session[:ser]== 1
+                 session[:servidor_publico] = 0
+                 session[:ser]=0
+            end
           else
-           w1=  @crianca.servidor_publico = 0
-            t=0
+           session[:servidor_publico] = 0
+
           end
          if @crianca.trabalho == true
-             w2=@crianca.trabalho = 1
-            t=0
+             session[:trabalho] = 1
+            if session[:trab]== 1
+               session[:trabalho] = 0
+               session[:trab]= 0
+            end
          else
-             w3=w2=@crianca.trabalho = 0
-            t=0
+             session[:trabalho] = 0
          end
          if @crianca.declaracao==true
-            w3=@crianca.declaracao= 1
-            t=0
-            @crianca.save
-            wc4=@crianca.declaracao
-            t=0
+             session[:declaracao]= 1
+             if session[:dec]== 1
+                 session[:declaracao]= 0
+                 session[:dec]=0
+             end
          else
-            w3=@crianca.declaracao= 0
-            t=0
+               session[:declaracao]= 0
          end
          if @crianca.autonomo==true
-             w4=@crianca.autonomo=1
-            t=0
+              session[:autonomo]=1
+              if session[:aut]== 1
+                  session[:autonomo]=0
+                  session[:aut]= 0
+              end
          else
-             w4=@crianca.autonomo=0
-            t=0
+             session[:autonomo]=0
          end
          if @crianca.transferencia==true
-             w5=@crianca.transferencia=1
-                         t=0
+             session[:transferencia]=1
+             if session[:tra]== 1
+                 session[:transferencia]=0
+                 session[:aut]= 0
+             end
          else
-             w5=@crianca.transferencia=0
-            t=0
+             session[:transferencia]=0
          end
-         session[:sim]= 0
+
       end
 
     @crianca.data_rec= Time.now
@@ -291,12 +295,16 @@ if  (data <= Date.today.to_s and data >= DATAB1)
       t=0
       respond_to do |format|
       if @crianca.update_attributes(params[:crianca])
+        if  session[:sim]== 1
+            wc=@crianca.servidor_publico= session[:servidor_publico]
+            wc1=@crianca.trabalho = session[:trabalho]
+            wc2=@crianca.declaracao= session[:declaracao]
+            wc3=@crianca.autonomo= session[:autonomo]
+            wc4=@crianca.transferencia= session[:transferencia]
+            session[:sim]= 0
+            @crianca.save
 
-        wc=@crianca.declaracao
-        wc1=@crianca.trabalho
-        wc2=@crianca.autonomo
-        t=0
-
+        end
         session[:id]=@crianca.id
         @crianca = Crianca.find(session[:id])
         flash[:notice] = 'Criança atualizada com sucesso.'
@@ -999,15 +1007,20 @@ end
      if params[:crianca_servidor_publico] == '1'
         render :partial => 'servidor'
       else
+          session[:ser]= 1
        render :partial => 'nada'
       end
  end
 
   def transferencia_action
+      t=0
      @unidade_regiao= Unidade.find(:all , :conditions=>['ativo = 1 AND ( tipo = 1 or tipo = 3 or tipo = 7 or tipo = 8)'])
+     t=0
      if params[:crianca_transferencia] == '1'
         render :partial => 'transferencia'
       else
+          session[:tra]= 1
+          t=0
        render :partial => 'nada'
       end
  end
@@ -1017,6 +1030,7 @@ end
      if params[:crianca_trabalho] == '1'
         render :partial => 'trabalho'
       else
+       session[:trab]= 1
        render :partial => 'nada'
       end
  end
@@ -1025,6 +1039,7 @@ end
      if params[:crianca_declaracao] == '1'
         render :partial => 'declaracao'
       else
+        session[:dec]= 1
        render :partial => 'nada'
       end
  end
@@ -1033,6 +1048,7 @@ end
      if params[:crianca_autonomo] == '1'
         render :partial => 'autonomo'
       else
+          session[:aut]= 1
        render :partial => 'nada'
       end
  end
