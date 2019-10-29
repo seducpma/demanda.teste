@@ -123,6 +123,7 @@ OPCAO ={ 'SIM '=>'SIM',
 
 OPCAOSN ={ 'SIM '=> 1,
             'NÃO'=> 0
+
          }
 
 

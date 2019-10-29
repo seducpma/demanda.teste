@@ -220,7 +220,10 @@ t=0
             t=0
          end
          if @crianca.declaracao==true
-            w3=@crianca.declaracao= true
+            w3=@crianca.declaracao= 1
+            t=0
+            @crianca.save
+            wc4=@crianca.declaracao
             t=0
          else
             w3=@crianca.declaracao= 0
@@ -277,14 +280,22 @@ if  (data <= Date.today.to_s and data >= DATAB1)
 
 
         else
-          if session[:recadastrada]= 1
+          if session[:recadastrada]== 1
                    @crianca.recadastrada = 1
               session[:recadastrada]= 0
           end
         end
 
+
+      wc1=@crianca.declaracao
+      t=0
       respond_to do |format|
       if @crianca.update_attributes(params[:crianca])
+
+        wc=@crianca.declaracao
+        wc1=@crianca.trabalho
+        wc2=@crianca.autonomo
+        t=0
 
         session[:id]=@crianca.id
         @crianca = Crianca.find(session[:id])
