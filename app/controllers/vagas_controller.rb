@@ -150,7 +150,7 @@ class VagasController < ApplicationController
        @vagas_unidade =  Vaga.find_by_sql("SELECT unidade_id, grupo_id, count(id) as quantidade FROM vagas where grupo_id = '"+ (params[:vaga][:grupo_id]) +"' AND disponivel = 0 GROUP BY unidade_id ORDER BY unidade_id ")
        @vagas_regiao =  Vaga.find_by_sql("SELECT vg.unidade_id, vg.grupo_id, count(vg.id) as quantidade FROM vagas vg INNER JOIN unidades uni ON vg.unidade_id = uni.id INNER JOIN regiaos reg ON uni.regiao_id = reg.id WHERE vg.grupo_id = '"+ (params[:vaga][:grupo_id]) +"' AND vg.disponivel = 0 GROUP BY reg.id ORDER BY reg.id ")
         render :update do |page|
-             page.replace_html 'vaga', :partial => "vaga"
+             page.replace_html 'vaga', :partial => "vaga_unidade"
         end
    else if params[:type_of].to_i == 2
             @unidades = Unidade.find(:all, :conditions => ['regiao_id > 99 AND ( tipo = 1 or tipo = 3 or tipo = 7 or tipo = 8)'], :order=> 'tipo,nome')
@@ -161,7 +161,7 @@ class VagasController < ApplicationController
             @regiaos1= Regiao.find(:all, :conditions=>['regiaos.id > 99 AND regiaos.id < 111 ' ])
             @regiaos2= Regiao.find(:all, :conditions=>['regiaos.id > 110 AND regiaos.id < 120 ' ])
         render :update do |page|
-             page.replace_html 'vaga', :partial => "vaga"
+             page.replace_html 'vaga', :partial => "vaga_seduc"
         end
 
          else if params[:type_of].to_i == 3
@@ -170,7 +170,7 @@ class VagasController < ApplicationController
                @vagas_unidade =  Vaga.find_by_sql("SELECT unidade_id, grupo_id, count(id) as quantidade FROM vagas where unidade_id = '"+ (params[:vaga][:unidade_id].to_s) +"' AND disponivel = 0 GROUP BY grupo_id ORDER BY unidade_id ")
                @vagas_regiao =  Vaga.find_by_sql("SELECT vg.unidade_id, vg.grupo_id, count(vg.id) as quantidade FROM vagas vg INNER JOIN unidades uni ON vg.unidade_id = uni.id INNER JOIN regiaos reg ON uni.regiao_id = reg.id WHERE  unidade_id = '"+ (params[:vaga][:unidade_id].to_s) +"' AND vg.disponivel = 0 GROUP BY reg.id , vg.grupo_id  ORDER BY reg.id ")
                  render :update do |page|
-                      page.replace_html 'vaga', :partial => "vaga"
+                      page.replace_html 'vaga', :partial => "vaga_unidade"
                  end
               end
           end
@@ -191,11 +191,11 @@ def unidade_id
 end
 
 def grupo_id
-    w6=session[:vaga_grupo]=(params[:vaga_grupo_id]).to_i
-    w8= session[:vaga_unidade_nome]
+    session[:vaga_grupo]=(params[:vaga_grupo_id]).to_i
+    session[:vaga_unidade_nome]
     @unidade=Unidade.find(:all, :conditions => ['nome =?', session[:vaga_unidade_nome]])
-    session[:quant_vaga]= (Vaga.find(:all, :conditions => ['unidade_id =? ANDgrupo_id=?  AND crianca_id is null', session[:vaga_unidade_id], session[:vaga_grupo]])).count
-    w9=session[:regiao_id]= @unidade[0].regiao_id
+    session[:quant_vaga]= (Vaga.find(:all, :conditions => ['unidade_id =? AND grupo_id=?  AND crianca_id is null', session[:vaga_unidade_id], session[:vaga_grupo]])).count
+    session[:regiao_id]= @unidade[0].regiao_id
 
     @criancasP = Crianca.find( :all,:conditions => ["status = 'NA_DEMANDA' AND ( servidor_publico = 1 OR trabalho = 1 OR declaracao=1 OR autonomo = 1  OR transferencia = 1)  AND unidade_ref = ?  AND grupo_id = ? AND recadastrada = 1",  session[:vaga_unidade_nome], session[:vaga_grupo] ],:order => "regiao_id DESC, servidor_publico DESC, trabalho DESC, declaracao DESC, transferencia, autonomo DESC, created_at ASC")
 
@@ -214,14 +214,14 @@ def grupo_id
     # testa para exibir mensagem no _crianca_vaga <=========================================
     @testavaga = Vaga.find(:all,:joins => :unidade, :conditions => ["vagas.grupo_id = ? AND vagas.unidade_id =? AND  vagas.disponivel = 0",session[:vaga_grupo], session[:vaga_unidade]])
      if !@testavaga.empty?
-      w1= session[:vaga_id]= @testavaga[0].id
+      session[:vaga_id]= @testavaga[0].id
        if @criancasT.count > 1
-           w2=session[:crianca_id]= @criancasT[0].id
+           session[:crianca_id]= @criancasT[0].id
        else
-           w3=session[:crianca_id]  = 0
+           session[:crianca_id]  = 0
        end
     else if @criancasT.count > 1
-            w4=session[:crianca_id]= @criancasT[0].id
+            session[:crianca_id]= @criancasT[0].id
          else
             session[:crianca_id]  = 0
           end

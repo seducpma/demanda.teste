@@ -1,0 +1,85 @@
+<div class="tabs">
+    
+      <table width="80%"border="1" cellspacing="0" cellpadding="1"  align="center"   >
+         <%quant=0%>
+        <% @vagas.each do |vaga| %>
+
+          <%quant=quant+1%>
+         <% end %>
+        <tr>
+            <td colspan="4">  <div id="caixa_titulo">
+                                <font size="3"><strong>VAGA NA UNIDADE</strong></font><br/>
+                              </div></td>
+        </tr>
+
+                    <tr  bgcolor="#F5F5F">
+                        <td width=" 25%" align="center"><center><b>Grupos</b></center></td>
+                        <td width=" 5%" align="center"><center><b>Vagas</b></center></td>
+                        <td width=" 35%"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b> Unidade </b></td>
+                        <td width=" 35%"> <b>&nbsp&nbsp&nbsp Região </b></td>
+                        
+                        
+                    </tr>
+                    <% @vagas_unidade.each do |vagaU| %>
+                        <tr bgcolor="#DCDCDC">
+                            <td align="center"><center><%=vagaU.grupo.nome%></center></td>
+                            <td align="center"><center><%=vagaU.quantidade%></center></td>
+                            <td> - <%= truncate(vagaU.unidade.nome,:length => 25,:omission => "..." )%> </td>
+                            <td >  <%= truncate(vagaU.unidade.regiao.nome,:length => 25,:omission => "... " )%> </td>
+                            
+                            
+                        </tr>
+                    <%end%>
+                        <tr> <td> &nbsp <b> TOTAL DE VAGAS  </b></td>
+                            <td align="center"><b> <%=  quant%></b></td>
+                            <td  colspan="4"> &nbsp&nbsp <b> </b></td>
+                        </tr>
+       </table>
+   <br/>
+        <%quant=0%>
+        <table bgcolor="#DCDCDC" width="60%"align="center" border="1" cellspacing="0" cellpadding="1" >
+        <tr bgcolor="#F5F5F5">
+            <td colspan="4"><div id="caixa_titulo">
+                                <font size="3"><strong>ESPECÍFICAÇÃO VAGA</strong></font><br/>
+                              </div></td>
+
+            </tr>
+
+           <% @vagas.each do |vaga| %>
+
+            <tr bgcolor="#F5F5F5">
+             <td><strong>Vaga Nº :</strong></td>
+             <td colspan="3"><%=h vaga.id%> </td>
+            </tr>
+            <tr  bgcolor="#F5F5F5">
+                <td width ="5%"><b>Unidade: </b></td>
+                <td><%=h vaga.unidade.nome %></td>
+                <td width ="5%"><b>Região: </b></td>
+                <td><%=h vaga.unidade.regiao.nome %></td>
+            </tr>
+            <tr bgcolor="#F5F5F5">
+             <td><strong>Grupo:</strong></td>
+             <td colspan="3"><%=h vaga.grupo.nome%> </td>
+            </tr>
+             <tr bgcolor="#F5F5F5">
+             <td><strong>Descrição:</strong></td>
+             <td colspan="3"><%=h session[:descricao] %></td>
+            </tr>
+             <tr bgcolor="#F5F5F5">
+             <td><strong>Obs.:</strong></td>
+             <td colspan="3"><%=h vaga.obs%></td>
+            </tr>
+            <tr>
+                 <% if (current_user.has_role?('admin')or  current_user.has_role?('SEDUC'))%>
+                      <td colspan="4"align="right" ><%= button_to 'Editar',{:action => "edit", :id =>vaga}, :method => "get", :title => "Editar"%></td>
+                  <%else%>
+                      <td align="center" >  </td>
+                  <%end%>
+           </tr>
+           <%quant=quant+1%>
+         <% end %>
+     </table>
+
+
+     
+  </div>

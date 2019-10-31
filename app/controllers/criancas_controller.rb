@@ -250,8 +250,13 @@ end
 
       end
 
-    @crianca.data_rec= Time.now
-    @crianca.local_rec= current_user.unidade.nome
+        if params[:recadastrarX].to_i == 1
+
+
+        else
+           @crianca.data_rec= Time.now
+           @crianca.local_rec= current_user.unidade.nome
+         end
           # ^^  após recadastramento comentar estes comandos ^^
           
    

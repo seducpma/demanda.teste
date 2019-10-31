@@ -1,0 +1,119 @@
+<div id="interno2">
+<% title "CRIANÇAS", :id =>"criancas" %>
+ <div class="tabs">
+   <div id="caixa_titulo">
+    <font size="3"><strong>RELATÓRIO GERAL VAGAS CADASTRADAS </strong></font><br/>
+   </div>
+  <div class="tabs">
+ <fieldset>
+   <legend><font size=2><b>DEMANDA POR REGIÃO</b></font></legend>
+   <table bgcolor="#DCDCDC" width="99%"align="center">
+         <tr bgcolor="#DCDCDC" >
+            <td width="50%">
+              <table bgcolor="#DCDCDC" width="100%"align="center" >
+                    <tr bgcolor="#F5F5F5" >
+                        <th width="110px">Região</th>
+                        <th width="6px">B-I</th>
+                        <th width="6px">B-II</th>
+                        <th width="6px">M-IA</th>
+                        <th width="6px">M-IB</th>
+                        <th width="6px">M-II</th>
+                        <th width="6px">N-I</th>
+                        <th width="6px">N-II</th>
+
+                    </tr>
+               </table>
+            </td>
+            <td width="50%">
+              <table bgcolor="#DCDCDC" width="100%"align="center" >
+                    <tr bgcolor="#F5F5F5" >
+                        <th width="110p">Região</th>
+                        <th width="6px">B-I</th>
+                        <th width="6px">B-II</th>
+                        <th width="6px">M-IA</th>
+                        <th width="6px">M-IB</th>
+                        <th width="6px">M-II</th>
+                        <th width="6px">N-I</th>
+                        <th width="6px">N-II</th>
+
+                    </tr>
+               </table>
+            </td>
+
+         </tr>
+
+         <tr>
+            <% totalregiao0 = 0%>
+             <% totalregiao1 = 0 %>
+             <% totalregiao2 = 0%>
+             <% total1B1=0 %>
+             <% total1B2=0 %>
+             <% total1M1A=0 %>
+             <% total1M1B=0 %>
+             <% total1M2=0 %>
+             <% total1N1=0 %>
+             <% total1N2=0 %>
+             <% total2B1=0 %>
+             <% total2B2=0 %>
+             <% total2M1A=0 %>
+             <% total2M1B=0 %>
+             <% total2M2=0 %>
+             <% total2N1=0 %>
+             <% total2N2=0 %>
+
+             <td valign="top">
+                 <table bgcolor="#DCDCDC" width="100%"align="center" >
+                    <% for reg1 in @regiaos1 %>
+                       <tr bgcolor="#F5F5F5" >
+                         <td  width="115px"><font size="2"><b><%= truncate(reg1.nome,:length => 20,:omission => "...") %></b></td>
+                         <td width="18px" align="center"><%= regiao = Vaga.find(:all,:select=> 'vagas.id', :joins =>  "inner join unidades on unidades.id = vagas.unidade_id", :conditions => ["(unidades.regiao_id > 99 AND  unidades.regiao_id < 111) AND vagas.grupo_id = 1 AND vagas.crianca_id is null AND unidades.regiao_id = ?",reg1]).count %> <% total1B1 = total1B1 + regiao %> </td>
+                         <td width="20px" align="center"><%= regiao = Vaga.find(:all,:select=> 'vagas.id', :joins =>  "inner join unidades on unidades.id = vagas.unidade_id", :conditions => ["(unidades.regiao_id > 99 AND  unidades.regiao_id < 111) AND vagas.grupo_id = 2 AND vagas.crianca_id is null AND unidades.regiao_id = ?",reg1]).count %> <% total1B2 = total1B2 + regiao %> </td> 
+                         <td width="28x" align="center"><%= regiao = Vaga.find(:all,:select=> 'vagas.id', :joins =>  "inner join unidades on unidades.id = vagas.unidade_id", :conditions => ["(unidades.regiao_id > 99 AND  unidades.regiao_id < 111) AND vagas.grupo_id = 4 AND vagas.crianca_id is null AND unidades.regiao_id = ?",reg1]).count %> <% total1M1A = total1M1A + regiao %></td>
+                         <td width="28x" align="center"><%= regiao = Vaga.find(:all,:select=> 'vagas.id', :joins =>  "inner join unidades on unidades.id = vagas.unidade_id", :conditions => ["(unidades.regiao_id > 99 AND  unidades.regiao_id < 111) AND vagas.grupo_id = 8 AND vagas.crianca_id is null AND unidades.regiao_id = ?",reg1]).count %> <% total1M1B = total1M1B + regiao %></td>
+                         <td width="20px" align="center"><%= regiao = Vaga.find(:all,:select=> 'vagas.id', :joins =>  "inner join unidades on unidades.id = vagas.unidade_id", :conditions => ["(unidades.regiao_id > 99 AND  unidades.regiao_id < 111) AND vagas.grupo_id = 5 AND vagas.crianca_id is null AND unidades.regiao_id = ?",reg1]).count %><% total1M2 = total1M2 = total1M2 + regiao %></td>
+                         <td width="16px" align="center"><%= regiao = Vaga.find(:all,:select=> 'vagas.id', :joins =>  "inner join unidades on unidades.id = vagas.unidade_id", :conditions => ["(unidades.regiao_id > 99 AND  unidades.regiao_id < 111) AND vagas.grupo_id = 6 AND vagas.crianca_id is null AND unidades.regiao_id = ?",reg1]).count %><% total1N1 = total1N1 + regiao %></td>
+                         <td width="20px" align="center"><%= regiao = Vaga.find(:all,:select=> 'vagas.id', :joins =>  "inner join unidades on unidades.id = vagas.unidade_id", :conditions => ["(unidades.regiao_id > 99 AND  unidades.regiao_id < 111) AND vagas.grupo_id = 7 AND vagas.crianca_id is null AND unidades.regiao_id = ?",reg1]).count %><% total1N2 = total1N2 + regiao %></td>
+                       </tr>
+                     <%end%>
+
+                 </table>
+             </td>
+             <td valign="top">
+                 <table bgcolor="#DCDCDC" width="100%"align="center">
+                     <% for reg2 in @regiaos2 %>
+                       <tr bgcolor="#F5F5F5" >
+                          <td  width="115px"><font size="2"><b><%= truncate(reg2.nome,:length => 20,:omission => "...") %></b></td>
+                          <td width="18px" align="center"><%= regiao = Vaga.find(:all,:select=> 'vagas.id', :joins =>  "inner join unidades on unidades.id = vagas.unidade_id", :conditions => ["(unidades.regiao_id > 110 AND  unidades.regiao_id < 120) AND vagas.grupo_id = 1 AND vagas.crianca_id is null AND unidades.regiao_id = ?",reg2]).count %><% total2B1 = total2B1 + regiao %> </td>
+                          <td width="20px" align="center"><%= regiao = Vaga.find(:all,:select=> 'vagas.id', :joins =>  "inner join unidades on unidades.id = vagas.unidade_id", :conditions => ["(unidades.regiao_id > 110 AND  unidades.regiao_id < 120) AND vagas.grupo_id = 2 AND vagas.crianca_id is null AND unidades.regiao_id = ?",reg2]).count %><% total2B2 = total2B2 + regiao %> </td>
+                          <td width="28x" align="center"><%= regiao = Vaga.find(:all,:select=> 'vagas.id', :joins =>  "inner join unidades on unidades.id = vagas.unidade_id", :conditions => ["(unidades.regiao_id > 110 AND  unidades.regiao_id < 120) AND vagas.grupo_id = 4 AND vagas.crianca_id is null AND unidades.regiao_id = ?",reg2]).count %><% total2M1A =  total2M1A + regiao %> </td>
+                          <td width="28x" align="center"><%= regiao = Vaga.find(:all,:select=> 'vagas.id', :joins =>  "inner join unidades on unidades.id = vagas.unidade_id", :conditions => ["(unidades.regiao_id > 110 AND  unidades.regiao_id < 120) AND vagas.grupo_id = 8 AND vagas.crianca_id is null AND unidades.regiao_id = ?",reg2]).count %><% total2M1B = total2M1B + regiao %> </td>
+                          <td width="20px" align="center"><%= regiao = Vaga.find(:all,:select=> 'vagas.id', :joins =>  "inner join unidades on unidades.id = vagas.unidade_id", :conditions => ["(unidades.regiao_id > 110 AND  unidades.regiao_id < 120) AND vagas.grupo_id = 5 AND vagas.crianca_id is null AND unidades.regiao_id = ?",reg2]).count %><% total2M2 = total2M2 + regiao %> </td>
+                          <td width="16px" align="center"><%= regiao = Vaga.find(:all,:select=> 'vagas.id', :joins =>  "inner join unidades on unidades.id = vagas.unidade_id", :conditions => ["(unidades.regiao_id >110 AND  unidades.regiao_id < 120) AND vagas.grupo_id = 6 AND vagas.crianca_id is null AND unidades.regiao_id = ?",reg2]).count %><% total2N1 = total2N1 + regiao %> </td>
+                          <td width="20px" align="center"><%= regiao = Vaga.find(:all,:select=> 'vagas.id', :joins =>  "inner join unidades on unidades.id = vagas.unidade_id", :conditions => ["(unidades.regiao_id > 110 AND  unidades.regiao_id < 120) AND vagas.grupo_id = 7 AND vagas.crianca_id is null AND unidades.regiao_id = ?",reg2]).count %><% total2N2 = total2N2 + regiao %> </td>
+                       </tr>
+                     <%end%>
+                       <tr bgcolor="#F5F5F5" >
+                          <td  width="115px"><font size="2" color="red" ><b>TOTAL SEDUC ======></b></td>
+                          <td width="18px" align="center"><font size="2" color="red" ><b><%= total1B1 + total2B1 %></b></td>
+                          <td width="20px" align="center"><font size="2" color="red" ><b><%= total1B2 + total2B2%></b> </td>
+                          <td width="28x"  align="center"><font size="2" color="red" ><b><%= total1M1A + total2M1A %></b> </td>
+                          <td width="28x"  align="center"><font size="2" color="red" ><b><%= total1M1B + total2M1B %></b> </td>
+                          <td width="20px" align="center"><font size="2" color="red" ><b><%= total1M2 + total2M2 %></b> </td>
+                          <td width="16px" align="center"><font size="2" color="red" ><b><%= total1N1 + total2N1 %></b> </td>
+                          <td width="20px" align="center"><font size="2" color="red" ><b><%= total1N2 + total2N2 %></b> </td>
+
+                       </tr>
+
+
+                 </table>
+             </td>
+         </tr>
+     </table>
+ </fieldset>
+ <fieldset>
+  <legend><font size=2><b>DEMANDA POR UNIDADE</b></font></legend>
+   <table bgcolor="#DCDCDC" width="99%"align="center">
+
+
+
+       </fieldset>

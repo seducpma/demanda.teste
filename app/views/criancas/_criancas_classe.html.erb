@@ -10,7 +10,7 @@
             <th width="10%">Classe</th>
             <th width="5%">Mãe <br/>Trabalha</th>
             <th width="5%">Mãe <br/>Servidora</th>
-            <th width="10%">Período</th>
+            
 
         </tr>
            <%$t=0%>
@@ -43,7 +43,7 @@
                                   <%else%>
                                        <td align="center">SIM</td>
                                   <%end%>
-                <td align="center"><%=h crianca.periodo%></td>
+                
 
 
               <% if current_user.has_role?('admin') or current_user.has_role?('SEDUC') or current_user.has_role?('direcao') or current_user.has_role?('supervisao')%>
