@@ -5,15 +5,50 @@ class GraficoController < ApplicationController
   end
 
   def grafico_demanda_geral
+     @regiaos1= Regiao.find(:all, :conditions=>['regiaos.id > 99 AND regiaos.id < 108 ' ], :order => 'regiaos.nome')
+     @regiaos2= Regiao.find(:all, :conditions=>['regiaos.id > 107 AND regiaos.id < 115 ' ], :order => 'regiaos.nome')
+     @regiaos3= Regiao.find(:all, :conditions=>['regiaos.id > 114 AND regiaos.id < 201 AND id != 120' ], :order => 'regiaos.nome')
+     @criancas = Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' AND recadastrada = 1" ], :order => 'nome')
+     @regiaos11= Regiao.find(:all,  :conditions=>['regiaos.id > 99 AND regiaos.id < 201 AND id !=120' ], :order => 'regiaos.nome')
+
+
+
     @graph = open_flash_chart_object(600,300,"/grafico/graph_code_demanda_geral")
 
-        @static_graph = Gchart.pie_3d(
-          :data => [(Crianca.matriculada).length,(Crianca.na_demanda).length, (Crianca.cancelada).length],
-          :title => "Demanda Geral - Crianças Cadastradas: #{Crianca.total_demanda.length}",
-          :size => '600x300',
+        @static_graph = Gchart.pie(
+          :data => [ (Crianca.regiao_centro).length, (Crianca.regiao_jaguari).length, (Crianca.regiao_jbrasil).length, (Crianca.regiao_praia).length,
+                     (Crianca.regiao_smanoel).length, (Crianca.regiao_svito).length, (Crianca.regiao_zanaga).length, (Crianca.regiao_jpaz).length,
+                     (Crianca.regiao_pgramado).length, (Crianca.regiao_pnacoes).length, (Crianca.regiao_sdomingos).length, (Crianca.regiao_sgeronimo).length,
+                     (Crianca.regiao_sluiz).length, (Crianca.regiao_sroque).length, (Crianca.regiao_cjardim).length, (Crianca.regiao_frezarin).length,
+                     (Crianca.regiao_jalvorada).length, (Crianca.regiao_spaulo).length, (Crianca.regiao_jipiranga).length],
+          :title => "Demanda Geral - Crianças Cadastradas: #{Crianca.na_demandaR.length}",
+          :size => '800x350',
           :format => 'image_tag',
-          :labels => ["Matriculadas: #{(Crianca.matriculada).length}", "Demanda: #{(Crianca.na_demanda).length}" , "Canceladas: #{(Crianca.cancelada).length}",])
-  end  
+          :labels => ["Centro: #{(Crianca.regiao_centro).length} - #{ (((Crianca.regiao_centro).length).to_f / (Crianca.na_demandaR.length).to_f * 100).round(2)} % ",
+                      "Jaguari: #{(Crianca.regiao_jaguari).length} - #{ (((Crianca.regiao_jaguari).length).to_f / (Crianca.na_demandaR.length).to_f * 100).round(2)} % ",
+                      "Jd.Brasil: #{(Crianca.regiao_jbrasil).length} - #{ (((Crianca.regiao_jbrasil).length).to_f / (Crianca.na_demandaR.length).to_f * 100).round(2)} % ",
+                      "Praia Azul: #{(Crianca.regiao_praia).length} - #{ (((Crianca.regiao_praia).length).to_f / (Crianca.na_demandaR.length).to_f * 100).round(2)} % ",
+                      "São Manoel: #{(Crianca.regiao_smanoel).length} - #{ (((Crianca.regiao_smanoel).length).to_f / (Crianca.na_demandaR.length).to_f * 100).round(2)} % ",
+                      "São Vito: #{(Crianca.regiao_svito).length} - #{ (((Crianca.regiao_svito).length).to_f / (Crianca.na_demandaR.length).to_f * 100).round(2)} % ",
+                      "Zanaga: #{(Crianca.regiao_zanaga).length} - #{ (((Crianca.regiao_zanaga).length).to_f / (Crianca.na_demandaR.length).to_f * 100).round(2)} % ",
+                      "Jd.Paz: #{(Crianca.regiao_jpaz).length} - #{ (((Crianca.regiao_jpaz).length).to_f / (Crianca.na_demandaR.length).to_f * 100).round(2)} % ",
+                      "Pq.Gramado: #{(Crianca.regiao_pgramado).length} - #{ (((Crianca.regiao_pgramado).length).to_f / (Crianca.na_demandaR.length).to_f * 100).round(2)} % ",
+                      "Pq.Nações: #{(Crianca.regiao_pnacoes).length} - #{ (((Crianca.regiao_pnacoes).length).to_f / (Crianca.na_demandaR.length).to_f * 100).round(2)} % ",
+                      "São Domingos: #{(Crianca.regiao_sdomingos).length} - #{ (((Crianca.regiao_sdomingos).length).to_f / (Crianca.na_demandaR.length).to_f * 100).round(2)} % ",
+                      "São Jerônimo: #{(Crianca.regiao_sgeronimo).length} - #{ (((Crianca.regiao_sgeronimo).length).to_f / (Crianca.na_demandaR.length).to_f * 100).round(2)} % ",
+                      "São Luiz: #{(Crianca.regiao_sluiz).length} - #{ (((Crianca.regiao_sluiz).length).to_f / (Crianca.na_demandaR.length).to_f * 100).round(2)} % ",
+                      "São Roque: #{ (Crianca.regiao_sroque).length} - #{ (((Crianca.regiao_sroque).length).to_f / (Crianca.na_demandaR.length).to_f * 100).round(2)} % ",
+                      "Cd. Jardim: #{(Crianca.regiao_cjardim).length} - #{ (((Crianca.regiao_cjardim).length).to_f / (Crianca.na_demandaR.length).to_f * 100).round(2)} % ",
+                      "Frezarin: #{(Crianca.regiao_frezarin).length} - #{ (((Crianca.regiao_frezarin).length).to_f / (Crianca.na_demandaR.length).to_f * 100).round(2)} % ",
+                      "Jd.Alvorada: #{(Crianca.regiao_jalvorada).length} - #{ (((Crianca.regiao_jalvorada).length).to_f / (Crianca.na_demandaR.length).to_f * 100).round(2)} % ",
+                      "São Sâo Paulo: #{ (Crianca.regiao_spaulo).length} - #{ (((Crianca.regiao_spaulo).length).to_f / (Crianca.na_demandaR.length).to_f * 100).round(2)} % ",
+                      "Jd.Ipiranga: #{(Crianca.regiao_jipiranga).length} - #{ (((Crianca.regiao_jipiranga).length).to_f / (Crianca.na_demandaR.length).to_f * 100).round(2)} % ",])
+  end
+
+
+
+
+
 
   def impressao_geral
 

@@ -140,9 +140,6 @@ display: none;
                  <ul style="width:108px;">
                           <li><%= link_to "Classificação",consulta_unidade_path %></li>
 
-                          <!-- <% if (current_user.has_role?('admin') or current_user.has_role?('SEDUC') or current_user.has_role?('direcao')  or current_user.has_role?('supervisao'))%>
-                           <li><%= link_to "Gráficos", grafico_path %></li>
-                          <%end%>-->
                          <li><a class="item-primary" href="#;">Relatorios</a>
                               <ul>
                                   <li>  <%= link_to "Demanda Geral",consulta_geral_path %></li>
@@ -150,6 +147,10 @@ display: none;
                                         <li><%#= link_to "Demanda(Ant)",teste_path %></li>
                                   <%  end %>-->
                                  <!-- <li>  <%#= link_to "Mãe Trabalha",consulta_mae_path %></li>-->
+                                  <% if (current_user.has_role?('admin') or current_user.has_role?('SEDUC') or current_user.has_role?('direcao')  or current_user.has_role?('supervisao'))%>
+                                      <li><%= link_to "Estatística", grafico_path %></li>
+                                  <%end%>
+
                               </ul>
                           </li>
                             

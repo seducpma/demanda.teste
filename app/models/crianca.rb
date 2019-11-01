@@ -66,6 +66,106 @@ def self.na_demanda
     Crianca.find(:all)
   end
 
+
+  def self.na_demandaR
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' AND recadastrada = 1 AND vaga_id is null"])
+  end
+
+
+ def self.regiao_centro
+      Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and regiao_id = 101 and vaga_id is null"])
+  end
+
+ def self.regiao_jaguari
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and regiao_id = 106 and vaga_id is null"])
+  end
+
+
+ def self.regiao_jbrasil
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and regiao_id = 103 and vaga_id is null"])
+  end
+
+
+ def self.regiao_praia
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and regiao_id = 104 and vaga_id is null"])
+  end
+
+
+ def self.regiao_smanoel
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and regiao_id = 105 and vaga_id is null"])
+  end
+
+
+ def self.regiao_svito
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and regiao_id = 107 and vaga_id is null"])
+  end
+
+
+ def self.regiao_zanaga
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and regiao_id = 102 and vaga_id is null"])
+  end
+
+
+ def self.regiao_jpaz
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and regiao_id = 110 and vaga_id is null"])
+  end
+
+
+ def self.regiao_pgramado
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and regiao_id = 111 and vaga_id is null"])
+  end
+
+
+ def self.regiao_pnacoes
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and regiao_id = 113 and vaga_id is null"])
+  end
+
+
+ def self.regiao_sdomingos
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and regiao_id = 114 and vaga_id is null"])
+  end
+
+
+ def self.regiao_sgeronimo
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and regiao_id = 109 and vaga_id is null"])
+  end
+
+
+ def self.regiao_sluiz
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and regiao_id = 108 and vaga_id is null"])
+  end
+
+
+ def self.regiao_sroque
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and regiao_id = 112 and vaga_id is null"])
+  end
+
+
+ def self.regiao_cjardim
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and regiao_id = 118 and vaga_id is null"])
+  end
+
+
+ def self.regiao_frezarin
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and regiao_id = 115 and vaga_id is null"])
+  end
+
+
+ def self.regiao_jalvorada
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and regiao_id = 119 and vaga_id is null"])
+  end
+
+
+ def self.regiao_spaulo
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and regiao_id = 117 and vaga_id is null"])
+  end
+
+
+ def self.regiao_jipiranga
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and regiao_id = 116 and vaga_id is null"])
+  end
+
+
  def opcao
     data=self.nascimento
   # Alterei a data de inicio de BI de 2016-02-01 para 2016-07-01 ###Alex 03/07/2017 10:00
