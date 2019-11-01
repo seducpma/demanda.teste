@@ -21,7 +21,7 @@ class GraficoController < ApplicationController
                      (Crianca.regiao_pgramado).length, (Crianca.regiao_pnacoes).length, (Crianca.regiao_sdomingos).length, (Crianca.regiao_sgeronimo).length,
                      (Crianca.regiao_sluiz).length, (Crianca.regiao_sroque).length, (Crianca.regiao_cjardim).length, (Crianca.regiao_frezarin).length,
                      (Crianca.regiao_jalvorada).length, (Crianca.regiao_spaulo).length, (Crianca.regiao_jipiranga).length],
-          :title => "Demanda Geral - Crianças Cadastradas: #{Crianca.na_demandaR.length}",
+          :title => "DEMANDA POR REGIÃO - Crianças Cadastradas: #{Crianca.na_demandaR.length}",
           :size => '800x350',
           :format => 'image_tag',
           :labels => ["Centro: #{(Crianca.regiao_centro).length} - #{ (((Crianca.regiao_centro).length).to_f / (Crianca.na_demandaR.length).to_f * 100).round(2)} % ",
