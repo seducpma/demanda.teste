@@ -4,7 +4,8 @@ class GraficoController < ApplicationController
 
   end
 
-  def grafico_demanda_geral
+
+  def grafico_demanda_regiao
      @regiaos1= Regiao.find(:all, :conditions=>['regiaos.id > 99 AND regiaos.id < 108 ' ], :order => 'regiaos.nome')
      @regiaos2= Regiao.find(:all, :conditions=>['regiaos.id > 107 AND regiaos.id < 115 ' ], :order => 'regiaos.nome')
      @regiaos3= Regiao.find(:all, :conditions=>['regiaos.id > 114 AND regiaos.id < 201 AND id != 120' ], :order => 'regiaos.nome')
@@ -50,6 +51,38 @@ class GraficoController < ApplicationController
 
 
 
+  def grafico_demanda_geral
+
+     @regiaos1= Regiao.find(:all, :conditions=>['regiaos.id > 99 AND regiaos.id < 108 ' ], :order => 'regiaos.nome')
+     @regiaos2= Regiao.find(:all, :conditions=>['regiaos.id > 107 AND regiaos.id < 115 ' ], :order => 'regiaos.nome')
+     @regiaos3= Regiao.find(:all, :conditions=>['regiaos.id > 114 AND regiaos.id < 201 AND id != 120' ], :order => 'regiaos.nome')
+     @criancas = Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' AND recadastrada = 1" ], :order => 'nome')
+     @regiaos11= Regiao.find(:all,  :conditions=>['regiaos.id > 99 AND regiaos.id < 201 AND id !=120' ], :order => 'regiaos.nome')
+
+    @graph = open_flash_chart_object(600,300,"/grafico/graph_code_demanda_geral")
+
+          @static_graph = Gchart.pie(
+            #:data => [(Crianca.matriculadaR).length,(Crianca.na_demandaR).length, (Crianca.canceladaR).length],
+            :data => [(Crianca.b1).length,(Crianca.b2).length, (Crianca.m1a).length, (Crianca.m1b).length, (Crianca.m2).length , (Crianca.n1).length, (Crianca.n2).length],
+            :title => "Demanda Geral - Crianças Cadastradas: #{Crianca.na_demandaR.length}",
+            :size => '700x350',
+            :format => 'image_tag',
+            :labels => ["BerçarioI: #{(Crianca.b1).length} -  #{(((Crianca.b1).length.to_f / Crianca.na_demandaR.length.to_f)*100).round(2)} %",
+                        "BerçarioII: #{(Crianca.b2).length} -  #{(((Crianca.b2).length.to_f / Crianca.na_demandaR.length.to_f)*100).round(2)} %",
+                        "MaternalIA: #{(Crianca.m1a).length} -  #{(((Crianca.m1a).length.to_f / Crianca.na_demandaR.length.to_f)*100).round(2)} %",
+                        "MaternalIB: #{(Crianca.m1b).length} -  #{(((Crianca.m1b).length.to_f / Crianca.na_demandaR.length.to_f)*100).round(2)} %",
+                        "MaternalII: #{(Crianca.m2).length} -  #{(((Crianca.m2).length.to_f / Crianca.na_demandaR.length.to_f)*100).round(2)} %",
+                        "NIVELI: #{(Crianca.n1).length} -  #{(((Crianca.n1).length.to_f / Crianca.na_demandaR.length.to_f)*100).round(2)} %",
+                        "NIVELII: #{(Crianca.n2).length} -  #{(((Crianca.n2).length.to_f / Crianca.na_demandaR.length.to_f)*100).round(2)} %",])
+
+  end
+
+
+
+
+
+
+
   def impressao_geral
 
     if  session[:geral] == 0
@@ -78,21 +111,43 @@ end
 
   def grafico_demanda_unidade
 
+
+
+
+
   end
 
-  def search
+  def search_unidade
     $uni=0
     $menu=1
     session[:input] = params[:contact][:grafico_id]
-    @graph = open_flash_chart_object(600,300,"/grafico/graph_por_unidade?unidade=#{session[:input]}",false,'/')
-                
-    @static_graph = Gchart.pie_3d(
-        :data => [(Crianca.matriculas_crianca_por_unidade(session[:input])).length,(Crianca.nao_matriculas_crianca_por_unidade(session[:input])).length, (Crianca.cancelada_crianca_por_unidade(session[:input])).length],
-        :title => "Demanda por Unidade: #{Crianca.nome_unidade(session[:input])} - #{(Crianca.todas_crianca_por_unidade(session[:input])).length}" ,
-        :size => '600x300',
-        :format => 'image_tag',
-        :labels => ["Matriculadas: #{(Crianca.matriculas_crianca_por_unidade(session[:input])).length}", "Demanda: #{(Crianca.nao_matriculas_crianca_por_unidade(session[:input])).length}", "Canceladas: #{(Crianca.cancelada_crianca_por_unidade(session[:input])).length}"])
+    nome_unidade = Unidade.find(session[:input]).nome
+    b1 = Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 1 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
+    b2 =Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 2 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
+    m1a= Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 4 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
+    m1b=Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 8 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
+    m2= Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 5 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
+    n1=Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 6 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
+    n2=Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 7 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
+    total = Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA'  and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
+    @graph = open_flash_chart_object(700,350,"/grafico/graph_por_unidade?unidade=#{session[:input]}",false,'/')
+     @static_graph = Gchart.pie(
+          #  :data => [(Crianca.por_unidade_b1(session[:input])).size, (Crianca.por_unidade_b2(session[:input])).size, (Crianca.por_unidade_m1a(session[:input])).size (Crianca.por_unidade_m1b(session[:input])).size(Crianca.por_unidade_m2(session[:input])).size(Crianca.por_unidade_n1(session[:input])).size, (Crianca.por_unidade_n2(session[:input])).size ],
+            :data => [b1, b2, m1a , m1b, m1b, m2, n1, n2],
+            #:title => "Demanda xxxx  Unidade: #{Crianca.nome_unidade_total(session[:input]).size} " ,
+            #:title => "Demanda Unidade:  #{Crianca.nome_unidade_total(session[:input]).size} " ,
+             :title => "Demanda por Unidade - #{nome_unidade}:  #{total} " ,
+            :size => '800x350',
+            :format => 'image_tag',
+            :labels => ["Berçario I: #{b1} -  #{((b1.to_f / total.to_f)*100).round(2)} %",
+                        "Berçario II: #{b2} -  #{((b2.to_f / total.to_f)*100).round(2)} %",
+                         "Maternal I-A: #{m1a} -  #{((m1a.to_f / total.to_f)*100).round(2)} %",
+                         "Maternal IB: #{m1b} -  #{((m1b.to_f / total.to_f)*100).round(2)} %",
+                         "Maternal II: #{m2} -  #{((m2.to_f / total.to_f)*100).round(2)} %",
+                         "Nível I: #{n1} -  #{((n1.to_f / total.to_f)*100).round(2)} %",
+                         "Nível II: #{n2} -  #{((n2.to_f / total.to_f)*100).round(2)} %", ])
 
+     
       render :action => "grafico_demanda_unidade"
   end
 
@@ -131,23 +186,23 @@ end
     render :text => chart.to_s
   end
   
-  def graph_por_unidade    
-    unidade = params[:unidade]
-    title = Title.new("Demanda por Unidade: #{Crianca.nome_unidade(unidade)} - Criancas Cadastradas: #{Crianca.todas_crianca_por_unidade(unidade).length}" )
-    pie = Pie.new
-    pie.start_angle = 0
-    pie.animate = true
-    pie.tooltip = '#val# of #total#<br>#percent# of 100%'
-    pie.colours = ["#d01f3c", "#356aa0", "#C79810"]
-    matriculada = Crianca.matriculas_crianca_por_unidade(unidade)
-    nao_matriculada = Crianca.nao_matriculas_crianca_por_unidade(unidade)
-    pie.values  = [PieValue.new(matriculada.length,"Crianças Matriculadas na unidade: " + (matriculada.length).to_s), PieValue.new(nao_matriculada.length,"Crianças Não Matriculadas: " + (nao_matriculada.length).to_s)]
-    chart = OpenFlashChart.new
-    chart.title = title
-    chart.add_element(pie)
-    chart.x_axis = nil
-    render :text => chart.to_s
-  end
+  #def graph_por_unidade
+  #  unidade = params[:unidade]
+  #  title = Title.new("Demanda por Unidade: #{Crianca.nome_unidade(unidade)} - Criancas Cadastradas: #{Crianca.todas_crianca_por_unidade(unidade).length}" )
+  #  pie = Pie.new
+  #  pie.start_angle = 0
+  #  pie.animate = true
+  #  pie.tooltip = '#val# of #total#<br>#percent# of 100%'
+  #  pie.colours = ["#d01f3c", "#356aa0", "#C79810"]
+  #  matriculada = Crianca.matriculas_crianca_por_unidade(unidade)
+  #  nao_matriculada = Crianca.nao_matriculas_crianca_por_unidade(unidade)
+  #  pie.values  = [PieValue.new(matriculada.length,"Crianças Matriculadas na unidade: " + (matriculada.length).to_s), PieValue.new(nao_matriculada.length,"Crianças Não Matriculadas: " + (nao_matriculada.length).to_s)]
+  #  chart = OpenFlashChart.new
+  #  chart.title = title
+  #  chart.add_element(pie)
+  #  chart.x_axis = nil
+  #  render :text => chart.to_s
+  #end
 
   def graph_por_unidade
     unidade = params[:unidade]

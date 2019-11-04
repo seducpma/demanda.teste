@@ -66,11 +66,23 @@ def self.na_demanda
     Crianca.find(:all)
   end
 
+#--------------
+
+  def self.canceladaR
+    Crianca.find(:all, :conditions => ["status = 'CANCELADA' AND recadastrada = 1 "])
+  end
+
+
+  def self.matriculadaR
+    Crianca.find(:all, :conditions => ["status = 'MATRICULADA' AND recadastrada = 1 "])
+  end
 
   def self.na_demandaR
     Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' AND recadastrada = 1 AND vaga_id is null"])
+
   end
 
+# ===== REGIÃO
 
  def self.regiao_centro
       Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and regiao_id = 101 and vaga_id is null  AND recadastrada = 1"])
@@ -165,8 +177,96 @@ def self.na_demanda
     Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and regiao_id = 116 and vaga_id is null AND recadastrada = 1"])
   end
 
+#============ classe
 
- def opcao
+ def self.b1
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 1 and vaga_id is null AND recadastrada = 1"])
+  end
+
+ def self.b2
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 2 and vaga_id is null AND recadastrada = 1"])
+  end
+
+  def self.m1a
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 4 and vaga_id is null AND recadastrada = 1"])
+  end
+
+  def self.m1b
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 8 and vaga_id is null AND recadastrada = 1"])
+  end
+
+  def self.m2
+      Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 5 and vaga_id is null AND recadastrada = 1"])
+  end
+
+  def self.n1
+      Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 6 and vaga_id is null AND recadastrada = 1"])
+  end
+
+  def self.n2
+      Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 6 and vaga_id is null AND recadastrada = 1"])
+  end
+
+
+#====  POR UNIDADE
+
+
+ def self.matriculas_crianca_por_unidade(unidade)
+    nome_unidade = Unidade.find(unidade).nome
+    w1=Crianca.find(:all, :conditions => ['opcao1 = ? and status = "MATRICULADA"',nome_unidade])
+    t=0
+  end
+
+
+def self.por_unidade_b1(unidade)
+    nome_unidade = Unidade.find(unidade).nome
+    w=Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 1 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade])
+    t=0
+ end
+
+def self.por_unidade_b2(unidade)
+    nome_unidade = Unidade.find(unidade).nome
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 2 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade])
+ end
+
+
+def self.por_unidade_m1a(unidade)
+    nome_unidade = Unidade.find(unidade).nome
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id =4 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade])
+ end
+
+
+def self.por_unidade_m1b(unidade)
+    nome_unidade = Unidade.find(unidade).nome
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 8 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade])
+ end
+
+
+def self.por_unidade_m2(unidade)
+    nome_unidade = Unidade.find(unidade).nome
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 5 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade])
+ end
+
+
+def self.por_unidade_n1(unidade)
+    nome_unidade = Unidade.find(unidade).nome
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 6 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade])
+ end
+
+
+def self.por_unidade_n2(unidade)
+    nome_unidade = Unidade.find(unidade).nome
+    Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 7 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade])
+ end
+
+
+
+#def self.nao_matriculas_crianca_por_unidade(unidade)
+  #   nome_unidade = Unidade.find(unidade).nome
+ #   Crianca.find(:all, :conditions => ['opcao1 = ? and status = "NA_DEMANDA"',nome_unidade])
+ # end
+
+  def opcao
     data=self.nascimento
   # Alterei a data de inicio de BI de 2016-02-01 para 2016-07-01 ###Alex 03/07/2017 10:00
   if (self.nascimento <= Date.today.to_s and self.nascimento >= DATAB1.to_date)
@@ -201,14 +301,16 @@ def self.na_demanda
 
   def self.todas_crianca_por_unidade(unidade)
      nome_unidade = Unidade.find(unidade).nome
-    Crianca.find(:all, :conditions => ['opcao1 = ?', nome_unidade])
+    w1=Crianca.find(:all, :conditions => ['unidade_ref = ?', nome_unidade])
+    t=0
   end
 
 
-  def self.matriculas_crianca_por_unidade(unidade)
-    nome_unidade = Unidade.find(unidade).nome
-    Crianca.find(:all, :conditions => ['opcao1 = ? and status = "MATRICULADA"',nome_unidade])
-  end
+ #def self.matriculas_crianca_por_unidade(unidade)
+   # nome_unidade = Unidade.find(unidade).nome
+   # Crianca.find(:all, :conditions => ['opcao1 = ? and status = "MATRICULADA"',nome_unidade])
+   # t=0
+ # end
 
   def self.nao_matriculas_crianca_por_unidade(unidade)
      nome_unidade = Unidade.find(unidade).nome
@@ -242,13 +344,11 @@ def self.na_demanda
   end
 
   def self.todas_crianca_por_regiao(regiao)
+      t=0
      regiao_id = Regiao.find(regiao).id
     @tes3=Crianca.find(:all, :conditions => ['regiao_id = ? and status = "NA_DEMANDA"',regiao_id])
     t=0
   end
-
-  
-
 
 
   def self.demanda_total
@@ -256,10 +356,18 @@ def self.na_demanda
 
   end
 
-
    def self.matricula_total
     Crianca.find(:all, :conditions => ["status = 'MATRICULADA'"])
   end
+
+
+
+
+
+
+
+
+
   
   def maiusculo
     self.nome.upcase!
@@ -313,10 +421,19 @@ def self.na_demanda
         self.atividade_autonomo.upcase!
     end
 
-
-
-
   end
 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
 end
