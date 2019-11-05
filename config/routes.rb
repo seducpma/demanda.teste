@@ -28,6 +28,7 @@ ActionController::Routing::Routes.draw do |map|
   map.consulta_geral '/geral', :controller => 'criancas', :action => 'relatorio_geral'
   map.consulta_mae '/mae', :controller => 'criancas', :action => 'relatorio_mae'
   map.consulta_unidade '/unidade', :controller => 'criancas', :action => 'consulta_unidade'
+  map.transferencias '/transferencias', :controller => 'criancas', :action => 'transferencias'
   map.relatorio_geral_ant '/relatorio_geral_ant', :controller => 'criancas', :action => 'relatorio_geral_ant'
   map.teste '/teste', :controller => 'criancas', :action => 'teste'
   map.consulta_regiao '/regiao', :controller => 'criancas', :action => 'consulta_regiao'
@@ -74,6 +75,7 @@ ActionController::Routing::Routes.draw do |map|
 
   
   map.consultacrianca '/consultacrianca', :controller => 'criancas', :action => 'consultacrianca'
+  map.consultatransferencias '/consultatransferencias', :controller => 'criancas', :action => 'consultatransferencias'
   
   
   

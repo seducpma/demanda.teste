@@ -405,8 +405,7 @@ end
     end
   end
 
- 
-  def consultacrianca
+   def consultacrianca
      if params[:type_of].to_i == 1
          if (current_user.unidade_id == 53 or current_user.unidade_id == 52) then
                  @criancas = Crianca.find( :all,:conditions => ["nome like ? AND status = 'NA_DEMANDA' AND recadastrada=1" , "%" + params[:search1].to_s + "%"],:order => 'nome ASC, unidade_id ASC')
@@ -416,6 +415,56 @@ end
               @canceladas = Crianca.find( :all,:conditions => [" nome like ? AND status =? AND recadastrada=1",  "%" + params[:search1].to_s + "%" , 'CANCELADA'],:order => 'nome ASC')
               @demandas = Crianca.find( :all,:conditions => [" nome like ? and status =? AND recadastrada=1",  "%" + params[:search1].to_s + "%" , 'NA_DEMANDA'],:order => 'nome ASC')
               @matriculadas = Crianca.find( :all,:conditions => [" nome like ? and status =?  AND recadastrada=1",  "%" + params[:search1].to_s + "%" , 'MATRICULADA'],:order => 'nome ASC')
+        render :update do |page|
+          page.replace_html 'criancas', :partial => "criancas"
+        end
+     else if params[:type_of].to_i == 2
+              if (current_user.unidade_id == 53 or current_user.unidade_id == 52) then
+                 @criancas = Crianca.find( :all,:conditions => ['status = ? AND recadastrada = 1', params[:crianca][:status]],:order => 'nome ASC, unidade_id ASC')
+              else
+                 @criancas = Crianca.find( :all,:conditions => [" unidade_id = ? and status =? AND recadastrada = 1", current_user.unidade_id , params[:crianca][:status]],:order => 'nome ASC')
+              end
+              @canceladas = Crianca.find( :all,:conditions => [" unidade_id = ? and status =? AND recadastrada = 1", current_user.unidade_id , 'CANCELADA'],:order => 'nome ASC')
+              @demandas = Crianca.find( :all,:conditions => [" unidade_id = ? and status =? AND recadastrada = 1", current_user.unidade_id , 'NA_DEMANDA'],:order => 'nome ASC')
+              @matriculadas = Crianca.find( :all,:conditions => [" unidade_id = ? and status =? AND recadastrada = 1", current_user.unidade_id , 'MATRICULADA'],:order => 'nome ASC')
+             render :update do |page|
+                page.replace_html 'criancas', :partial => "criancas"
+              end
+         else if params[:type_of].to_i == 6
+                @criancas = Crianca.find( :all, :conditions=>[' recadastrada = 1'],:order => 'nome ASC')
+                @canceladas = Crianca.find( :all,:conditions => ["status =? AND recadastrada = 1", 'CANCELADA'],:order => 'nome ASC')
+                @demandas = Crianca.find( :all,:conditions => ["status =? AND recadastrada = 1", 'NA_DEMANDA'],:order => 'nome ASC')
+                @matriculadas = Crianca.find( :all,:conditions => ["status =? AND recadastrada = 1",'MATRICULADA'],:order => 'nome ASC')
+
+          render :update do |page|
+                   page.replace_html 'criancas', :partial => "criancas"
+                  end
+               else if params[:type_of].to_i == 3
+                       t=0
+                          if (current_user.unidade_id == 53 or current_user.unidade_id == 52) then
+                                @criancas = Crianca.find( :all,:conditions => ["nome like ? AND status = 'NA_DEMANDA' AND recadastrada=0" , "%" + params[:searchrec].to_s + "%"],:order => 'nome ASC, unidade_id ASC')
+                          else
+                                @criancas = Crianca.find( :all,:conditions => ["nome like ? AND status = 'NA_DEMANDA' AND recadastrada=0 ", "%" + params[:searchrec].to_s + "%" ],:order => 'nome ASC')
+                           end
+                          @canceladas = Crianca.find( :all,:conditions => [" unidade_id = ? and status =? AND recadastrada = 0", current_user.unidade_id , 'CANCELADA'],:order => 'nome ASC')
+                          @demandas = Crianca.find( :all,:conditions => [" unidade_id = ? and status =? AND recadastrada = 0", current_user.unidade_id , 'NA_DEMANDA'],:order => 'nome ASC')
+                          @matriculadas = Crianca.find( :all,:conditions => [" unidade_id = ? and status =? AND recadastrada = 0", current_user.unidade_id , 'MATRICULADA'],:order => 'nome ASC')
+                         render :update do |page|
+                            page.replace_html 'criancas', :partial => "criancas"
+                          end
+
+                      end
+             end
+        end
+     end
+  end
+
+
+
+  def consultatransferencias
+     if params[:type_of].to_i == 1
+                @criancas = Crianca.find( :all,:conditions => ["recadastradas = 1 status = 'NA_DEMANDA' transferencia = 1" ],:order => "servidor_publico DESC, trabalho DESC, declaracao DESC, autonomo DESC, transferencia DESC, created_at ASC")
+
         render :update do |page|
           page.replace_html 'criancas', :partial => "criancas"
         end

@@ -122,13 +122,13 @@ end
     $menu=1
     session[:input] = params[:contact][:grafico_id]
     nome_unidade = Unidade.find(session[:input]).nome
-    b1 = Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 1 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
-    b2 =Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 2 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
-    m1a= Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 4 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
-    m1b=Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 8 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
-    m2= Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 5 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
-    n1=Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 6 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
-    n2=Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 7 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
+    session[:b1]=b1 = Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 1 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
+    session[:b2]=b2 =Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 2 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
+    session[:m1a]=m1a= Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 4 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
+    session[:m1b]=m1b=Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 8 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
+    session[:m2]= m2= Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 5 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
+    session[:n1]=n1=Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 6 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
+    session[:n2]=n2=Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' and grupo_id = 7 and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
     total = Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA'  and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
     @graph = open_flash_chart_object(700,350,"/grafico/graph_por_unidade?unidade=#{session[:input]}",false,'/')
      @static_graph = Gchart.pie(

@@ -122,7 +122,7 @@ display: none;
                             </li>
 -->
                         <%end%>
-<% if (current_user.has_role?('admin'))%>
+<% if (current_user.has_role?('admin')or current_user.has_role?('SEDUC'))%>
                          <li><%= link_to "Cadastrar",new_crianca_path %></li> 
 <%end%>
                         <li><a>Consultar</a>
@@ -131,8 +131,9 @@ display: none;
                               <li><%= link_to "Status",consulta_status_path %></li>
                            </ul>
                         </li>
+<% if (current_user.has_role?('admin')or current_user.has_role?('SEDUC'))%>
                           <li><%= link_to "Recadastrar",recadastrar_consultas_path %></li>
-
+<% end%>
                      </ul>
               </li>
               
@@ -153,7 +154,7 @@ display: none;
 
                               </ul>
                           </li>
-                            
+                           <li><%#= link_to "Transferencias",transferencias_path %></li>
                            </ul>
               </li>
               <% if (current_user.has_role?('admin') or current_user.has_role?('SEDUC'))%>

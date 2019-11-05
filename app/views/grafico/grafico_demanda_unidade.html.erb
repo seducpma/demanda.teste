@@ -3,15 +3,70 @@
 <div class="tabs">
  <table bgcolor="#DCDCDC" width="70%" align="center" >
   <tr bgcolor="#DCDCDC" >
-      <td colspan="2">
+      <td colspan="12">
          <div id="caixa_titulo">
              <font size="3"><strong>DEMANDA POR UNIDADE</strong></font><br/>
          </div>
 
       </td>
     </tr>
+
+        <tr bgcolor="#DCDCDC">
+          <th width=12%"><font size ="2"><b>Classe</b><font></th>
+          <th width=5%"><font size ="2"><b>Total </b> <font> </th>
+          <th width="1%"></th>
+          <th width=12%" ><font size ="2"><b>Classe</b><font></th>
+          <th width=5%"><font size ="2"><b>Total </b><font>  </th>
+          <th width="1%"></th>
+          <th width=12%" ><font size ="2"><b>Classe</b><font></th>
+          <th width=5%"><font size ="2"><b>Total </b> <font> </th>
+          <th width="1%"></th>
+          <th width=12%"><font size ="2"><b>Classe</b><font></th>
+          <th width=5%"><font size ="2"><b>Total </b></font>  </th>
+
+       </tr>
+        <tr bgcolor="#F5F5F5">
+          <th>BERÇARIO I</th>
+          <th><%= session[:b1] %>  </th>
+
+          <th width="1%" bgcolor="#DCDCDC"></th>
+          <th>MATERNAL I - A </th>
+          <th> <%= session[:m1a] %>  </th>
+
+          <th width="1%" bgcolor="#DCDCDC"></th>
+          <th>MATERNAL II </th>
+          <th> <%= session[:m2] %> </th>
+
+          <th width="1%" bgcolor="#DCDCDC"></th>
+          <th>NÍVEL I </th>
+          <th> <%= session[:n1] %> </th>
+
+
+       </tr>
+        <tr bgcolor="#F5F5F5">
+           <th>BERÇARIO II </th>
+          <th><%= session[:b2]%>  </th>
+
+          <th width="1%" bgcolor="#DCDCDC"></th>
+          <th>MATERNAL I - B </th>
+          <th><%= session[:m1b] %> </th>
+
+          <th  bgcolor="#DCDCDC"> </th>
+          <th> </th>
+          <th> </th>
+
+          <th width="1%" bgcolor="#DCDCDC"></th>
+          <th>NÍVEL II </th>
+          <th> <%= session[:n2] %> </th>
+
+        </tr>
+
+        <tr><td colspan="12"> <hr/></td></tr>
+        
+
+
     <tr>
-      <td colspan="2">
+      <th colspan="12">
         <%= form_tag({ :method => 'post', :action => 'search_unidade' }, :id => 'graph-unit-form')%>
           <%= error_messages_for 'contact' %>
            <% if $uni==1 %>
@@ -29,11 +84,11 @@
            <%end%>
 
 
-      </td>
+      </th>
     </tr>
     <tr>
       
-      <td colspan="2" align="center">
+      <td colspan="12" align="center">
           <% if @static_graph.present?%>
               <%= @static_graph%>
           <%else%>
