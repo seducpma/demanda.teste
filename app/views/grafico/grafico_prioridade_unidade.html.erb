@@ -1,0 +1,103 @@
+<div id="interno2">
+<% title "GRAFICOS_por_unidade".singularize %>
+<div class="tabs">
+    <table bgcolor="#DCDCDC" width="70%" align="center" >
+      <tr bgcolor="#DCDCDC" >
+      <td colspan="12">
+         <div id="caixa_titulo">
+             <font size="3"><strong>DEMANDA GERAL PRIORIDADES POR UNIDADE</strong></font><br/>
+         </div>
+
+      </td>
+    </tr>
+      <th colspan="5">
+        <%= form_tag({ :method => 'post', :action => 'grafico_prioridade_search_unidade' }, :id => 'graph-unit-form')%>
+          <%= error_messages_for 'contact' %>
+           <% if $uni==1 %>
+
+              <table width="100%">
+                <tr>
+                  <th  align="right"> Unidade:
+
+                    <%= collection_select :contact, :grafico_id, @unidades, :id, :nome%>
+                  </th>
+                  <td><%= submit_tag 'Filtrar!' %></td>
+                </tr>
+              </table>
+
+           <%end%>
+
+
+      </th>
+    <% if @static_graph.present?%>
+
+        <tr bgcolor="#DCDCDC">
+          <th><font size ="2" width="50%"><b>Prioridade</b><font></th>
+
+          <th><font size ="2"><b>Total </b> <font> </th>
+          <th width="1%"></th>
+          <th><font size ="2"width="30%"><b>Prioridade</b><font></th>
+
+          <th><font size ="2"><b>Total </b><font>  </th>
+
+       </tr>
+        <tr bgcolor="#F5F5F5">
+          <th>Servidor Municipal</th>
+          <th><%= session[:svp] %>  </th>
+          <th width="1%" bgcolor="#DCDCDC"></th>
+          <th> Autonomo </th>
+          <th> <%=  session[:auto] %> </th>
+       </tr>
+        <tr bgcolor="#F5F5F5">
+
+          <th>Trabalha com CTPS</th>
+          <th> <%=  session[:ctps]%>  </th>
+           <th width="1%" bgcolor="#DCDCDC"></th>
+
+           <th>Não trabalha </th>
+          <th><%=  session[:ntrab]%>  </th>
+       </tr>
+        <tr bgcolor="#F5F5F5">
+
+          <th>Trabalha sem CTPS </th>
+          <th> <%=  session[:s_ctps] %> </th>
+           <th width="1%" bgcolor="#DCDCDC"></th>
+           <th>Transferência </th>
+          <th><%=  session[:trans]%>  </th>
+
+       </tr>
+       <tr><td colspan="12"> <hr/></td></tr>
+
+    <%end%>
+    <tr>
+
+              <% if @static_graph.present?%>
+                     <td colspan="5" align="center" ><div class="tela"><%= @static_graph%></div></td>
+              <%end%>
+    </tr>
+
+
+    
+    <tr bgcolor="#DCDCDF">
+
+        <td colspan="4"align="left" ><a class="invisivel"><%= button_to '', home_path, {:method => "get"} %></a></td>
+
+        <td align="right" ><%= button_to 'Fechar', home_path, {:method => "get"}  %></td>
+   
+
+
+
+  </tr>
+
+</table>
+<br/><br/>
+
+<% session[:geral] = 1 %>
+
+</div>
+<br/>
+</div>
+<br/><br/>
+
+
+

@@ -2,7 +2,7 @@
 <% title "GRAFICOS_por_unidade".singularize %>
 <div class="tabs">
  <table bgcolor="#DCDCDC" width="70%" align="center" >
-  <tr bgcolor="#DCDCDC" >
+      <tr bgcolor="#DCDCDC" >
       <td colspan="12">
          <div id="caixa_titulo">
              <font size="3"><strong>DEMANDA POR UNIDADE</strong></font><br/>
@@ -10,8 +10,29 @@
 
       </td>
     </tr>
+      <th colspan="12">
+        <%= form_tag({ :method => 'post', :action => 'search_unidade' }, :id => 'graph-unit-form')%>
+          <%= error_messages_for 'contact' %>
+           <% if $uni==1 %>
 
-        <tr bgcolor="#DCDCDC">
+              <table width="100%">
+                <tr>
+                  <th  align="right"> Unidade:
+
+                    <%= collection_select :contact, :grafico_id, @unidades, :id, :nome%>
+                  </th>
+                  <td><%= submit_tag 'Filtrar!' %></td>
+                </tr>
+              </table>
+
+           <%end%>
+
+
+      </th>
+    <% if @static_graph.present?%>
+
+
+      <tr bgcolor="#DCDCDC">
           <th width=12%"><font size ="2"><b>Classe</b><font></th>
           <th width=5%"><font size ="2"><b>Total </b> <font> </th>
           <th width="1%"></th>
@@ -62,30 +83,8 @@
         </tr>
 
         <tr><td colspan="12"> <hr/></td></tr>
-        
 
-
-    <tr>
-      <th colspan="12">
-        <%= form_tag({ :method => 'post', :action => 'search_unidade' }, :id => 'graph-unit-form')%>
-          <%= error_messages_for 'contact' %>
-           <% if $uni==1 %>
-
-              <table width="100%">
-                <tr>
-                  <th  align="right"> Unidade:
-
-                    <%= collection_select :contact, :grafico_id, @unidades, :id, :nome%>
-                  </th>
-                  <td><%= submit_tag 'Filtrar!' %></td>
-                </tr>
-              </table>
-
-           <%end%>
-
-
-      </th>
-    </tr>
+    <%end%>
     <tr>
       
       <td colspan="12" align="center">
@@ -98,15 +97,18 @@
     </tr>
 
 
-   <% if $menu==1 %>
+
     <tr>
 
-        <td width="6%"align="left" ><%= button_to 'Fechar', home_path, {:method => "get"}  %></td>
-        <td><b><%= link_to image_tag("/stylesheets/images/imprimir12.png"), onclick="javascript:MM_openBrWindow('#{impressao_geral_path}','impressao', 'scrollbars=yes');", :title => "Imprimir" %> </b></td>
+        <td width="6%"align="left" ><a class="invisivel"><%= button_to '', home_path, {:method => "get"} %></a></td>
+
+        <td colspan="12"width="99%"align="right" ><%= button_to 'Fechar', home_path, {:method => "get"}  %></td>
+
+        
 
 
   </tr>
-  <%end%>
+
 </table>
 <br/><br/>
 

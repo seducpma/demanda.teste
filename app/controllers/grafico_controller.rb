@@ -48,7 +48,95 @@ class GraficoController < ApplicationController
 
 
 
+  def grafico_prioridade_geral
+    @criancas = Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' AND recadastrada = 1" ], :order => 'nome')
+     total=Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA' AND recadastrada = 1" ], :order => 'nome').count
+     session[:svp]=Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' AND recadastrada =1 AND servidor_publico= 1"]).count
+     session[:ctps]=Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' AND recadastrada =1 AND trabalho= 1"]).count
+     session[:s_ctps]=Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' AND recadastrada =1 AND declaracao= 1"]).count
+     session[:auto]=Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' AND recadastrada =1 AND autonomo= 1"]).count
+     session[:trans]=Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' AND recadastrada =1 AND transferencia= 1"]).count
+     session[:ntrab]=Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' AND recadastrada =1 AND (transferencia= 0 AND autonomo= 0 AND declaracao= 0 AND trabalho= 0 AND servidor_publico= 0)"]).count
 
+
+       @graph = open_flash_chart_object(600,300,"/grafico/graph_code_demanda_geral")
+
+        @static_graph = Gchart.pie(
+          :data => [session[:svp] ,   session[:ctps],  session[:s_ctps], session[:auto],   session[:trans], session[:ntrab]],
+          :title => "DEMANDA POR PRIORIDADE - Crianças Cadastradas: #{total}",
+          :size => '800x350',
+          :format => 'image_tag',
+          :labels => ["Servidor Municipal #{session[:svp]} - #{ (session[:svp].to_f / total.to_f * 100).round(2)} % ",
+                      "COM CTPS: #{session[:ctps]} - #{ (session[:ctps].to_f / total.to_f * 100).round(2)} % ",
+                      "SEM CTPS : #{session[:s_ctps]} - #{ (session[:s_ctps].to_f / total.to_f * 100).round(2)} % ",
+                      "Autonomo: #{session[:auto]} - #{ (session[:auto].to_f / total.to_f * 100).round(2)} % ",
+                      "Transferência: #{session[:trans]} - #{ (session[:trans].to_f / total.to_f * 100).round(2)} % ",
+                      "NÃO Trabalha: #{session[:ntrab]} - #{ (session[:ntrab].to_f / total.to_f * 100).round(2)} % ",])
+
+ end
+
+def  grafico_prioridade_regiao
+end
+    def  grafico_prioridade_search_regiao
+        t=0
+        session[:input] = params[:contact][:grafico_id]
+        regiao = session[:input]= params[:contact][:grafico_id]
+
+        session[:svp]=Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' AND recadastrada =1 AND servidor_publico= 1 AND regiao_id=?", regiao]).size
+        session[:ctps]=Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' AND recadastrada =1 AND trabalho= 1 AND regiao_id=?", regiao]).size
+        session[:s_ctps]=Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' AND recadastrada =1 AND declaracao= 1  AND regiao_id=?", regiao]).size
+        session[:auto]=Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' AND recadastrada =1 AND autonomo= 1 AND regiao_id=?", regiao]).size
+        session[:trans]=Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' AND recadastrada =1 AND transferencia= 1 AND regiao_id=?", regiao]).size
+        session[:ntrab]=Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' AND recadastrada =1 AND (transferencia= 0 AND autonomo= 0 AND declaracao= 0 AND trabalho= 0 AND servidor_publico= 0) AND regiao_id=?", regiao]).size
+       total = Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA'  and vaga_id is null AND recadastrada = 1   AND regiao_id=?", regiao]).size
+    @graph = open_flash_chart_object(700,350,"/grafico/graph_por_unidade?unidade=#{session[:input]}",false,'/')
+     @static_graph = Gchart.pie(
+         :data =>[session[:svp], session[:ctps], session[:s_ctps], session[:auto], session[:trans], session[:ntrab]],
+          :title => "DEMANDA POR PRIORIDADE POR REGIÃOO - Crianças Cadastradas: #{total}",
+          :size => '800x350',
+          :format => 'image_tag',
+          :labels => ["Servidor Municipal #{session[:svp]} - #{ (session[:svp].to_f / total.to_f * 100).round(2)} % ",
+                      "COM CTPS: #{session[:ctps]} - #{ (session[:ctps].to_f / total.to_f * 100).round(2)} % ",
+                      "SEM CTPS : #{session[:s_ctps]} - #{ (session[:s_ctps].to_f / total.to_f * 100).round(2)} % ",
+                      "Autonomo: #{session[:auto]} - #{ (session[:auto].to_f / total.to_f * 100).round(2)} % ",
+                      "Transferência: #{session[:trans]} - #{ (session[:trans].to_f / total.to_f * 100).round(2)} % ",
+                      "NÃO Trabalha: #{session[:ntrab]} - #{ (session[:ntrab].to_f / total.to_f * 100).round(2)} % ",])
+
+      render :action => "grafico_prioridade_regiao"
+  end
+    def  grafico_prioridade_unidade
+t=0
+    end
+
+    def  grafico_prioridade_search_unidade
+        t=0
+        session[:input] = params[:contact][:grafico_id]
+        nome_unidade = Unidade.find(session[:input]).nome
+        session[:svp]=Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' AND recadastrada =1 AND servidor_publico= 1 AND unidade_ref=?", nome_unidade]).size
+        session[:ctps]=Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' AND recadastrada =1 AND trabalho= 1 AND unidade_ref=?", nome_unidade]).size
+        session[:s_ctps]=Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' AND recadastrada =1 AND declaracao= 1  AND unidade_ref=?", nome_unidade]).size
+        session[:auto]=Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' AND recadastrada =1 AND autonomo= 1 AND unidade_ref=?", nome_unidade]).size
+        session[:trans]=Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' AND recadastrada =1 AND transferencia= 1 AND unidade_ref=?", nome_unidade]).size
+        session[:ntrab]=Crianca.find(:all,:select=> 'id', :conditions => ["status = 'NA_DEMANDA' AND recadastrada =1 AND (transferencia= 0 AND autonomo= 0 AND declaracao= 0 AND trabalho= 0 AND servidor_publico= 0) AND unidade_ref=?", nome_unidade]).size
+        total = Crianca.find(:all, :conditions => ["status = 'NA_DEMANDA'  and vaga_id is null AND recadastrada = 1  AND unidade_ref=?", nome_unidade]).size
+
+       @graph = open_flash_chart_object(700,350,"/grafico/graph_por_unidade?unidade=#{session[:input]}",false,'/')
+       @static_graph = Gchart.pie(
+            :data =>[session[:svp], session[:ctps], session[:s_ctps], session[:auto], session[:trans], session[:ntrab]],
+             :title => "Demanda por Unidade - #{nome_unidade}:  #{total} " ,
+            :size => '800x350',
+            :format => 'image_tag',
+          :labels => ["Servidor Municipal #{session[:svp]} - #{ (session[:svp].to_f / total.to_f * 100).round(2)} % ",
+                      "COM CTPS: #{session[:ctps]} - #{ (session[:ctps].to_f / total.to_f * 100).round(2)} % ",
+                      "SEM CTPS : #{session[:s_ctps]} - #{ (session[:s_ctps].to_f / total.to_f * 100).round(2)} % ",
+                      "Autonomo: #{session[:auto]} - #{ (session[:auto].to_f / total.to_f * 100).round(2)} % ",
+                      "Transferência: #{session[:trans]} - #{ (session[:trans].to_f / total.to_f * 100).round(2)} % ",
+                      "NÃO Trabalha: #{session[:ntrab]} - #{ (session[:ntrab].to_f / total.to_f * 100).round(2)} % ",])
+
+
+
+      render :action => "grafico_prioridade_unidade"
+  end
 
 
   def grafico_demanda_geral
@@ -110,9 +198,6 @@ end
 
 
   def grafico_demanda_unidade
-
-
-
 
 
   end

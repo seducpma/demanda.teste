@@ -417,6 +417,13 @@ $("#localizacao_data_aquisicao").datepicker({dateFormat: 'dd-mm-yy', changeYear:
 
    });
 
+ $(".invisivel").click(function ()
+   {
+     $(".objeto").hide();
+   });
+
+
+
   // Fim autocomplete
   //Filtros consultas mapas
   $(".filtro").click(function ()
