@@ -9,19 +9,23 @@
           <tr>
             <td>
               <a href="#" class="filtro"><%= radio_button_tag(:type_of, "1") %></a>Recadastradas
-              <a href="#" class="filtro_rec"><%= radio_button_tag(:type_of, "3") %></a>Não Recadastradas
+              <a href="#" class="sem_filtro"><%= radio_button_tag(:type_of, "3") %></a>Não Recadastradas
+
               <a href="#" class="filtro_status"><%= radio_button_tag(:type_of, "2") %></a>Na Unidade
+              <a href="#" class="filtro_rec"><%= radio_button_tag(:type_of, "6") %></a>Na Região
               
             </td>
          </tr>
          <tr>
-             <td><div class="consulta_rec" style="display:none"> <%= render "transferencia_Nrec" %> </div>
+             <td><div class="consulta_rec" style="display:none"> <%= render "transferencia_Reg" %> </div>
                  <div class="consulta" style="display:none"> <%= render "transferencia_rec" %> </div>
                   <div class="consulta_s" style="display:none"> <%= render "transferencia_uni" %> </div>
            </td>
                
         </tr>
-        </table>
+
+
+       </table>
     <% end %>
     <br/>
     <hr/>
@@ -31,7 +35,7 @@
   <table>
     <tr>
      <td width="6%"align="left" ><%= button_to 'Fechar', home_path, {:method => "get"}  %></td>
-     <td align="left"><%= button_to 'Consultar', consulta_unidade_path, :title => "Consultar" %></td>
+     <td align="left"><%= button_to 'Consultar', transferencias_path, :title => "Consultar" %></td>
     </tr>
   </table>
  </div>

@@ -15,7 +15,7 @@
                  <%= collection_select :crianca, :unidade_id, @unidade, :id, :nome, :include_blank => ' -- Selecionar -- ', :class=> "txt_busca2"  %>
                  <%= observe_field 'crianca_unidade_id',
                        :update => "criancas",
-                       :url    => { :action => 'classificacao_unidade' },
+                           :url    => { :action => 'classificacao_unidade' },
                        :with   => 'crianca_unidade_id', 'crianca_grupo_id' %>
 
 

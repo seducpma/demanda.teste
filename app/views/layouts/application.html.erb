@@ -154,7 +154,7 @@ display: none;
 
                               </ul>
                           </li>
-                           <li><%#= link_to "Transferencias",transferencias_path %></li>
+                           <li><%= link_to "Transferencias",transferencias_path %></li>
                            </ul>
               </li>
               <% if (current_user.has_role?('admin') or current_user.has_role?('SEDUC'))%>

@@ -1,8 +1,8 @@
 <% @regiao = Regiao.find(:all, :conditions=>['id > 99'],:order => 'nome')%>
 
-<table width="100%" align="center">
+<table width="100%" align="right">
    <tr>
-     <td cols        <font size="2">
+      <td colspan="2"align="right"> <font size="2">
       <b class="label_busca3">  Classe:</b></font>
         <%= collection_select :crianca, :classe_id, @grupos1, :id, :nome, :include_blank => ' -- Selecionar -- ' %>
  &nbsp&nbsp
