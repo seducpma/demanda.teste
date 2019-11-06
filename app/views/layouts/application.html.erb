@@ -131,7 +131,7 @@ display: none;
                               <li><%= link_to "Status",consulta_status_path %></li>
                            </ul>
                         </li>
-<% if (current_user.has_role?('admin')or current_user.has_role?('SEDUC'))%>
+<% if (current_user.has_role?('admin'))%>
                           <li><%= link_to "Recadastrar",recadastrar_consultas_path %></li>
 <% end%>
                      </ul>

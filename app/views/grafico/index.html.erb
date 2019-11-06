@@ -5,7 +5,7 @@
   <tr bgcolor="#DCDCDC" >
       <td colspan="2">
          <div id="caixa_titulo">
-             <font size="3"><strong>GRÁFICOS ESTATÍSTICOS</strong></font><br/>
+             <font size="3"><strong>RELATÓRIOS ESTATÍSTICOS</strong></font><br/>
          </div>
 
       </td>
@@ -17,17 +17,18 @@
           <table width="100%">
             <tr >
               <td align="center"><br/><br/><br/><%= button_to "Demanda por Região", grafico_regiao_path%></td>
-              <td align="center"><br/><br/><br/><%= button_to "????", grafico_geral_path%> </td>
+              <td align="center"><br/><br/><br/><%= button_to "Prioridade Geral" %> </td>
 
               
             </tr>
             <tr >
-              <td align="center"><br/><br/><br/><%= button_to "Demanda por Sala", grafico_geral_path%></td>
-              <td align="center"><br/><br/><br/><%= button_to "????", grafico_unidade_path%> </td>
+              <td align="center"><br/><br/><br/><%= button_to "Demanda por Unidade", grafico_unidade_path%><br/> </td>
+
+              <td align="center"><br/><br/><br/><%= button_to "Prioridade por Região " %> </td>
             </tr>
             <tr >
-              <td align="center"><br/><br/><br/><%= button_to "Demanda por Sala", grafico_geral_path%><br/> </td>
-              <td align="center"><br/><br/><br/><%= button_to "?????", grafico_unidade_path%></td>
+              <td align="center"><br/><br/><br/><%= button_to "Demanda por Sala", grafico_geral_path%></td>
+              <td align="center"><br/><br/><br/><%= button_to "Prioridade por Unidade" %></td>
             </tr>
 
           </table>
