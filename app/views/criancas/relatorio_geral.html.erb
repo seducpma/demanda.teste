@@ -101,14 +101,14 @@
 <% tgb2=0%><% tgb2sv=0%><% tgb2ctps=0%><% tgb2sctps=0%><% tgb2auto=0%><% tgb2ntrab=0%><% tgb2trans=0%>
 <% tgm1a=0%><% tgm1asv=0%><% tgm1actps=0%><% tgm1asctps=0%><% tgm1aauto=0%><% tgm1antrab=0%><% tgm1atrans=0%>
 <% tgm1b=0%><% tgm1bsv=0%><% tgm1bctps=0%><% tgm1bsctps=0%><% tgm1bauto=0%><% tgm1bntrab=0%><% tgm1btrans=0%>
-<% tgm2=0%><%% tgm2sv=0%><% tgm2ctps=0%><% tgm2sctps=0%><% tgm2auto=0%><% tgm2ntrab=0%><% tgm2trans=0%>
+<% tgm2=0%><% tgm2sv=0%><% tgm2ctps=0%><% tgm2sctps=0%><% tgm2auto=0%><% tgm2ntrab=0%><% tgm2trans=0%>
 <% m1a=0%><% m1asv=0%><% m1actps=0%><% m1asctps=0%><% m1aauto=0%><% m1antrab=0%><% m1atrans=0%>
 <% m1b=0%><% m1bsv=0%><% m1bctps=0%><% m1bsctps=0%><% m1bauto=0%><% m1bntrab=0%><% m1btrans=0%>
 <% m1b1=0%><% m1b1sv=0%><% m1b1ctps=0%><% m1b1sctps=0%><% m1b1auto=0%><% m1b1ntrab=0%><% m1b1trans=0%>
 <% m1b0=0%><% m1b0sv=0%><% m1b0ctps=0%><% m1b0sctps=0%><% m1b0auto=0%><% m1b0ntrab=0%><% m1b0trans=0%>
 <% m2=0%><% m2sv=0%><% m2ctps=0%><% m2nctps=0%><% m2auto=0%><% m2ntrab=0%><% m2trans=0%>
 <% n1=0%><% n1sv=0%><% n1ctps=0%><% n1nctps=0%><% n1auto=0%><% n1ntrab=0%><% n1trans=0%>
-<% n2=0%><% n2sv=0%><% n2ctps=0%><% n2nctps=0%><% n2auto=0%><% n2ntrab=0%><% n2trans=0%>>
+<% n2=0%><% n2sv=0%><% n2ctps=0%><% n2nctps=0%><% n2auto=0%><% n2ntrab=0%><% n2trans=0%>
 <% tgn1=0%><% tgn1sv=0%><% tgn1ctps=0%><% tgn1sctps=0%><% tgn1auto=0%><% tgn1ntrab=0%><% tgn1trans=0%>
 <% tgn2=0%><% tgn2sv=0%><% tgn2ctps=0%><% tgn2sctps=0%><% tgn2auto=0%><% tgn2ntrab=0%><% tgn2trans=0%>
    <fieldset>
@@ -119,8 +119,8 @@
                              <b>CTPS</b> = Com Registro na Carteiro Profissional &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                              <b>Ñ.CTPS</b> = SEM Registro na Carteiro Profissional
                              <br/>
-                             <b>AUTO</b> = Autonomo &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                             <b>Ñ.TRA</b> = Não rtabalha&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                             <b>AUTO</b> = Autônomo &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                             <b>Ñ.TRA</b> = Não trabalha&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                              <b>TRAN</b> = Transferência eentre unidades SEDUC
             </td>
@@ -182,28 +182,28 @@
                  <tr bgcolor="#C6CCCC">
                    <th align="right">Sub-Total</th>
                    <th width="2%" align="center"><font color="blue"> <%= (b1sv)+(b2sv)%></font>
-                                   <% tgbsv1=tgb1sv +(b1)%>
-                                   <% tgb2vs=tgb2sv +(b2)%>
+                                   <%# tgbsv1=tgb1sv +(b1)%>
+                                   <%# tgb2vs=tgb2sv +(b2)%>
                    </th>
                    <th width="2%" align="center"> <font color="blue"><%= (b1ctps)+(b2ctps)%></font>
-                                   <% tgb1ctps=tgb1ctps +(b1)%>
-                                   <% tgb2ctps=tgb2ctps +(b2)%>
+                                   <%# tgb1ctps=tgb1ctps +(b1)%>
+                                   <%# tgb2ctps=tgb2ctps +(b2)%>
                    </th>
                    <th width="2%" align="center"> <font color="blue"><%= (b1sctps)+(b2ctps)%></font>
-                                   <% tgb1sctps=tgb1sctps +(b1)%>
-                                   <% tgb2sctps=tgb2sctps +(b2)%>
+                                   <%# tgb1sctps=tgb1sctps +(b1)%>
+                                   <%# tgb2sctps=tgb2sctps +(b2)%>
                    </th>
                    <th width="2%" align="center"><font color="blue"> <%= (b1auto)+(b2auto)%></font>
-                                   <% tgb1auto=tgb1auto +(b1)%>
-                                   <% tgb2auto=tgb2auto +(b2)%>
+                                   <%# tgb1auto=tgb1auto +(b1)%>
+                                   <%# tgb2auto=tgb2auto +(b2)%>
                    </th>
                    <th width="2%" align="center"><font color="blue"> <%= (b1ntrab)+(b2ntrab)%></font>
-                                   <% tgb1ntrab=tgb1ntrab +(b1)%>
-                                   <% tgb2ntrab=tgb2ntrab +(b2)%>
+                                   <%# tgb1ntrab=tgb1ntrab +(b1)%>
+                                   <%# tgb2ntrab=tgb2ntrab +(b2)%>
                    </th>
                    <th width="2%" align="center"> <font color="blue"><%= (b1trans)+(b2trans)%></font>
-                                   <% tgb1trans=tgb1trans +(b1)%>
-                                   <% tgb2trans=tgb2trans +(b2)%>
+                                   <%# tgb1trans=tgb1trans +(b1)%>
+                                   <%# tgb2trans=tgb2trans +(b2)%>
                    </th>
                    <th width="2%"><font color="blue"> <%= (b1)+(b2)%></font>
                                    <% tgb1=tgb1 +(b1)%>
@@ -308,9 +308,9 @@
                                    <%# tgm2= tgm2 + m2%>
                    </th>
                    <th width="10%" align="center"><font color="blue"> <%= m1a + m1b+ m2%></font>
-                                   <%# tgm1a =tgm1a +m1a%>
-                                   <%# tgm1b= tgm1b +m1b%>
-                                   <%# tgm2= tgm2 + m2%>
+                                   <% tgm1a =tgm1a +m1a%>
+                                   <% tgm1b= tgm1b +m1b%>
+                                   <% tgm2= tgm2 + m2%>
                    </th>
 
                  </tr>
@@ -367,6 +367,45 @@
         </tr>
       </table>
    </fieldset>
+
+<fieldset>
+   <legend><font size=2><b>DEMANDA GERAL POR CLASSE</b></font></legend>
+      <table bgcolor="#DCDCDC" width="100%"align="center">
+        <tr bgcolor="#DCDCDC">
+          <th><font size ="2"><b>Classe</b><font></th>
+
+          <th><font size ="2"><b>Total </b> <font> </th>
+          <th width="1%"></th>
+          <th><font size ="2"><b>Classe</b><font></th>
+
+          <th><font size ="2"><b>Total </b><font>  </th>
+          
+          
+       </tr>
+        <tr bgcolor="#F5F5F5">
+          <th>- BERÇARIO I</th>
+          <th><%= tgb1 %>  </th>
+
+          <th width="1%" bgcolor="#DCDCDC"></th>
+          <th>- MATERNAL I - A </th>
+          <th> <%= tgm1a %>  </th>
+
+          
+
+       </tr>
+        <tr bgcolor="#F5F5F5">
+           <th>- BERÇARIO II </th>
+          <th><%= tgb2%>  </th>
+
+          <th width="1%" bgcolor="#DCDCDC"></th>
+          <th>- MATERNAL I - B </th>
+          <th><%= tgm1b %> </th>
+
+       </tr>
+
+
+      </table>
+</fieldset>
 <!--
 <fieldset>
    <legend><font size=2><b>DEMANDA GERAL POR CLASSE</b></font></legend>
@@ -470,7 +509,7 @@
   <table bgcolor="#DCDCDC" width="100%"align="center" >
        <tr>
         <td><b><%= button_to 'Imprimir', onclick="javascript:MM_openBrWindow('#{impressao_geral_criancas_path}','impressao', 'scrollbars=yes');", :title => "Imprimir" %> </b></td>
-          <% tt= 0 %>
+          <% tt= tgb1 + tgb2 + tgm1a + tgm1b + tgm2 %>
           <%# tt= cont1+ cont2+ cont3+ cont4+ cont5 %>
           <%# tt= cont1 %>
 
