@@ -2,12 +2,12 @@
 #set :application, "192.168.0.21"
 #set :application, "170.81.237.114" #170.81.237.114 - Servidor oficial (hera)  # 177.36.159.102 - Servidor Teste Alvaro/Alexandre
 #set :application, "170.81.237.114"
-set :application, "192.168.0.14" #170.81.237.114 - Servidor oficial (Atena)
-set :application, "200.168.214.58"
-set :repository, "git://github.com/seducpma/demanda.git"
-set :user, "atena"
+set :application, "192.168.1.36" #170.81.237.114 - Servidor oficial (Atena)
+set :application, "170.81.237.114"
+set :repository, "git://github.com/seducpma/demanda.teste.git"
+set :user, "desenvolvimento"
 set :use_sudo, false
-set :deploy_to, "/home/#{user}/demanda.seducpma.com"
+set :deploy_to, "/home/#{user}/demanda.teste.seducpma.com"
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
