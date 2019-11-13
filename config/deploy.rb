@@ -5,7 +5,7 @@
 set :application, "192.168.1.36" #170.81.237.114 - Servidor oficial (Atena)
 set :application, "170.81.237.114"
 set :repository, "git://github.com/seducpma/demanda.teste.git"
-set :user, "desenvolvimento"
+set :user, "inf"
 set :use_sudo, false
 set :deploy_to, "/home/#{user}/demanda.teste.seducpma.com"
 set :scm, :git
