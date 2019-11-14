@@ -2,7 +2,7 @@
 #set :application, "192.168.0.21"
 #set :application, "170.81.237.114" #170.81.237.114 - Servidor oficial (hera)  # 177.36.159.102 - Servidor Teste Alvaro/Alexandre
 #set :application, "170.81.237.114"
-#set :application, "192.168.10.36" #170.81.237.114 - Servidor oficial (Atena)
+set :application, "192.168.1.36" #170.81.237.114 - Servidor oficial (Atena)
 set :application, "170.81.237.114"
 set :repository, "git://github.com/seducpma/demanda.teste.git"
 set :user, "inf"
